@@ -14,7 +14,6 @@ body {
   background: #3C3B3B;
 }
 .header .grid,
-.main-content,
 .footer {
   max-width: 70em;
   margin: 0 auto;

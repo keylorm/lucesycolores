@@ -19,41 +19,48 @@
   </div>
   <?php endif; ?>
   <div class="grid">
-  <?php if ($page['utility_bar']): ?>
-    <div class="utility-bar">
-      <?php print render($page['utility_bar']); ?>
-    </div><!-- end utility bar -->
-  <?php endif; ?>
+    <?php if ($page['utility_bar']): ?>
+      <div class="utility-bar">
+        <?php print render($page['utility_bar']); ?>
+      </div><!-- end utility bar -->
+    <?php endif; ?>
 
+    <?php if ($page['header_top']): ?>
+      <div class="header-top">
+        <?php print render($page['header_top']); ?>
+      </div>
+    <?php endif; ?>
 
-  <?php if ($logo): ?>
-    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-    </a>
-  <?php endif; ?>
-
-  <?php if ($site_name || $site_slogan): ?>
-
-      <?php if ($site_name): ?>
-        <?php if ($title): ?>
-
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-
-        <?php else: /* Use h1 when the content title is empty */ ?>
-          <h1 id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-          </h1>
-        <?php endif; ?>
+    <div class="header-content">
+      <?php if ($logo): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+        </a>
       <?php endif; ?>
 
-      <?php if ($site_slogan): ?>
-        <?php print $site_slogan; ?>
+      <?php if ($site_name || $site_slogan): ?>
+
+          <?php if ($site_name): ?>
+            <?php if ($title): ?>
+
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+
+            <?php else: /* Use h1 when the content title is empty */ ?>
+              <h1 id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </h1>
+            <?php endif; ?>
+          <?php endif; ?>
+
+          <?php if ($site_slogan): ?>
+            <?php print $site_slogan; ?>
+          <?php endif; ?>
+
       <?php endif; ?>
 
-  <?php endif; ?>
-
-  <?php print render($page['header']); ?>
-</div>
+      <?php print render($page['header']); ?>
+    </div>
+  </div>
 </header>
 
 <?php if ($page['above_content']): ?>
@@ -114,7 +121,7 @@
 <?php endif; // end Below Content ?>
 
 <footer class="footer" role="contentinfo">
-  <div class="">
+  <div class="w-row row">
     <?php print render($page['footer']); ?>
   </div>
 </footer>
