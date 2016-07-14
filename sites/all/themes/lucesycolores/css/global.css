@@ -1,11 +1,209 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?44438275');
+  src: url('../font/fontello.eot?44438275#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?44438275') format('woff2'),
+       url('../font/fontello.woff?44438275') format('woff'),
+       url('../font/fontello.ttf?44438275') format('truetype'),
+       url('../font/fontello.svg?44438275#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?44438275#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-hover-decorations:before { content: '\e802'; } /* '' */
+.icon-left-decorations:before { content: '\e803'; } /* '' */
+.icon-producto_icon_7:before { content: '\e804'; } /* '' */
+.icon-producto_icon_8-11-17:before { content: '\e805'; } /* '' */
+.icon-producto_icon_9:before { content: '\e806'; } /* '' */
+.icon-producto_icon_10:before { content: '\e807'; } /* '' */
+.icon-producto_icon_12:before { content: '\e808'; } /* '' */
+.icon-producto_icon_13:before { content: '\e809'; } /* '' */
+.icon-producto_icon_14:before { content: '\e80a'; } /* '' */
+.icon-producto_icon_15:before { content: '\e80b'; } /* '' */
+.icon-producto_icon_16:before { content: '\e80c'; } /* '' */
+.icon-right-decorations:before { content: '\e80d'; } /* '' */
+.icon-producto_icon_2:before { content: '\e80e'; } /* '' */
+.icon-producto_icon_3:before { content: '\e80f'; } /* '' */
+.icon-producto_icon_4:before { content: '\e810'; } /* '' */
+.icon-producto_icon_5:before { content: '\e811'; } /* '' */
+.icon-producto_icon_6:before { content: '\e812'; } /* '' */
+.icon-producto_icon_1:before { content: '\e813'; } /* '' */
+.icon-next:before { content: '\e814'; } /* '' */
+.icon-prev:before { content: '\e815'; } /* '' */
+.icon-flor:before { content: '\e816'; } /* '' */
+
+
+
+html{
+	overflow-x: hidden;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+
 header .header-top{
 	background-color: #6D2B5F;
+	min-height: 43px;
 }
+
+
+header .menu,
+header .language-switcher-locale-url{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+header .menu li,
+header .language-switcher-locale-url li{
+	display: inline-block;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+header .menu li a,
+header .language-switcher-locale-url li a{
+	display: block;
+	line-height: 43px;
+	color: #FFF;
+}
+header .language-switcher-locale-url li:first-child{
+	margin-right: 10px;
+}
+header .language-switcher-locale-url li a{
+
+}
+
+
+
+header .header-top .menu{
+	margin-top: 12px;
+}
+header .header-top .menu li a{
+	line-height: 15px;
+	font-size: 14px;
+	color: #FFF;
+}
+header .header-top .menu li{
+	border-left: 1px solid #FFF;
+	padding: 0px 10px;
+}
+header .header-top .menu li:first-child{
+	border-left: none;
+	padding-left: 0px;
+}
+header .header-top .menu li:last-child{
+	padding-right: 0px;
+}
+
+
+
+header .header-top #block-menu-menu-user-menu .menu li{
+	padding: 0 7px;
+}
+header .header-top #block-menu-menu-user-menu .menu li:first-child{
+	padding-left: 0px;
+}
+header .header-top #block-menu-menu-user-menu .menu li:last-child{
+	padding-right: 0px;
+}
+
+
+header .header-top #block-views-shopping-cart-block-1{
+	border-left: 1px solid #FFF;
+	height: 15px;
+	margin-top: 16px;
+}
+header .header-top .view-shopping-cart{
+	display: block;
+	line-height: 15px;
+	float: left;
+	background-image: url('../images/carrito.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 25px;
+}
+header .header-top .view-shopping-cart .line-item-summary{
+	margin-bottom: 0px;
+}
+header .header-top .view-shopping-cart span{
+	color: #FFF;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+
+
+
 
 header .header-content{
-	background-color: #FFF
+	background-color: #FFF;
+	min-height: 130px;
+	padding-top: 20px;
+}
+header .header-content #logo{
+	display: block;
+	float: left;
 }
 
+
+
+
+
+
+
+
+.panel-flexible .panel-separator{
+	margin: 0px;
+	clear: both;
+}
 
 .fullwidth{
 	position: relative;
@@ -13,6 +211,93 @@ header .header-content{
 	left: calc(-50vw + 50%);
 }
 
+.llamado{
+	background-image: url('../images/bg_llamado.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 110px;
+}
+.llamado p{
+	font-size: 21px;
+	line-height: 25px;
+	font-weight: 500;
+	color: #FFF;
+	margin-top: 25px;
+}
+.llamado a{
+	display: block;
+	float: right;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #E71D73;
+	background-color: #FFF;
+	line-height: 43px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 0px 15px;
+	margin-top: 32px;
+}
+
 footer{
+	padding-top: 40px;
+	padding-bottom: 20px;
 	background-color: #3C3C3B;
 }
+
+footer .menu{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+footer .menu li{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+footer .menu li a{
+	display: block;
+	font-size: 18px;
+	line-height: 30px;
+	color: #FFF;
+}
+
+footer h3{
+	margin: 0px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #FFF;
+}
+
+footer p{
+	color: #FFF;
+	font-size: 14px;
+	line-height: 19px;
+	font-weight: 300;
+}
+
+footer a{
+	color: #FFF;
+}
+
+.redes{
+	display: block;
+}
+.redes a{
+	display: block;
+	width: 37px;
+	height: 37px;
+	float: left;
+	margin-right: 15px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+footer .redes a.fb{
+	background-image: url('../images/fb.png');
+}
+footer .redes a.yt{
+	background-image: url('../images/yt.png');
+}
+/*<div class="redes"><a href="#" class="fb">&nbsp;</a><a href="#" class="yt">&nbsp;</a></div>*/

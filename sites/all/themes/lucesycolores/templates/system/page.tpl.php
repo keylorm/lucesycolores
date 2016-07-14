@@ -28,7 +28,9 @@
     <?php if ($page['header_top']): ?>
       <div class="header-top">
         <div class="w-container">
-          <?php print render($page['header_top']); ?>
+          <div class="w-row">
+            <?php print render($page['header_top']); ?>
+          </div>
         </div>
       </div>
     <?php endif; ?>
