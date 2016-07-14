@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|family=IM+Fell+DW+Pica);
 @font-face {
   font-family: 'fontello';
   src: url('../font/fontello.eot?44438275');
@@ -157,30 +157,33 @@ header .header-top #block-menu-menu-user-menu .menu li:last-child{
 
 
 header .header-top #block-views-shopping-cart-block-1{
-	border-left: 1px solid #FFF;
 	height: 15px;
 	margin-top: 16px;
 }
 header .header-top .view-shopping-cart{
 	display: block;
+	border-left: 1px solid #FFF;
 	line-height: 15px;
-	float: left;
+	float: right;
 	background-image: url('../images/carrito.png');
 	background-repeat: no-repeat;
-	background-position: left center;
-	padding-left: 25px;
+	background-position: 20% center;
+	padding-left: 45px;
 }
 header .header-top .view-shopping-cart .line-item-summary{
 	margin-bottom: 0px;
 }
-header .header-top .view-shopping-cart span{
+header .header-top .view-shopping-cart > div{
+	margin-bottom: 0px;
+}
+header .header-top .view-shopping-cart span,
+header .header-top .view-shopping-cart p{
 	color: #FFF;
 	font-weight: 300;
 	font-size: 14px;
+	margin: 0px;
+	line-height: 16px;
 }
-
-
-
 
 
 header .header-content{
@@ -192,6 +195,28 @@ header .header-content #logo{
 	display: block;
 	float: left;
 }
+header .header-content .block{
+	display: block;
+	float: right;
+}
+header .header-content .block .menu{
+
+}
+header .header-content .block .menu li{
+	
+}
+header .header-content .block .menu li a{
+	font-family: 'IM Fell DW Pica', serif;
+	color: #575756;
+	font-size: 21px;
+	line-height: 40px;
+	padding: 0px 35px;
+}
+
+header .header-content .block .menu li:last-child a{
+	padding-right: 0px;
+}
+
 
 
 
