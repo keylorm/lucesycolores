@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|family=IM+Fell+DW+Pica);
 @font-face {
   font-family: 'fontello';
   src: url('../font/fontello.eot?44438275');
@@ -21,7 +21,11 @@
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ [class^="icon-"]:before, [class*=" icon-"]:before,
+
+
+
+  {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -29,8 +33,8 @@
  
   display: inline-block;
   text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
+  /*width: 1em;
+  margin-right: .2em;*/
   text-align: center;
   /* opacity: .8; */
  
@@ -43,7 +47,7 @@
  
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .2em;
+         /*margin-left: .2em;*/
  
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
@@ -157,45 +161,92 @@ header .header-top #block-menu-menu-user-menu .menu li:last-child{
 
 
 header .header-top #block-views-shopping-cart-block-1{
-	border-left: 1px solid #FFF;
 	height: 15px;
 	margin-top: 16px;
 }
 header .header-top .view-shopping-cart{
 	display: block;
+	border-left: 1px solid #FFF;
 	line-height: 15px;
-	float: left;
+	float: right;
 	background-image: url('../images/carrito.png');
 	background-repeat: no-repeat;
-	background-position: left center;
-	padding-left: 25px;
+	background-position: 20% center;
+	padding-left: 45px;
 }
 header .header-top .view-shopping-cart .line-item-summary{
 	margin-bottom: 0px;
 }
-header .header-top .view-shopping-cart span{
+header .header-top .view-shopping-cart > div{
+	margin-bottom: 0px;
+}
+header .header-top .view-shopping-cart span,
+header .header-top .view-shopping-cart p{
 	color: #FFF;
 	font-weight: 300;
 	font-size: 14px;
+	margin: 0px;
+	line-height: 16px;
 }
-
-
-
 
 
 header .header-content{
 	background-color: #FFF;
 	min-height: 130px;
 	padding-top: 20px;
+	border-bottom: 1px solid #E8E8E8;
 }
 header .header-content #logo{
 	display: block;
 	float: left;
 }
+header .header-content .block{
+	display: block;
+	float: right;
+}
+header .header-content .block .menu{
+
+}
+header .header-content .block .menu li{
+	line-height: 75px;
+}
+header .header-content .block .menu li a{
+	font-family: 'IM Fell DW Pica', serif;
+	color: #575756;
+	font-size: 21px;
+	text-align: center;
+	padding: 0px 35px;
+}
+header .header-content .block .menu li a:hover,
+header .header-content .block .menu li.active a{
+	color: #36A9E1;
+}
+
+header .header-content .block .menu li:hover:after,
+header .header-content .block .menu li.active:after{
+	display: block;
+	width: 100%;
+	height: 20px;
+	content: "";
+	background-image: url('../images/hover_menu.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+header .header-content .block .menu li:last-child a{
+	padding-right: 20px;
+}
 
 
-
-
+.breadcrumb{
+	padding-top: 15px;
+	font-weight: 300;
+	font-size: 14px;
+	color: #9D9D9C;
+}
+.breadcrumb a{
+	color: #575756;
+}
 
 
 
