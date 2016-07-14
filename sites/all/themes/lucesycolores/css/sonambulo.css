@@ -2,7 +2,7 @@
   =BASE
 --------------------------------------------- */
 html {
-  border-top: 6px solid #000;
+  /*border-top: 6px solid #000;*/
 }
 body {
   padding: 0;
@@ -11,13 +11,13 @@ body {
   =LAYOUT
 --------------------------------------------- */
 .header {
-  background: #3C3B3B;
+  /*background: #3C3B3B;*/
 }
 .header .grid,
 .footer {
-  max-width: 70em;
+  /*max-width: 1180px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: hidden;*/
 }
 
 .one-sidebar .main {
@@ -33,37 +33,4 @@ body {
 }
 .sidebar-first #sidebar-first {
   float: right;
-}
-
-/*
-  =MEDIA QUERIES
---------------------------------------------- */
-@media only screen and (min-width: 30em) { /* > 480 */
-
-}
-
-@media only screen and (min-width: 30em) and (max-width: 35em) {
-
-}
-
-@media only screen and (min-width: 35em) { /* > 560 */
-
-}
-
-@media only screen and (min-width: 40em) { /* > 640 */
-
-}
-
-@media only screen and (min-width: 45em) { /* > 720 */
-
-
-}
-
-@media only screen and (min-width: 55em) { /* > 880 */
-
-}
-
-@media only screen and (min-width: 60em) { /* > 960 */
-
-
 }
