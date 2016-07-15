@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|family=IM+Fell+DW+Pica);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|family=IM+Fell+DW+Pica);
 @font-face {
   font-family: 'fontello';
   src: url('../font/fontello.eot?44438275');
@@ -22,6 +22,12 @@
 */
  
  [class^="icon-"]:before, [class*=" icon-"]:before,
+
+h1.decora:before, h1.decora:after,
+h2.decora:before, h2.decora:after,
+h3.decora:before, h3.decora:after,
+
+.beneficios:before
 
 
 
@@ -89,7 +95,22 @@ html{
 }
 
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+body p,
+body li{
+	font-size: 18px;
+	line-height: 21px;
+	font-weight: 300;
+	color: #575756;
+}
+
+body p strong span{
+	color: #36A9E1;
+}
+.centrado{
+	text-align: center;
 }
 
 header .header-top{
@@ -250,7 +271,6 @@ header .header-content .block .menu li:last-child a{
 
 
 
-
 .panel-flexible .panel-separator{
 	margin: 0px;
 	clear: both;
@@ -268,6 +288,7 @@ header .header-content .block .menu li:last-child a{
 	background-position: center;
 	background-size: cover;
 	min-height: 110px;
+	margin-top: 40px;
 }
 .llamado p{
 	font-size: 21px;
@@ -315,8 +336,9 @@ footer .menu li a{
 	color: #FFF;
 }
 
-footer h3{
+footer strong{
 	margin: 0px;
+	font-weight: 400;
 	font-size: 18px;
 	line-height: 30px;
 	color: #FFF;
@@ -351,4 +373,189 @@ footer .redes a.fb{
 footer .redes a.yt{
 	background-image: url('../images/yt.png');
 }
-/*<div class="redes"><a href="#" class="fb">&nbsp;</a><a href="#" class="yt">&nbsp;</a></div>*/
+
+
+/* HS */
+
+h1, h2, h3, h4{
+	font-family: 'IM Fell DW Pica', serif;
+	font-weight: normal;
+}
+h1.decora, h2.decora, h3.decora, h4.decora{
+	position: relative;
+	display: table;
+	text-align: center;
+	line-height: 80px;
+	left: 0px;
+	right: 0px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+h1.decora:before, h1.decora:after,
+h2.decora:before, h2.decora:after,
+h3.decora:before, h3.decora:after{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 80px;
+}
+
+h1.decora:before,
+h2.decora:before,
+h3.decora:before{
+	content: '\e803';
+	padding-right: 50px;
+
+}
+
+
+
+h1.decora:after,
+h2.decora:after,
+h3.decora:after{
+	content: '\e80d';
+	padding-left: 50px;
+
+}
+
+
+
+.h28{
+	font-size: 28px;
+}
+.hmorado{
+	color: #6D2B5F;
+}
+.hnaranja{
+	color: #EA5B0C;
+}
+.hverde{
+	color: #009837;
+}
+.hrosa{
+	color: #E71D73;
+}
+.hceleste{
+	color: #36A9E1;
+}
+
+.hl2{
+
+}
+
+.hleft{
+	text-align: left;
+}
+
+.titulo-seccion h2{
+	font-size: 21px;
+	color: #575756;
+	font-weight: normal;
+	margin: 0px; margin-bottom: 10px;
+}
+
+
+
+/**************/
+
+/*AURA SOMA */
+
+.submenu-aurasoma{
+	min-height: 75px;
+	background-image: url('../images/bg_menu_1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-bottom: 25px;
+}
+
+.submenu-aurasoma .menu{
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	height: 75px;
+	font-size: 0;
+}
+.submenu-aurasoma .menu li{
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+.submenu-aurasoma .menu li:first-child a{
+	border-left: 1px solid #FFF;
+}
+.submenu-aurasoma .menu li a{
+	display: table-cell;
+	min-width: 220px;
+	max-width: 250px;
+	height: 75px;
+	padding: 0px 20px;
+	vertical-align: middle;
+	line-height: 22px;
+	text-align: center;
+	border-right: 1px solid #FFF;
+	font-size: 18px;
+	color: #FFF;
+}
+.submenu-aurasoma .menu li a:hover,
+.submenu-aurasoma .menu li a.active{
+	font-weight: bold;
+	background-color: #E71D73;
+}
+
+
+.row-beneficios{
+	margin: 40px 0px;
+}
+
+.beneficios{
+	display: table;
+	position: relative;
+	height: 215px;
+	padding: 0px 35px;
+}
+.beneficios p{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-family: 'IM Fell DW Pica', serif;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 23px;
+}
+
+.beneficios:before{
+	content: '\e816';
+	position: absolute;
+	font-size: 200px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: -1;
+}
+
+.beneficios.bn1{
+	color: #DEEDF6;
+}
+.beneficios.bn2{
+	color: #EFD7E5;
+}
+.beneficios.bn3{
+	color: #DBEAE2;
+}
+.beneficios.bn4{
+	color: #EBDEE7;
+}
+.beneficios.bn1 p{
+	color: #36A9E1;
+}
+.beneficios.bn2 p{
+	color: #E71D73;
+}
+.beneficios.bn3 p{
+	color: #2FAC66;
+}
+.beneficios.bn4 p{
+	color: #842C71;
+}
+
+/************/
