@@ -40,6 +40,7 @@
   overflow: hidden;
 }
 
+.fullwidth .pane-title,
 .panel-pane .pane-content,
 .w-container {
   margin-left: auto;
