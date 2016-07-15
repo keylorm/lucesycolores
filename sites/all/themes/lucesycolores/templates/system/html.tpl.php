@@ -54,6 +54,9 @@
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "b1e90e93-44ab-4872-9284-5e84f8540c7e", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
   <!-- HTML5 element support for IE6-8 -->
   <!--[if lt IE 9]>
