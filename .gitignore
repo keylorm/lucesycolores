@@ -7,3 +7,4 @@ sites/*/settings*.php
 
 # Ignore ctools css
 sites/default/files/ctools/css/
+sites/default/settings.php

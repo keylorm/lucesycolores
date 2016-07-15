@@ -219,8 +219,8 @@ $databases = array (
     array (
       'database' => 'lucesycolores',
       'username' => 'root',
-      'password' => 'root',
-      'host' => 'localhost', #192.168.5.144
+      'password' => '',
+      'host' => '192.168.5.144', #192.168.5.144
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
