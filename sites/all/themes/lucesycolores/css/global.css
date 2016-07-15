@@ -352,3 +352,8 @@ footer .redes a.yt{
 	background-image: url('../images/yt.png');
 }
 /*<div class="redes"><a href="#" class="fb">&nbsp;</a><a href="#" class="yt">&nbsp;</a></div>*/
+
+
+.menu-principal {
+    margin-top: 14px;
+}
