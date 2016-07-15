@@ -1,0 +1,28 @@
+# Spanish translation of Commerce Credomatic (7.x-1.0)
+# Copyright (c) 2013 by the Spanish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Commerce Credomatic (7.x-1.0)\n"
+"POT-Creation-Date: 2013-02-15 20:31+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "ACCEPTED"
+msgstr "ACEPTADO"
+msgid "REJECTED"
+msgstr "RECHAZADO"
+msgid "CVV match: @cvv"
+msgstr "CVV se corresponde: @cvv"
+msgid "Not Processed"
+msgstr "No se ha procesado"
+msgid "Authorization only"
+msgstr "Sólo autorización"
+msgid "Service not supported"
+msgstr "Servicio no admitido"
+msgid "Commerce (contrib)"
+msgstr "Commerce (contrib)"
