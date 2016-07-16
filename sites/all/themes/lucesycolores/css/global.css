@@ -25,10 +25,10 @@
 
 h1.decora:before, h1.decora:after,
 h2.decora:before, h2.decora:after,
-h3.decora:before, h3.decora:after,
 
-.beneficios:before
 
+.beneficios:before,
+.pilares:before
 
 
   {
@@ -221,6 +221,11 @@ header .header-content #logo{
 	display: block;
 	float: left;
 }
+
+header .header-content .menu-principal{
+	margin-top: 14px;
+}
+
 header .header-content .block{
 	display: block;
 	float: right;
@@ -239,12 +244,14 @@ header .header-content .block .menu li a{
 	padding: 0px 35px;
 }
 header .header-content .block .menu li a:hover,
-header .header-content .block .menu li.active a{
+header .header-content .block .menu li.active a,
+header .header-content .block .menu li.active-trail a{
 	color: #36A9E1;
 }
 
 header .header-content .block .menu li:hover:after,
-header .header-content .block .menu li.active:after{
+header .header-content .block .menu li.active:after,
+header .header-content .block .menu li.active-trail:after{
 	display: block;
 	width: 100%;
 	height: 20px;
@@ -299,6 +306,7 @@ header .header-content .block .menu li:last-child a{
 }
 .llamado a{
 	display: block;
+	min-width: 200px;
 	float: right;
 	font-size: 18px;
 	font-weight: bold;
@@ -377,11 +385,16 @@ footer .redes a.yt{
 
 /* HS */
 
-h1, h2, h3, h4{
+h1, h2{
 	font-family: 'IM Fell DW Pica', serif;
 	font-weight: normal;
 }
-h1.decora, h2.decora, h3.decora, h4.decora{
+h3, h4{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+}
+h1.decora, h2.decora{
 	position: relative;
 	display: table;
 	text-align: center;
@@ -393,16 +406,14 @@ h1.decora, h2.decora, h3.decora, h4.decora{
 }
 
 h1.decora:before, h1.decora:after,
-h2.decora:before, h2.decora:after,
-h3.decora:before, h3.decora:after{
+h2.decora:before, h2.decora:after{
   display: table-cell;
   vertical-align: middle;
   font-size: 80px;
 }
 
 h1.decora:before,
-h2.decora:before,
-h3.decora:before{
+h2.decora:before{
 	content: '\e803';
 	padding-right: 50px;
 
@@ -411,8 +422,7 @@ h3.decora:before{
 
 
 h1.decora:after,
-h2.decora:after,
-h3.decora:after{
+h2.decora:after{
 	content: '\e80d';
 	padding-left: 50px;
 
@@ -454,6 +464,22 @@ h3.decora:after{
 	margin: 0px; margin-bottom: 10px;
 }
 
+#block-block-6{
+	position: absolute;
+	right: 0px; top: 0px;
+}
+#block-block-6 .stButton{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+#block-block-6 .stButton .stLarge{
+  height: 25px !important;
+  width: 25px !important;  
+  background-image: url('../images/compartir.png') !important;
+}
+#block-block-6 .stButton .stLarge:hover{
+	background-position: center !important;
+}
 
 
 /**************/
@@ -503,17 +529,20 @@ h3.decora:after{
 }
 
 
-.row-beneficios{
+.row-beneficios,
+.row-pilares{
 	margin: 40px 0px;
 }
 
-.beneficios{
+.beneficios,
+.pilares{
 	display: table;
 	position: relative;
 	height: 215px;
 	padding: 0px 35px;
 }
-.beneficios p{
+.beneficios p,
+.pilares p{
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
@@ -523,7 +552,8 @@ h3.decora:after{
 	line-height: 23px;
 }
 
-.beneficios:before{
+.beneficios:before,
+.pilares:before{
 	content: '\e816';
 	position: absolute;
 	font-size: 200px;
@@ -533,34 +563,82 @@ h3.decora:after{
 	z-index: -1;
 }
 
-.beneficios.bn1{
+.beneficios.bn1,
+.pilares.pl1{
 	color: #DEEDF6;
 }
-.beneficios.bn2{
+.beneficios.bn2,
+.pilares.pl2{
 	color: #EFD7E5;
 }
-.beneficios.bn3{
+.beneficios.bn3,
+.pilares.pl3{
 	color: #DBEAE2;
 }
-.beneficios.bn4{
+.beneficios.bn4,
+.pilares.pl4{
 	color: #EBDEE7;
 }
-.beneficios.bn1 p{
+.pilares.pl5{
+	color: #F3E2D8;
+}
+
+.beneficios.bn1 p,
+.pilares.pl1 p{
 	color: #36A9E1;
 }
-.beneficios.bn2 p{
+.beneficios.bn2 p,
+.pilares.pl2 p{
 	color: #E71D73;
 }
-.beneficios.bn3 p{
+.beneficios.bn3 p,
+.pilares.pl3 p{
 	color: #2FAC66;
 }
-.beneficios.bn4 p{
+.beneficios.bn4 p,
+.pilares.pl4 p{
 	color: #842C71;
 }
+.pilares.pl5 p{
+	color: #EA5B0C;
+}
+
+
+
+.pilares{
+	height: 175px;
+}
+.pilares:before{
+	font-size: 160px;
+}
+
+
+.row-terapia{
+	margin-bottom: 40px;
+	display: table;
+}
+.row-terapia .w-col-6{
+
+}
+.image-container-pasos-aura-soma{
+	position: relative;
+}
+
+.image-container-pasos-aura-soma span{
+	position: absolute;
+	display: block;
+	width: 33px;
+	height: 40px;
+	background-color: #E71D73;
+	font-size: 24px;
+	font-weight: 500;
+	color: #FFF;
+	text-align: center;	
+}
+
+.row-historia-aura-soma{
+	margin-bottom: 40px;	
+}
+
 
 /************/
-
-
-.menu-principal {
-    margin-top: 14px;
-}
