@@ -122,6 +122,8 @@ function commerce_payment_pane_checkout_form($form, &$form_state, $checkout_pane
     // in the order / checkout pane or the first available method.
     $pane_values = !empty($form_state['values'][$checkout_pane['pane_id']]) ? $form_state['values'][$checkout_pane['pane_id']] : array();
 
+    exit(var_dump($form_state['input']));
+
     if (isset($pane_values['payment_method']) && isset($options[$pane_values['payment_method']])) {
       $default_value = $pane_values['payment_method'];
     }

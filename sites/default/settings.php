@@ -220,7 +220,7 @@ $databases = array (
       'database' => 'lucesycolores',
       'username' => 'root',
       'password' => '',
-      'host' => '192.168.5.144', #localhost
+      'host' => '192.168.5.144', #
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
@@ -598,3 +598,6 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  * Remove the leading hash sign to enable.
  */
 # $conf['theme_debug'] = TRUE;
+
+$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
+$conf['cache_default_class'] = 'MemCacheDrupal';

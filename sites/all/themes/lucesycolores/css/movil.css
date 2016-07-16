@@ -1,4 +1,35 @@
 @media (max-width: 479px) {
+	.titulo-seccion h2{
+		line-height: 20px;
+	}
+	.breadcrumb,
+	#block-block-6{
+		display: none;
+	}
+
+	body p,
+	body li{
+		font-size: 15px;
+	}
+	.h28{
+		font-size: 20px;
+		line-height: 24px !important;
+	}
+	h3, h4{
+		font-size: 16px;
+	}
 
 
+	header .header-top{
+		padding: 10px 0px;
+	}
+	header .header-top,
+	header .header-top .menu{
+		text-align: center;
+	}
+	header .header-top .view-shopping-cart{
+		width: 50px;
+		float: none;
+		margin: 0 auto;
+	}
 }
