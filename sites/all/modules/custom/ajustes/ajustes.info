@@ -1,0 +1,4 @@
+name = Modulo ajustes
+description = Modulo ajustes para el proyecto Luces y colores
+package = others
+core = 7.x
