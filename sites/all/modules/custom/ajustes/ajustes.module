@@ -1,0 +1,16 @@
+<?php
+/*
+ * implements hook_form_alter()
+ **/
+ function ajustes_form_alter(&$form, &$form_state, $form_id)
+ {
+ 	if($form_id == 'comment_node_blog_post_form')
+ 	{
+ 		$form['author']['name']['#title'] = '';
+ 		$form['author']['name']['#attributes'] = array('placeholder' => t('Author'));
+ 		$form['comment_body'][LANGUAGE_NONE][0]['#title'] = '';
+ 		$form['comment_body'][LANGUAGE_NONE][0]['#attributes'] = array('placeholder' => t('Comment'));
+ 		$form['field_correo'][LANGUAGE_NONE][0]['email']['#title'] = '';
+ 		$form['field_correo'][LANGUAGE_NONE][0]['email']['#attributes'] = array('placeholder' => t('Email'));
+ 	}
+ }
