@@ -93,6 +93,7 @@ function lucesycolores_preprocess_html(&$variables) {
 
   if(drupal_is_front_page()){
     drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
+    drupal_add_js(libraries_get_path('bxslider') . '/jquery.bxslider.min.js', array('group' => JS_LIBRARY, 'weight' => -100));
   }
 }
 
