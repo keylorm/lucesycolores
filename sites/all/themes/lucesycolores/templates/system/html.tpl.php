@@ -52,8 +52,16 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
 
-  <?php print $styles; ?>
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+
+    <?php print $styles; ?>
   <?php print $scripts; ?>
+  
+  
   <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "b1e90e93-44ab-4872-9284-5e84f8540c7e", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>

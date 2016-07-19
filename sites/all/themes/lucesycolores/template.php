@@ -90,6 +90,10 @@ function lucesycolores_preprocess_html(&$variables) {
   if (theme_get_setting('normalize_css')) {
     drupal_add_css(drupal_get_path('theme', 'lucesycolores') . '/css/normalize.css', array('group' => CSS_SYSTEM, 'weight' => -100));
   }
+
+  if(drupal_is_front_page()){
+    drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
+  }
 }
 
 /**
@@ -127,3 +131,5 @@ function lucesycolores_preprocess_block(&$vars, $hook) {
   // Add a striping class.
   $vars['classes_array'][] = 'block-' . $vars['zebra'];
 }
+
+
