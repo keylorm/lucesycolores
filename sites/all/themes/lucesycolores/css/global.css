@@ -404,10 +404,15 @@ header .header-content .block .menu li:last-child a {
 	clear: both;
 }
 
-.fullwidth {
+.fullwidth,
+.panel-pane.fullwidth{
 	position: relative;
-	width: 100vw;
-	left: calc(-50vw+ 50%);
+	/*width: 100vw;
+	left: -moz-calc(-50vw+ 50%);
+	left: -webkit-calc(-50vw+ 50%);
+	left: calc(-50vw+ 50%);*/
+	max-width: 100vw;
+	
 }
 
 .llamado {
@@ -794,7 +799,7 @@ h2.decora:after {
 	display: none;
 }
 
-.patito {
-	display: none;
-	overflow:hidden;
+.panels-flexible-region-fluid_layout-center{
+	width: 100% !important;
 }
+

@@ -78,9 +78,12 @@
 <?php endif; // end Above Content ?>
 
 <div class="main-content">
-  <div class="w-container">
+  <div class="">
     <?php if ($breadcrumb): ?>
-      <?php print $breadcrumb; ?>
+      <div class="w-container">
+        <?php print $breadcrumb; ?>
+      </div>
+      
     <?php endif; ?>
 
     <?php if ($page['highlighted']): ?>
@@ -94,7 +97,9 @@
         <?php print render($title_suffix); ?>
 
         <?php if ($tabs): ?>
-          <?php print render($tabs); ?>
+           <div class="w-container">
+             <?php print render($tabs); ?>
+            </div>
 
         <?php endif; ?>
 
