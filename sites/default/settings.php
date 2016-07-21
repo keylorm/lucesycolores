@@ -217,16 +217,33 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'lucesycolores',
-      'username' => 'root',
-      'password' => '',
-      'host' => '192.168.0.14', #localhost
-      'port' => '',
+      'database' => 'lucesdev_db',
+      'username' => 'lucesdev_dbu',
+      'password' => 'Az4O0Wvz6EsZ',
+      'host' => '216.194.175.230', #
+      'port' => '3306',
       'driver' => 'mysql',
       'prefix' => '',
     ),
   ),
 );
+ /*
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'lucesycolores',
+      'username' => 'root',
+      'password' => '',
+      'host' => 'localhost', #
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);*/
+
 
 /**
  * Access control for update.php script.

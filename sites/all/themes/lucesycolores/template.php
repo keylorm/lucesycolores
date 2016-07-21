@@ -134,3 +134,66 @@ function lucesycolores_preprocess_block(&$vars, $hook) {
 }
 
 
+function lucesycolores_breadcrumb($variables) {
+  //breadcrumb = $variables['breadcrumb'];
+  $sep = ' | ';
+  $crumbs = array();
+  $route_course = '/courses';
+
+  if (count($variables['breadcrumb']) > 0) {
+    if (arg(0)=='node'){
+      $node = node_load(arg(1));
+      if($node->type=='curso'){
+        //foreach()
+        //return implode($sep, $variables['breadcrumb']) ;
+        if($node->language == 'es')
+          $route_course = '/cursos';
+
+          $crumbs[] = l(t('Home'), '');
+          $crumbs[] = l(t('Courses'), $route_course);
+          $crumbs[] = $node->title;
+          return implode($sep, $crumbs);    
+      }
+    }else{
+      return implode($sep, $variables['breadcrumb']);      
+    }
+    
+  }
+  else {
+    return t("Home");
+  }
+}
+
+
+/*function lucesycolores_menu_breadcrumb_alter(&$active_trail, $item){
+  //STORE THE LAST ITEM
+    $end = end($active_trail);
+
+    foreach ($active_trail as $key => $crumb){
+
+        //CHECK AGAINST NODE TYPE
+        if($crumb['map'][1]->type == 'NODE_MACHINE_NAME'){
+
+            //INSERT THE REPLACEMENT CRUMB
+            $active_trail[$key] = array( 
+                'title' => t("Title"),
+                'href' => 'PATH',
+                'link_path' => 'PATH', 
+                'localized_options' => array(),
+                'type' => 0
+            );
+            //RECREATE ITEM
+            $active_trail[] = $crumb;
+        }
+
+    }
+
+
+    //SHOW CURRENT PAGE IN BREADCRUMB BY DUPLICATING THE LAST ARRAY ITEM IN ACTIVE_TRAIL
+
+    if (!drupal_is_front_page()) {
+        if ($item['href'] == $end['href']) {
+            $active_trail[] = $end;
+        }       
+    }
+}*/
