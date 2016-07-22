@@ -30,7 +30,7 @@ $( function() {
 			maxSlides: 3,
 			slideWidth: 308,
 			slideMargin: 30,
-			moveSlide: 1,
+			moveSlides: 1,
 
 		});
 		

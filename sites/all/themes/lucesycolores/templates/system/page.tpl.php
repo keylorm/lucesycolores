@@ -150,6 +150,3 @@
   <?php print render($page['closure']); ?>
 </aside>
 <?php endif; // end closure ?>
-
-
-
