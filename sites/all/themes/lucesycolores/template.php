@@ -166,35 +166,16 @@ function lucesycolores_breadcrumb($variables) {
 }
 
 
-/*function lucesycolores_menu_breadcrumb_alter(&$active_trail, $item){
-  //STORE THE LAST ITEM
-    $end = end($active_trail);
-
-    foreach ($active_trail as $key => $crumb){
-
-        //CHECK AGAINST NODE TYPE
-        if($crumb['map'][1]->type == 'NODE_MACHINE_NAME'){
-
-            //INSERT THE REPLACEMENT CRUMB
-            $active_trail[$key] = array( 
-                'title' => t("Title"),
-                'href' => 'PATH',
-                'link_path' => 'PATH', 
-                'localized_options' => array(),
-                'type' => 0
-            );
-            //RECREATE ITEM
-            $active_trail[] = $crumb;
-        }
-
-    }
-
-
-    //SHOW CURRENT PAGE IN BREADCRUMB BY DUPLICATING THE LAST ARRAY ITEM IN ACTIVE_TRAIL
-
-    if (!drupal_is_front_page()) {
-        if ($item['href'] == $end['href']) {
-            $active_trail[] = $end;
-        }       
-    }
-}*/
+function lucesycolores_theme() {
+  $items = array();
+  // create custom user-login.tpl.php
+  $items['user_login'] = array(
+  'render element' => 'form',
+  'path' => drupal_get_path('theme', 'lucesycolores') . '/templates/user',
+  'template' => 'user-login',
+  'preprocess functions' => array(
+  'lucesycolores_preprocess_user_login'
+  ),
+ );
+return $items;
+}
