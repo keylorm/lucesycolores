@@ -207,7 +207,7 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 }
 
 function lucesycolores_preprocess_page(&$variables){
-  dpm($variables);
+  //dpm($variables);
   if((arg(0)=='user' && arg(2)=='edit')||(arg(1)=='user' && arg(3)=='edit')){
     if($variables['language']->language=='en'){
       drupal_set_title('Personal data');
