@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tienda en linea feature.
+ */
+
+include_once 'tienda_en_linea.features.inc';

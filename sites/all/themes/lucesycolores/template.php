@@ -184,6 +184,30 @@ function lucesycolores_theme() {
   'preprocess functions' => array(
   'lucesycolores_preprocess_user_pass'
   ),
- );
+ );   
+
 return $items;
+}
+
+function lucesycolores_form_alter(&$form, &$form_state, $form_id){
+
+  
+  if($form_id=="user_register_form"){
+    $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
+    
+    $form['account']['name']['#prefix'] = "";
+    $form['actions']['submit']['#suffix'] = "</div>";
+    
+    $form['field_phone']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_phone']['und'][0]['value']['#title']);
+    $form['field_full_name']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_full_name']['und'][0]['value']['#title']);
+    $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
+    $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
+   
+  }
+}
+
+function lucesycolores_preprocess_page(&$variables){
+  if((arg(0)=='user' && arg(2)=='edit')||(arg(1)=='user' && arg(3)=='edit')){
+    drupal_set_title(t('Personal data'));
+  }
 }

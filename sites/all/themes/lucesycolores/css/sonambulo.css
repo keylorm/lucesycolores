@@ -21,16 +21,16 @@ body {
 }
 
 .one-sidebar .main {
-  width: 60%;
-  padding: 0 0.875em;
+  /*width: 60%;
+  padding: 0 0.875em;*/
 }
 .one-sidebar #sidebar-first {
-  width: 40%;
-  padding: 0 0.875em;
+  /*width: 40%;
+  padding: 0 0.875em;*/
 }
 .sidebar-first .main {
   float: left;
 }
 .sidebar-first #sidebar-first {
-  float: right;
+  float: left;
 }
