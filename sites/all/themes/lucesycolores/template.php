@@ -177,5 +177,13 @@ function lucesycolores_theme() {
   'lucesycolores_preprocess_user_login'
   ),
  );
+   $items['user_pass'] = array(
+  'render element' => 'form',
+  'path' => drupal_get_path('theme', 'lucesycolores') . '/templates/user',
+  'template' => 'user-pass',
+  'preprocess functions' => array(
+  'lucesycolores_preprocess_user_pass'
+  ),
+ );
 return $items;
 }

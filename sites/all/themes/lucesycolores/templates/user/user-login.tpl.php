@@ -1,9 +1,11 @@
+<div class="w-container">
+	
 <?php
   global $language;
 //dpm($form);
 // Ocultamos contenido que no queremos mostrar 
   $form['pass']['#suffix']="";
-  $form['actions']['#suffix']="";
+  $form['actions']['#suffix']="</div>";
   $form['actions']['submit']['#value'] = t('Log in');
 
 
@@ -42,6 +44,6 @@ $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/s
 
 print drupal_render($form['links']);
     ?>
-
+</div>
 
 <!-- /user-login-custom-form -->
