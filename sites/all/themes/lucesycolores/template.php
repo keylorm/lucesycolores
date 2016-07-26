@@ -94,6 +94,7 @@ function lucesycolores_preprocess_html(&$variables) {
   if(drupal_is_front_page()){
     drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
     drupal_add_js(libraries_get_path('bxslider') . '/jquery.bxslider.min.js', array('group' => JS_LIBRARY, 'weight' => -100));
+    drupal_add_css(libraries_get_path('bxslider') . '/jquery.bxslider.css', array('group' => CSS_SYSTEM, 'weight' => -100));
   }
 }
 
@@ -134,3 +135,55 @@ function lucesycolores_preprocess_block(&$vars, $hook) {
 }
 
 
+function lucesycolores_breadcrumb($variables) {
+  //breadcrumb = $variables['breadcrumb'];
+  $sep = ' | ';
+  $crumbs = array();
+  $route_course = '/courses';
+
+  if (count($variables['breadcrumb']) > 0) {
+    if (arg(0)=='node'){
+      $node = node_load(arg(1));
+      if($node->type=='curso'){
+        //foreach()
+        //return implode($sep, $variables['breadcrumb']) ;
+        if($node->language == 'es')
+          $route_course = '/cursos';
+
+          $crumbs[] = l(t('Home'), '');
+          $crumbs[] = l(t('Courses'), $route_course);
+          $crumbs[] = $node->title;
+          return implode($sep, $crumbs);    
+      }
+    }else{
+      return implode($sep, $variables['breadcrumb']);      
+    }
+    
+  }
+  else {
+    return t("Home");
+  }
+}
+
+
+function lucesycolores_theme() {
+  $items = array();
+  // create custom user-login.tpl.php
+  $items['user_login'] = array(
+  'render element' => 'form',
+  'path' => drupal_get_path('theme', 'lucesycolores') . '/templates/user',
+  'template' => 'user-login',
+  'preprocess functions' => array(
+  'lucesycolores_preprocess_user_login'
+  ),
+ );
+   $items['user_pass'] = array(
+  'render element' => 'form',
+  'path' => drupal_get_path('theme', 'lucesycolores') . '/templates/user',
+  'template' => 'user-pass',
+  'preprocess functions' => array(
+  'lucesycolores_preprocess_user_pass'
+  ),
+ );
+return $items;
+}

@@ -220,13 +220,14 @@ $databases = array (
       'database' => 'lucesycolores',
       'username' => 'root',
       'password' => '',
-      'host' => 'localhost', #192.168.0.14
+      'host' => 'localhost', #
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
     ),
   ),
 );
+
 
 /**
  * Access control for update.php script.
