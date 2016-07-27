@@ -191,7 +191,7 @@ return $items;
 
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
-  
+
   if($form_id=="user_register_form"){
     $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
     
@@ -203,6 +203,12 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
     $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
     $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
    
+  }
+ // dpm($form_id);
+  
+  if($form_id=='user_profile_form'){
+    hide($form['contact']);
+    hide($form['locale']);
   }
 }
 
