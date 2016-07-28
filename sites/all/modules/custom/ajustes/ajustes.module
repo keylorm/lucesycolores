@@ -14,3 +14,57 @@
  		$form['field_correo'][LANGUAGE_NONE][0]['email']['#attributes'] = array('placeholder' => t('Email'));
  	}
  }
+
+/**
+ * Implements hook_block_info().
+ */
+function ajustes_block_info() {
+  $blocks['descripcion_categoria'] = array(
+    // The name that will appear in the block list.
+    'info' => t('Category description'),
+    // Default setting.
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ * 
+ * Prepares the contents of the block.
+ */
+function  ajustes_block_view($delta = '') {
+  switch ($delta) {
+    case 'descripcion_categoria':
+      $block['subject'] = '';
+      if (user_access('access content')) {
+        // Use our custom function to retrieve data.
+        $result = current_category_description();
+        $block['content'] = array(
+          '#markup' => current_category_description(),
+          /*'#attached' => array(
+              'js' => array(
+                drupal_get_path('module', 'ajustes') . '/js/ajustes.js',
+            ),
+          ),*/
+        );
+      }
+    return $block;
+  } 
+}
+
+/**
+ * Custom content function. 
+ * 
+ * Get product category description
+ * 
+ * @return 
+ *   A result set of the targeted product category.
+ */
+function current_category_description(){
+  //get current taxonomy term id
+  $term = taxonomy_term_load(arg(1));
+  if($term){
+    return '<h2>'.$term->name.'</h2>'.'<a href="" class="ver-mas">'.t('see more').'<span></span></a><div class="hidden category-description">'.$term->description.'</div>'; 
+  }
+}
