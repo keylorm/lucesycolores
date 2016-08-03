@@ -155,6 +155,11 @@ function lucesycolores_breadcrumb($variables) {
           $crumbs[] = $node->title;
           return implode($sep, $crumbs);    
       }
+    }else if(arg(0)=='user' || arg(1)=='user'){
+          $crumbs[] = l(t('Home'), '');
+          $crumbs[] = t('My account');
+      
+          return implode($sep, $crumbs);   
     }else{
       return implode($sep, $variables['breadcrumb']);      
     }
@@ -184,6 +189,64 @@ function lucesycolores_theme() {
   'preprocess functions' => array(
   'lucesycolores_preprocess_user_pass'
   ),
- );
+ );   
+
 return $items;
+}
+
+function lucesycolores_form_alter(&$form, &$form_state, $form_id){
+
+  //dpm($form);
+  global $language;
+  if($form_id=="user_register_form"){
+    $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
+    
+    $form['account']['name']['#prefix'] = "";
+    $form['actions']['submit']['#suffix'] = "</div>";
+    
+    $form['field_phone']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_phone']['und'][0]['value']['#title']);
+    $form['field_full_name']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_full_name']['und'][0]['value']['#title']);
+    $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
+    $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
+   
+  }
+ // dpm($form_id);
+  
+  if($form_id=='user_profile_form'){
+    hide($form['contact']);
+    hide($form['locale']);
+    if($language->language=='en'){
+       $form['field_full_name']['#prefix'] = '<div id="user_register_form">
+<h2>Personal data</h2>';
+    }else{
+      $form['field_full_name']['#prefix'] = '<div id="user_register_form">
+<h2>Datos Personales</h2>';
+    }
+     
+  }
+}
+
+function lucesycolores_preprocess_page(&$variables){
+  
+  
+  $user = user_load($variables['user']->uid);
+  
+  //dpm ($user);
+  $fullname_user = "";
+  if(!empty($user->field_full_name)){
+    $fullname_user = $user->field_full_name['und'][0]['value'];
+  }
+  if(arg(0) == 'user'  || arg(1)=='user' ) {  //For node 2
+    $variables['theme_hook_suggestions'][] =  'page__user';
+   
+    if($variables['language']->language=='en'){
+      drupal_set_title('Hello, '.$fullname_user);
+    }else{
+      drupal_set_title('Hola, '.$fullname_user);
+    }
+    
+    
+  }
+  
+  //dpm($variables);
 }

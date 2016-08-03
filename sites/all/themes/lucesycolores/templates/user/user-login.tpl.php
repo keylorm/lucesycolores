@@ -7,6 +7,13 @@
   $form['pass']['#suffix']="";
   $form['actions']['#suffix']="</div>";
   $form['actions']['submit']['#value'] = t('Log in');
+	$form['name']['#attributes'] = array(
+		'placeholder' => $form['name']['#title'],
+	);
+	$form['pass']['#attributes'] = array(
+		'placeholder' => $form['pass']['#title'],
+	);
+	
 
 
 if ($language->language=="es"){

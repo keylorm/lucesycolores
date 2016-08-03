@@ -91,6 +91,9 @@
     <?php endif; ?>
 
       <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php print render($title_suffix); ?>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
         <div id="sidebar-first" class="w-col w-col-3">
@@ -98,9 +101,7 @@
         </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
       <div class="main <?php if ($page['sidebar_first']): ?> w-col-9 <?php endif; ?>" role="main">
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
+        
 
         <?php if ($tabs): ?>
            <div class="w-container">

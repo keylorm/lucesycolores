@@ -42,9 +42,7 @@
 
 .fullwidth .pane-title,
 .panel-pane .pane-content,
-.w-container,
-.panel-pane,
-.panels-flexible-row-layout_2_columnas-1-inside{
+.w-container{
   margin-left: auto;
   margin-right: auto;
   max-width: 1180px;
@@ -126,9 +124,7 @@
   display: none !important;
 }
 @media screen and (max-width: 991px) {
-  .w-container,
-  .panel-pane,
-  .panels-flexible-row-layout_2_columnas-1-inside{
+  .w-container{
     max-width: 728px;
   }
   .w-hidden-main {
@@ -237,9 +233,7 @@
   }
 }
 @media screen and (max-width: 479px) {
-  .w-container,
-  .panel-pane,
-  .panels-flexible-row-layout_2_columnas-1-inside{
+  .w-container{
     max-width: none;
   }
   .w-hidden-main {
