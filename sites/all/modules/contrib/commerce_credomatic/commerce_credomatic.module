@@ -1,0 +1,388 @@
+<?php
+
+/**
+ * @file
+ * Enables the use of credomatic as payment method for commerce.
+ */
+
+define('CREDOMATIC_METHOD_ID', 'commerce_credomatic');
+define('CREDOMATIC_RESPONSE_URL', 'commerce_credomatic_response');
+define('CREDOMATIC_URL', 'https://credomatic.compassmerchantsolutions.com/api/transact.php');
+define('COMMERCE_CREDOMATIC_TRANSACTION_AUTH', 'auth');
+define('COMMERCE_CREDOMATIC_TRANSACTION_CREDIT', 'credit');
+define('COMMERCE_CREDOMATIC_TRANSACTION_SALE', 'sale');
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_credomatic_menu() {
+  $items = array();
+
+  $items[CREDOMATIC_RESPONSE_URL] = array(
+    'title' => "Commerce Credomatic Response",
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_commerce_credomatic_response_form'),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Form callback handler for credomatic post redirection.
+ *
+ * @see ommerce_credomatic_pcc_commerce_payment_method_submit_form_submit(()
+ */
+function _commerce_credomatic_response_form($form, &$form_state) {
+
+  print drupal_json_encode($_GET);
+  exit();
+}
+
+/**
+ * Define payments methods enabled for Credomatic payment method.
+ *
+ * @return array
+ *   Enabled transactions definitions.
+ *
+ * @see commerce_credomatic_pcc_commerce_payment_method_settings_form
+ */
+function _commerce_credomatic_retrieve_transaction_types() {
+  return array(
+    COMMERCE_CREDOMATIC_TRANSACTION_AUTH => 'Transaction Authorization',
+    COMMERCE_CREDOMATIC_TRANSACTION_CREDIT => 'Transaction Credit',
+    COMMERCE_CREDOMATIC_TRANSACTION_SALE => 'Transaction Sale',
+  );
+}
+
+/**
+ * Function to generate image element in FAPI format.
+ *
+ * @param string $name
+ *   string to identify image name relate to images folder.
+ *
+ * @return string
+ *   array with definition of image inf FAPI format.
+ *
+ */
+function _commerce_credomatic_retrieve_image($name) {
+  $image = array(
+    'path' => (drupal_get_path('module', 'commerce_credomatic') . "/images/$name.gif"),
+    'title' => 'Credomatic',
+    'alt' => 'Credomatic',
+    'attributes' => array(
+      'class' => array('commerce-credomatic-payment-icon'),
+    ),
+  );
+
+  return theme('image', $image);
+}
+
+/**
+ * Implements hook_payment_method_info().
+ */
+function commerce_credomatic_commerce_payment_method_info() {
+  global $base_url;
+
+  $payment_methods = array();
+
+  $display_title = t('!image * Credomatic - Credit card *', array('!image' => _commerce_credomatic_retrieve_image('progress')));
+
+
+  $payment_methods[CREDOMATIC_METHOD_ID] = array(
+    'base' => 'commerce_credomatic_pcc',
+    'title' => t('Credomatic - Credit Card'),
+    'short_title' => t('Credomatic CC'),
+    'display_title' => $display_title,
+    'description' => t('Integrates Credomatic Method for Payment.'),
+    'callbacks' => array(
+      'settings_form' => 'commerce_credomatic_pcc_commerce_payment_method_settings_form',
+      'submit_form' => 'commerce_credomatic_pcc_commerce_payment_method_submit_form',
+      'submit_form_validate' => 'commerce_credomatic_pcc_commerce_payment_method_submit_form_validate',
+      'submit_form_submit' => 'commerce_credomatic_pcc_commerce_payment_method_submit_form_submit',
+    ),
+  );
+
+  return $payment_methods;
+}
+
+/**
+ * Define default values to credomatic payment settings method.
+ *
+ * @return string
+ *   Array with default values for credomatic payment settings method.
+ *
+ */
+function _commerce_credomatic_default_settings() {
+  return array(
+    'credomatic_keyid' => '',
+    'credomatic_key' => '',
+    'credomatic_url' => CREDOMATIC_URL,
+    'credomatic_transaction_type' => '',
+    'credomatic_card_types' => array(),
+  );
+}
+
+/**
+ * Implements CALLBACK_commerce_payment_method_settings_form().
+ */
+function commerce_credomatic_pcc_commerce_payment_method_settings_form($settings = array()) {
+  module_load_include('inc', 'commerce_payment', 'includes/commerce_payment.credit_card');
+
+  $settings = (array) $settings + _commerce_credomatic_default_settings();
+
+  $form = array();
+
+  $form['credomatic_keyid'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Credomatic Key ID'),
+    '#description' => t('The credomatic key ID of the business.'),
+    '#default_value' => $settings['credomatic_keyid'],
+    '#required' => TRUE,
+  );
+
+  $form['credomatic_key'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Credomatic Key'),
+    '#description' => t('The credomatic key of the business.'),
+    '#default_value' => $settings['credomatic_key'],
+    '#required' => TRUE,
+  );
+
+  $form['credomatic_transaction_type'] = array(
+    '#type' => 'select',
+    '#title' => t('Transaction Type'),
+    '#description' => t('The default will be used to process transactions during checkout.'),
+    '#options' => _commerce_credomatic_retrieve_transaction_types(),
+    '#default_value' => $settings['credomatic_transaction_type'],
+  );
+
+  $form['credomatic_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Credomatic Url'),
+    '#description' => t('The credomatic url to send request.'),
+    '#default_value' => $settings['credomatic_url'],
+    '#required' => TRUE,
+  );
+
+  $form['credomatic_card_types'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('The credit cards accepted'),
+    '#description' => t('The acceptable credict card types.'),
+    '#options' => commerce_payment_credit_card_types(),
+    '#default_value' => $settings['credomatic_card_types'],
+  );
+
+  return $form;
+}
+
+/**
+ * Implements CALLBACK_method_submit_form().
+ */
+function commerce_credomatic_pcc_commerce_payment_method_submit_form($payment_method, $pane_values, $checkout_pane, $order) {
+  module_load_include('inc', 'commerce_payment', 'includes/commerce_payment.credit_card');
+
+  // Prepare the fields to include on the credit card form.
+  $fields = array(
+    'code' => '',
+  );
+
+  // Add the credit card types array if necessary.
+  $card_types = array_diff(array_values($payment_method['settings']['credomatic_card_types']), array(0));
+
+  if (!empty($card_types)) {
+    $fields['type'] = $card_types;
+  }
+
+  return commerce_payment_credit_card_form($fields);
+}
+
+/**
+ * Implements CALLBACK_method_submit_form_validate().
+ */
+function commerce_credomatic_pcc_commerce_payment_method_submit_form_validate($payment_method, $pane_form, $pane_values, $order, $form_parents = array()) {
+  module_load_include('inc', 'commerce_payment', 'includes/commerce_payment.credit_card');
+
+  // Validate the credit card fields.
+  $settings = array(
+    'form_parents' => array_merge($form_parents, array('credit_card')),
+  );
+
+  if (!commerce_payment_credit_card_validate($pane_values['credit_card'], $settings)) {
+    return FALSE;
+  }
+}
+
+/**
+ * Implements CALLBACK_method_submit_form_submit().
+ */
+function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($payment_method, $pane_form, $pane_values, $order, $charge) {
+
+  // Determine the credit card type if possible for use in later code.
+  $card_type = '';
+  if (!empty($pane_values['credit_card']['number'])) {
+    module_load_include('inc', 'commerce_payment', 'includes/commerce_payment.credit_card');
+    $card_type = commerce_payment_validate_credit_card_type($pane_values['credit_card']['number'], array_keys(commerce_payment_credit_card_types()));
+  }
+
+  // If the charge amount is 0...
+  if ($charge['amount'] == 0) {
+    if (!$continue = _commerce_credomatic_save_invalid_transaction_for_amount($payment_method, $charge, $order, $card_type)) {
+      return $continue;
+    }
+  }
+
+  // Build a description for the order.
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+  $description = array();
+  foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+    if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+      $description[] = round($line_item_wrapper->quantity->value(), 2) . 'x ' . $line_item_wrapper->line_item_label->value();
+    }
+  }
+
+  $billing_address = array();
+  if ($order_wrapper->commerce_customer_billing->value()) {
+    $billing_address = $order_wrapper->commerce_customer_billing->commerce_customer_address->value();
+
+    if (empty($billing_address['first_name'])) {
+      $name_parts = explode(' ', $billing_address['name_line']);
+      $billing_address['first_name'] = array_shift($name_parts);
+      $billing_address['last_name'] = implode(' ', $name_parts);
+    }
+  }
+
+  // Create parameters to consume webservices.
+  $parameters = array();
+
+  $parameters['type'] = $payment_method['settings']['credomatic_transaction_type'];
+  $parameters['orderid'] = $order_wrapper->order_id->value();
+  $parameters['key_id'] = $payment_method['settings']['credomatic_keyid'];
+  $parameters['ccnumber'] = $pane_values['credit_card']['number'];
+  $parameters['ccexp'] = $pane_values['credit_card']['exp_month'] . substr($pane_values['credit_card']['exp_year'], -2);
+  $parameters['amount'] = commerce_currency_amount_to_decimal($charge['amount'], $charge['currency_code']);
+  $parameters['cvv'] = $pane_values['credit_card']['code'];
+  $parameters['description'] = $description;
+
+  // Submit the request to Credomatic.
+  $credomatic = new CommerceCredomatic(array('key' => $payment_method['settings']['credomatic_key']));
+  $credomatic->prepareParameters($parameters);
+  $json_response = $credomatic->doHttpRequest($parameters);
+
+  if (!isset($json_response)) {
+    _commerce_credomatic_save_invalid_transaction($order, $charge, t('Invalid callback to server.'));
+    return FALSE;
+  }
+
+  // Prepare a transaction object to log the API response.
+  $transaction = commerce_payment_transaction_new(CREDOMATIC_METHOD_ID, $order->order_id);
+  $transaction->instance_id = $payment_method['instance_id'];
+  $transaction->remote_id = $json_response->transactionid;
+  $transaction->amount = $charge['amount'];
+  $transaction->currency_code = $charge['currency_code'];
+  $transaction->payload[REQUEST_TIME] = (array) $json_response;
+
+  // If we didn't get an approval response code...
+  if ($json_response->response != 1) {
+    // Create a failed transaction with the error message.
+    $transaction->status = COMMERCE_PAYMENT_STATUS_FAILURE;
+  }
+  else {
+    // Set the transaction status based on the type of transaction this was.
+    switch ($payment_method['settings']['credomatic_transaction_type']) {
+      case COMMERCE_CREDOMATIC_TRANSACTION_AUTH:
+        $transaction->status = COMMERCE_PAYMENT_STATUS_PENDING;
+        break;
+
+      case COMMERCE_CREDOMATIC_TRANSACTION_SALE:
+      case COMMERCE_CREDOMATIC_TRANSACTION_CREDIT:
+        $transaction->status = COMMERCE_PAYMENT_STATUS_SUCCESS;
+        break;
+    }
+  }
+
+  // Store the type of transaction in the remote status.
+  $transaction->remote_status = $json_response->response_code;
+
+  // Build a meaningful response message.
+  $message = array(
+    '<b>' . t('Authorization only') . '</b>',
+    '<b>' . ($json_response->response != 1 ? t('REJECTED') : t('ACCEPTED')) . ':</b> ' . check_plain($json_response->responsetext),
+    t('AVS response: @avs', array('@avs' => $credomatic->reviewCodeAVS($json_response->avsresponse))),
+  );
+
+  // Add the CVV response.
+  $message[] = t('CVV match: @cvv', array('@cvv' => $credomatic->reviewCodeCVV($json_response->cvvresponse)));
+
+  $transaction->message = implode('<br />', $message);
+
+  // Save the transaction information.
+  commerce_payment_transaction_save($transaction);
+
+  // If the payment failed, display an error and rebuild the form.
+  if ($json_response->response != 1) {
+    drupal_set_message(t('We received the following error processing your card. Please enter you information again or try a different card.'), 'error');
+    drupal_set_message(check_plain($json_response->responsetext), 'error');
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_commerce_checkout_form_alter().
+ */
+function commerce_credomatic_form_commerce_checkout_form_alter(&$form, &$form_state) {
+  // If this checkout form contains the payment method radios...
+  if (!empty($form['commerce_payment']['payment_method']['#options'])) {
+    // Loop over its options array looking for a PayPal WPS option.
+    foreach (array_keys($form['commerce_payment']['payment_method']['#options']) as $key) {
+      list($method_id, $rule_name) = explode('|', $key);
+
+      // If we find PayPal WPS, include its CSS on the form and exit the loop.
+      if ($method_id == 'commerce_credomatic') {
+        $form['commerce_payment']['payment_method']['#attached']['css'][] = drupal_get_path('module', 'commerce_credomatic') . '/theme/commerce_credomatic.theme.css';
+        break;
+      }
+    }
+  }
+}
+
+/**
+ * Function configure transaction for invalid amount.
+ */
+function _commerce_credomatic_save_invalid_transaction_for_amount($payment_method, $charge, $order, $card_type) {
+  $continue = TRUE;
+  // Prevent the transaction except under limited circumstances.
+  $prevent_transaction = TRUE;
+
+  // Allow 0 amount authorizations on Visa cards.
+  if ($payment_method['settings']['credomatic_transaction_type'] == COMMERCE_CREDOMATIC_TRANSACTION_AUTH && $card_type == 'visa') {
+    $prevent_transaction = FALSE;
+  }
+
+  // If the transaction should still be prevented...
+  if ($prevent_transaction) {
+    // Create a transaction to log the skipped transaction and display a
+    // helpful message to the customer.
+    $message = t('Invalid @amount transaction not attempted.', array('@amount' => commerce_currency_format($charge['amount'], $charge['currency_code'])));
+    _commerce_credomatic_save_invalid_transaction($order, $charge, $message);
+    $continue = FALSE;
+  }
+
+  return $continue;
+}
+
+/**
+ * Function store transaction for invalid amount.
+ */
+function _commerce_credomatic_save_invalid_transaction($order, $charge, $message) {
+  $transaction = commerce_payment_transaction_new(CREDOMATIC_METHOD_ID, $order->order_id);
+  $transaction->amount = $charge['amount'];
+  $transaction->currency_code = $charge['currency_code'];
+  $transaction->status = COMMERCE_PAYMENT_STATUS_FAILURE;
+  $transaction->message = $message;
+  commerce_payment_transaction_save($transaction);
+
+  drupal_set_message('We encountered an error processing your transaction. Please contact us to resolve the issue.', 'error');
+}
