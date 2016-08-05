@@ -28,9 +28,19 @@ body {
   /*width: 40%;
   padding: 0 0.875em;*/
 }
+
+.one-sidebar #sidebar-second {
+  /*width: 40%;
+  padding: 0 0.875em;*/
+}
+
 .sidebar-first .main {
   float: left;
 }
 .sidebar-first #sidebar-first {
   float: left;
+}
+
+.sidebar-second #sidebar-second {
+  float: right;
 }

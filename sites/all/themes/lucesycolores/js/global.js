@@ -49,5 +49,12 @@ $( function() {
 		
 	});
 	
+	$(function (){
+		//tabs productos
+		if($('#tabs').length !== 0){
+			$('#tabs').tabs();
+		}
+	})
+	
 })(jQuery);
  
