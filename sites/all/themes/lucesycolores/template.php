@@ -127,6 +127,10 @@ function lucesycolores_page_alter(&$page) {
 function lucesycolores_preprocess_node(&$vars) {
   // Add a striping class.
   $vars['classes_array'][] = 'node-' . $vars['zebra'];
+  $node = $vars['node'];
+  if(isset($node->field_product_category)){
+      drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
+  }
 }
 
 function lucesycolores_preprocess_block(&$vars, $hook) {
@@ -194,6 +198,10 @@ function lucesycolores_theme() {
 return $items;
 }
 
+function lucesycolores_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
+  $form['submit']['#value'] = t('Add to');
+}
+
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
   //dpm($form);
@@ -230,7 +238,6 @@ function lucesycolores_preprocess_page(&$variables){
   
   
   $user = user_load($variables['user']->uid);
-  
   //dpm ($user);
   $fullname_user = "";
   if(!empty($user->field_full_name)){

@@ -271,6 +271,8 @@ function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($pay
   $credomatic->prepareParameters($parameters);
   $json_response = $credomatic->doHttpRequest($parameters);
 
+  //exit(var_export($json_response));
+  
   if (!isset($json_response)) {
     _commerce_credomatic_save_invalid_transaction($order, $charge, t('Invalid callback to server.'));
     return FALSE;

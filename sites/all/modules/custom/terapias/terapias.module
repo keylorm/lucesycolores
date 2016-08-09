@@ -1,0 +1,263 @@
+<?php
+  /**
+   * implements 
+   */
+function terapias_menu()
+{
+  $info = array();
+
+    $info['admin/terapias'] = array(
+        "title" => t('Therapies system'),
+        "description" => "",
+        "page callback" => 'drupal_get_form',
+        'page arguments' => array('terapias_form'),
+        'access callback' => getCurrentUser(),
+        'type' => MENU_NORMAL_ITEM
+    );
+    return $info;
+}
+
+
+/**
+ * implements hook_form() 
+ */
+function terapias_form($form, &$form_state)
+{
+  $form = array();
+  
+  $form['form-wrapper-therapy'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Add therapy'), 
+    '#weight' => 5, 
+    '#collapsible' => TRUE, 
+    '#collapsed' => FALSE,
+  );
+  
+  $form['form-wrapper-therapy']['therapy-name'] = array(
+       '#prefix' => '<br/>',
+       '#type' => 'select',
+       '#title' => t('Name of the therapy'),
+       '#options' => getTherapies(),
+       '#default_value' => 1,
+       '#description' => t('Select the name of the therapy.'),
+       '#suffix' => '<br/>',
+   );
+   
+   $form['form-wrapper-therapy']['date'] = array(
+      '#type' => 'date_select',
+      '#title' => t('Date'),
+      '#default_value' => date("d-m-Y", time()),
+      '#date_format' => "d-m-Y",
+      '#date_year_range' => '-0:+2',
+      '#states' => array(
+        'visible' => array(':input[name="set_dates"]' => array('value' => 1)),
+      ),
+      '#description' => t('Select the date of the therapy.'),
+      '#suffix' => '<br/>',
+   );
+  
+  $form['form-wrapper-therapy']['recommendations'] = array(
+      '#title' => t('Recommendations'),
+      '#type' => 'textarea',  
+      '#description' => t('Recommendations for the therapy'),
+      '#default_value' => '',
+      '#suffix' => '<br/>',
+  );
+  
+  $options_user = array(
+    1=> t('New'),
+    2=> t('Existing')
+  );
+  
+  $form['form-wrapper-therapy']['user'] = array(
+      '#type' => 'radios',
+      '#title' => t('User'),
+      '#default_value' => 1,
+      '#options' => $options_user,
+      '#ajax' => array(
+        'callback' => 'ajax_user_fieldset_callback',
+        'wrapper' => 'user_ajax_wrapper',
+      ),
+  );
+  
+  $form['form-wrapper-therapy']['user_fieldset'] = array(
+      '#title' => t("New User"),
+      '#type' => 'fieldset',
+      '#prefix' => '<div id="user_ajax_wrapper">',
+      '#suffix' => '</div>',
+      '#collapsible' => TRUE, 
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'id' => 'new-user',
+      )
+    );
+  
+  //extraer los datos de los usuarios
+  $url = 'http://lucesycolores.orbelink.com/terapias-usuarios';
+  $options = array(
+    'method' => 'GET',
+    'header' => 'Content-Type: application/json',
+  );
+  $result = drupal_http_request($url, $options);
+  $data = drupal_json_decode($result->data);
+  $users = array();
+  foreach($data as $key => $value){
+    foreach($value as $key2 => $value2){
+      foreach($value2 as $key3 => $value3){
+        //dpm($value3['uid']);
+        $users[$value3['uid']] = $value3['email'];
+      }
+    }
+  }
+  
+   $form['form-wrapper-therapy']['user_fieldset']['existing-user-email'] = array(
+    '#title' => t("Existing user email"),
+    '#type' => 'select',
+    '#options' => $users,
+    '#default_value' => '',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'existing-user-email'
+   ),
+  );
+  
+   $form['form-wrapper-therapy']['user_fieldset']['fullname'] = array(
+    '#title' => t("Full name"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'full-name-field'
+   ),
+  );
+
+  $form['form-wrapper-therapy']['user_fieldset']['email'] = array(
+    '#title' => t("Email"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'email-field'
+   ),
+  );
+  
+	$form['form-wrapper-therapy']['user_fieldset']['telefono'] = array(
+    '#title' => t("Phone"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'phone-field'
+   ),
+	);
+	
+	$form['form-wrapper-therapy']['user_fieldset']['provincia'] = array(
+    '#title' => t("Province"),
+    '#type' => 'select',
+		'#options' => array(
+			1 => 'San José',
+			2 => 'Cartago',
+			3 => 'Heredia',
+			4 => 'Alajuela',
+			5 => 'Limón',
+			6 => 'Puntarenas',
+			7 => 'Guanacaste',
+		),
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'province-field'
+   ),
+  );
+	
+  //validar select
+   
+  if((isset($form_state['values']['user'])) && ($form_state['values']['user'] == 1 )) 
+  {
+    $form['form-wrapper-therapy']['user_fieldset']['#attributes'] = array(
+      'id' => "new-user",
+    );
+    
+    $form['form-wrapper-therapy']['user_fieldset']['#title'] = t('New User');
+    
+  }elseif((isset($form_state['values']['user'])) && ($form_state['values']['user'] == 2 ))
+  {
+    $form['form-wrapper-therapy']['user_fieldset']['#attributes'] = array(
+      'id' => 'existing-user', 
+    );
+    $form['form-wrapper-therapy']['user_fieldset']['#title'] = t('Existing User');
+  }
+  
+  $form['form-wrapper-therapy']['add-therapy'] = array(
+      '#type' => 'button',  
+      '#value' => t('Add'),
+      '#suffix' => '<br/>',
+  );
+  
+  $form['#attached']['css'] = array(
+    drupal_get_path('module', 'terapias') . '/css/terapias.css',
+  );
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'terapias') . '/js/terapias.js',
+  );
+  
+  return $form;
+}
+
+/**
+ * funciton callback
+ */
+function ajax_user_fieldset_callback($form, $form_state)
+{
+  return $form['form-wrapper-therapy']['user_fieldset'];
+}
+
+function _terapias_page() 
+{
+	return theme('terapias_template');
+}
+
+/**
+ * implements hook_theme()
+ */
+
+function terapias_theme()
+{
+  $module_path = drupal_get_path('module', 'terapias');
+	$themes = array (
+		'terapias_template' => array(
+			'template' => 'terapias-template', // your template file called custompage.tpl.php
+      'path' => $module_path.'/templates',
+		),
+	);
+	return $themes;
+}
+
+/**
+ * custom functon
+ */
+
+function getTherapies()
+{
+  //obtener todas las terapias
+  $name = 'Terapias';
+  $options = array();
+  $vocabulary = taxonomy_vocabulary_machine_name_load($name);
+  $tree = taxonomy_get_tree($vocabulary->vid);
+  foreach ($tree as $term) {
+   //echo $term->tid;
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+/**
+ * custom functon
+ */
+function getCurrentUser()
+{
+  global $user;
+  $isAdmin = false;
+  
+  if($user->uid == 1)
+    $isAdmin = true;
+  
+  return $isAdmin;
+}

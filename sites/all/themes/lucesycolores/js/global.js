@@ -47,6 +47,42 @@ $( function() {
 			}
     })
 		
+		//ajuste formulario add to cart
+		var monto_preliminar = document.createElement("div");
+		var monto_unidad = document.createElement("div");
+		var costo_preliminar_label = document.createElement("div");
+		var costo_unidad_label = document.createElement("div");
+		
+		costo_preliminar_label.id = "costo-preliminar-label";
+		costo_unidad_label.id = "costo-unidad-label";
+		monto_preliminar.id = "costo-preliminar-monto";
+		monto_unidad.id = "costo-unidad-monto";
+		
+		var precio = $(".field-name-commerce-price .field-item").text();
+		
+		monto_unidad.innerHTML = precio;
+		monto_preliminar.innerHTML = precio;
+		costo_preliminar_label.innerHTML = 'Costo total preliminar:';
+		costo_unidad_label.innerHTML = 'Costo por unidad:';
+		
+		$("form.commerce-add-to-cart #edit-quantity").after(monto_preliminar);
+		$("form.commerce-add-to-cart #edit-quantity").after(costo_preliminar_label);
+		
+		$("form.commerce-add-to-cart #edit-product-id").after(monto_unidad);
+		$("form.commerce-add-to-cart #edit-product-id").after(costo_unidad_label);
+		
+		$("form.commerce-add-to-cart #edit-quantity").on('change', function(){
+				var cantidad = $(this).val();
+				var monto = $("#costo-unidad-monto").text();
+			 	monto = monto.replace('$', '');
+				monto_preliminar.innerHTML = '$'+ (cantidad * monto);
+		});		
+				
+		$("a#edit-purchasing-anonymus").on('click', function(event){
+				event.preventDefault();
+				$('.ajax-register-links li.first a.ctools-modal-ctools-ajax-register-style').trigger('click');
+		});
+		
 	});
 	
 	$(function (){

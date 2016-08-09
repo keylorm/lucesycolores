@@ -1,0 +1,6 @@
+#existing-user .form-item-email,
+#existing-user .form-item-fullname,
+#new-user .form-item-existing-user-email
+{
+   display: none;
+}

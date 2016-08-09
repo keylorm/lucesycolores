@@ -806,3 +806,90 @@ h2.decora:after {
 
 /*Added by Juan martinez*/
 .hidden {display: none;}
+
+
+
+/* Home - Keylor Mora Garro */
+
+
+.panel-pane.fullwidth.slider .slide{
+	max-height:465px;
+	overflow: hidden;
+}
+.panel-pane.fullwidth.slider .slide img{
+	float: none;
+	margin: 0 auto;
+}
+
+.panel-pane.fullwidth.slider .slide .fluid-width-video-wrapper iframe{
+	top: -15%;
+}
+
+.bx-wrapper .bx-controls{
+   max-width: 1180px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.bx-wrapper .bx-next{
+	background-position: -43px -31px;
+
+}
+.bx-wrapper .bx-prev{
+	background-position: 0 -31px;
+
+}
+.bx-wrapper .bx-controls-direction a:hover{
+	height 31px;
+}
+
+.panel-pane.fullwidth.slider .caption-container{
+	   position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 28%;
+    text-align: center;
+}
+
+.panel-pane.fullwidth.slider .caption-container h2{
+	font-family: 'IM Fell DW Pica', serif;
+	color: #fff;
+	font-size: 28px;
+}
+
+.link-container-slider{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+
+.alink{
+	height: 44px;
+	text-align: center;
+	color: #fff;
+	font-size:18px; 
+	font-family: 'Source Sans Pro', sans-serif;
+	line-height:44px;
+	padding: 0 10px;
+	margin: 0 10px;
+	border-radius: 4px;
+	display: block;
+}
+.anaranja{
+	background-color: #EA5B0C;
+}
+
+.aceleste{
+	background-color: #36A9E1;
+}
+
+/*#edit-checkout{
+	display: none;
+}*/
