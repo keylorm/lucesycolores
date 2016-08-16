@@ -58,6 +58,12 @@ h2.decora:after,
 	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
+
+
+.center{
+	text-align: center;	
+}
+
 .icon-hover-decorations:before {
 	content: '\e802';
 }
@@ -817,10 +823,15 @@ h2.decora:after {
 
 /* Home - Keylor Mora Garro */
 
+.panel-pane.fullwidth.slider{
+	margin-bottom: 22px;
+}
+
 
 .panel-pane.fullwidth.slider .slide{
 	max-height:465px;
 	overflow: hidden;
+	
 }
 .panel-pane.fullwidth.slider .slide img{
 	float: none;
@@ -906,6 +917,20 @@ h2.decora:after {
 .panel-pane.fullwidth.slider .bx-wrapper .bx-viewport ul{
 	margin: 0;
 }
+
+
+.sinmargen-superior{
+	margin-top:0px;
+}
+
+.sinmargen-inferior{
+	margin-bottom: 0px;
+}
+
+.sinmargen{
+	margin: 0;
+}
+
 /*#edit-checkout{
 	display: none;
 }*/

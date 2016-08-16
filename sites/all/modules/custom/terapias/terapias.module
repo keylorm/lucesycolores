@@ -84,7 +84,7 @@ function terapias_form($form, &$form_state, $id_terapia)
       '#collapsed' => FALSE,
       '#attributes' => array(
         'id' => 'new-user',
-				'disabled' => ($terapia != '') ? 'disabled' : '',
+				//'disabled' => ($terapia != 'todos') ? 'disabled' : '',
       ),
     );
     
@@ -225,11 +225,11 @@ function terapias_form_submit($form, &$form_state)
 		//dpm($form_state);
 		//crear terapia
 		//crear un usuario con los datos obtenidos
-		dpm(createUser($form_state['values']['fullname'], getRandomCode(), $form_state['values']['email'], $idTerapia, $form_state['values']['telefono'], $form_state['values']['provincia']));
+		createUser($form_state['values']['fullname'], getRandomCode(), $form_state['values']['email'], $idTerapia, $form_state['values']['telefono'], $form_state['values']['provincia']);
 		//drupal_set_message(t('It\'s has been created the therapy: !therapy'), array('!therapy' => ($form_state['values']['fullname'] . '-' . $date->format('d-m-Y'))), 'status'); 
 		drupal_set_message(t('the therapy has been created successfully to the client !client', array('!client' => $form_state['values']['fullname']))); 
 	} else {
-		dpm(updateUserTerapy($form_state['values']['existing-user'], $idTerapia));
+		updateUserTerapy($form_state['values']['existing-user'], $idTerapia);
 		drupal_set_message(t('the therapy has been created successfully to the client !client', array('!client' => $form_state['values']['existing-user']))); 
 	}
 }
@@ -352,12 +352,26 @@ function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
 function updateUserTerapy($uid, $terapiaId)
 {
 	$user_fields = user_load($uid);
-	$arrayTerapias = $user_fields->field_terapias[LANGUAGE_NONE];
-	array_push($arrayTerapias, array(
+	$arrayTerapias = $user_fields->field_terapias;
+	dpm($user_fields);
+	if(!empty($arrayTerapias)){
+			array_push($arrayTerapias[LANGUAGE_NONE], array(
 								'target_id' => $terapiaId,
 							)
 						);
-	$user_fields->field_terapias[LANGUAGE_NONE] = $arrayTerapias;
+	}else{
+		
+		$arrayTerapias = array(
+											'und' => array(
+												0 => array(
+													'target_id' => $terapiaId,
+												),
+											),
+										);
+		
+	}
+	
+	$user_fields->field_terapias = $arrayTerapias;
 	return(user_save($user_fields));
 }
 
