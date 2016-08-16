@@ -4,15 +4,62 @@
  **/
  function ajustes_form_alter(&$form, &$form_state, $form_id)
  {
- 	if($form_id == 'comment_node_blog_post_form')
- 	{
+ 	if($form_id == 'comment_node_blog_post_form'){
  		$form['author']['name']['#title'] = '';
  		$form['author']['name']['#attributes'] = array('placeholder' => t('Author'));
  		$form['comment_body'][LANGUAGE_NONE][0]['#title'] = '';
  		$form['comment_body'][LANGUAGE_NONE][0]['#attributes'] = array('placeholder' => t('Comment'));
  		$form['field_correo'][LANGUAGE_NONE][0]['email']['#title'] = '';
  		$form['field_correo'][LANGUAGE_NONE][0]['email']['#attributes'] = array('placeholder' => t('Email'));
- 	}
+ 	}elseif($form_id == 'commerce_checkout_form_checkout'){
+    //var_export($form);
+    global $user;
+     if( $form_id == 'commerce_checkout_form_checkout' && $user->uid ){
+      $user = user_load( $user->uid );
+      //var_export( $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']);
+      // For each field in customer profile I fill the form field with the $user value 
+      $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+       $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
+      $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+       $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
+    }
+  } /*elseif($form_id == 'commerce_checkout_form_checkout') {
+    exit(var_export($form));
+  }*/
+   
+   
+   /*elseif($form_id == 'views_form_commerce_cart_form_default'){
+    global $user;
+    $url_checkout='checkout/1';
+    $id = 'edit-purchasing-normal';
+    $is_anonimo = false;
+    
+    foreach($user->roles as $key => $rol){
+        if($rol == 'anonymous user')
+          $is_anonimo = true;
+    }
+    
+    if($is_anonimo){
+      $url_checkout = '/ajax_register/register/nojs'; 
+      $id = 'edit-purchasing-anonymus';
+    }
+        
+    $form['actions']['submit'] = array(
+      '#type' => 'button',
+      '#value' => t('Update'),
+    );
+    
+    $form['actions']['purchasing'] = array(
+      '#type' => 'link',
+      '#title' => t('Purchasing now'),
+      '#href' => $url_checkout,
+      '#attributes' => array(
+        'rel' => 'notfollow',
+        'id' => $id,
+        'class' => 'ctools-use-modal ctools-modal-ctools-ajax-register-style ctools-use-modal-processed',
+      ),
+    );
+  }*/
  }
 
 /**
@@ -42,16 +89,18 @@ function  ajustes_block_view($delta = '') {
         $result = current_category_description();
         $block['content'] = array(
           '#markup' => current_category_description(),
-          /*'#attached' => array(
-              'js' => array(
-                drupal_get_path('module', 'ajustes') . '/js/ajustes.js',
-            ),
-          ),*/
         );
       }
     return $block;
   } 
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+/*function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
+  $form['submit']['#attributes']['value'] = t('Buy Now');
+}*/
 
 /**
  * Custom content function. 

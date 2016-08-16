@@ -1,0 +1,422 @@
+<?php
+  /**
+   * implements 
+   */
+function terapias_menu()
+{
+  $info = array();
+
+    $info['admin/terapias/%'] = array(
+        "title" => t('Therapies system'),
+        "description" => "",
+        "page callback" => 'drupal_get_form',
+        'page arguments' => array('terapias_form', 2),
+        'access callback' => getCurrentUser(),
+        'type' => MENU_CALLBACK
+    );
+    return $info;
+}
+
+
+/**
+ * implements hook_form() 
+ */
+function terapias_form($form, &$form_state, $id_terapia)
+{
+	$terapia = '';
+	if($id_terapia != 'todos'){
+		$terapia = node_load($id_terapia);
+	}
+	
+  $form = array();
+  
+  $form['form-wrapper-therapy'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Add therapy'), 
+    '#weight' => 5, 
+    '#collapsible' => TRUE, 
+    '#collapsed' => FALSE,
+		'#prefix' => ($terapia != '') ? '<br /><h2>Terapia: ' . $terapia->title . '</h2><a href="/admin/terapias">Nueva terapia</a><br />' : '',
+  );
+  
+  $form['form-wrapper-therapy']['therapy-id'] = array(
+       '#prefix' => '<br/>',
+       '#type' => 'select',
+       '#title' => t('Name of the therapy'),
+       '#options' => getTherapies(),
+       '#default_value' => ($terapia != '') ? $terapia->field_tipo_de_terapia[LANGUAGE_NONE][0]['tid'] : 1,
+       '#description' => t('Select the name of the therapy.'),
+       '#suffix' => '<br/>',
+   );
+   
+   $form['form-wrapper-therapy']['date'] = array(
+      '#type' => 'date_select',
+      '#title' => t('Date'),
+      '#default_value' => ($terapia != '') ? $terapia->field_fecha_terapia[LANGUAGE_NONE][0]['value'] : date("d-m-Y", time()),
+      '#date_format' => "d-m-Y",
+      '#date_year_range' => '-0:+2',
+      '#states' => array(
+        'visible' => array(':input[name="set_dates"]' => array('value' => 1)),
+      ),
+      '#description' => t('Select the date of the therapy.'),
+      '#suffix' => '<br/>',
+   );
+  
+  $form['form-wrapper-therapy']['recommendations'] = array(
+      '#title' => t('Recommendations and Observations'),
+      '#type' => 'textarea',  
+      '#description' => t('Recommendations for the therapy'),
+      '#default_value' => ($terapia != '') ? $terapia->body[LANGUAGE_NONE][0]['value'] : '',
+      '#suffix' => '<br/>',
+  );
+  
+  $options_user = array(
+    1=> t('New'),
+    2=> t('Existing')
+  );
+	
+  $form['form-wrapper-therapy']['user_fieldset'] = array(
+      '#title' => t("New User"),
+      '#type' => 'fieldset',
+      '#prefix' => '<div id="user_ajax_wrapper">',
+      '#suffix' => '</div>',
+      '#collapsible' => TRUE, 
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'id' => 'new-user',
+				//'disabled' => ($terapia != 'todos') ? 'disabled' : '',
+      ),
+    );
+    
+  $form['form-wrapper-therapy']['user_fieldset']['user'] = array(
+      '#type' => 'radios',
+      '#title' => t('User'),
+      '#default_value' => 1,
+      '#options' => $options_user,
+      '#ajax' => array(
+        'callback' => 'ajax_user_fieldset_callback',
+        'wrapper' => 'user_ajax_wrapper',
+      ),
+  );
+  	
+  //extraer los datos de los usuarios
+  $url = 'http://lucesycolores.orbelink.com/terapias-usuarios';
+  $options = array(
+    'method' => 'GET',
+    'header' => 'Content-Type: application/json',
+  );
+  $result = drupal_http_request($url, $options);
+  $data = drupal_json_decode($result->data);
+	
+  $users = array();
+  foreach($data as $key => $value){
+    foreach($value as $key2 => $value2){
+      foreach($value2 as $key3 => $value3){
+        //dpm($value3['uid']);
+        $users[$value3['uid']] = $value3['field_full_name'];
+      }
+    }
+  }
+  
+   $form['form-wrapper-therapy']['user_fieldset']['existing-user'] = array(
+    '#title' => t("Existing user email"),
+    '#type' => 'select',
+    '#options' => $users,
+    '#default_value' => '',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'existing-user'
+   ),
+  );
+  
+   $form['form-wrapper-therapy']['user_fieldset']['fullname'] = array(
+    '#title' => t("Full name"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'full-name-field'
+   ),
+  );
+
+  $form['form-wrapper-therapy']['user_fieldset']['email'] = array(
+    '#title' => t("Email"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'email-field'
+   ),
+  );
+  
+	$form['form-wrapper-therapy']['user_fieldset']['telefono'] = array(
+    '#title' => t("Phone"),
+    '#type' => 'textfield',
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'phone-field'
+   ),
+	);
+	
+	$form['form-wrapper-therapy']['user_fieldset']['provincia'] = array(
+    '#title' => t("Province"),
+    '#type' => 'select',
+		'#options' => array(
+			'San José' => 'San José',
+			'Cartago' => 'Cartago',
+			'Heredia' => 'Heredia',
+			'Alajuela' => 'Alajuela',
+			'Limón' => 'Limón',
+			'Puntarenas' => 'Puntarenas',
+			'Guanacaste' => 'Guanacaste',
+		),
+    '#description' => t(''),
+    '#attributes' => array(
+      'id' => 'province-field'
+   ),
+  );
+	
+  //validar select
+   
+  if((isset($form_state['values']['user'])) && ($form_state['values']['user'] == 1 )) 
+  {
+    $form['form-wrapper-therapy']['user_fieldset']['#attributes'] = array(
+      'id' => "new-user",
+    );
+    
+    $form['form-wrapper-therapy']['user_fieldset']['#title'] = t('New User');
+    
+  }elseif((isset($form_state['values']['user'])) && ($form_state['values']['user'] == 2 ))
+  {
+    $form['form-wrapper-therapy']['user_fieldset']['#attributes'] = array(
+      'id' => 'existing-user', 
+    );
+    $form['form-wrapper-therapy']['user_fieldset']['#title'] = t('Existing User');
+  }
+  
+  $form['form-wrapper-therapy']['add-therapy'] = array(
+      '#type' => 'submit',  
+      '#value' => t('Add'),
+      '#suffix' => '<br/>',
+  );
+  
+  $form['#attached']['css'] = array(
+    drupal_get_path('module', 'terapias') . '/css/terapias.css',
+  );
+
+  $form['#attached']['js'] = array(
+		drupal_get_path('module', 'terapias') . '/js/maskedinput/src/jquery.maskedinput.js',
+		drupal_get_path('module', 'terapias') . '/js/textarea-helper/textarea-helper.js',
+    drupal_get_path('module', 'terapias') . '/js/terapias.js',
+  );
+  
+  return $form;
+}
+
+/**
+ * form submition
+ */
+function terapias_form_submit($form, &$form_state)
+{
+	//dpm($form_state);
+	$date = new DateTime($form_state['values']['date']);
+	$tipo_terapia = $form_state['values']['therapy-id'];
+	$idTerapia = createTherapy(($form_state['values']['fullname'] . '-' . $date->format('d-m-Y')), $form_state['values']['recommendations'], $date->format('d-m-Y'), $tipo_terapia);
+	//validar si es un usuario nuevo o existente
+	if($form['form-wrapper-therapy']['user_fieldset']['#attributes']['id'] == 'new-user'){
+		//dpm($form_state);
+		//crear terapia
+		//crear un usuario con los datos obtenidos
+		createUser($form_state['values']['fullname'], getRandomCode(), $form_state['values']['email'], $idTerapia, $form_state['values']['telefono'], $form_state['values']['provincia']);
+		//drupal_set_message(t('It\'s has been created the therapy: !therapy'), array('!therapy' => ($form_state['values']['fullname'] . '-' . $date->format('d-m-Y'))), 'status'); 
+		drupal_set_message(t('the therapy has been created successfully to the client !client', array('!client' => $form_state['values']['fullname']))); 
+	} else {
+		updateUserTerapy($form_state['values']['existing-user'], $idTerapia);
+		drupal_set_message(t('the therapy has been created successfully to the client !client', array('!client' => $form_state['values']['existing-user']))); 
+	}
+}
+
+/**
+ * funciton callback
+ */
+function ajax_user_fieldset_callback($form, $form_state)
+{
+  return $form['form-wrapper-therapy']['user_fieldset'];
+}
+
+function _terapias_page() 
+{
+	return theme('terapias_template');
+}
+
+/**
+ * implements hook_theme()
+ */
+function terapias_theme()
+{
+  $module_path = drupal_get_path('module', 'terapias');
+	$themes = array (
+		'terapias_template' => array(
+			'template' => 'terapias-template', // your template file called custompage.tpl.php
+      'path' => $module_path.'/templates',
+		),
+	);
+	return $themes;
+}
+
+/**
+ * custom function
+ */
+function createTherapy($customTitle, $body, $date, $tipo_terapia) 
+{
+	
+	global $user;
+	// entity_create replaces the procedural steps in the first example of
+	// creating a new object $node and setting its 'type' and uid property
+	$values = array(
+		'type' => 'terapias',
+		'uid' => $user->uid,
+		'status' => 1,
+		'comment' => 1,
+		'promote' => 0,
+	);
+	$entity = entity_create('node', $values);
+
+	// The entity is now created, but we have not yet simplified use of it.
+	// Now create an entity_metadata_wrapper around the new node entity
+	// to make getting and setting values easier
+	$ewrapper = entity_metadata_wrapper('node', $entity);
+
+	// Using the wrapper, we do not have to worry about telling Drupal
+	// what language we are using. The Entity API handles that for us.
+	$ewrapper->title->set($customTitle);
+
+	// Setting the body is a bit different from other properties or fields
+	// because the body can have both its complete value and its
+	// summary
+	$my_body_content = $body;
+	$ewrapper->body->set(array('value' => $my_body_content));
+	$ewrapper->body->summary->set('');
+
+	// Setting the value of an entity reference field only requires passing
+	// the entity id (e.g., nid) of the entity to which you want to refer
+	// The nid 15 here is just an example.
+	//$ref_nid = 15;
+	// Note that the entity id (e.g., nid) must be passed as an integer not a
+	// string
+	//$ewrapper->field_my_entity_ref->set(intval($ref_nid));
+
+	// Entity API cannot set date field values so the 'old' method must
+	// be used
+	$entity->field_fecha_terapia[LANGUAGE_NONE][0] = array(
+      'value' => $date,
+      'timezone' => 'UTC',
+      'timezone_db' => 'UTC',
+	);
+
+	//tipo de terapia
+	$entity->	field_tipo_de_terapia[LANGUAGE_NONE][0] = array(
+			'tid' => $tipo_terapia,
+	);
+	
+	// Now just save the wrapper and the entity
+	// There is some suggestion that the 'true' argument is necessary to
+	// the entity save method to circumvent a bug in Entity API. If there is
+	// such a bug, it almost certainly will get fixed, so make sure to check.
+	$ewrapper->save();
+	return $ewrapper->getIdentifier();
+	
+}
+
+/**
+ * custom function
+ */
+function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
+{	
+	require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
+	$account = new StdClass();
+	$account->is_new = TRUE;
+	$account->status = TRUE;
+	$account->name = $name;
+	$account->pass = $pass;
+	$account->mail = $email;
+	$account->init = $email;
+	$account->field_full_name[LANGUAGE_NONE][0]['value'] = $name;
+	$account->field_phone[LANGUAGE_NONE][0]['value'] = $telefono;
+	$account->field_provincia[LANGUAGE_NONE][0]['value'] = $provincia;
+	$account->field_terapias[LANGUAGE_NONE][0]['target_id'] = $terapiaId;
+	return(user_save($account));	
+}
+
+/**
+ * custom function
+ */
+function updateUserTerapy($uid, $terapiaId)
+{
+	$user_fields = user_load($uid);
+	$arrayTerapias = $user_fields->field_terapias;
+	dpm($user_fields);
+	if(!empty($arrayTerapias)){
+			array_push($arrayTerapias[LANGUAGE_NONE], array(
+								'target_id' => $terapiaId,
+							)
+						);
+	}else{
+		
+		$arrayTerapias = array(
+											'und' => array(
+												0 => array(
+													'target_id' => $terapiaId,
+												),
+											),
+										);
+		
+	}
+	
+	$user_fields->field_terapias = $arrayTerapias;
+	return(user_save($user_fields));
+}
+
+/**
+ * custom function
+ */
+function getRandomCode()
+{
+    $an = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-)(.:,;";
+    $su = strlen($an) - 1;
+    return substr($an, rand(0, $su), 1) .
+            substr($an, rand(0, $su), 1) .
+            substr($an, rand(0, $su), 1) .
+            substr($an, rand(0, $su), 1) .
+            substr($an, rand(0, $su), 1) .
+            substr($an, rand(0, $su), 1);
+}	
+
+/**
+ * custom functon
+ */
+function getTherapies()
+{
+  //obtener todas las terapias
+  $name = 'Terapias';
+  $options = array();
+  $vocabulary = taxonomy_vocabulary_machine_name_load($name);
+  $tree = taxonomy_get_tree($vocabulary->vid);
+  foreach ($tree as $term) {
+   //echo $term->tid;
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+/**
+ * custom functon
+ */
+function getCurrentUser()
+{
+  global $user;
+  $isAdmin = false;
+  
+  if($user->uid == 1)
+    $isAdmin = true;
+  
+  return $isAdmin;
+}

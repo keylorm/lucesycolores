@@ -22,7 +22,6 @@ function bxslider_libraries_info() {
     'files' => array(
       'js' => array(
         'jquery.bxslider.min.js',
-        // 'jquery.bxslider.js',
       ),
       'css' => array(
         'jquery.bxslider.css',
@@ -44,7 +43,6 @@ function bxslider_libraries_info() {
 function bxslider_library() {
   $module_path = drupal_get_path('module', 'bxslider');
   $library_path = libraries_get_path('bxslider');
-
   $libraries['bxslider'] = array(
     'title' => 'bxslider',
     'website' => 'http://bxslider.com',

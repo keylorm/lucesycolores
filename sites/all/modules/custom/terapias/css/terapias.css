@@ -1,0 +1,25 @@
+#existing-user .form-item-email,
+#existing-user .form-item-fullname,
+#existing-user .form-item-telefono,
+#existing-user .form-item-provincia,
+#new-user .form-item-existing-user
+{
+   display: none;
+}
+
+#list-products 
+{
+  position: absolute;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 5px;
+  overflow:hidden;
+  overflow-y:scroll;
+  height: 250px;
+  z-index: 1;
+}
+
+.form-item-recommendations {
+  position: relative;
+}

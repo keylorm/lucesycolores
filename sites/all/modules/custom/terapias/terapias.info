@@ -1,0 +1,4 @@
+name = Terapias Luces y Colores modulo personalizado
+description = Asignar teraapias
+core = 7.x
+package = custom modules
