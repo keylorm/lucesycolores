@@ -42,7 +42,7 @@
 			
 			//obtener la informacion del campo de texto
 			var info = $('#edit-recommendations').val();
-			var infoCodeRemplaced = info.replace('#', '[' + idProduct + ' : ' + nameProduct + ']');
+			var infoCodeRemplaced = info.replace('#', '{' + idProduct + ' : ' + nameProduct + '}');
 			$('#edit-recommendations').val(infoCodeRemplaced);
 			$("#list-products").remove();
 		});

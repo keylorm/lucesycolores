@@ -50,6 +50,7 @@ stylesheets[all][] = css/sonambulo.css
 stylesheets[all][] = css/global.css
 stylesheets[all][] = css/tablet.css
 stylesheets[all][] = css/movil.css
+stylesheets[all][] = css/global2.css
 
 
 ;-------------- JS -------------

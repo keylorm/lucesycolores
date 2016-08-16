@@ -353,7 +353,6 @@ function updateUserTerapy($uid, $terapiaId)
 {
 	$user_fields = user_load($uid);
 	$arrayTerapias = $user_fields->field_terapias;
-	dpm($user_fields);
 	if(!empty($arrayTerapias)){
 			array_push($arrayTerapias[LANGUAGE_NONE], array(
 								'target_id' => $terapiaId,

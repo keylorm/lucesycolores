@@ -1,0 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|family=IM+Fell+DW+Pica);
+/*Terapias*/
+.view-terapias-usuarios .ui-accordion .ui-accordion-header {
+	border: none;
+  background: none;
+	background-color: #dadada;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	min-height: 48px;
+  padding: 0px;
+  background-image: url(..\images\terapias-fondo.png);
+  background-repeat: no-repeat;
+  -ms-background-position-x: right;
+  background-position-x: right;
+  -ms-background-position-y: 0px;
+  background-position-y: 0px;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-content{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+  padding: 10px;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-content p{
+  margin: 0px;
+  color: #575756;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-content p a {
+  font-weight: 600;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-header .field-name-field-tipo-de-terapia{
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: 1px solid #575756;
+  min-width: 160px;
+  font-weight: bold;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-header .field-name-field-tipo-de-terapia,
+.view-terapias-usuarios .ui-accordion .ui-accordion-header .field-name-field-fecha-terapia {
+	float: left;
+	line-height: 27px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #575756;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-header .field-name-field-fecha-terapia {
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+.view-terapias-usuarios .ui-state-default .ui-icon {
+  background-image: none;
+}
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active{
+  background-color: #009b3d;
+} 
+
+.view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active .field-name-field-tipo-de-terapia a,
+.view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active .field-name-field-fecha-terapia {
+  color: #fff;
+}

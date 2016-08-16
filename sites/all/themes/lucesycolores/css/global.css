@@ -30,7 +30,9 @@ h1.decora:after,
 h2.decora:before,
 h2.decora:after,
 .beneficios:before,
-.pilares:before {
+.pilares:before,
+.boton-isla-terapia-home:before,
+.link-curso-container:before{
 	font-family: "fontello";
 	font-style: normal;
 	font-weight: normal;
@@ -222,7 +224,7 @@ body {
 body p,
 body li {
 	font-size: 18px;
-	line-height: 21px;
+	line-height: 24px;
 	font-weight: 300;
 	color: #575756;
 }
@@ -910,7 +912,9 @@ h2.decora:after {
 
 
 .panel-pane.fullwidth.slider .bx-wrapper .bx-viewport{
-	border: 0px;
+	border: 0px;.
+	box-shadow: none;
+	-webkit-box-shadow: none;
 }
 
 
@@ -930,6 +934,172 @@ h2.decora:after {
 .sinmargen{
 	margin: 0;
 }
+
+.w-row.container-isla-terapia-home {
+  margin: 48px auto 85px;
+}
+
+.w-col.isla-terapia-home {
+  padding: 0 45px;
+	min-height:320px;
+}
+
+.anaranja-degradado{
+	  background-image: url("../images/bg-boton-naranja-degradado.jpg");
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    display: block;
+    float: none;
+    margin: 42px auto 0;
+    line-height: 44px;
+    height: 44px;
+    padding: 0 5px;
+    width: 225px;
+		transition: 0.5s ease;
+}
+
+.anaranja-degradado:hover{
+	transform: translate(0, -10px);
+}
+
+.boton-isla-terapia-home:before{
+	content: '\e816';
+    position: absolute;
+    font-size: 115px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+	color: #DADADA;
+}
+
+.boton-isla-terapia-home{
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	height: 115px;
+}
+
+
+.youtube-center{
+	float: none;
+	margin: 0 auto 20px;
+	display: block;
+	
+}
+
+.view-cursos .bx-viewport{
+	border: 0px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.view-cursos li{
+	height: 336px;
+	overflow-y: hidden;
+	position: relative;
+	border-radius: 10px;
+}
+
+.view-cursos li .curso-hover{
+	top: 338px;
+	background-color: rgba(58,170,53,0.8);
+	height: 100%;
+	width: 100%;
+	transition: 0.5s ease;
+	position: absolute;
+	padding: 30px 25px 10px;
+}
+
+.view-cursos li:hover .curso-hover{
+	top: 0px;
+}
+
+.view-cursos .bx-viewport ul.bxslider-carousel{
+	margin: 0;
+}
+
+.view-cursos .bx-wrapper .bx-prev{
+	left: -55px;
+}
+
+.view-cursos .bx-wrapper .bx-next{
+	right: -45px;
+}
+
+.view-cursos li .curso-hover .field-name-title a{
+		font-family: 'IM Fell DW Pica', serif;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 23px;
+	color: #fff;
+	text-align: center;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.view-cursos li .curso-hover .field-name-field-fecha{
+	color: #fff;
+    font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+	text-align: center;
+}
+
+.view-cursos li .curso-hover .field-name-body,
+.view-cursos li .curso-hover .field-name-body p{
+	color: #fff;
+  font-size: 16px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.link-curso-container a{
+	  background-color: #fff;
+    font-size: 18px;
+    color: #3AAA35;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    width: 180px;
+    display: block;
+    margin: 42px auto 0;
+    border-radius: 5px;
+}
+
+
+.link-curso-container{
+	  position: absolute;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    height: 115px;
+    z-index: 1;
+}
+
+.link-curso-container:before{
+	  content: '\e816';
+    position: absolute;
+    font-size: 115px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+    color: rgba(255,255,255,0.3);
+}
+
+
 
 /*#edit-checkout{
 	display: none;
