@@ -32,4 +32,24 @@
 		float: none;
 		margin: 0 auto;
 	}
+	
+	.panel-pane.fullwidth.slider .caption-container{
+		display: none;
+	}
+	
+	.panel-pane.fullwidth.slider .slide img {
+    float: none;
+    margin: 0 auto;
+		max-width: auto;
+		height: 175px;
+	}
+	
+	.panel-pane.fullwidth.slider .bx-wrapper .bx-viewport{
+		height: 175px !important;
+	}
+	
+	.panel-pane.fullwidth.slider .slide{
+		max-height: 175px;
+	}
+	
 }

@@ -51,7 +51,13 @@
   position: relative;
 }
 
+.panel-pane.fullwidth .pane-content{
+  max-width: 100%;
+}
 
+.panel-pane.fullwidth.llamado .pane-content {
+    max-width: 1180px;
+}
 
 .w-container{
   margin-left: auto;
@@ -59,9 +65,7 @@
   position: relative;
 }
 
-.panel-pane.fullwidth .pane-content{
-  max-width: 100%;
-}
+
 .w-container:before,
 .w-container:after {
   content: " ";
