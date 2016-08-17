@@ -85,8 +85,8 @@
 		min-height: 470px;
 	}
 	
-	.bx-wrapper{
-		max-width: 646px;
+	.view-cursos .bx-wrapper{
+		max-width: 646px !important;
 	}
 }
 
