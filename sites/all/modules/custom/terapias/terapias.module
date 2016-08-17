@@ -24,8 +24,19 @@ function terapias_menu()
 function terapias_form($form, &$form_state, $id_terapia)
 {
 	$terapia = '';
+	$usuario = '';
+	$usuario_id = 0;
 	if($id_terapia != 'todos'){
 		$terapia = node_load($id_terapia);
+		//obtener el usuario asignado a la terapia
+		$query = db_select('users', 'u');
+		$query->fields('u', array('uid'));
+		$query->join('field_data_field_terapias', 'fdft', 'fdft.entity_id = u.uid');
+		$query->condition('fdft.field_terapias_target_id', $id_terapia);
+		$result = $query->execute();
+		while($record = $result->fetchAssoc()){
+			$usuario_id = $record['uid'];
+		}
 	}
 	
   $form = array();
@@ -36,7 +47,7 @@ function terapias_form($form, &$form_state, $id_terapia)
     '#weight' => 5, 
     '#collapsible' => TRUE, 
     '#collapsed' => FALSE,
-		'#prefix' => ($terapia != '') ? '<br /><h2>Terapia: ' . $terapia->title . '</h2><a href="/admin/terapias">Nueva terapia</a><br />' : '',
+		'#prefix' => ($terapia != '') ? '<br /><h2>Terapia: ' . $terapia->title . '</h2><a href="/admin/terapias/todos">Nueva terapia</a><br />' : '',
   );
   
   $form['form-wrapper-therapy']['therapy-id'] = array(
@@ -48,16 +59,18 @@ function terapias_form($form, &$form_state, $id_terapia)
        '#description' => t('Select the name of the therapy.'),
        '#suffix' => '<br/>',
    );
-   
+	
+	$fecha = date("d-m-Y", time());	
+  if($terapia != ''){
+		$date = strtotime($terapia->field_fecha_terapia[LANGUAGE_NONE][0]['value']);
+		$fecha = date('Y-m-d',$date);
+	} 
    $form['form-wrapper-therapy']['date'] = array(
       '#type' => 'date_select',
       '#title' => t('Date'),
-      '#default_value' => ($terapia != '') ? $terapia->field_fecha_terapia[LANGUAGE_NONE][0]['value'] : date("d-m-Y", time()),
+      '#default_value' => $fecha,
       '#date_format' => "d-m-Y",
       '#date_year_range' => '-0:+2',
-      '#states' => array(
-        'visible' => array(':input[name="set_dates"]' => array('value' => 1)),
-      ),
       '#description' => t('Select the date of the therapy.'),
       '#suffix' => '<br/>',
    );
@@ -75,23 +88,24 @@ function terapias_form($form, &$form_state, $id_terapia)
     2=> t('Existing')
   );
 	
+	$class_fieldset = ($terapia != '') ? 'disable' : 'active';
+	
   $form['form-wrapper-therapy']['user_fieldset'] = array(
       '#title' => t("New User"),
       '#type' => 'fieldset',
-      '#prefix' => '<div id="user_ajax_wrapper">',
+      '#prefix' => '<div id="user_ajax_wrapper" class="' . $class_fieldset . '">',
       '#suffix' => '</div>',
       '#collapsible' => TRUE, 
       '#collapsed' => FALSE,
       '#attributes' => array(
-        'id' => 'new-user',
-				//'disabled' => ($terapia != 'todos') ? 'disabled' : '',
+        'id' => ($terapia != '') ? 'existing-user' : 'new-user',
       ),
     );
     
   $form['form-wrapper-therapy']['user_fieldset']['user'] = array(
       '#type' => 'radios',
       '#title' => t('User'),
-      '#default_value' => 1,
+		  '#default_value' => ($terapia != '') ? 2 : 1,
       '#options' => $options_user,
       '#ajax' => array(
         'callback' => 'ajax_user_fieldset_callback',
@@ -122,7 +136,7 @@ function terapias_form($form, &$form_state, $id_terapia)
     '#title' => t("Existing user email"),
     '#type' => 'select',
     '#options' => $users,
-    '#default_value' => '',
+    '#default_value' => $usuario_id,
     '#description' => t(''),
     '#attributes' => array(
       'id' => 'existing-user'
@@ -216,17 +230,28 @@ function terapias_form($form, &$form_state, $id_terapia)
  */
 function terapias_form_submit($form, &$form_state)
 {
-	//dpm($form_state);
 	$date = new DateTime($form_state['values']['date']);
 	$tipo_terapia = $form_state['values']['therapy-id'];
-	$idTerapia = createTherapy(($form_state['values']['fullname'] . '-' . $date->format('d-m-Y')), $form_state['values']['recommendations'], $date->format('d-m-Y'), $tipo_terapia);
+	
+	$term = taxonomy_term_load($tipo_terapia);
+	$nombreTerapia = $term->name;
+	//validar si es una terapia nueva o una existente
+	$prefix = $form['form-wrapper-therapy']['user_fieldset']['#prefix'];
+	$pos = strpos($prefix, 'disable');
+	$idTerapia = 0;
+	if($pos === false){
+		//activo, es una terapia nueva
+		$idTerapia = createTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('d-m-Y'), $tipo_terapia);
+	}else{
+		//desactivado. se desea modificar la terapia
+		$idTerapia = arg(2);
+		updateTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('d-m-Y'), $idTerapia);
+	}
 	//validar si es un usuario nuevo o existente
 	if($form['form-wrapper-therapy']['user_fieldset']['#attributes']['id'] == 'new-user'){
-		//dpm($form_state);
 		//crear terapia
 		//crear un usuario con los datos obtenidos
 		createUser($form_state['values']['fullname'], getRandomCode(), $form_state['values']['email'], $idTerapia, $form_state['values']['telefono'], $form_state['values']['provincia']);
-		//drupal_set_message(t('It\'s has been created the therapy: !therapy'), array('!therapy' => ($form_state['values']['fullname'] . '-' . $date->format('d-m-Y'))), 'status'); 
 		drupal_set_message(t('the therapy has been created successfully to the client !client', array('!client' => $form_state['values']['fullname']))); 
 	} else {
 		updateUserTerapy($form_state['values']['existing-user'], $idTerapia);
@@ -324,6 +349,19 @@ function createTherapy($customTitle, $body, $date, $tipo_terapia)
 	$ewrapper->save();
 	return $ewrapper->getIdentifier();
 	
+}
+
+/**
+ * custom function
+ */
+function updateTherapy($customTitle, $body, $date, $id_terapia) 
+{
+	dpm($date);
+	$node = node_load($id_terapia); // ...where $nid is the node id
+	$node->title = $customTitle;
+	$node->body[$node->language][0]['value'] = $body;
+	$node->field_fecha_terapia[$node->language][0]['value'] = $date;
+	node_save($node);
 }
 
 /**

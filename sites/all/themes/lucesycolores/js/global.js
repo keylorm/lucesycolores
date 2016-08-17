@@ -28,7 +28,7 @@ $( function() {
 		  pager: false,
 		  auto: false,
 		  infiniteLoop:true,
-			minSlides: 3,
+			minSlides: 1,
 			maxSlides: 3,
 			slideWidth: 308,
 			slideMargin: 30,

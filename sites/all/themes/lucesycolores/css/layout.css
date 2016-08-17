@@ -141,10 +141,23 @@
 .w-hidden-main {
   display: none !important;
 }
+
+
 @media screen and (max-width: 991px) {
   .w-container{
-    max-width: 728px;
+
   }
+  
+  .fullwidth .pane-title, .panel-pane .pane-content, .header .w-container, .footer .w-container, .view.w-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 728px;
+    position: relative;
+}
+  
+  .panel-pane.fullwidth.llamado .pane-content {
+    max-width: 728px;
+}
   .w-hidden-main {
     display: inherit !important;
   }

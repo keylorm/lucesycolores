@@ -219,6 +219,9 @@ html {
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 body p,
@@ -944,7 +947,7 @@ h2.decora:after {
 	min-height:320px;
 }
 
-.anaranja-degradado{
+.anaranja-degradado, .pager.pager--infinite-scroll  a{
 	  background-image: url("../images/bg-boton-naranja-degradado.jpg");
     background-repeat: repeat-x;
     border-radius: 5px;
@@ -994,10 +997,15 @@ h2.decora:after {
 	
 }
 
+.view-cursos {
+	margin: 40px auto;
+}
+
 .view-cursos .bx-viewport{
 	border: 0px;
 	box-shadow: none;
 	-webkit-box-shadow: none;
+	
 }
 
 .view-cursos li{
@@ -1099,7 +1107,14 @@ h2.decora:after {
     color: rgba(255,255,255,0.3);
 }
 
+.pager.pager--infinite-scroll  {
+	list-style: none;
+}
 
+.header .menu li.menu-mlid-2904,
+.header .menu li.menu-mlid-2905{
+	display: none;
+}
 
 /*#edit-checkout{
 	display: none;

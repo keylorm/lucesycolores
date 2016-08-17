@@ -5,6 +5,13 @@
 	/***** END GLOBALS ****/
 	
 	$(document).ready(function(){
+		
+		//disable element 
+		if($("#user_ajax_wrapper").hasClass('disable'))
+		{
+			$("#user_ajax_wrapper fieldset").attr('disabled', true);
+		}
+		
      //Obtener el listado de todos los usuarios
      $.ajax({
         url: "/products-therapy",

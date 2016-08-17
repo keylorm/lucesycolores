@@ -52,4 +52,21 @@
 		max-height: 175px;
 	}
 	
+	.view-cursos .bx-viewport{
+		width: 308px !important;
+		margin: 0 auto;
+		left: 0px;
+	}
+	
+	.view-cursos .bx-wrapper .bx-prev{
+	left: 10px;
+}
+
+.view-cursos .bx-wrapper .bx-next{
+	right: 10px;
+}
+	
+	
+
+	}
 }
