@@ -65,8 +65,8 @@
 .view-cursos .bx-wrapper .bx-next{
 	right: 10px;
 }
-	
-	
-
-	}
+.w-col.isla-terapia-home {
+    min-height: 294px;
+    margin-bottom: 50px;
+}
 }

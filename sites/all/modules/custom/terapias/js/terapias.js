@@ -6,6 +6,10 @@
 	
 	$(document).ready(function(){
 		
+		//calendario 
+		/*$("#edit-field-fecha-terapia-value").datepicker({
+			dateFormat: "dd-mm-yyy",
+		});*/
 		//disable element 
 		if($("#user_ajax_wrapper").hasClass('disable'))
 		{

@@ -126,7 +126,6 @@ function terapias_form($form, &$form_state, $id_terapia)
   foreach($data as $key => $value){
     foreach($value as $key2 => $value2){
       foreach($value2 as $key3 => $value3){
-        //dpm($value3['uid']);
         $users[$value3['uid']] = $value3['field_full_name'];
       }
     }
@@ -214,15 +213,27 @@ function terapias_form($form, &$form_state, $id_terapia)
   
   $form['#attached']['css'] = array(
     drupal_get_path('module', 'terapias') . '/css/terapias.css',
+		//drupal_get_path('module', 'terapias') . '/bootstrap-datepicker/css/bootstrap-datepicker.css',
+		//'https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css',
   );
 
   $form['#attached']['js'] = array(
 		drupal_get_path('module', 'terapias') . '/js/maskedinput/src/jquery.maskedinput.js',
+		//'https://code.jquery.com/jquery-1.12.4.js',
+		//drupal_get_path('module', 'terapias') . '/bootstrap-datepicker/js/bootstrap-datepicker.js',
+		//'https://code.jquery.com/ui/1.12.0/jquery-ui.js',
 		drupal_get_path('module', 'terapias') . '/js/textarea-helper/textarea-helper.js',
     drupal_get_path('module', 'terapias') . '/js/terapias.js',
   );
   
   return $form;
+}
+
+/**
+ * form validation
+ */
+function terapias_form_validate($form, &$form_state){
+	//exit('test');
 }
 
 /**
@@ -241,11 +252,11 @@ function terapias_form_submit($form, &$form_state)
 	$idTerapia = 0;
 	if($pos === false){
 		//activo, es una terapia nueva
-		$idTerapia = createTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('d-m-Y'), $tipo_terapia);
+		$idTerapia = createTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('Y-m-d'), $tipo_terapia);
 	}else{
 		//desactivado. se desea modificar la terapia
 		$idTerapia = arg(2);
-		updateTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('d-m-Y'), $idTerapia);
+		updateTherapy($nombreTerapia, $form_state['values']['recommendations'], $date->format('Y-m-d'), $idTerapia);
 	}
 	//validar si es un usuario nuevo o existente
 	if($form['form-wrapper-therapy']['user_fieldset']['#attributes']['id'] == 'new-user'){
@@ -285,6 +296,18 @@ function terapias_theme()
 		),
 	);
 	return $themes;
+}
+
+
+/**
+ *  hook_form_alter()
+ */
+function terapias_form_alter(&$form, &$form_state, $form_id){
+	if($form_id == 'views_exposed_form'){
+		if ($form['#id'] == 'views-exposed-form-terapias-block') {
+			$form['field_fecha_terapia_value']['value']['#date_format'] = 'd-m-Y';
+		}
+	}
 }
 
 /**
@@ -356,7 +379,6 @@ function createTherapy($customTitle, $body, $date, $tipo_terapia)
  */
 function updateTherapy($customTitle, $body, $date, $id_terapia) 
 {
-	dpm($date);
 	$node = node_load($id_terapia); // ...where $nid is the node id
 	$node->title = $customTitle;
 	$node->body[$node->language][0]['value'] = $body;
@@ -381,9 +403,19 @@ function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
 	$account->field_phone[LANGUAGE_NONE][0]['value'] = $telefono;
 	$account->field_provincia[LANGUAGE_NONE][0]['value'] = $provincia;
 	$account->field_terapias[LANGUAGE_NONE][0]['target_id'] = $terapiaId;
-	return(user_save($account));	
+	
+	if(user_save($account)){
+		//enviar correo al usuario
+		$message = t('New account has been created to user: !user, using pass: !pass', array('!user' => $account->mail, '!pass' => $account->pass)); // Body of your email here.
+		$params = array(
+							 'body' => $message,
+							 'subject' => t('New user account'),
+							 'headers'=>'simple',
+						 );
+		$to = $account->mail;
+		drupal_mail('contactform', 'send_link', $to, language_default(), $params, 'soporte@orbelink.com', TRUE);
+	}
 }
-
 /**
  * custom function
  */
@@ -391,6 +423,7 @@ function updateUserTerapy($uid, $terapiaId)
 {
 	$user_fields = user_load($uid);
 	$arrayTerapias = $user_fields->field_terapias;
+	
 	if(!empty($arrayTerapias)){
 			array_push($arrayTerapias[LANGUAGE_NONE], array(
 								'target_id' => $terapiaId,

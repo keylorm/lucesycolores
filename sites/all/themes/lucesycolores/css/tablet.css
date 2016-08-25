@@ -88,6 +88,23 @@
 	.view-cursos .bx-wrapper{
 		max-width: 646px !important;
 	}
+	
+	header .header-top, header .header-top .menu{
+		text-align: center;
+	}
+	 header .w-col{
+		width: 100%;
+	}
+	
+	header .header-top .view-shopping-cart {
+    width: 50px;
+    float: none;
+    margin: 0 auto;
+}
+	
+	header .header-top{
+		padding-bottom: 20px;
+	}
 }
 
 

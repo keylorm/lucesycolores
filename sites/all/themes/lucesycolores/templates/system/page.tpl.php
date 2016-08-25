@@ -28,42 +28,48 @@
     <?php if ($page['header_top']): ?>
       <div class="header-top">
         <div class="w-container">
-          <div class="w-row">
-            <?php print render($page['header_top']); ?>
+          <div class="w-container-inner">
+            <div class="w-row">
+              <?php print render($page['header_top']); ?>
+            </div>
           </div>
+
         </div>
       </div>
     <?php endif; ?>
 
     <div class="header-content">
       <div class="w-container">
-        <?php if ($logo): ?>
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-          </a>
-        <?php endif; ?>
+        <div class="w-container-inner">
+          <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+            </a>
+          <?php endif; ?>
 
-        <?php if ($site_name || $site_slogan): ?>
+          <?php if ($site_name || $site_slogan): ?>
 
-            <?php if ($site_name): ?>
-              <?php if ($title): ?>
+              <?php if ($site_name): ?>
+                <?php if ($title): ?>
 
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-
-              <?php else: /* Use h1 when the content title is empty */ ?>
-                <h1 id="site-name">
                   <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-                </h1>
+
+                <?php else: /* Use h1 when the content title is empty */ ?>
+                  <h1 id="site-name">
+                    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+                  </h1>
+                <?php endif; ?>
               <?php endif; ?>
-            <?php endif; ?>
 
-            <?php if ($site_slogan): ?>
-              <?php print $site_slogan; ?>
-            <?php endif; ?>
+              <?php if ($site_slogan): ?>
+                <?php print $site_slogan; ?>
+              <?php endif; ?>
 
-        <?php endif; ?>
+          <?php endif; ?>
 
-        <?php print render($page['header']); ?>
+          <?php print render($page['header']); ?>
+        </div>
+
       </div>
     </div>
   <!--</div>-->
@@ -80,7 +86,7 @@
 <div class="main-content">
   <div class="w-container">
     <?php if ($breadcrumb): ?>
-      <div class="w-container">
+      <div class="breadcrumb w-container-inner">
         <?php print $breadcrumb; ?>
       </div>
       
@@ -136,16 +142,22 @@
 <?php if ($page['below_content']): ?>
   <section class="below-content">
     <div class="w-container">
-      <?php print render($page['below_content']); ?>
+      <div class="w-container-inner">
+         <?php print render($page['below_content']); ?>
+      </div>
+     
     </div>
   </section>
 <?php endif; // end Below Content ?>
 
 <footer class="footer" role="contentinfo">
   <div class="w-container">
-    <div class="w-row">
-      <?php print render($page['footer']); ?>
+    <div class="w-container-inner">
+      <div class="w-row">
+        <?php print render($page['footer']); ?>
+      </div>
     </div>
+  
   </div>
 </footer>
 

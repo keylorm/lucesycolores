@@ -275,6 +275,7 @@ header .language-switcher-locale-url li a {}
 
 header .header-top ul {
 	margin-top: 12px;
+	display: inline-block;
 }
 
 header .header-top ul li a {
@@ -1119,3 +1120,9 @@ h2.decora:after {
 /*#edit-checkout{
 	display: none;
 }*/
+
+.panel-pane.fullwidth.slider .slide img {
+    width: auto;
+    height: 100%;
+    max-width: none;
+}
