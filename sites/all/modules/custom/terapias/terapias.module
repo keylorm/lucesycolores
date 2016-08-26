@@ -114,7 +114,7 @@ function terapias_form($form, &$form_state, $id_terapia)
   );
   	
   //extraer los datos de los usuarios
-  $url = 'http://lucesycolores.orbelink.com/terapias-usuarios';
+  $url = 'http://dev.lucesycolores.com/terapias-usuarios';
   $options = array(
     'method' => 'GET',
     'header' => 'Content-Type: application/json',
@@ -392,11 +392,12 @@ function updateTherapy($customTitle, $body, $date, $id_terapia)
 function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
 {	
 	require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
+
 	$account = new StdClass();
 	$account->is_new = TRUE;
 	$account->status = TRUE;
 	$account->name = $name;
-	$account->pass = $pass;
+	$account->pass = user_hash_password($pass);
 	$account->mail = $email;
 	$account->init = $email;
 	$account->field_full_name[LANGUAGE_NONE][0]['value'] = $name;
@@ -405,17 +406,50 @@ function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
 	$account->field_terapias[LANGUAGE_NONE][0]['target_id'] = $terapiaId;
 	
 	if(user_save($account)){
+		global $base_url;
+		dpm($base_url);
 		//enviar correo al usuario
-		$message = t('New account has been created to user: !user, using pass: !pass', array('!user' => $account->mail, '!pass' => $account->pass)); // Body of your email here.
+		$message = t('This is your username and password to shop online in order to check your registration session and recommended products.');
+		$accesos = "<br />" . t('User name') . ": " . $name . "<br/>" . t('Password') . ": " . $pass . '<br /><a style="background-image: url("' . $base_url . '/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg"); background-repeat: repeat-x; border-radius: 5px; color: #fff; font-size: 18px; font-family: sans-serif; text-align: center; display: block; float: none; margin: 42px auto 0; line-height: 44px; height: 44px; padding: 0 5px; width: 225px;" href="' . $base_url . '/">Ingreso a mi cuenta</a>';
+		$table ='<table>
+					<thead style="background-color:#3C3C3B">
+						<tr>
+							<td><img src="' . $base_url . '/sites/all/themes/lucesycolores/images/logo-footer.png"/><td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								' . $message . $accesos .'
+							</td>
+						</tr>
+					</tbody>
+				  </table>';
 		$params = array(
-							 'body' => $message,
-							 'subject' => t('New user account'),
-							 'headers'=>'simple',
-						 );
+						 'body' => $table,
+						 'subject' => t('New user account'),
+						 'headers'=> array(
+						 				'Content-Type' => 'text/html; charset=UTF-8; format=flowed',
+						 			),
+						);
 		$to = $account->mail;
-		drupal_mail('contactform', 'send_link', $to, language_default(), $params, 'soporte@orbelink.com', TRUE);
+		drupal_mail('terapias', 'create_user_account', $to, language_default(), $params, 'soporte@orbelink.com', TRUE);
 	}
 }
+
+/**
+ * hook_mail();
+ */
+function terapias_mail($key, &$message, $params){
+  $language = $message['language'];
+  switch ($key) {
+    case 'create_user_account':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      break;
+  }
+} 
+
 /**
  * custom function
  */
