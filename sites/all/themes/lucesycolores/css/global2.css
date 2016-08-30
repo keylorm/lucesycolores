@@ -69,3 +69,96 @@
 .view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active .field-name-field-fecha-terapia {
   color: #fff;
 }
+
+/* Added by Juan Martinez: Tienda */
+#block-taxonomy-menu-block-1 {
+	position: absolute;
+	top: 0;
+	right: -465px;	
+	background-color: #ea5b0c;
+	position: fixed;
+	z-index: 1000000000;
+	width: 350px;
+	height: 100%;
+	padding: 20px 0px;
+	padding-top: 0px;	
+}
+
+#block-taxonomy-menu-block-1 ul {
+	float: left;	
+}
+
+#block-taxonomy-menu-block-1 ul li {
+	list-style: none;
+	height: 46px;
+}
+
+#block-taxonomy-menu-block-1 ul li a{
+	color: #fff;
+	padding: 13px 10px;
+	display: block;
+	line-height: 18px;
+} 
+
+#block-taxonomy-menu-block-1 ul li:nth-child(2),
+#block-taxonomy-menu-block-1 ul li:nth-child(13){
+	margin-bottom: 20px;
+}
+
+#block-taxonomy-menu-block-1 ul li a:hover{
+	background-color: #fff;
+	color: #ea5b0c;
+}
+
+#block-taxonomy-menu-block-1.open {
+	right: 0px;
+}
+
+.view-tienda .views-row {
+	max-height: 433px;
+	min-height: 433px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+	margin-right: 80px;
+	width: 320px;
+	margin-bottom: 35px;
+	padding: 15px 25px;
+	position: relative;
+}
+
+.view-tienda{
+	font-family: '';
+}
+
+.view-tienda .views-row:nth-child(3n){
+	margin-right: 0px;
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-title{
+	text-align: center;	
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-title h2 a{
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #e71d73;
+	line-height: 25px;
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-title h2 a:hover{
+	color: #fff;
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-more-link {
+	position: absolute;
+	bottom: 25px;
+  left: 48px;
+	z-index: 1;
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-more-link:before {
+	left: 55px;
+	right: 0;
+	bottom: -43px;	
+}

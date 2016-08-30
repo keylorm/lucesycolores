@@ -219,6 +219,8 @@ function commerce_credomatic_pcc_commerce_payment_method_submit_form_validate($p
  */
 function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($payment_method, $pane_form, $pane_values, $order, $charge) {
 
+  exit(var_export($pane_form));
+  
   // Determine the credit card type if possible for use in later code.
   $card_type = '';
   if (!empty($pane_values['credit_card']['number'])) {

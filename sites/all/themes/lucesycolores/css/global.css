@@ -32,7 +32,8 @@ h2.decora:after,
 .beneficios:before,
 .pilares:before,
 .boton-isla-terapia-home:before,
-.link-curso-container:before{
+.link-curso-container:before,
+.principios-reiki .w-col p:before{
 	font-family: "fontello";
 	font-style: normal;
 	font-weight: normal;
@@ -68,6 +69,7 @@ h2.decora:after,
 
 .icon-hover-decorations:before {
 	content: '\e802';
+	font-family: "fontello";
 }
 
 
@@ -80,63 +82,74 @@ h2.decora:after,
 
 /* '' */
 
-.icon-producto_icon_7:before {
+.icon-producto_icon_7:before,
+.sets-de-equilibrium:before {
 	content: '\e804';
 }
 
 
 /* '' */
 
-.icon-producto_icon_8-11-17:before {
+.icon-producto_icon_8-11-17:before,
+.pomanders:before,
+.quintaesencias:before,
+.rescates-de-bolsillo:before {
 	content: '\e805';
 }
 
 
 /* '' */
 
-.icon-producto_icon_9:before {
+.icon-producto_icon_9:before,
+.arcangeloi:before {
 	content: '\e806';
 }
 
 
 /* '' */
 
-.icon-producto_icon_10:before {
+.icon-producto_icon_10:before,
+.esencias-de-color:before {
 	content: '\e807';
 }
 
 
 /* '' */
 
-.icon-producto_icon_12:before {
+.icon-producto_icon_12:before,
+.lápiz-de-luz:before {
 	content: '\e808';
 }
 
 
 /* '' */
 
-.icon-producto_icon_13:before {
+.icon-producto_icon_13:before,
+.inciensos:before {
 	content: '\e809';
 }
 
 
 /* '' */
 
-.icon-producto_icon_14:before {
+.icon-producto_icon_14:before,
+.libros-de-aura-soma:before {
 	content: '\e80a';
 }
 
 
 /* '' */
 
-.icon-producto_icon_15:before {
+.icon-producto_icon_15:before,
+.bolsitas-de-cristales-enfocadas-hacia-intenciones-específicas:before {
 	content: '\e80b';
 }
 
 
 /* '' */
 
-.icon-producto_icon_16:before {
+.icon-producto_icon_16:before,
+.cristales-de-vidrio-programados:before {
 	content: '\e80c';
 }
 
@@ -150,42 +163,47 @@ h2.decora:after,
 
 /* '' */
 
-.icon-producto_icon_2:before {
+.icon-producto_icon_2:before,
+.singing-bowls-y-campanas-tibetanas:before{
 	content: '\e80e';
 }
 
 
 /* '' */
 
-.icon-producto_icon_3:before {
+.icon-producto_icon_3:before,
+.cristales-y-piedras:before {
 	content: '\e80f';
 }
 
 
 /* '' */
 
-.icon-producto_icon_4:before {
+.icon-producto_icon_4:before,
+.candelas:before {
 	content: '\e810';
 }
 
 
 /* '' */
 
-.icon-producto_icon_5:before {
+.icon-producto_icon_5:before,
+.pulseras-aura-beads-y-otra-joyería-fabricada-con-cristales:before {
 	content: '\e811';
 }
 
 
 /* '' */
 
-.icon-producto_icon_6:before {
+.icon-producto_icon_6:before,
+.equilibrium:before {
 	content: '\e812';
 }
 
 
 /* '' */
 
-.icon-producto_icon_1:before {
+.icon-producto_icon_1:before{
 	content: '\e813';
 }
 
@@ -605,6 +623,10 @@ h2.decora:after {
 	color: #36A9E1;
 }
 
+.fonttitulo{
+	font-family: 'IM Fell DW Pica', serif;
+}
+
 .hl2 {}
 
 .hleft {
@@ -646,15 +668,22 @@ h2.decora:after {
 
 /*AURA SOMA */
 
-.submenu-aurasoma {
+.submenu{
 	min-height: 75px;
-	background-image: url('../images/bg_menu_1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin-bottom: 25px;
 }
 
-.submenu-aurasoma .menu {
+.submenu-aurasoma {
+	background-image: url('../images/bg_menu_1.jpg');
+}
+
+.submenu-reiki {
+	background-image: url('../images/image-bg-submenu-reiki-op.jpg');
+}
+
+.submenu .menu {
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
@@ -662,17 +691,17 @@ h2.decora:after {
 	font-size: 0;
 }
 
-.submenu-aurasoma .menu li {
+.submenu .menu li {
 	display: inline-block;
 	margin: 0px;
 	padding: 0px;
 }
 
-.submenu-aurasoma .menu li:first-child a {
+.submenu .menu li:first-child a {
 	border-left: 1px solid #FFF;
 }
 
-.submenu-aurasoma .menu li a {
+.submenu .menu li a {
 	display: table-cell;
 	min-width: 220px;
 	max-width: 250px;
@@ -686,10 +715,20 @@ h2.decora:after {
 	color: #FFF;
 }
 
+.submenu.submenu-reiki .menu li a {
+	min-width: 185px;
+	max-width: 185px;
+}
 .submenu-aurasoma .menu li a:hover,
 .submenu-aurasoma .menu li a.active {
 	font-weight: bold;
 	background-color: #E71D73;
+}
+
+.submenu-reiki .menu li a:hover,
+.submenu-reiki .menu li a.active {
+	font-weight: bold;
+	background-color: rgba(87,196,234,0.7);
 }
 
 .row-beneficios,
@@ -948,7 +987,8 @@ h2.decora:after {
 	min-height:320px;
 }
 
-.anaranja-degradado, .pager.pager--infinite-scroll  a{
+.anaranja-degradado, .pager.pager--infinite-scroll  a,
+.view-tienda .views-row .vocabulary-product-category .field-name-more-link a{
 	  background-image: url("../images/bg-boton-naranja-degradado.jpg");
     background-repeat: repeat-x;
     border-radius: 5px;
@@ -1097,7 +1137,8 @@ h2.decora:after {
     z-index: 1;
 }
 
-.link-curso-container:before{
+.link-curso-container:before,
+.view-tienda .views-row .vocabulary-product-category .field-name-more-link:before{
 	  content: '\e816';
     position: absolute;
     font-size: 115px;
@@ -1126,3 +1167,59 @@ h2.decora:after {
     height: 100%;
     max-width: none;
 }
+
+.view-tienda .field-name-icono{
+	font-family: 'fontello';
+	font-size: 170px;
+	padding: 0px 50px;
+}
+
+.view-tienda .field-name-more-link{
+	font-family: 'fontello';
+}
+
+/* Reiki */
+
+
+.principios-reiki{
+	
+}
+
+.principios-reiki .w-col-2{
+	text-align: center;
+    padding: 44px;
+		margin: 50px 0;
+}
+
+.principios-reiki .w-col p:before{
+	content: '\e816';
+    position: absolute;
+    font-size: 156px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+	top: -14px;
+}
+
+.principios-reiki .w-col .hverde:before{
+	color: rgba(47,172,102,0.3);
+}
+
+.principios-reiki .w-col .hnaranja:before{
+	color: rgba(234,91,12,0.3);
+}
+
+.principios-reiki .w-col .hrosa:before{
+	color: rgba(231,29,115,0.3);
+}
+
+.principios-reiki .w-col .hceleste:before{
+	color: rgba(54,169,225,0.3);
+}
+
+.principios-reiki .w-col .hmorado:before{
+	color: rgba(132,44,113,0.3);
+}
+
+

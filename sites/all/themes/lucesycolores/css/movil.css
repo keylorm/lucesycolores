@@ -69,4 +69,16 @@
     min-height: 294px;
     margin-bottom: 50px;
 }
+	
+	
+	/*Reiki*/
+	
+	.principios-reiki .w-col-2{
+	    padding: 44px;
+		margin: 10px 0;
+	}
+	
+	.principios-reiki .w-col p:before {
+		    font-size: 156px;
+	}
 }

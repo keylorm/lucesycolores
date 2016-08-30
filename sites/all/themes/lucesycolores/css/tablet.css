@@ -105,6 +105,33 @@
 	header .header-top{
 		padding-bottom: 20px;
 	}
+	
+		/*Reiki*/
+	
+	.principios-reiki .w-col-2 {
+    padding: 0px 15px;
+}
+	
+	.principios-reiki .w-col p:before {
+
+    font-size: 115px;
+
+}
+	
+
+	.submenu{
+		padding: 15px 0 0 0;
+		
+	}
+	
+	.submenu .tinynav-wrapper{
+		    margin: 0 auto;
+		padding: 0;
+	}
+	
+	.submenu  .tinynav-wrapper select{
+	    background-color: rgba(255,255,255,0.4);
+	}
 }
 
 
@@ -154,5 +181,20 @@
 		position: static;
 		left: auto;
 	}
+	
+		/*Reiki*/
+	
+	.principios-reiki .w-col-2 {
+    padding: 0px 15px;
+}
+	
+	.principios-reiki .w-col p:before {
+
+    font-size: 115px;
+
+}
+	
+	
+
 
 }

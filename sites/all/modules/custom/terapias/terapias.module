@@ -114,7 +114,7 @@ function terapias_form($form, &$form_state, $id_terapia)
   );
   	
   //extraer los datos de los usuarios
-  $url = 'http://dev.lucesycolores.com/terapias-usuarios';
+  $url = 'http://lucesycolores.orbelink.com/terapias-usuarios';
   $options = array(
     'method' => 'GET',
     'header' => 'Content-Type: application/json',

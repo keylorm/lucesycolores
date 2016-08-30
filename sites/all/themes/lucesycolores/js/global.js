@@ -83,6 +83,16 @@ $( function() {
 				$('.ajax-register-links li.first a.ctools-modal-ctools-ajax-register-style').trigger('click');
 		});
 		
+		/*menu toggle*/
+		$('a#menu-toggle').on('click', function(event) {
+			event.preventDefault();
+			if($('#block-taxonomy-menu-block-1').hasClass('open')){
+				$('#block-taxonomy-menu-block-1').removeClass('open');
+			} else {
+				$('#block-taxonomy-menu-block-1').addClass('open');
+			}
+		});
+		
 	});
 	
 	$(function (){
