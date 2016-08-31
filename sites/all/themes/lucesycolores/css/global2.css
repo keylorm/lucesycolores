@@ -121,7 +121,7 @@
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	border: 1px solid #ddd;
-	margin-right: 80px;
+	margin-right: 108px;
 	width: 320px;
 	margin-bottom: 35px;
 	padding: 15px 25px;
@@ -136,6 +136,10 @@
 	margin-right: 0px;
 }
 
+.view-tienda .views-row:hover{
+	background-image: url('../images/mouse-over-categoria.png');
+}
+
 .view-tienda .views-row .vocabulary-product-category .field-name-title{
 	text-align: center;	
 }
@@ -146,13 +150,17 @@
 	line-height: 25px;
 }
 
+.view-tienda .views-row .vocabulary-product-category .field-name-title h2{
+	margin-bottom: 0px;
+}
+
 .view-tienda .views-row .vocabulary-product-category .field-name-title h2 a:hover{
 	color: #fff;
 }
 
 .view-tienda .views-row .vocabulary-product-category .field-name-more-link {
 	position: absolute;
-	bottom: 25px;
+	bottom: 30px;
   left: 48px;
 	z-index: 1;
 }
@@ -160,5 +168,15 @@
 .view-tienda .views-row .vocabulary-product-category .field-name-more-link:before {
 	left: 55px;
 	right: 0;
-	bottom: -43px;	
+	bottom: -33px;
+	font-size: 100px;	
+}
+
+.view-tienda .views-row .vocabulary-product-category .field-name-field-resumen-producto {
+	font-size: 14px;
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	color: #575756;
 }

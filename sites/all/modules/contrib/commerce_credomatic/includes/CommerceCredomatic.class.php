@@ -51,7 +51,7 @@ class CommerceCredomatic implements ICommerceCredomatic {
       'cvv' => $parameters['cvv'],
       'orderdescription' => $parameters['description'],
     );
-
+    
     $url = CREDOMATIC_URL;
     $options = array(
       'method' => 'POST',
@@ -81,6 +81,9 @@ class CommerceCredomatic implements ICommerceCredomatic {
     $parameters['amount'] = number_format($parameters['amount'], 2, '.', '');
     $parameters['description'] = implode('', $parameters['description']);
     $parameters['hash'] = md5(implode('|', array($parameters['orderid'], $parameters['amount'], $parameters['time'], $this->getKey())));
+    
+    //exit(var_export($parameters));
+    
   }
 
   /**

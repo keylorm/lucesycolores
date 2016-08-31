@@ -107,6 +107,11 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.w-col-05 {
+  width: 4.16666667%;
+}
+
 .w-col-1 {
   width: 8.33333333%;
 }

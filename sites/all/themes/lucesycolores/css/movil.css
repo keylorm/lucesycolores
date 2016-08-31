@@ -70,6 +70,18 @@
     margin-bottom: 50px;
 }
 	
+	.pilares {
+    height: 175px;
+}
+	
+	.pilares:before {
+    font-size: 160px;
+}
+	
+	.pilares p {
+     font-size: 21px; 
+}
+	
 	
 	/*Reiki*/
 	
@@ -81,4 +93,20 @@
 	.principios-reiki .w-col p:before {
 		    font-size: 156px;
 	}
+	
+	
+	.reiki-quienes .image-container{
+		max-height: 190px;
+	}
+
+			
+	.reiki-beneficios .image-container{
+		max-height: 182px;
+	}
+	
+		.reiki-beneficios .image-container .caption p {
+		font-size: 18px;
+    line-height: 21px;
+		}
+
 }

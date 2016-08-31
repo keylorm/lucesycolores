@@ -106,6 +106,31 @@
 		padding-bottom: 20px;
 	}
 	
+	
+	/* Aura Soma */
+	
+	.beneficios{
+		height: 180px;
+	}
+	
+	.pilares{
+		height: 120px;
+	}
+	
+	.beneficios{
+    padding: 0px 20px;
+	}
+	.beneficios p{ 
+		font-size: 18px;
+	}
+
+.pilares p{
+	font-size: 15px;
+}
+	
+	.pilares:before {
+    font-size: 108px;
+}
 		/*Reiki*/
 	
 	.principios-reiki .w-col-2 {
@@ -132,6 +157,48 @@
 	.submenu  .tinynav-wrapper select{
 	    background-color: rgba(255,255,255,0.4);
 	}
+	
+	
+	.nombres-reiki .w-col p.texto-con-bg{
+		padding: 36px 0;
+	}
+	
+	.nombres-reiki .w-col p.texto-con-bg:before{
+		font-size: 115px;
+	}
+	
+		.nombres-reiki .w-col p.h33{
+		font-size: 25px;
+	}
+	
+	.titulo-seccion{
+		    margin: 14px 2%;
+	}
+	
+		
+	h1.decora:before, h1.decora:after, h2.decora:before, h2.decora:after{
+		font-size: 45px;
+	}
+	
+	.reiki-quienes .image-container .caption p {
+    font-size: 18px;
+    line-height: 21px;
+}
+	
+	.reiki-beneficios .image-container .caption p {
+		font-size: 16px;
+    line-height: 19px;
+		}
+	.reiki-quienes .image-container  img,
+	.reiki-beneficios .image-container  img{
+		width: 100%;
+	}
+	
+		
+	.reiki-beneficios .image-container{
+		max-height: 106px;
+	}
+	
 }
 
 

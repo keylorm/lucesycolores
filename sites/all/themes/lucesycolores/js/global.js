@@ -93,7 +93,42 @@ $( function() {
 			}
 		});
 		
-	});
+		/*caregory hover*/
+		$(".view-tienda .views-row").hover(function(){
+			$(this).find(".field-name-title h2 a").css({
+				'color' : '#fff',
+			});
+			$(this).find(".field-name-icono").css({
+				'color' : '#fff',
+			})					
+			$(this).find(".field-name-more-link a").css({
+				'background-image' : 'none',
+				'background-color' : '#fff',
+				'color' : '#e71d73',
+			})
+			$(this).find(".field-name-field-resumen-producto").css({
+					'color': '#fff'
+				})
+		});	
+		
+			$(".view-tienda .views-row").mouseleave(function(){
+				$(this).find(".field-name-title h2 a").css({
+					'color' : '#e71d73',
+				});
+				$(this).find(".field-name-icono").css({
+					'color' : '#000',
+				})
+				$(this).find(".field-name-more-link a").css({
+					'background-image' : 'url("/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg")',
+					'background-color' : 'transparent',
+					'color' : '#fff',
+				})
+				$(this).find(".field-name-field-resumen-producto").css({
+					'color': '#575756'
+				})
+			});	
+		
+		})
 	
 	$(function (){
 		//tabs productos

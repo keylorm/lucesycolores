@@ -33,7 +33,8 @@ h2.decora:after,
 .pilares:before,
 .boton-isla-terapia-home:before,
 .link-curso-container:before,
-.principios-reiki .w-col p:before{
+.principios-reiki .w-col p:before, 
+.texto-con-bg:before{
 	font-family: "fontello";
 	font-style: normal;
 	font-weight: normal;
@@ -603,6 +604,14 @@ h2.decora:after {
 	font-size: 28px;
 }
 
+.h33 {
+	font-size: 33px;
+}
+
+.h21 {
+	font-size: 21px;
+}
+
 .hmorado {
 	color: #6D2B5F;
 }
@@ -621,6 +630,14 @@ h2.decora:after {
 
 .hceleste {
 	color: #36A9E1;
+}
+
+.hcafe{
+	color : #634E42;
+}
+
+.hrojo{
+	color : #E30613;
 }
 
 .fonttitulo{
@@ -741,7 +758,8 @@ h2.decora:after {
 	display: table;
 	position: relative;
 	height: 215px;
-	padding: 0px 35px;
+	/*padding: 0px 35px;*/
+	width: 100%;
 }
 
 .beneficios p,
@@ -843,6 +861,7 @@ h2.decora:after {
 	font-weight: 500;
 	color: #FFF;
 	text-align: center;
+	line-height: 38px;
 }
 
 .row-historia-aura-soma {
@@ -1170,8 +1189,8 @@ h2.decora:after {
 
 .view-tienda .field-name-icono{
 	font-family: 'fontello';
-	font-size: 170px;
-	padding: 0px 50px;
+	font-size: 150px;
+	padding: 0px 60px;
 }
 
 .view-tienda .field-name-more-link{
@@ -1187,7 +1206,7 @@ h2.decora:after {
 
 .principios-reiki .w-col-2{
 	text-align: center;
-    padding: 44px;
+        padding: 30px 44px;
 		margin: 50px 0;
 }
 
@@ -1223,3 +1242,145 @@ h2.decora:after {
 }
 
 
+
+.nombres-reiki{
+	margin: 50px auto;
+	
+}
+.nombres-reiki .w-col p.texto-con-bg:before{
+	content: '\e801';
+    position: absolute;
+    font-size: 156px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+	top: -14px;
+}
+
+.nombres-reiki .w-col p.texto-con-bg {
+    margin: 0;
+    padding: 62px;
+}
+.nombres-reiki .w-col .hverde:before{
+	color: rgba(47,172,102,0.3);
+}
+
+.nombres-reiki .w-col .hnaranja:before{
+	color: rgba(234,91,12,0.3);
+}
+
+.nombres-reiki .w-col .hrosa:before{
+	color: rgba(231,29,115,0.3);
+}
+
+.nombres-reiki .w-col .hceleste:before{
+	color: rgba(54,169,225,0.3);
+}
+
+.nombres-reiki .w-col .hmorado:before{
+	color: rgba(132,44,113,0.3);
+}
+
+.nombres-reiki .w-col .hrojo:before{
+	color: rgba(227,6,19,0.3);
+}
+
+.nombres-reiki .w-col .hcafe:before{
+	color: rgba(99,78,66,0.3);
+}
+
+.reiki-quienes {
+
+}
+
+.reiki-quienes .image-container,
+.reiki-beneficios .image-container{
+	overflow: hidden;
+	border-radius: 10px;
+	position: relative;
+	    max-height: 200px;
+}
+
+
+.reiki-beneficios .image-container{
+	 max-height: 182px;
+}
+.reiki-quienes .image-container .caption,
+.reiki-beneficios .image-container .caption{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    text-align: center;
+    justify-content: center;
+	    padding: 0 20px;
+	transition: all 0.5s ease;
+background: rgba(0,0,0,0.2);
+}
+
+.reiki-quienes .image-container .caption:hover,
+.reiki-beneficios .image-container .caption:hover{
+	background-color: rgba(168,72,148,0.7);
+}
+
+.reiki-quienes .image-container .caption p,
+.reiki-beneficios .image-container .caption p{
+		 font-size: 21px;
+    color: #fff !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+.reiki-quienes .w-col-4{
+
+	padding: 0 15px;
+	    margin-bottom: 30px;
+}
+
+.reiki-beneficios .w-col-3{
+	padding: 0 15px;
+	    margin-bottom: 26px;
+}
+
+
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1619 a,
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1620 a{
+	    width: 116px;
+    min-width: 0px;
+    max-width: none;
+}
+
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1615 a,
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1616 a{
+	    width: 132px;
+    min-width: 0px;
+    max-width: none;
+}
+
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1617 a,
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1618 a{
+	    width: 240px;
+    min-width: 0px;
+    max-width: none;
+}
+
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1613 a,
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1614 a{
+	    width: 220px;
+    min-width: 0px;
+    max-width: none;
+}
+
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1611 a,
+.submenu.submenu-reiki .menu.tinyjs li.menu-mlid-1612 a{
+	    width: 202px;
+    min-width: 0px;
+    max-width: none;
+}
+
+.reiki-beneficios-container{
+	margin: 65px auto;
+}
