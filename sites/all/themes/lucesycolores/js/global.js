@@ -36,7 +36,7 @@ $( function() {
 		});
 	}
 		
-		$('a.ver-mas').click(function(e){
+		$('.ver-mas a').click(function(e){
       e.preventDefault();
 			if($('.category-description').hasClass('hidden')){
       	$(".category-description").show("slow");
@@ -111,7 +111,7 @@ $( function() {
 				})
 		});	
 		
-			$(".view-tienda .views-row").mouseleave(function(){
+		$(".view-tienda .views-row").mouseleave(function(){
 				$(this).find(".field-name-title h2 a").css({
 					'color' : '#e71d73',
 				});
@@ -128,7 +128,7 @@ $( function() {
 				})
 			});	
 		
-		})
+	})
 	
 	$(function (){
 		//tabs productos

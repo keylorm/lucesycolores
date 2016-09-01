@@ -29,6 +29,8 @@ h1.decora:before,
 h1.decora:after,
 h2.decora:before,
 h2.decora:after,
+h1.decora-der:after,
+h2.decora-der:after,
 .beneficios:before,
 .pilares:before,
 .boton-isla-terapia-home:before,
@@ -74,14 +76,14 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ‚' */
 
 .icon-left-decorations:before {
 	content: '\e803';
 }
 
 
-/* '' */
+/* 'î ƒ' */
 
 .icon-producto_icon_7:before,
 .sets-de-equilibrium:before {
@@ -89,7 +91,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î „' */
 
 .icon-producto_icon_8-11-17:before,
 .pomanders:before,
@@ -99,7 +101,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î …' */
 
 .icon-producto_icon_9:before,
 .arcangeloi:before {
@@ -107,7 +109,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î †' */
 
 .icon-producto_icon_10:before,
 .esencias-de-color:before {
@@ -115,15 +117,15 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ‡' */
 
 .icon-producto_icon_12:before,
-.lápiz-de-luz:before {
+.lÃ¡piz-de-luz:before {
 	content: '\e808';
 }
 
 
-/* '' */
+/* 'î ˆ' */
 
 .icon-producto_icon_13:before,
 .inciensos:before {
@@ -131,7 +133,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ‰' */
 
 .icon-producto_icon_14:before,
 .libros-de-aura-soma:before {
@@ -139,15 +141,15 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î Š' */
 
 .icon-producto_icon_15:before,
-.bolsitas-de-cristales-enfocadas-hacia-intenciones-específicas:before {
+.bolsitas-de-cristales-enfocadas-hacia-intenciones-especÃ­ficas:before {
 	content: '\e80b';
 }
 
 
-/* '' */
+/* 'î ‹' */
 
 .icon-producto_icon_16:before,
 .cristales-de-vidrio-programados:before {
@@ -155,14 +157,14 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î Œ' */
 
 .icon-right-decorations:before {
 	content: '\e80d';
 }
 
 
-/* '' */
+/* 'î ' */
 
 .icon-producto_icon_2:before,
 .singing-bowls-y-campanas-tibetanas:before{
@@ -170,7 +172,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î Ž' */
 
 .icon-producto_icon_3:before,
 .cristales-y-piedras:before {
@@ -178,7 +180,7 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ' */
 
 .icon-producto_icon_4:before,
 .candelas:before {
@@ -186,15 +188,15 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ' */
 
 .icon-producto_icon_5:before,
-.pulseras-aura-beads-y-otra-joyería-fabricada-con-cristales:before {
+.pulseras-aura-beads-y-otra-joyerÃ­a-fabricada-con-cristales:before {
 	content: '\e811';
 }
 
 
-/* '' */
+/* 'î ‘' */
 
 .icon-producto_icon_6:before,
 .equilibrium:before {
@@ -202,35 +204,35 @@ h2.decora:after,
 }
 
 
-/* '' */
+/* 'î ’' */
 
 .icon-producto_icon_1:before{
 	content: '\e813';
 }
 
 
-/* '' */
+/* 'î “' */
 
 .icon-next:before {
 	content: '\e814';
 }
 
 
-/* '' */
+/* 'î ”' */
 
 .icon-prev:before {
 	content: '\e815';
 }
 
 
-/* '' */
+/* 'î •' */
 
 .icon-flor:before {
 	content: '\e816';
 }
 
 
-/* '' */
+/* 'î –' */
 
 html {
 	overflow-x: hidden;
@@ -249,6 +251,7 @@ body li {
 	line-height: 24px;
 	font-weight: 300;
 	color: #575756;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 body p strong span {
@@ -568,21 +571,41 @@ h4 {
 }
 
 h1.decora,
-h2.decora {
+h2.decora,
+h1.decora-der,
+h2.decora-der{
 	position: relative;
 	display: table;
-	text-align: center;
 	line-height: 80px;
 	left: 0px;
 	right: 0px;
+	margin: 0;
+	
+}
+
+h1.decora,
+h2.decora{
 	margin: 0 auto;
+	text-align: center;
 	margin-bottom: 30px;
+}
+
+
+h1.h28-doblelinea,
+h2.h28-doblelinea,
+h1.decora.h28-doblelinea,
+h2.decora.h28-doblelinea{
+	line-height: 40px !important;
+	margin-top: 50px;
 }
 
 h1.decora:before,
 h1.decora:after,
 h2.decora:before,
-h2.decora:after {
+h2.decora:after,
+h1.decora-der:after,
+h2.decora-der:after {
+
 	display: table-cell;
 	vertical-align: middle;
 	font-size: 80px;
@@ -595,11 +618,12 @@ h2.decora:before {
 }
 
 h1.decora:after,
-h2.decora:after {
+h2.decora:after,
+h1.decora-der:after,
+h2.decora-der:after {
 	content: '\e80d';
 	padding-left: 50px;
 }
-
 .h28 {
 	font-size: 28px;
 }
@@ -622,6 +646,10 @@ h2.decora:after {
 
 .hverde {
 	color: #009837;
+}
+
+.hblanco {
+	color: #fff;
 }
 
 .hrosa {
@@ -1029,6 +1057,9 @@ h2.decora:after {
 	transform: translate(0, -10px);
 }
 
+
+
+
 .boton-isla-terapia-home:before{
 	content: '\e816';
     position: absolute;
@@ -1068,14 +1099,18 @@ h2.decora:after {
 	
 }
 
-.view-cursos li{
+.view-cursos .views-row{
 	height: 336px;
 	overflow-y: hidden;
 	position: relative;
 	border-radius: 10px;
+	width: 308px;
+	    padding: 0;
+	margin-bottom: 30px;
+
 }
 
-.view-cursos li .curso-hover{
+.view-cursos  .views-row .curso-hover{
 	top: 338px;
 	background-color: rgba(58,170,53,0.8);
 	height: 100%;
@@ -1085,7 +1120,7 @@ h2.decora:after {
 	padding: 30px 25px 10px;
 }
 
-.view-cursos li:hover .curso-hover{
+.view-cursos  .views-row:hover .curso-hover{
 	top: 0px;
 }
 
@@ -1101,7 +1136,7 @@ h2.decora:after {
 	right: -45px;
 }
 
-.view-cursos li .curso-hover .field-name-title a{
+.view-cursos .views-row .curso-hover .field-name-title a{
 		font-family: 'IM Fell DW Pica', serif;
 	font-weight: normal;
 	font-size: 21px;
@@ -1112,7 +1147,7 @@ h2.decora:after {
 	margin-bottom: 5px;
 }
 
-.view-cursos li .curso-hover .field-name-field-fecha{
+.view-cursos .views-row .curso-hover .field-name-field-fecha{
 	color: #fff;
     font-size: 18px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -1120,8 +1155,8 @@ h2.decora:after {
 	text-align: center;
 }
 
-.view-cursos li .curso-hover .field-name-body,
-.view-cursos li .curso-hover .field-name-body p{
+.view-cursos .views-row .curso-hover .field-name-body,
+.view-cursos .views-row .curso-hover .field-name-body p{
 	color: #fff;
   font-size: 16px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -1156,6 +1191,12 @@ h2.decora:after {
     z-index: 1;
 }
 
+.view-cursos .view-content {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: 	wrap;
+}
+
 .link-curso-container:before,
 .view-tienda .views-row .vocabulary-product-category .field-name-more-link:before{
 	  content: '\e816';
@@ -1181,7 +1222,7 @@ h2.decora:after {
 	display: none;
 }*/
 
-.panel-pane.fullwidth.slider .slide img {
+.panel-pane.f5ullwidth.slider .slide img {
     width: auto;
     height: 100%;
     max-width: none;
@@ -1383,4 +1424,226 @@ background: rgba(0,0,0,0.2);
 
 .reiki-beneficios-container{
 	margin: 65px auto;
+}
+
+.titulo-seccion h1{
+	font-size: 21px;
+    color: #575756;
+    font-weight: normal;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.titulo-seccion{
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.texto-fondo-amarillo{
+	background-color: #ED9F2E;
+	padding: 30px 0 15px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+.texto-fondo-amarillo:after{
+    content: "";
+    display: block;
+    width: 100%;
+    background-image: url("../images/bg-bloque-amarillo-fullwidth.png");
+    height: 24px;
+    background-color: transparent;
+    position: absolute;
+    background-position: bottom;
+    z-index: 1;
+    background-repeat: repeat-x;
+}
+
+.texto-fondo-amarillo p{
+	color: #fff;
+}
+
+img.certificados{
+	display: block;
+	margin: 0 auto;
+}
+
+.banner-full img{
+	width: 100%;
+}
+
+.pager li{
+	 background-image: url("../images/bg-boton-naranja-degradado.jpg") !important;
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    text-align: center;
+    float: none;
+    margin: 42px 5px 0 !important;
+    padding: 10px 15px !important;
+    width: auto;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    transition: 0.5s ease;
+}
+
+.pager li a{
+	 color: #fff;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    line-height: 44px;
+    text-decoration: none;
+}
+
+
+.pager li:hover{
+	transform: translate(0, -10px);
+}
+
+
+.panel-pane span.pane-title{
+   font-weight: 700;
+	   font-size: 18px;
+    line-height: 24px;
+    color: #575756;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.panel-pane.pane-node-field-fecha{
+	margin-bottom: 30px;
+}
+
+.float-right{
+	clear: both;
+	float: right;
+}
+
+
+.anaranja-degradado.colorbox-node{
+	margin-bottom: 40px;
+}
+
+.node-webform{
+	padding: 10px 50px;
+}
+
+.node-webform.node-webform-contacto{
+	padding: 10px 50px 10px 0;
+}
+
+ .node-webform input[type="text"],
+ .node-webform input[type="email"],
+ .node-webform textarea{
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #EDEDED;
+	padding: 0 10px;
+	color: #575756;
+	font-size: 14px;
+	font-weight: 300;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+}
+
+.node-webform input[type="text"],
+.node-webform input[type="email"]{
+	line-height 44px;
+	height: 44px;
+}
+.node-webform textarea{
+	line-height: 18px;
+	max-width: 100%;
+	padding: 10px;
+}
+
+.node-webform input[type="submit"]{
+	clear: both;
+	float: right;
+	    background-image: url("../images/bg-boton-naranja-degradado.jpg");
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    display: block;
+
+        margin: 0px auto 30px;
+    line-height: 44px;
+    height: 44px;
+    padding: 0 20px;
+    border: 0px;
+    transition: 0.5s ease;
+
+}
+
+#colorbox #cboxClose{
+	background-image: url(../images/cerrar-popup.png);
+}
+
+
+.node-type-curso .field-name-body{
+		-moz-column-count:2;
+	-webkit-column-count:2;
+	column-count: 2;
+font-weight: 400;
+	   font-size: 18px;
+    line-height: 24px;
+    color: #575756;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+
+.contact-sidebar{
+	padding-left: 55px;
+}
+
+.contact-sidebar .direccion,
+.contact-sidebar .correo,
+.contact-sidebar .telefono{
+	padding-left: 32px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-color: transparent;
+	
+}
+
+.contact-sidebar .direccion p,
+.contact-sidebar .correo p,
+.contact-sidebar .telefono p{
+	font-weight: 300;
+	   font-size: 12px;
+    line-height: 24px;
+    color: #575756;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contact-sidebar .direccion p a,
+.contact-sidebar .correo p a,
+.contact-sidebar .telefono p a{
+	text-decoration: none;
+}
+
+.contact-sidebar .direccion{
+	
+}
+
+.contact-sidebar .correo{
+	
+}
+
+.contact-sidebar .telefono{
+	
+}
+
+.redes p{
+	font-family: 'IM Fell DW Pica', serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: #36A9E1;
+}
+.node-type-webform h1#page-title{
+	display:none;
 }

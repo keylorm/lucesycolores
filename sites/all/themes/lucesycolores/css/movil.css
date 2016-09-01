@@ -108,5 +108,22 @@
 		font-size: 18px;
     line-height: 21px;
 		}
+	
+	
+	.h28.decora-der{
+		line-height: 50px !important;
+	}
+
+	
+.node-type-curso .field-name-body{
+		-moz-column-count: 1;
+	-webkit-column-count: 1;	
+	column-count: 1;
+
+	}
+	
+	.node-webform .h28.decora-der {
+    line-height: 32px !important;
+}
 
 }

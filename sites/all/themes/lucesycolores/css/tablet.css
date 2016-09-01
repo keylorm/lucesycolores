@@ -199,6 +199,19 @@
 		max-height: 106px;
 	}
 	
+	
+	.w-container-inner{
+		padding: 0 2%;
+	}
+	
+	.node-type-curso .pane-entity-field{
+		padding: 0 4%;
+	}
+	
+	.node-webform{
+	padding: 10px 4%;
+}
+	
 }
 
 
@@ -214,12 +227,23 @@
 	.beneficios{
 		width: 215px;
 	}
-	h1.decora:after, h2.decora:after, h3.decora:after{
+	h1.decora:after, h2.decora:after, h3.decora:after,
+	h1.decora-der:after, h2.decora-der:after, h3.decora-der:after{
 		padding-left: 10px;
 	}
-	h1.decora:before, h2.decora:before, h3.decora:before{
+	h1.decora-der:after, h2.decora-der:after, h3.decora-der:after{
 		padding-right: 10px;
+		font-size: 50px;
 	}
+	
+	h1.decora:before, h2.decora:before {
+    padding-right: 10px;
+}
+	
+	h1.decora-der, h2.decora-der, h3.decora-der{
+		padding: 0 10px;
+	}
+
 	.beneficios{
 		margin: 0 auto;
 	}

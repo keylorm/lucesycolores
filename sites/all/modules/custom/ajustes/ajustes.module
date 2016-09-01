@@ -114,6 +114,6 @@ function current_category_description(){
   //get current taxonomy term id
   $term = taxonomy_term_load(arg(1));
   if($term){
-    return '<h2>'.$term->name.'</h2>'.'<a href="" class="ver-mas">'.t('see more').'<span></span></a><div class="hidden category-description">'.$term->description.'</div>'; 
+    return '<h2>'.$term->name.'</h2>'.'<div class="ver-mas abierto"><a href="">'.t('see more').'<span></span></a></div><div id="menu-toggle-wrapper"><a data-status="closed" href="" id="menu-toggle">Menu</a></div><div class="hidden category-description">'.$term->description.'</div>'; 
   }
 }

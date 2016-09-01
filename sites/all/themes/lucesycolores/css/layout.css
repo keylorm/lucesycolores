@@ -41,20 +41,27 @@
 }
 
 .fullwidth .pane-title,
-.panel-pane .pane-content,
+.panel-pane .pane-content, 
+.panel-pane .pane-title,
 .header .w-container-inner, 
 .footer .w-container-inner,
 .view.w-container-inner,
 .breadcrumb.w-container-inner,
 .grid-1180,
 .block.fullwidth.llamado .content,
-.above-content .w-container{
+.above-content .w-container,
+.w-container-inner,
+.w-container .w-row.w-container-inner{
   margin-left: auto;
   margin-right: auto;
   max-width: 1180px;
   position: relative;
+ 
 }
 
+.panel-pane .pane-title{
+   display: block;
+}
 .panel-pane.fullwidth .pane-content{
   max-width: 100%;
 }
