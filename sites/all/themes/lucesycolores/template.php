@@ -93,9 +93,9 @@ function lucesycolores_preprocess_html(&$variables) {
 
   if(drupal_is_front_page()){
     drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
-    drupal_add_js(libraries_get_path('bxslider') . '/jquery.bxslider.min.js', array('group' => JS_LIBRARY, 'weight' => -100));
-    drupal_add_css(libraries_get_path('bxslider') . '/jquery.bxslider.css', array('group' => CSS_SYSTEM, 'weight' => -100));
   }
+  drupal_add_js(libraries_get_path('bxslider') . '/jquery.bxslider.min.js', array('group' => JS_LIBRARY, 'weight' => -100));
+  drupal_add_css(libraries_get_path('bxslider') . '/jquery.bxslider.css', array('group' => CSS_SYSTEM, 'weight' => -100));
 }
 
 /**
@@ -127,10 +127,10 @@ function lucesycolores_page_alter(&$page) {
 function lucesycolores_preprocess_node(&$vars) {
   // Add a striping class.
   $vars['classes_array'][] = 'node-' . $vars['zebra'];
-  $vars['classes_array'][] = 'w-container-inner';
   $node = $vars['node'];
   if(isset($node->field_product_category)){
       drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js', array('group' => JS_LIBRARY, 'weight' => -100));
+      $vars['classes_array'][] = 'w-container-inner w-container-905';
   }
 }
 
@@ -199,9 +199,9 @@ function lucesycolores_theme() {
 return $items;
 }
 
-function lucesycolores_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
+/*function lucesycolores_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
   $form['submit']['#value'] = t('Add to');
-}
+}*/
 
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 

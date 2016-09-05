@@ -171,10 +171,22 @@
 
 .view-tienda .views-row .vocabulary-product-category .field-name-title h2 a,
 .view-collection-products .views-row .field-name-title-field h2 a,
-.node-product-type .field-name-title-field h2 a{
+.node-product-type .field-name-title-field h2,
+h2.rosado{
 	font-family: 'Source Sans Pro', sans-serif;
 	color: #e71d73;
 	line-height: 25px;
+}
+
+.node-product-type-product-list .field-name-title-field h2 {
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+	width: 100%;
+	font-size: 20px;
+}
+
+.page-node .node-product-type .field-name-title-field h2{
+	margin-bottom: 40px;
 }
 
 .view-tienda .views-row .vocabulary-product-category .field-name-title h2{
@@ -414,3 +426,339 @@
 }
 
 /*Detalle del producto*/
+.ds-2col-stacked-fluid.node-product-type-full > .group-left {
+	width: 53.5%;
+	height: 480px;
+}
+
+.ds-2col-stacked-fluid.node-product-type-full > .group-right {
+	width: 40%;
+	height: 480px;
+}
+
+.node-product-type.view-mode-full {
+	margin-top: 50px;
+}
+
+.node-product-type.view-mode-full .commerce-product-field-field-images img {
+	margin: 0 auto;
+	display: block;
+}
+
+.node-product-type.view-mode-full .commerce-product-field-field-images {
+	height: 100%;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+
+.node-product-type.view-mode-full .commerce-product-extra-field-sku {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #878787;
+}
+
+.node-product-type-product-list .field-name-imagen-representativa {
+	min-height: 258px;
+	max-height: 258px;
+}
+
+.commerce-product-sku-label {
+	font-weight: 400
+}
+
+.commerce-add-to-cart #edit-product-id,
+#edit-quantity{
+	border: 1px solid #ddd;
+	padding: 15px 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: #878787;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+#edit-quantity{
+	text-align: left !important;
+	width: 100% !important;
+	margin-right: 0px !important;
+}
+
+.form-item-quantity label {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: #878787;
+	margin-bottom: 10px;
+}
+
+#costo-unidad-label,
+#costo-preliminar-label{
+	float: left;
+	margin-top: 15px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	color: #878787;
+}
+
+#costo-unidad-monto,
+#costo-preliminar-monto{
+	float: right;
+	margin-top: 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+	font-size: 26px;
+	color: #878787;
+}
+
+.form-item-product-id {
+	height: 100px;
+}
+
+.field-name-commerce-price {
+	display: none;
+}
+
+.form-item-quantity {
+	height: 160px;
+}
+
+.cart-submit {
+	float: right;
+	background-color: #ededed;
+	background-image: url('../images/cart.png');
+	background-repeat: no-repeat;
+	background-position: 75px 15px;
+	border-radius: 5px;
+	color: #575756;
+	font-size: 12px;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: left;
+	display: block;
+	border: none;
+	line-height: 25px;
+	height: 44px;
+	padding: 10px 20px;
+	width: 110px;
+	transition: 0.5s ease;
+	font-weight: 600;
+}
+
+.group-footer {
+	padding-top: 90px;
+}
+
+.ui-tabs,
+.ui-tabs-nav{
+	border: none !important;
+}
+
+.ui-tabs-nav {
+	background: none;
+}
+
+.ui-tabs-panel {
+	border: 1px solid #ddd !important;
+	border-top-color: #ea5b0c !important;
+  border-top-width: 1px !important;
+	padding: 30px 60px 60px 60px !important;
+}
+
+.ui-tabs .ui-tabs-nav {
+	padding: 0px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border-top: 1px solid #ddd !important;
+	border-left: 1px solid #ddd !important;
+	border-right: 1px solid #ddd !important;
+	background-color: #fff !important;
+}
+
+.ui-state-default {
+	background-color: #ededed !important;
+	border: none !important;
+	background-image: none !important;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.ui-tabs ul li a{
+	padding: 20px 65px !important;
+	color: #9d9d9c !important;
+	font-size: 18px !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-weight: 600 !important;
+}
+
+#enlaces {
+	width: 100%;
+	text-align: right;
+	margin-top: 15px;
+}
+
+#enlaces a{ 
+	text-decoration: underline;
+	color: #9d9d9c;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 500;
+	display: block;
+}
+
+.bx-wrapper .bx-viewport {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border: none;
+}
+
+.view-collection-products {
+	margin-top: 50px;
+}
+
+.view-collection-products .view-header {
+	text-align: center;
+}
+
+.view-collection-products .view-content {
+	margin-top: 25px;
+}
+
+.view-collection-products .view-header h2{
+	margin-bottom: 0px;
+	color: #63a9e1;
+	font-size: 28px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+}
+
+#block-views-26be7df0d55169e550f69d9e72e8b2a3 {
+	margin-top: 80px;
+}
+
+#block-views-26be7df0d55169e550f69d9e72e8b2a3 .bx-wrapper .bx-viewport {
+	height: 450px !important;
+}
+
+div.messages.commerce-add-to-cart-confirmation {
+	z-index: 999999;
+	width: 856px;
+	background-color: #ededed;
+	border-bottom: 5px solid #ea5b0c;
+}
+
+div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper {
+	width: 34%;
+	background-color: #fff;
+	padding: 75px 45px
+}
+
+div.messages.commerce-add-to-cart-confirmation .view-confirm-message-product-display .view-content {
+	width: 100% !important;
+	padding-left: 55px;
+	padding-bottom: 70px;
+}
+
+div.messages.commerce-add-to-cart-confirmation .view-confirm-message-product-display {
+	width: 65% !important;
+}
+
+.commerce-add-to-cart-confirmation .added-product-title {
+	color: #ea5b0c !important;
+	font-size: 24px !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-weight: 600 !important;
+	text-transform: none !important;
+	width: 65% !important;
+	text-align: left !important;
+	padding: 65px 15px 35px 55px !important;
+}
+
+.view-mode-add_to_cart_confirmation_view .group-left {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.view-mode-add_to_cart_confirmation_view .group-right {
+	width: 45%;
+}
+
+.view-mode-add_to_cart_confirmation_view .group-footer {
+	display: none;
+}
+
+.view-mode-add_to_cart_confirmation_view .field-name-titulo-producto h3{
+	margin-top: 50px;
+	color: #575756 !important;
+	font-size: 18px !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-weight: 600 !important;
+}
+
+.view-confirm-message-product-display .views-field-quantity {
+	position: absolute;
+	right: 160px;
+	top: 155px;
+}
+
+.view-confirm-message-product-display .views-field-commerce-total{
+	position: absolute;
+	right: 24px;
+	top: 200px;
+	width: 37%;
+}
+
+div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.checkout {
+	background: none !important;
+	padding: 0px;
+}
+
+.views-field-commerce-total .field-content{
+	color: #575756 !important;
+	font-size: 24px !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-weight: 600 !important;
+	text-decoration: uppercase;
+}
+
+.views-label-commerce-total {
+	color: #575756 !important;
+	font-size: 18px !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+	font-weight: 600 !important;
+}
+
+div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.checkout a{
+	background-color: none;
+	background-image: url("../images/bg-boton-naranja-degradado.jpg");
+	background-repeat: repeat-x;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	display: block;
+	line-height: 44px;
+	height: 44px;
+	padding: 0 5px;
+	width: 100%;
+	transition: 0.5s ease;
+}
+
+div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.continue {
+	color: #575756 !important;
+	background-color: #ededed;
+}
+
+.button-wrapper {
+	background-image: url('../images/fondo-cart-preview.png');
+	background-repeat: no-repeat;
+	background-position: 28px 440px;
+}

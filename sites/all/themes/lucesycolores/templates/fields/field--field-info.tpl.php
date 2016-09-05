@@ -1,7 +1,7 @@
 <?php
 $title_caracteristicas = t('Characteristics');
 $desc_caracteristicas = "";
-$title_aplicacion = t('Usage');
+$title_aplicacion = t('How does it apply?');
 $desc_aplicacion = "";
  foreach ($items as $delta => $item) {
   if(isset($item['entity']))
@@ -20,6 +20,6 @@ echo '<div id="tabs">
             <li><a href="#tabs-1">'.$title_caracteristicas.'</a></li>
             <li><a href="#tabs-2">'.$title_aplicacion.'</a></li>
           </ul>
-          <div id="tabs-1">'.$desc_caracteristicas.'</div>
-          <div id="tabs-2">'.$desc_aplicacion.'</div>
+          <div id="tabs-1">'.$desc_caracteristicas.'<a class="info cart-submit" href>'. t('Add to') .'</a></div>
+          <div id="tabs-2">'.$desc_aplicacion.'<a class="info cart-submit" href>'. t('Add to') .'</a></div>
          </div>';

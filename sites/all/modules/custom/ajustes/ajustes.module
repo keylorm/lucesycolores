@@ -63,6 +63,24 @@
  }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
+
+  //drupal_set_message($form_id);
+  $form['submit']['#attributes']['value'] = t('Add to');
+  $form['submit']['#attributes']['class'] = array('cart-submit');
+
+  /*
+  $current_product = $form_state['default_product'];
+  if ($current_product->type == 'product') {
+    // Make alternations for products...
+  }
+  */
+
+}
+
+/**
  * Implements hook_block_info().
  */
 function ajustes_block_info() {

@@ -128,6 +128,12 @@ $( function() {
 				})
 			});	
 		
+		/*click cart-submit*/
+		$(".info.cart-submit").on('click', function(event){
+			event.preventDefault();
+			$('.commerce-add-to-cart .cart-submit').trigger('click');
+		})
+		
 	})
 	
 	$(function (){

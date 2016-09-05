@@ -59,6 +59,10 @@
  
 }
 
+.w-container-905 {
+  max-width: 905px;
+}
+
 .panel-pane .pane-title{
    display: block;
 }
