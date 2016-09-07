@@ -28,7 +28,7 @@
 		text-align: center;
 	}
 	header .header-top .view-shopping-cart{
-		width: 50px;
+		width: 125px;
 		float: none;
 		margin: 0 auto;
 	}
@@ -124,6 +124,14 @@
 	
 	.node-webform .h28.decora-der {
     line-height: 32px !important;
+}
+	
+	.page-contactenos iframe{
+		height: 350px;
+	}
+	
+	.contact-sidebar {
+   margin-bottom: 50px;
 }
 
 }

@@ -251,5 +251,10 @@ function lucesycolores_preprocess_page(&$variables){
       drupal_set_title('Hola, '.$fullname_user);
     }
   }
+  
+  if(arg(0)=='blog'){
+    $variables['theme_hook_suggestions'][] =  'page__blog';
+
+  }
   //dpm($variables);
 }

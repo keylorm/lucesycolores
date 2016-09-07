@@ -96,7 +96,12 @@
       <?php print render($page['highlighted']); ?>
     <?php endif; ?>
     
-    
+
+       <?php print render($title_prefix); ?>
+        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php print render($title_suffix); ?>
+
+        
 
       <a id="main-content"></a>
       <?php if ($page['sidebar_first']): ?>
@@ -106,9 +111,7 @@
         </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
       <div class="main <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>w-col w-col-8 <?php endif; ?>" role="main">
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
+
 
         <?php if ($tabs): ?>
            <div class="w-container">

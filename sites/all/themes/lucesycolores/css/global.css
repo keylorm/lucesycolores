@@ -1620,6 +1620,10 @@ font-weight: 400;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.contact-sidebar .direccion p{
+	line-height: 16px;
+}
+
 .contact-sidebar .direccion p a,
 .contact-sidebar .correo p a,
 .contact-sidebar .telefono p a{
@@ -1638,12 +1642,65 @@ font-weight: 400;
 	
 }
 
-.redes p{
-	font-family: 'IM Fell DW Pica', serif;
-	font-weight: normal;
-	font-size: 16px;
-	color: #36A9E1;
+.redes p {
+    font-family: 'IM Fell DW Pica', serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #36A9E1;
+    display: block;
+    float: left;
+    line-height: 37px;
+    margin: 2px 10px 0 0;
 }
 .node-type-webform h1#page-title{
 	display:none;
+}
+
+.contact-sidebar .direccion{
+	background-image: url("../images/bg-contact-direccion.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 30px;
+}
+
+.contact-sidebar .telefono{
+	background-image: url("../images/bg-contact-tel.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 30px;
+}
+
+.contact-sidebar .correo{
+	background-image: url("../images/bg-contact-correo.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 30px;
+}
+
+.contact-sidebar .redes a.fb {
+    background-image: url('../images/fb-contact.png');
+}
+
+.contact-sidebar  .redes a.yt {
+    background-image: url('../images/yt-contact.png');
+}
+
+input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
+	background-image: url("../images/bt-input-fecha.png");
+	background-position: 96% center;
+	background-repeat: no-repeat;
+}
+
+
+.page-blog .main .view-blog{
+	padding-left: 70px;
+}
+
+.page-blog .sidebar-second{
+	padding-right: 70px;
+}
+
+
+.page-blog #page-title{
+	margin-top: 0px;
 }
