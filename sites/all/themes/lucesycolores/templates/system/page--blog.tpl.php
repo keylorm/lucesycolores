@@ -147,10 +147,9 @@
 <?php if ($page['below_content']): ?>
   <section class="below-content">
     <div class="w-container">
-      <div class="w-container-inner">
+  
          <?php print render($page['below_content']); ?>
-      </div>
-     
+           
     </div>
   </section>
 <?php endif; // end Below Content ?>

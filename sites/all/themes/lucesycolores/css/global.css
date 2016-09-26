@@ -583,6 +583,12 @@ h2.decora-der{
 	
 }
 
+h1.h24.decora-der,
+h2.h24.decora-der{
+	line-height: 30px;
+
+}
+
 h1.decora,
 h2.decora{
 	margin: 0 auto;
@@ -624,8 +630,20 @@ h2.decora-der:after {
 	content: '\e80d';
 	padding-left: 50px;
 }
+
+h1.h24.decora-der:after,
+h2.h24.decora-der:after {
+	font-size: 60px;
+	padding-left: 25px;
+	line-height: 30px;
+
+}
 .h28 {
 	font-size: 28px;
+}
+
+.h24 {
+	font-size: 24px;
 }
 
 .h33 {
@@ -1472,33 +1490,37 @@ img.certificados{
 	width: 100%;
 }
 
+.pager{margin-top: 50px !important;}
+
 .pager li{
-	 background-image: url("../images/bg-boton-naranja-degradado.jpg") !important;
-    background-repeat: repeat-x;
-    border-radius: 5px;
+	border-radius: 5px;
+    border: 2px solid #aaa;
+    background-color: #ddd;
     text-align: center;
     float: none;
     margin: 42px 5px 0 !important;
-    padding: 10px 15px !important;
+    padding: 7px 13px !important;
     width: auto;
-    color: #fff;
+    color: #666;
     font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .pager li a{
-	 color: #fff;
+	 color: #666;
     font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
     line-height: 44px;
     text-decoration: none;
+	transition: all 0.5s ease;
 }
 
 
-.pager li:hover{
-	transform: translate(0, -10px);
+.pager li:hover,
+.pager li a:hover{
+	color: #999;
 }
 
 
@@ -1703,4 +1725,124 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 
 .page-blog #page-title{
 	margin-top: 0px;
+}
+
+
+.view-blog.view-display-id-page .views-row{
+	overflow: hidden;
+	border-radius: 8px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	position: relative;
+}
+.view-blog .imagen-blog{
+	position:relative;
+	max-height: 452px;
+}
+
+.view-blog .imagen-blog img{
+	width: 100%;
+}
+
+.view-blog .imagen-blog .fecha-blog{
+	  position: absolute;
+    top: 0;
+    left: 12px;
+    width: 68px;
+    height: 65px;
+    background-color: #36A9E1;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-image: url("../images/bg-fecha-blog.png");
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 11px;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    padding: 14px 0 0 0;
+}
+
+.view-blog .imagen-blog .fecha-blog span{
+
+	font-weight: 600;
+	font-size: 21px;
+  line-height: 24px;
+ 
+}
+
+.view-blog .views-field-title a{
+	  font-family: 'IM Fell DW Pica', serif;
+    font-weight: normal;
+    font-size: 24px;
+    color: #2FAC66;
+	text-decoration: none;
+	margin: 10px 0;
+	display: block;
+}
+
+.view-blog .field-name-field-blog-category,
+.view-blog .views-field-title,
+.view-blog .field-name-body{
+	padding: 0 22px;
+}
+
+.view-blog .field-name-field-blog-category a{
+	display: block;
+	text-decoration: none;
+	font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: #A84894;
+    font-family: 'Source Sans Pro', sans-serif;
+	
+}
+
+.view-blog .field-name-body {
+	font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  color: #575756;
+  font-family: 'Source Sans Pro', sans-serif;
+	margin: 10px 0 55px;
+	display: block;
+}
+
+.view-blog .views-field-view-node{
+	position: absolute;
+	bottom: 30px;
+	right: 22px;
+	height: 42px;
+	line-height: 42px;
+	background-image: url("../images/bg-boton-naranja-degradado.jpg");
+	background-repeat: repeat-x;
+	border-radius: 5px;
+	transition: all 0.5s ease;
+	
+}
+.view-blog .views-field-view-node:hover{
+	transform: translate(0, -5px);
+}
+.view-blog .views-field-view-node a{
+	color: #fff;
+	display: block;
+	padding: 0 20px;
+	font-weight: 600;
+    font-size: 18px;
+    line-height: 42px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.sidebar-second #sidebar-second{
+	padding: 0 0 0 35px !important;
+}
+
+
+.view-display-id-block_2 .view-header h2{
+	margin-bottom: 20px;
+}
+
+.view-id-shopping_cart .line-item-quantity-label{
+	display: none;
 }
