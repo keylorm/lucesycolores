@@ -133,5 +133,17 @@
 	.contact-sidebar {
    margin-bottom: 50px;
 }
+	
+	.page-blog .main .view-listado-blog {
+    padding: 0 15px;
+}
+	
+		.sidebar-second #sidebar-second {
+    margin: 30px auto;
+}
+	
+	.pager li{
+		padding: 3px 8px !important;
+	}
 
 }

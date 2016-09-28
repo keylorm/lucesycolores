@@ -96,6 +96,19 @@ function lucesycolores_preprocess_html(&$variables) {
   }
   drupal_add_js(libraries_get_path('bxslider') . '/jquery.bxslider.min.js', array('group' => JS_LIBRARY, 'weight' => -100));
   drupal_add_css(libraries_get_path('bxslider') . '/jquery.bxslider.css', array('group' => CSS_SYSTEM, 'weight' => -100));
+  
+  
+  if (arg(0) == 'taxonomy' && arg(1) == 'term') {
+    $term = taxonomy_term_load(arg(2));
+    $variables['classes_array'][] = 'vocabulary-' . strtolower($term->vocabulary_machine_name);
+    
+    if ($term->vocabulary_machine_name == 'blog_category'){
+      $variables['classes_array'][] = 'page-blog';
+    }
+    
+  }
+  
+
 }
 
 /**
@@ -144,19 +157,35 @@ function lucesycolores_breadcrumb($variables) {
   //breadcrumb = $variables['breadcrumb'];
   $sep = ' | ';
   $crumbs = array();
-  $route_course = '/courses';
-
+  
+  
   if (count($variables['breadcrumb']) > 0) {
     if (arg(0)=='node'){
       $node = node_load(arg(1));
+      
+      //dpm($node);
       if($node->type=='curso'){
         //foreach()
         //return implode($sep, $variables['breadcrumb']) ;
+        $route_course = '/courses';
         if($node->language == 'es')
           $route_course = '/cursos';
 
           $crumbs[] = l(t('Home'), '');
           $crumbs[] = l(t('Courses'), $route_course);
+          $crumbs[] = $node->title;
+          return implode($sep, $crumbs);    
+      }
+      
+      if($node->type=='blog_post'){
+        //foreach()
+        //return implode($sep, $variables['breadcrumb']) ;
+        $route_course = '/blog';
+        if($node->language == 'es')
+          $route_course = '/blog';
+
+          $crumbs[] = l(t('Home'), '');
+          $crumbs[] = l(t('Blog'), $route_course);
           $crumbs[] = $node->title;
           return implode($sep, $crumbs);    
       }
@@ -252,9 +281,31 @@ function lucesycolores_preprocess_page(&$variables){
     }
   }
   
+  //dpm($variables);
+  
+  if (arg(0) == 'taxonomy' && arg(1) == 'term') {
+    $term = taxonomy_term_load(arg(2));
+    if ($term->vocabulary_machine_name == 'blog_category'){
+      $variables['theme_hook_suggestions'][] =  'page__blog';
+    }
+  }
   if(arg(0)=='blog'){
     $variables['theme_hook_suggestions'][] =  'page__blog';
 
   }
+  
+  if(isset($variables['node'])){
+   // dpm($variables['node']);
+    
+    if($variables['node']->type=='blog_post'){
+      $variables['theme_hook_suggestions'][] =  'page__blog__detalle';
+
+    }
+    
+    
+
+  }
+  
+ // dpm($variables);
   //dpm($variables);
 }

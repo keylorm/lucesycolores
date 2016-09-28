@@ -372,7 +372,7 @@ header .header-top .view-shopping-cart p {
 }
 
 header .header-content {
-	background-color: #FFF;
+	background-color: #f4f4f4;
 	min-height: 130px;
 	padding-top: 20px;
 	border-bottom: 1px solid #E8E8E8;
@@ -634,7 +634,7 @@ h2.decora-der:after {
 h1.h24.decora-der:after,
 h2.h24.decora-der:after {
 	font-size: 60px;
-	padding-left: 25px;
+	padding-left: 20px;
 	line-height: 30px;
 
 }
@@ -654,35 +654,43 @@ h2.h24.decora-der:after {
 	font-size: 21px;
 }
 
-.hmorado {
+.hmorado,
+.hmorado a{
 	color: #6D2B5F;
 }
 
-.hnaranja {
+.hnaranja,
+.hnaranja a{
 	color: #EA5B0C;
 }
 
-.hverde {
+.hverde,
+.hverde a{
 	color: #009837;
 }
 
-.hblanco {
+.hblanco,
+.hblanco a{
 	color: #fff;
 }
 
-.hrosa {
+.hrosa,
+.hrosa a{
 	color: #E71D73;
 }
 
-.hceleste {
+.hceleste,
+.hceleste a{
 	color: #36A9E1;
 }
 
-.hcafe{
+.hcafe,
+.hcafe a{
 	color : #634E42;
 }
 
-.hrojo{
+.hrojo,
+.hrojo a{
 	color : #E30613;
 }
 
@@ -690,13 +698,24 @@ h2.h24.decora-der:after {
 	font-family: 'IM Fell DW Pica', serif;
 }
 
-.hl2 {}
+.hl2 { 
+	font-size: 12px;
+}
+
+.hl4 { 
+	font-size: 14px;
+}
+
+
+
 
 .hleft {
 	text-align: left;
 }
 
-.titulo-seccion h2 {
+.titulo-seccion h2,
+.title-breadcrumb-container h1,
+.title-breadcrumb-container h2{
 	font-size: 21px;
 	color: #575756;
 	font-weight: normal;
@@ -1554,9 +1573,9 @@ img.certificados{
 	padding: 10px 50px 10px 0;
 }
 
- .node-webform input[type="text"],
- .node-webform input[type="email"],
- .node-webform textarea{
+ .webform-client-form input[type="text"],
+ .webform-client-form input[type="email"],
+ .webform-client-form textarea{
 	width: 100%;
 	border-radius: 5px;
 	border: 1px solid #EDEDED;
@@ -1568,18 +1587,18 @@ img.certificados{
 	
 }
 
-.node-webform input[type="text"],
-.node-webform input[type="email"]{
+.webform-client-form input[type="text"],
+.webform-client-form input[type="email"]{
 	line-height 44px;
 	height: 44px;
 }
-.node-webform textarea{
+.webform-client-form textarea{
 	line-height: 18px;
 	max-width: 100%;
 	padding: 10px;
 }
 
-.node-webform input[type="submit"]{
+.webform-client-form input[type="submit"]{
 	clear: both;
 	float: right;
 	    background-image: url("../images/bg-boton-naranja-degradado.jpg");
@@ -1674,6 +1693,10 @@ font-weight: 400;
     line-height: 37px;
     margin: 2px 10px 0 0;
 }
+
+#sidebar-second .redes p{
+	font-size: 24px;
+}
 .node-type-webform h1#page-title{
 	display:none;
 }
@@ -1699,11 +1722,11 @@ font-weight: 400;
 	padding-left: 30px;
 }
 
-.contact-sidebar .redes a.fb {
+.redes a.fb {
     background-image: url('../images/fb-contact.png');
 }
 
-.contact-sidebar  .redes a.yt {
+ .redes a.yt {
     background-image: url('../images/yt-contact.png');
 }
 
@@ -1714,11 +1737,11 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 }
 
 
-.page-blog .main .view-blog{
+.page-blog .main .view-listado-blog{
 	padding-left: 70px;
 }
 
-.page-blog .sidebar-second{
+.page-blog #sidebar-second{
 	padding-right: 70px;
 }
 
@@ -1728,23 +1751,23 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 }
 
 
-.view-blog.view-display-id-page .views-row{
+.view-listado-blog .views-row{
 	overflow: hidden;
 	border-radius: 8px;
 	margin-bottom: 30px;
 	padding-bottom: 30px;
 	position: relative;
 }
-.view-blog .imagen-blog{
+.view-listado-blog .imagen-blog{
 	position:relative;
 	max-height: 452px;
 }
 
-.view-blog .imagen-blog img{
+.view-listado-blog .imagen-blog img{
 	width: 100%;
 }
 
-.view-blog .imagen-blog .fecha-blog{
+.view-listado-blog .imagen-blog .fecha-blog{
 	  position: absolute;
     top: 0;
     left: 12px;
@@ -1763,7 +1786,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
     padding: 14px 0 0 0;
 }
 
-.view-blog .imagen-blog .fecha-blog span{
+.view-listado-blog .imagen-blog .fecha-blog span{
 
 	font-weight: 600;
 	font-size: 21px;
@@ -1771,7 +1794,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
  
 }
 
-.view-blog .views-field-title a{
+.view-listado-blog .views-field-title a{
 	  font-family: 'IM Fell DW Pica', serif;
     font-weight: normal;
     font-size: 24px;
@@ -1781,13 +1804,13 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	display: block;
 }
 
-.view-blog .field-name-field-blog-category,
-.view-blog .views-field-title,
-.view-blog .field-name-body{
+.view-listado-blog .field-name-field-blog-category,
+.view-listado-blog .views-field-title,
+.view-listado-blog .field-name-body{
 	padding: 0 22px;
 }
 
-.view-blog .field-name-field-blog-category a{
+.view-listado-blog .field-name-field-blog-category a{
 	display: block;
 	text-decoration: none;
 	font-weight: 300;
@@ -1798,7 +1821,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	
 }
 
-.view-blog .field-name-body {
+.view-listado-blog .field-name-body {
 	font-weight: 300;
   font-size: 18px;
   line-height: 20px;
@@ -1808,7 +1831,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	display: block;
 }
 
-.view-blog .views-field-view-node{
+.view-listado-blog .views-field-view-node{
 	position: absolute;
 	bottom: 30px;
 	right: 22px;
@@ -1820,10 +1843,10 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	transition: all 0.5s ease;
 	
 }
-.view-blog .views-field-view-node:hover{
+.view-listado-blog .views-field-view-node:hover{
 	transform: translate(0, -5px);
 }
-.view-blog .views-field-view-node a{
+.view-listado-blog .views-field-view-node a{
 	color: #fff;
 	display: block;
 	padding: 0 20px;
@@ -1835,7 +1858,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 }
 
 .sidebar-second #sidebar-second{
-	padding: 0 0 0 35px !important;
+	padding: 0 50px 0 35px !important;
 }
 
 
@@ -1845,4 +1868,101 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 
 .view-id-shopping_cart .line-item-quantity-label{
 	display: none;
+}
+
+#sidebar-second .blog-mas-leidos .views-field-field-image{
+	width: 23%;
+	float: left;
+	margin-right: 2%;
+}
+
+
+#sidebar-second .blog-mas-leidos .views-field-field-image img{
+	border-radius: 5px;	
+}
+
+#sidebar-second .blog-mas-leidos .views-field-nothing{
+	width: 75%;
+	float: left;
+	
+	
+}
+
+#sidebar-second .blog-mas-leidos .views-field-nothing h3 a{
+	text-decoration: none;
+	font-size: 14px;
+}
+
+
+#sidebar-second .block {
+    clear: both;
+    display: block;
+    float: left;
+	
+}
+
+#sidebar-second .blog-mas-leidos .views-field-nothing h3 {
+	line-height: 16px;
+	margin: 15px 0 5px 0;
+}
+
+#sidebar-second .blog-mas-leidos .views-field-nothing p {
+	margin: 0;
+	color: #575756;
+	 font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+}
+
+#sidebar-second .blog-mas-leidos .views-row{
+	clear: both;
+    width: 100%;
+    float: left;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#sidebar-second .block-taxonomy-menu-block {
+	
+}
+
+#sidebar-second .block.bg-inferior-flor-bloque{
+	padding-bottom: 65px;
+	border-bottom: 1px solid #DADADA;
+	width: 100%;
+	background-image: url(../images/bg-bloque-sidebar-blog-min.png);
+	background-position: center bottom;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	margin-bottom: 50px;
+}
+
+#sidebar-second .block-taxonomy-menu-block ul{
+	padding: 0;
+}
+#sidebar-second .block-taxonomy-menu-block ul li{
+	list-style: none;
+	padding: 0;
+	line-height: 40px;
+}
+
+
+#sidebar-second .block-taxonomy-menu-block ul li a{
+	text-decoration: none;
+	color: #575756;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	 font-weight: 400;
+}
+
+#sidebar-second .block-taxonomy-menu-block ul li:hover a,
+#sidebar-second .block-taxonomy-menu-block ul li.active a{
+	color: #E6007E;
+}
+.title-breadcrumb-container{
+	    border-bottom: 1px solid #E8E8E8;
+	margin-bottom: 30px;
+}
+
+header .header-top ul li a.active{
+	color: #EDCA5A;
 }

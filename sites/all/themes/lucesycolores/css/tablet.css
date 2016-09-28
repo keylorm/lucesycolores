@@ -100,6 +100,8 @@
     width: 50px;
     float: none;
     margin: 0 auto;
+		display: inline-block;
+		border-left: 0px;
 }
 	
 	header .header-top{
@@ -224,6 +226,21 @@
 	.node-webform.node-webform-contacto {
     padding: 10px 20px 10px 20px;
 }
+	.page-blog .main .view-listado-blog {
+    padding-left: 15px;
+}
+	
+	
+	.sidebar-second #sidebar-second {
+    padding: 0 15px !important;
+}
+	
+	
+
+		
+	.redes a{
+		margin-right: 5px;
+	}
 	
 }
 
@@ -299,8 +316,7 @@
 }
 
 	/*Tienda*/
-	
-	
+
 
 
 }

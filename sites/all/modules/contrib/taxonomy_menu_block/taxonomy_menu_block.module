@@ -805,6 +805,7 @@ function theme_taxonomy_menu_block($variables) {
 
   $output = '<ul>';
   foreach ($tree as $tid => $term) {
+
     $i++;
     // Add classes.
     $attributes = array();
