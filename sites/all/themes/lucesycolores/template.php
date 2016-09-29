@@ -125,6 +125,8 @@ function lucesycolores_html_head_alter(&$head_elements) {
  * https://gist.github.com/jacine/1378246
  */
 function lucesycolores_page_alter(&$page) {
+  
+  //dpm($page);
   // Remove all the region wrappers.
   foreach (element_children($page) as $key => $region) {
     if (!empty($page[$region]['#theme_wrappers'])) {
@@ -234,7 +236,7 @@ return $items;
 
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
-  //dpm($form);
+  //dpm($form_id);
   global $language;
   if($form_id=="user_register_form"){
     $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
@@ -261,6 +263,19 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 <h2>Datos Personales</h2>';
     }
      
+  }
+  
+  
+  if($form_id=='comment_node_blog_post_form'){
+   
+    $form['field_nombre_comentario']['und'][0]['value']['#attributes'] = array('placeholder' =>  $form['field_nombre_comentario']['und'][0]['#title']." ".($form['field_nombre_comentario']['und']['#required']==1 ? "*" : ""));
+    $form['field_correo_electronico']['und'][0]['email']['#attributes'] = array('placeholder' =>  $form['field_correo_electronico']['und'][0]['#title']." ".($form['field_correo_electronico']['und']['#required']==1 ? "*" : ""));
+    $form['comment_body']['und'][0]['value']['#attributes'] = array('placeholder' =>  $form['comment_body']['und'][0]['value']['#title']);
+    $form['actions']['submit']['#value'] = t('Send');
+    
+    $form['field_nombre_comentario']['und']['#prefix'] = "<p class='nota'>".t('We will not publish your email').".</p>". $form['field_nombre_comentario']['und']['#prefix'];
+      
+    //dpm($form);
   }
 }
 
@@ -309,3 +324,5 @@ function lucesycolores_preprocess_page(&$variables){
  // dpm($variables);
   //dpm($variables);
 }
+
+

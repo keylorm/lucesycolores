@@ -1,8 +1,9 @@
 <div class="w-container">
 	
 <?php
+	
   global $language;
-//dpm($form);
+$form['name']['#prefix'] = '<div id="user_login_form"><h1>'.t('Login to your account').'</h1>';
 // Ocultamos contenido que no queremos mostrar 
   $form['pass']['#suffix']="";
   $form['actions']['#suffix']="</div>";
@@ -13,6 +14,8 @@
 	$form['pass']['#attributes'] = array(
 		'placeholder' => $form['pass']['#title'],
 	);
+	
+
 
 $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/simple-fb-connect"><img src="/sites/all/themes/lucesycolores/images/facebook.jpg" /></a></div><p>'.t('Log in with your account').'</p>';
 

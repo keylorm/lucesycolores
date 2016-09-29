@@ -729,21 +729,26 @@ h2.h24.decora-der:after {
 	top: 0px;
 }
 
-#block-block-6 .stButton {
+.stButton {
 	margin-right: 0px !important;
 	margin-left: 0px !important;
 }
 
-#block-block-6 .stButton .stLarge {
+.stButton .stLarge {
 	height: 25px !important;
 	width: 25px !important;
 	background-image: url('../images/compartir.png') !important;
-}
-
-#block-block-6 .stButton .stLarge:hover {
 	background-position: center !important;
 }
 
+.stButton .stLarge:hover {
+	background-position: center !important;
+}
+
+.field-name-share-this-field p {
+    line-height: 32px;
+	margin: 0;
+}
 
 /**************/
 
@@ -1598,7 +1603,9 @@ img.certificados{
 	padding: 10px;
 }
 
-.webform-client-form input[type="submit"]{
+.webform-client-form input[type="submit"],
+#comments input[type="submit"],
+#user_login_form input[type="submit"]{
 	clear: both;
 	float: right;
 	    background-image: url("../images/bg-boton-naranja-degradado.jpg");
@@ -1767,7 +1774,7 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	width: 100%;
 }
 
-.view-listado-blog .imagen-blog .fecha-blog{
+.imagen-blog .fecha-blog{
 	  position: absolute;
     top: 0;
     left: 12px;
@@ -1786,7 +1793,11 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
     padding: 14px 0 0 0;
 }
 
-.view-listado-blog .imagen-blog .fecha-blog span{
+.node-blog-post .imagen-blog .fecha-blog{
+	/*top: 20px;*/
+}
+
+.imagen-blog .fecha-blog span{
 
 	font-weight: 600;
 	font-size: 21px;
@@ -1806,11 +1817,15 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 
 .view-listado-blog .field-name-field-blog-category,
 .view-listado-blog .views-field-title,
-.view-listado-blog .field-name-body{
+.view-listado-blog .field-name-body,
+.node.node-blog-post .field-name-field-blog-category,
+.node.node-blog-post .views-field-title,
+.node.node-blog-post .field-name-body{
 	padding: 0 22px;
 }
 
-.view-listado-blog .field-name-field-blog-category a{
+.view-listado-blog .field-name-field-blog-category a,
+.node.node-blog-post .field-name-field-blog-category a{
 	display: block;
 	text-decoration: none;
 	font-weight: 300;
@@ -1821,7 +1836,8 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 	
 }
 
-.view-listado-blog .field-name-body {
+.view-listado-blog .field-name-body,
+.node.node-blog-post .field-name-body{
 	font-weight: 300;
   font-size: 18px;
   line-height: 20px;
@@ -1965,4 +1981,213 @@ input#edit-submitted-desea-solicitar-una-cita-o-visita-elija-una-fecha{
 
 header .header-top ul li a.active{
 	color: #EDCA5A;
+}
+
+
+.node-blog-post{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 70px;
+    position: relative;
+	overflow: hidden;
+}
+
+
+.node-blog-post .field-name-field-image img{
+		width: 100%;
+}
+
+
+.node-blog-post .field-name-body h2{
+	font-family: 'IM Fell DW Pica', serif;
+    font-weight: normal;
+    font-size: 20px;
+
+	margin: 10px 0;
+	display: block;
+}
+
+.node-blog-post .field-name-body h3{
+	font-family: 'IM Fell DW Pica', serif;
+    font-weight: normal;
+    font-size: 18px;
+
+	margin: 25px 0 10px;
+	display: block;
+}
+
+.field-name-share-this-field {
+    text-align: right;
+		font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	color: #B2B2B2;
+}
+
+.share-this-label {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.share-this-link {
+    display: inline-block;
+}
+
+.field-name-field-tags .field-item{
+	display: inline-block;
+	margin: 5px 10px 5px 0;
+	padding: 10px 15px;
+	border-radius: 5px;
+	background-color: #DADADA;
+}
+
+.field-name-field-tags .field-label{
+	 display: block;
+    font-family: "IM Fell DW Pica",serif;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+
+#comments h2{
+   color: #009837;
+	font-size: 24px;
+	font-family: "IM Fell DW Pica",serif;
+    font-weight: normal;
+	margin-top: 50px;
+}
+
+#comments h2.comment-form{
+	color: #36A9E1;
+}
+
+#comments label{
+	display: none;
+}
+
+#comments input[type="text"],
+#comments input[type="email"]{
+	width: 100%;
+	color: #575756;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	padding: 0 15px;
+	height: 43px;
+	line-height: 43px;
+	border-radius: 5px;
+	border: 1px solid #EDEDED;
+}
+
+#comments textarea{
+	width: 100%;
+	color: #575756;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	padding: 0 15px;
+	height: 125px;
+	line-height: 43px;
+	max-height: 125px;
+	min-height: 125px;
+	max-width: 100%;
+	min-width: 100%;
+	border-radius: 5px;
+	border: 1px solid #EDEDED;
+}
+
+#comments #edit-author--2{
+	display: none;
+}
+
+#comments #edit-actions #edit-preview{
+	display: none;
+}
+
+.grippie{
+	display: none;
+}
+
+.field-name-field-tags .field-item a{
+	text-decoration: none;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	
+}
+#comments .comment {
+	margin-bottom: 40px;
+}
+
+#comments .form-item-name{
+	display: none;
+}
+#comments .comment .field-name-field-nombre-comentario{
+	 color: #575756;
+	font-size: 18px;
+	font-family: "IM Fell DW Pica",serif;
+    font-weight: normal;
+}
+
+#comments .comment .field-name-post-date{
+	 color: #575756;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+#comments .comment .field-name-comment-body{
+	 color: #575756;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+#comments p.nota{
+	color: #9D9D9C;
+	font-size: 16px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+	margin-bottom: 40px;
+	margin-top: -10px;
+}
+
+#user_login_form{
+	max-width: 340px;
+	width: 100%;
+	float: none;
+	margin: 0 auto;
+}
+#user_login_form .description{
+	display: none;	
+}
+
+#user_login_form label{
+	display: none;
+}
+#user_login_form h1{
+	color: #EA5B0C;
+	font-size: 24px;
+	font-family: "IM Fell DW Pica",serif;
+	text-align: center;
+}
+
+#user_login_form input[type="text"],
+#user_login_form input[type="password"]{
+	width: 100%;
+}
+
+#user_login_form input[type="submit"]{
+	width: 100%;
+
+}
+
+#modal-content .user-login-links{
+	display: none;
+}
+
+.facebook-login-button {
+    text-align: center;
 }
