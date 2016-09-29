@@ -2177,6 +2177,14 @@ header .header-top ul li a.active{
 #user_login_form input[type="text"],
 #user_login_form input[type="password"]{
 	width: 100%;
+	border: 1px solid #9D9D9C;
+	padding: 0 15px;
+	height: 42px;
+	line-height: 42px;
+	color: #575756;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
 }
 
 #user_login_form input[type="submit"]{
@@ -2191,3 +2199,9 @@ header .header-top ul li a.active{
 .facebook-login-button {
     text-align: center;
 }
+
+#user_login_form .form-item, 
+#user_login_form .form-actions{
+	margin: 10px 0;
+}
+
