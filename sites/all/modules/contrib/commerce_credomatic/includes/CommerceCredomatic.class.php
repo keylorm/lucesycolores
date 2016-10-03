@@ -61,8 +61,13 @@ class CommerceCredomatic implements ICommerceCredomatic {
 
     $response = drupal_http_request($url, $options);
 
-    if (isset($response->data)) {
-      return (object) drupal_json_decode($response->data);
+    foreach($response as $key => $value){
+      var_export($key);
+    }
+    exit();
+    
+    if (isset($response)) {
+      return (object) drupal_json_decode($response);
     }
 
     return NULL;

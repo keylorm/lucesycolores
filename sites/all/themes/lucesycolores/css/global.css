@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|family=IM+Fell+DW+Pica);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|family=IM+Fell+DW+Pica|family=Roboto);
 @font-face {
 	font-family: 'fontello';
 	src: url('../font/fontello.eot?44438275');
@@ -1605,7 +1605,9 @@ img.certificados{
 
 .webform-client-form input[type="submit"],
 #comments input[type="submit"],
-#user_login_form input[type="submit"]{
+#user_login_form input[type="submit"],
+#user_register_form input[type="submit"],
+#user_pass_form input[type="submit"]{
 	clear: both;
 	float: right;
 	    background-image: url("../images/bg-boton-naranja-degradado.jpg");
@@ -2154,28 +2156,52 @@ header .header-top ul li a.active{
 	margin-top: -10px;
 }
 
-#user_login_form{
+.not-logged-in  #user_login_form,
+.ajax-register-links-wrapper, 
+.not-logged-in #user_register_form{
 	max-width: 340px;
 	width: 100%;
 	float: none;
 	margin: 0 auto;
 }
-#user_login_form .description{
+
+.logged-in #user_register_form{
+	max-width: 620px;
+}
+
+#user_register_form{
+	clear: both;
+}
+
+#user_login_form .description,
+#user_register_form .description{
 	display: none;	
 }
 
-#user_login_form label{
+#user_login_form label,
+.not-logged-in #user_register_form label,
+#user_pass_form label{
 	display: none;
 }
-#user_login_form h1{
+#user_login_form h1,
+#user_register_form h1,
+#user_pass_form h1,
+#user_register_form h2{
 	color: #EA5B0C;
 	font-size: 24px;
 	font-family: "IM Fell DW Pica",serif;
 	text-align: center;
 }
 
+#user_register_form h2{
+	text-align: left;
+}
+
 #user_login_form input[type="text"],
-#user_login_form input[type="password"]{
+#user_login_form input[type="password"],
+#user_register_form input[type="text"],
+#user_register_form input[type="password"],
+#user_pass_form input[type="text"]{
 	width: 100%;
 	border: 1px solid #9D9D9C;
 	padding: 0 15px;
@@ -2187,7 +2213,26 @@ header .header-top ul li a.active{
     font-weight: 600;
 }
 
-#user_login_form input[type="submit"]{
+.logged-in #user_register_form label{
+	width: 41%;
+	display: inline-block;
+	color: #575756;
+		font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+
+}
+
+.logged-in #user_register_form input[type="text"],
+.logged-in #user_register_form input[type="password"]{
+
+	display: inline-block;
+	width: 58%;
+}
+
+#user_login_form input[type="submit"],
+.not-logged-in #user_register_form input[type="submit"],
+#user_pass_form input[type="submit"]{
 	width: 100%;
 
 }
@@ -2204,4 +2249,146 @@ header .header-top ul li a.active{
 #user_login_form .form-actions{
 	margin: 10px 0;
 }
+
+
+.ajax-register-links-wrapper,
+.user-login-links{
+	clear: both;
+	width: 100%;
+	color: transparent;
+}
+
+
+.ajax-register-links-wrapper .ajax-register-links li, 
+.user-login-links span{
+	 display: inline-block;
+    float: left;
+    margin: 0 0 30px 0;
+    padding: 0;
+
+    width: 50%;
+}
+
+.user-login-links span{
+	width: 49%;
+}
+
+.ajax-register-links-wrapper .ajax-register-links li.first,
+.user-login-links span.register-link{
+		border-right: 1px solid #9D9D9C;
+}
+
+.ajax-register-links-wrapper .ajax-register-links li.last,
+.user-login-links span.password-link{
+	padding-top: 10px;	
+}
+
+.ajax-register-links-wrapper .ajax-register-links li.last a,
+.user-login-links span.password-link a{
+	text-align: right;
+}
+
+.ajax-register-links-wrapper .ajax-register-links li a,
+.user-login-links span a{
+	color: #36434B;
+	text-decoration: none;
+	text-align: left;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	display: block;
+	border-bottom: 0 none;
+}
+
+
+.ajax-register-links-wrapper,
+.user-login-links{
+	text-align: left;
+}
+
+div.ctools-modal-content .modal-content {
+    margin: 0 auto;
+	padding: 15px 15px 0;
+	/*background-image: url(../images/bg-popup-login-min.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-color: transparent;*/
+}
+
+div.ctools-modal-content .modal-content form{
+
+	background-image: url(../images/bg-popup-login-min.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-color: transparent;
+}
+
+div.ctools-modal-content .modal-content form#user-register-form{
+		padding: 0px 0px 150px;
+}
+
+div.ctools-modal-content .modal-content form#user-login,
+div.ctools-modal-content .modal-content form#user-pass{
+		padding: 0px 0px 70px;
+}
+
+div.ctools-modal-content .modal-header{
+	background-color: #fff;
+	display: block;
+    float: left;
+    padding: 0 0.25em 0 1em;
+    width: 100%;
+}
+
+.modal-header .modal-title{
+	display: none;
+}
+
+.modal-header img{
+	display: none;
+}
+
+.modal-header a.close{
+	display: block;
+	width: 18px;
+	height: 18px;
+	background-image: url(../images/cerrar-popup.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center;
+	margin: 10px 5px 0 0 ;
+}
+
+.confirm-parent, .password-parent, div.form-item div.password-suggestions{
+	width: 100%;
+}
+
+.modal-default {
+    top: 150px !important;
+}
+
+div.ctools-modal-content{
+	border-bottom: 5px solid #EA5B0C;
+}
+
+.not-logged-in  #block-menu-menu-user-menu{
+	display: none;	
+}
+
+.tabs{
+	display: none;
+}
+
+#user_pass_form{
+	max-width: 650px;
+	margin: 0 auto;
+	float: none;
+}
+
+
+.logged-in .password-strength,
+.logged-in .password-confirm{
+display: none;
+}
+
 

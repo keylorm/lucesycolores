@@ -78,13 +78,33 @@
 <?php endif; // end Above Content ?>
 
 <div class="main-content">
+  <div class="title-breadcrumb-container">
+    
+  
+    <div class="w-container">
+      <?php  if ($breadcrumb): ?>
+        <div class="breadcrumb w-container-inner">
+          <?php print $breadcrumb; ?>
+        </div>
+
+      <?php endif; ?>
+
+      <?php if ($page['highlighted']): ?>
+        <?php print render($page['highlighted']); ?>
+      <?php endif; ?>
+
+
+        
+          <h2 class="title" id="page-title"><?php print t('My account'); ?></h2>
+        
+
+
+
+        <a id="main-content"></a>
+    </div>
+  </div>
+  
   <div class="w-container">
-    <?php if ($breadcrumb): ?>
-      <div class="w-container">
-        <?php print $breadcrumb; ?>
-      </div>
-      
-    <?php endif; ?>
 
     <?php if ($page['highlighted']): ?>
       <?php print render($page['highlighted']); ?>
@@ -92,7 +112,7 @@
 
       <a id="main-content"></a>
         <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php if ($title): ?><h1 class="title decora-der hmorado h28" id="page-title"><?php print $title; ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">

@@ -160,7 +160,7 @@ function lucesycolores_breadcrumb($variables) {
   $sep = ' | ';
   $crumbs = array();
   
-  
+  dpm($variables);
   if (count($variables['breadcrumb']) > 0) {
     if (arg(0)=='node'){
       $node = node_load(arg(1));
@@ -225,6 +225,15 @@ function lucesycolores_theme() {
   'preprocess functions' => array(
   'lucesycolores_preprocess_user_pass'
   ),
+);
+     
+  $items['user_register_form'] = array(
+  'render element' => 'form',
+  'path' => drupal_get_path('theme', 'lucesycolores') . '/templates/user',
+  'template' => 'user-register-form',
+  'preprocess functions' => array(
+  'lucesycolores_preprocess_user_register_form'
+  ),
  );   
 
 return $items;
@@ -248,6 +257,12 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
     $form['field_full_name']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_full_name']['und'][0]['value']['#title']);
     $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
     $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
+    
+    
+   // dpm( $form['links']);
+    $form['links']['#items'][0] = '<a href="/ajax_register/login/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Ingresar">'.t('Do you have an account?').'<br /><strong>'.t('Login').'</strong></a>';
+		$form['links']['#items'][1] = '<a href="/ajax_register/password/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Solicitar una nueva contraseña">'.t('Forgot your password?').'</a>';
+		
    
   }
  // dpm($form_id);
@@ -281,14 +296,22 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
 function lucesycolores_preprocess_page(&$variables){
   $user = user_load($variables['user']->uid);
-  //dpm ($user);
   $fullname_user = "";
   if(!empty($user->field_full_name)){
     $fullname_user = $user->field_full_name['und'][0]['value'];
   }
   if(arg(0) == 'user'  || arg(1)=='user' ) {  //For node 2
     $variables['theme_hook_suggestions'][] =  'page__user';
-   
+		
+		$sep = '|';
+		$crumbs = array();
+		$crumbs[] = l(t('Home'), '');
+    $crumbs[] = t('My account');
+		
+		//drupal_set_breadcrumb($crumbs);
+    $variables['crumbs_trail'] = $crumbs;
+		$variables['breadcrumb'] = implode($sep, $crumbs); 
+  	dpm ($variables);
     if($variables['language']->language=='en'){
       drupal_set_title('Hello, '.$fullname_user);
     }else{

@@ -218,7 +218,7 @@ function commerce_credomatic_pcc_commerce_payment_method_submit_form_validate($p
  * Implements CALLBACK_method_submit_form_submit().
  */
 function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($payment_method, $pane_form, $pane_values, $order, $charge) {
-
+  
   // Determine the credit card type if possible for use in later code.
   $card_type = '';
   if (!empty($pane_values['credit_card']['number'])) {
@@ -244,14 +244,15 @@ function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($pay
   }
 
   $billing_address = array();
+  $address1 = '';
   if ($order_wrapper->commerce_customer_billing->value()) {
     $billing_address = $order_wrapper->commerce_customer_billing->commerce_customer_address->value();
-
     if (empty($billing_address['first_name'])) {
       $name_parts = explode(' ', $billing_address['name_line']);
       $billing_address['first_name'] = array_shift($name_parts);
       $billing_address['last_name'] = implode(' ', $name_parts);
     }
+    $address = $billing_address['thoroughfare'];
   }
 
   // Create parameters to consume webservices.
@@ -265,21 +266,25 @@ function commerce_credomatic_pcc_commerce_payment_method_submit_form_submit($pay
   $parameters['amount'] = commerce_currency_amount_to_decimal($charge['amount'], $charge['currency_code']);
   $parameters['cvv'] = $pane_values['credit_card']['code'];
   $parameters['description'] = $description;
+  $parameters['address'] = $address;
 
   // Submit the request to Credomatic.
   $credomatic = new CommerceCredomatic(array('key' => $payment_method['settings']['credomatic_key']));
   $credomatic->prepareParameters($parameters);
+    
   $json_response = $credomatic->doHttpRequest($parameters);
-
+  
   if (!isset($json_response)) {
     _commerce_credomatic_save_invalid_transaction($order, $charge, t('Invalid callback to server.'));
     return FALSE;
   }
 
+  exit(var_export($json_response));
+  
   // Prepare a transaction object to log the API response.
   $transaction = commerce_payment_transaction_new(CREDOMATIC_METHOD_ID, $order->order_id);
   $transaction->instance_id = $payment_method['instance_id'];
-  $transaction->remote_id = $json_response->transactionid;
+  $transaction->remote_id = $json_response[0]->transactionid;
   $transaction->amount = $charge['amount'];
   $transaction->currency_code = $charge['currency_code'];
   $transaction->payload[REQUEST_TIME] = (array) $json_response;

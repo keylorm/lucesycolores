@@ -10,8 +10,13 @@
 	$form['name']['#attributes'] = array(
 		'placeholder' => $form['name']['#title'],
 	);
-	$form['name']['#prefix'] .= '<div class="w-row"><div class="w-col w-col-8">';
-	$form['name']['#suffix'] .= '</div><div class="w-col w-col-4">';
+	$form['name']['#prefix'] .= '<div class="w-row"><div class="w-col w-col-7">';
+	if(isset($form['name']['#suffix'])){
+			$form['name']['#suffix'] .= '</div><div class="w-col w-col-5">';
+	}else{
+			$form['name']['#suffix'] = '</div><div class="w-col w-col-5">';
+	}
+
 	$form['actions']['#suffix']="</div></div>";
 	
 	
