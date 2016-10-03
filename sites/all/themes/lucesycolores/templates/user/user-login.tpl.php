@@ -36,6 +36,8 @@ $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/s
 	print drupal_render($form['form_build_id']);
 	print drupal_render($form['form_id']);
 	print drupal_render($form['actions']);
+		
+		dpm($form['links']);
 
 print drupal_render($form['links']);
     ?>
