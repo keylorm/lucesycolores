@@ -53,19 +53,16 @@ class CommerceCredomatic implements ICommerceCredomatic {
     );
 
     $url = CREDOMATIC_URL;
-
     $options = array(
       'method' => 'POST',
       'data' => http_build_query($data),
       'headers' => array('Content-Type' => 'application/x-www-form-urlencoded'),
     );
+
     $response = drupal_http_request($url, $options);
-    if (isset($response->redirect_url)) {
-      if (isset($response->data)) {
-        return (object) drupal_json_decode($response->data);
-      }
-    } else {
-      print $response->data;
+
+    if (isset($response->data)) {
+      return (object) drupal_json_decode($response->data);
     }
 
     return NULL;
