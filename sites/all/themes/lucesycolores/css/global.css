@@ -2391,6 +2391,10 @@ div.ctools-modal-content{
 display: none;
 }
 
+.menu-perfil ul {
+	padding: 0;
+	margin: 0;
+}
 
 .menu-perfil ul li{
 	list-style: none;
@@ -2400,12 +2404,19 @@ display: none;
 	background-color: #EDEDED;
 	height: 52px;
 	line-height: 52px;
+	margin-bottom: 5px;
 }
 
-.menu-perfil ul li{
+.menu-perfil ul li.active{
+	border-left: 3px solid #EA5B0C;	
+}
+
+.menu-perfil ul li a{
 	color: #575756;
 	font-size: 18px;
 	font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
+	text-decoration: none;
+	display: block;
 }
 
