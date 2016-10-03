@@ -2392,3 +2392,20 @@ display: none;
 }
 
 
+.menu-perfil ul li{
+	list-style: none;
+	margin: 0;
+	padding: 0 10%;
+	width: 100%;
+	background-color: #EDEDED;
+	height: 52px;
+	line-height: 52px;
+}
+
+.menu-perfil ul li{
+	color: #575756;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+

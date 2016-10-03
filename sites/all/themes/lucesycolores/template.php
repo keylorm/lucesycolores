@@ -298,7 +298,7 @@ function lucesycolores_preprocess_page(&$variables){
   if(arg(0) == 'user'  || arg(1)=='user' ) {  //For node 2
     $variables['theme_hook_suggestions'][] =  'page__user';
 		
-		$sep = '|';
+		$sep = ' | ';
 		$crumbs = array();
 		$crumbs[] = l(t('Home'), '');
     $crumbs[] = t('My account');
