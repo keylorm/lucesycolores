@@ -18,10 +18,14 @@
       $user = user_load( $user->uid );
       //var_export( $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']);
       // For each field in customer profile I fill the form field with the $user value 
-      $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+      if(isset($user->field_full_name) && !empty($user->field_full_name)){
+        $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+        $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
+      }
+      if(isset($user->field_provincia) && !empty($user->field_provincia)){
        $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
-      $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['name_line']  = $user->field_full_name[LANGUAGE_NONE][0]['value'];
        $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
+      }
     }
   } /*elseif($form_id == 'commerce_checkout_form_checkout') {
     exit(var_export($form));

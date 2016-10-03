@@ -191,11 +191,6 @@ function lucesycolores_breadcrumb($variables) {
           $crumbs[] = $node->title;
           return implode($sep, $crumbs);    
       }
-    }else if(arg(0)=='user' || arg(1)=='user'){
-          $crumbs[] = l(t('Home'), '');
-          $crumbs[] = t('My account');
-      
-          return implode($sep, $crumbs);   
     }else{
       return implode($sep, $variables['breadcrumb']);      
     }
@@ -311,7 +306,7 @@ function lucesycolores_preprocess_page(&$variables){
 		//drupal_set_breadcrumb($crumbs);
     $variables['crumbs_trail'] = $crumbs;
 		$variables['breadcrumb'] = implode($sep, $crumbs); 
-  	dpm ($variables);
+  	//dpm ($variables);
     if($variables['language']->language=='en'){
       drupal_set_title('Hello, '.$fullname_user);
     }else{
