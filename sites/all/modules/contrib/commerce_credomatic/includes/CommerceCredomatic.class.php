@@ -58,16 +58,22 @@ class CommerceCredomatic implements ICommerceCredomatic {
       'data' => http_build_query($data),
       'headers' => array('Content-Type' => 'application/x-www-form-urlencoded'),
     );
-
     $response = drupal_http_request($url, $options);
-
-    foreach($response as $key => $value){
-      var_export($key);
-    }
-    exit();
-    
-    if (isset($response)) {
-      return (object) drupal_json_decode($response);
+    if (isset($response->data)) {
+      //if $response->data is not json decodeable it is because it is an html
+      //string that should be sent to user
+      //This use to occur with Master Card transactions
+      if(!is_null(drupal_json_decode($response->data))){
+        return (object) drupal_json_decode($response->data);
+      }
+      elseif (is_string($response->data)){
+        $data = $response->data;
+        $texto = t('Processing your payment...');
+        $data = substr($response->data, 0, -14) .  '<p style="text-align: center;">' . $texto . '</p>' . substr($response->data, -14);
+        print($response->data);
+        exit();
+        return NULL;
+      }
     }
 
     return NULL;

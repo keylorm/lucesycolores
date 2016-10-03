@@ -35,9 +35,99 @@ function commerce_credomatic_menu() {
  * @see ommerce_credomatic_pcc_commerce_payment_method_submit_form_submit(()
  */
 function _commerce_credomatic_response_form($form, &$form_state) {
-
-  print drupal_json_encode($_GET);
-  exit();
+  $redirect = FALSE;
+  $referrer = $_SERVER['HTTP_REFERER'];
+  global $base_url;
+  if($referrer){
+    if(strpos($referrer, $base_url) === FALSE){
+      $redirect = TRUE;
+    }
+  }
+  $order_id = $_GET['orderid'];
+  $abort = FALSE;
+  $time = $_GET['time'];
+  $time_now = time();
+  //Máximo de 5 minutos de antigüedad
+  if($time_now - 300 <= $time){
+    $amount = $_GET['amount'];
+    $response = $_GET['response'];
+    $transaction_id = $_GET['transactionid'];
+    $avs_response = $_GET['avsresponse'];
+    $cvv_response = $_GET['cvvresponse'];
+    $payment = commerce_payment_method_instance_load('commerce_credomatic|commerce_payment_commerce_credomatic');
+    $settings = $payment['settings'];
+    $key = $settings['credomatic_key'];
+    $hash = $_GET['hash'];
+    $hash_string = $order_id . '|' . $amount . '|' . $response . '|' . $transaction_id . '|' . $avs_response . '|' . $cvv_response . '|' . $time . '|' . $key;
+    $my_hash = md5($hash_string);
+    if($hash != $my_hash){
+      $abort = TRUE;
+    }
+  }
+  else{
+    $abort = TRUE;
+  }
+  if($abort){
+    $message = t('An unsafe operation has been tried. If you have doubts; please contact site administrators');
+    if($redirect){
+      drupal_set_message($message, 'error');
+      drupal_goto('checkout/' . $order_id . '/review');
+    }
+    else{
+      print $message;
+      exit();
+    }
+  }
+  $response_code = $_GET['response_code'];
+  if($response_code == 100){
+    $order = commerce_order_load($order_id);
+    $order->data['commerce_credomatic']['document'] = $_GET['transactionid'];
+    commerce_order_save($order);
+    if($redirect){
+      rules_invoke_event('commerce_checkout_complete', $order);
+      drupal_goto('checkout/' . $order_id . '/complete');
+    }
+  }else{
+    $responses = array(
+      '200' => t('Transaction was Declined by Processor'),
+      '201' => t('Do Not Honor'),
+      '202' => t('Insufficient Funds'),
+      '203' => t('Over Limit'),
+      '204' => t('Transaction not allowed'),
+      '220' => t('Incorrect Payment Data'),
+      '221' => t('No Such Card Issuer'),
+      '222' => t('No Card Number on file with Issuer'),
+      '223' => t('Expired Card'),
+      '224' => t('Invalid Expiration Date'),
+      '225' => t('Invalid Card Security Code'),
+      '240' => t('Call Issuer for Further Information'),
+      '250' => t('Pick Up Card'),
+      '251' => t('Lost Card'),
+      '252' => t('Stolen Card'),
+      '253' => t('Fraudulant Card'),
+      '260' => t('Declined with these instructions: @instructions', array('@instructions' => $_GET['responsetext'])),
+      '261' => t('Declined - Stop All Recurring Payments'),
+      '262' => t('Declined - Stop this Recurring Program'),
+      '263' => t('Declined - Update Cardholder Data Available'),
+      '264' => t('Declined - Retry in a few days'),
+      '300' => t('Transaction was Rejected by Gateway'),
+      '400' => t('Transaction Error Returned by Processor'),
+      '410' => t('Invalid Merchant Configuration'),
+      '411' => t('Merchant Account is Inactive'),
+      '420' => t('Communication Error'),
+      '421' => t('Communication Error with Issuer'),
+      '430' => t('Duplicate Transaction at Processor'),
+      '440' => t('Processor Format Error'),
+      '441' => t('Invalid Transaction Information'),
+      '460' => t('Processor Feature not Available'),
+      '461' => t('Unsupported Card Type'),
+    );
+    drupal_set_message(t('We received the following error processing your card. Please enter you information again or try a different card.'), 'error');
+    drupal_set_message($responses[$response_code], 'error');
+    if($redirect){
+      drupal_goto('checkout/' . $order_id . '/review');
+    }
+  }
 }
 
 /**
