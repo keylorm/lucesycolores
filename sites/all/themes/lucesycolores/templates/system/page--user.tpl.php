@@ -116,11 +116,11 @@
         <?php print render($title_suffix); ?>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
-        <div id="sidebar-first" class="w-col w-col-3">
+        <div id="sidebar-first" class="w-col w-col-4">
           <?php print render($page['sidebar_first']); ?>
         </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
-      <div class="main <?php if ($page['sidebar_first']): ?> w-col-9 <?php endif; ?>" role="main">
+      <div class="main <?php if ($page['sidebar_first']): ?> w-col-8 <?php endif; ?>" role="main">
         
 
         <?php if ($tabs): ?>

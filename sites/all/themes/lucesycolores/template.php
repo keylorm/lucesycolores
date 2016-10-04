@@ -160,7 +160,7 @@ function lucesycolores_breadcrumb($variables) {
   $sep = ' | ';
   $crumbs = array();
   
-  dpm($variables);
+  //dpm($variables);
   if (count($variables['breadcrumb']) > 0) {
     if (arg(0)=='node'){
       $node = node_load(arg(1));
