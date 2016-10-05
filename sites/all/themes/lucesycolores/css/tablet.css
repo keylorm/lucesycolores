@@ -247,6 +247,25 @@
     margin-left: 0px;
 
 }
+	.page-user .main-content {
+
+    padding: 0 2%;
+}
+	
+	.page-user .main.w-col-8 {
+		padding-left: 10px;
+	}
+	
+	
+
+	
+	.view-commerce-addressbook table td{
+		border: 1px solid #fafafa;
+	}
+	
+
+	
+	
 	
 }
 
@@ -330,5 +349,22 @@
 .not-logged-in 	#block-ajax-register-ajax-register-block{
 		display: none;
 	}
-
+	
+	.logged-in #user_register_form label, .logged-in #commerce-addressbook-customer-profile-form label,
+	.logged-in #user_register_form input[type="text"], .logged-in #user_register_form input[type="password"], 
+	.logged-in #commerce-addressbook-customer-profile-form input[type="text"], .logged-in #commerce-addressbook-customer-profile-form select{
+		width: 100%;
+	}
+	
+		.commerce-order-commerce-order .field-type-commerce-customer-profile-reference{
+		width: 100%;
+		margin-bottom: 40px;
+	}
+	
+		.view-commerce-user-orders  table,
+	.view-commerce-user-orders  table a,
+	.view-commerce-addressbook table,
+	.view-commerce-addressbook   table a{
+	font-size: 14px !important;
+}
 }

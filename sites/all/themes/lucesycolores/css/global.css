@@ -2502,11 +2502,19 @@ display: none;
     padding-bottom: 30px;
 }
 
-.commerce-order-commerce-order table{
+.commerce-order-commerce-order table,
+.view-commerce-user-orders table{
 	width: 100%;
 	margin-bottom: 35px;
 }
 
+.view-commerce-wishlist-page table{
+	width: 100%;
+}
+
+.commerce-order-commerce-order table .views-field-changed{
+	display: none;
+}
 .commerce-order-commerce-order .field-type-commerce-customer-profile-reference{
 	width: 50%;
 	float: left;

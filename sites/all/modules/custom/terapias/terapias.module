@@ -376,7 +376,6 @@ function createUser($name, $pass, $email, $terapiaId, $telefono, $provincia)
 	
 	if(user_save($account)){
 		global $base_url;
-		dpm($base_url);
 		//enviar correo al usuario
 		$message = t('This is your username and password to shop online in order to check your registration session and recommended products.');
 		$accesos = "<br />" . t('User name') . ": " . $name . "<br/>" . t('Password') . ": " . $pass . '<br /><a style="background-image: url("' . $base_url . '/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg"); background-repeat: repeat-x; border-radius: 5px; color: #fff; font-size: 18px; font-family: sans-serif; text-align: center; display: block; float: none; margin: 42px auto 0; line-height: 44px; height: 44px; padding: 0 5px; width: 225px;" href="' . $base_url . '/">Ingreso a mi cuenta</a>';

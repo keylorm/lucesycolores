@@ -120,7 +120,7 @@
           <?php print render($page['sidebar_first']); ?>
         </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
-      <div class="main <?php if ($page['sidebar_first']): ?> w-col-8 <?php endif; ?>" role="main">
+      <div class="main <?php if ($page['sidebar_first']): ?> w-col-8 w-col <?php endif; ?>" role="main">
         
 
         <?php if ($tabs): ?>
