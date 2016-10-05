@@ -326,6 +326,12 @@ function lucesycolores_preprocess_page(&$variables){
     $variables['theme_hook_suggestions'][] =  'page__blog';
 
   }
+	
+	
+	if(arg(0)=='cart'){
+    $variables['theme_hook_suggestions'][] =  'page__cart';
+
+  }
   
   if(isset($variables['node'])){
    // dpm($variables['node']);
