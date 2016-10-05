@@ -153,7 +153,7 @@
     <?php endif; ?>
   </div>
 </div>
-
+</div>
 <?php if ($page['below_content']): ?>
   <section class="below-content">
     <div class="w-container">

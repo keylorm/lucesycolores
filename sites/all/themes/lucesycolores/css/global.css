@@ -2523,3 +2523,8 @@ display: none;
 .page-user .main-content{
 	margin-bottom: 50px;
 }
+
+
+#user-profile-form #edit-field-terapias{
+	display: none;
+}
