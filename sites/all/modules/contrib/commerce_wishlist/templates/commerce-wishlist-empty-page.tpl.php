@@ -8,4 +8,4 @@
  *   $account - The user account that the wishlist belongs to.
  */
 ?>
-Nothing in your wish list.
+t('Nothing in your wish list.');
