@@ -134,6 +134,10 @@
 	transition: all 0.5s ease;
 }
 
+.view-collection-products .views-row{
+	margin-right: 100px;
+}
+
 .view-collection-products .field-name-imagen-representativa img {
 	margin: 0 auto;
 	display: block;
