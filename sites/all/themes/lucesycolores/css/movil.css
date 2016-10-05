@@ -28,9 +28,10 @@
 		text-align: center;
 	}
 	header .header-top .view-shopping-cart{
-		width: 125px;
 		float: none;
-		margin: 0 auto;
+    margin: 0 auto 0 25px;
+    padding-left: 35px;
+    width: 60px;
 	}
 	
 	.panel-pane.fullwidth.slider .caption-container{
@@ -146,4 +147,15 @@
 		padding: 3px 8px !important;
 	}
 
+	.page-user .main{
+	padding: 0 2%;
+}
+	
+	.titulo-seccion h2, .title-breadcrumb-container h1, .title-breadcrumb-container h2{
+		margin-top: 10px;	
+	}
+	
+	#sidebar-first{
+		margin-bottom: 50px;
+	}
 }

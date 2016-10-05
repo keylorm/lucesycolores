@@ -28,7 +28,7 @@ $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/s
     ?>
 
     <div class="user-login-links ">
-	<span class="password-link"><a href="/user/password"><?php echo t('Forgot your password?') ?></a></span> | <span class="register-link"><a href="/user/register"><?php echo t('Create an account') ?></a></span>
+	<span class="register-link"><a href="/user/register"><?=t('Don\'t you have an account?').'<br /><strong>'.t('Sign up').'</strong>';?></a></span><span class="password-link"><a href="/user/password"><?php echo t('Forgot your password?') ?></a></span>
     </div>
 
     <?php
@@ -37,8 +37,11 @@ $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/s
 	print drupal_render($form['form_id']);
 	print drupal_render($form['actions']);
 		
-		dpm($form['links']);
-
+	//pm($form['links']);	
+	
+		$form['links']['#items'][0] = '<a href="/ajax_register/register/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Registrarse">'.t('Don\'t you have an account?').'<br /><strong>'.t('Sign up').'</strong></a>';
+		$form['links']['#items'][1] = '<a href="/ajax_register/password/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Solicitar una nueva contraseña">'.t('Forgot your password?').'</a>';
+		
 print drupal_render($form['links']);
     ?>
 </div>

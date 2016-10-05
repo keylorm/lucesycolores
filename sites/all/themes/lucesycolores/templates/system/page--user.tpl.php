@@ -78,13 +78,33 @@
 <?php endif; // end Above Content ?>
 
 <div class="main-content">
+  <div class="title-breadcrumb-container">
+    
+  
+    <div class="w-container">
+      <?php  if ($breadcrumb): ?>
+        <div class="breadcrumb w-container-inner">
+          <?php print $breadcrumb; ?>
+        </div>
+
+      <?php endif; ?>
+
+      <?php if ($page['highlighted']): ?>
+        <?php print render($page['highlighted']); ?>
+      <?php endif; ?>
+
+
+        
+          <h2 class="title" id="page-title"><?php print t('My account'); ?></h2>
+        
+
+
+
+        <a id="main-content"></a>
+    </div>
+  </div>
+  
   <div class="w-container">
-    <?php if ($breadcrumb): ?>
-      <div class="w-container">
-        <?php print $breadcrumb; ?>
-      </div>
-      
-    <?php endif; ?>
 
     <?php if ($page['highlighted']): ?>
       <?php print render($page['highlighted']); ?>
@@ -92,15 +112,15 @@
 
       <a id="main-content"></a>
         <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php if ($title): ?><h1 class="title decora-der hmorado h28" id="page-title"><?php print $title; ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
-        <div id="sidebar-first" class="w-col w-col-3">
+        <div id="sidebar-first" class="w-col w-col-4">
           <?php print render($page['sidebar_first']); ?>
         </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
-      <div class="main <?php if ($page['sidebar_first']): ?> w-col-9 <?php endif; ?>" role="main">
+      <div class="main <?php if ($page['sidebar_first']): ?> w-col-8 w-col <?php endif; ?>" role="main">
         
 
         <?php if ($tabs): ?>
@@ -133,7 +153,7 @@
     <?php endif; ?>
   </div>
 </div>
-
+</div>
 <?php if ($page['below_content']): ?>
   <section class="below-content">
     <div class="w-container">

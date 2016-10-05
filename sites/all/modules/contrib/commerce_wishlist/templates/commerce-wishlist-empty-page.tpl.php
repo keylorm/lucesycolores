@@ -7,5 +7,5 @@
  * Available variables:
  *   $account - The user account that the wishlist belongs to.
  */
+echo t('Nothing in your wish list.');
 ?>
-t('Nothing in your wish list.');

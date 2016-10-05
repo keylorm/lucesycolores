@@ -67,7 +67,7 @@
 
 .view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active .field-name-field-tipo-de-terapia a,
 .view-terapias-usuarios .ui-accordion .ui-accordion-header.ui-state-active .field-name-field-fecha-terapia {
-  color: #fff;
+  /*color: #fff;*/
 }
 
 /* Added by Juan Martinez: Tienda */
@@ -132,6 +132,10 @@
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+}
+
+.view-collection-products .views-row{
+	margin-right: 100px;
 }
 
 .view-collection-products .field-name-imagen-representativa img {
@@ -581,11 +585,15 @@ h2.rosado{
 }
 
 .ui-state-default {
-	background-color: #ededed !important;
+	background-color: #ccc !important;
 	border: none !important;
 	background-image: none !important;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+}
+
+.ui-state-default.ui-state-active{
+	background-color: #ededed !important;
 }
 
 .ui-tabs ul li a{

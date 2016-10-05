@@ -148,6 +148,7 @@ function message_entity_info() {
     ),
     'bundle keys' => array(
       'bundle' => 'category',
+      'language' => 'language',
     ),
     'exportable' => TRUE,
     'export' => array(
