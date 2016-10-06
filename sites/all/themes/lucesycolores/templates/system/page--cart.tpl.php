@@ -85,6 +85,10 @@
 
 <div class="main-content">
   <div class="w-container">
+    
+    
+      
+    
     <?php if ($breadcrumb): ?>
       <div class="breadcrumb w-container-inner">
         <?php print $breadcrumb; ?>
@@ -97,7 +101,7 @@
     <?php endif; ?>
     
     
-
+    <div class="w-container-inner">
       <a id="main-content"></a>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
@@ -138,6 +142,7 @@
         <?php print render($page['sidebar_second']); ?>
       </div> <!-- /.section, /#sidebar-second -->
     <?php endif; ?>
+    </div>
   </div>
 </div>
 

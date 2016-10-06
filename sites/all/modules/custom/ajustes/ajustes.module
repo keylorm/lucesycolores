@@ -27,10 +27,9 @@
        $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
       }
     }
-  } /*elseif($form_id == 'commerce_checkout_form_checkout') {
-    exit(var_export($form));
-  }*/
-   
+  } elseif($form_id == 'views_form_commerce_cart_form_default') {
+    //dpm($form);
+  }
    
    /*elseif($form_id == 'views_form_commerce_cart_form_default'){
     global $user;

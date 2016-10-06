@@ -2528,3 +2528,91 @@ display: none;
 #user-profile-form #edit-field-terapias{
 	display: none;
 }
+
+.view-commerce-cart-form table{
+	width: 100%;
+}
+
+.view-commerce-cart-form .entity-commerce-product{
+	/*padding: 10px 20px;*/
+}
+
+.view-commerce-cart-form .entity-commerce-product .group-left{
+	max-width: 222px;
+}
+
+.view-commerce-cart-form .entity-commerce-product .group-left img{
+	max-width: 222px;
+	border: 1px solid #C6C6C6;
+	border-radius: 8px;
+}
+
+.view-commerce-cart-form .views-field-nothing {
+	width: 48%;
+}
+
+.view-commerce-cart-form td:not(.views-field-nothing) {
+
+}
+
+.view-commerce-cart-form th{
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+	text-decoration: none;
+	color: #575756;
+	text-transform: uppercase;
+}
+
+.view-commerce-cart-form th,
+.view-commerce-cart-form td{
+	padding: 10px 20px;
+	}
+
+.view-commerce-cart-form  td.views-field-edit-quantity,
+.view-commerce-cart-form  td.views-field-commerce-unit-price,
+.view-commerce-cart-form  td.views-field-edit-delete,
+.view-commerce-cart-form  td.views-field-commerce-total{
+	padding: 28px 20px;
+	font-size: 21px;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+	color: #575756;
+}
+
+.view-commerce-cart-form  td.views-field-edit-quantity  input{
+	color: #878787;
+	font-size: 16px;
+}
+.view-commerce-cart-form td h3{
+	margin-bottom: 5px;	
+}
+
+.view-commerce-cart-form td h3 a{
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+	text-decoration: none;
+	color: #575756;
+}
+
+
+.view-commerce-cart-form td .commerce-product-sku{
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+	color: #878787;
+	margin-bottom: 20px;
+}
+
+
+.view-commerce-cart-form td .field-name-ver-producto a{
+	text-decoration: none;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+	color: #E71D73;
+}
+.view-commerce-cart-form tr.even, .view-commerce-cart-form  tr.odd{
+	background-color: transparent;
+}
