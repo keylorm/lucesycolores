@@ -2,8 +2,7 @@
 /*
  * implements hook_form_alter()
  **/
- function ajustes_form_alter(&$form, &$form_state, $form_id)
- {
+ function ajustes_form_alter(&$form, &$form_state, $form_id){
  	if($form_id == 'comment_node_blog_post_form'){
  		$form['author']['name']['#title'] = '';
  		$form['author']['name']['#attributes'] = array('placeholder' => t('Author'));
@@ -67,21 +66,41 @@
  }
 
 /**
- * Implements hook_form_FORM_ID_alter().
- */
-function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
+* Implements hook_form_FORM_ID_alter
+*/
+function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state){
+  // Add read only price field to add to cart form
+  /*dpm($form);
 
-  //drupal_set_message($form_id);
+  $form['quantity']['#ajax'] = array(
+        'callback' => 'ajax_price_callback',
+        'wrapper' => 'display-price',
+      );
+  */
   $form['submit']['#attributes']['value'] = t('Add to');
   $form['submit']['#attributes']['class'] = array('cart-submit');
-
-  /*
-  $current_product = $form_state['default_product'];
-  if ($current_product->type == 'product') {
-    // Make alternations for products...
+  if (isset($form_state['default_product']->commerce_price)){
+    $price = commerce_product_calculate_sell_price($form_state['default_product']);
+    $form['precio_preliminar'] = array(
+      '#title' => t('Price per unit'),  
+      '#type' => 'item',
+      '#markup' => '<div id="monto-precio-preliminar">' . commerce_currency_format($price['amount'], $price['currency_code']) . '</div>',
+      '#prefix' => '<div class="display-price">',
+      '#suffix' => '</div>',
+    );
   }
-  */
 
+ /* $precio_preliminar = ($form_state['values']['quantity'] > 1) ? (commerce_currency_format(($price['amount'] * $form_state['values']['quantity']), $price['currency_code'])) : commerce_currency_format($price['amount'], $price['currency_code']);
+  $form['precio_preliminar']['#markup'] = $precio_preliminar;*/
+
+}
+
+/**
+ * funciton callback
+ */
+function ajax_price_callback($form, $form_state)
+{
+  return $form['precio_preliminar'];
 }
 
 /**
