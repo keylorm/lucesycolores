@@ -10,14 +10,7 @@
  */
 ?>
 <header class="header" role="banner">
-  <?php if ($messages): ?>
-  <div class="messages-wrapper">
-    <div class="messages-content">
-      <?php print $messages; ?>
-    </div>
-    <a href="#" id="messages-toggle"><?php print t('Close');?></a>
-  </div>
-  <?php endif; ?>
+  
   <!--<div class="grid">-->
     <?php if ($page['utility_bar']): ?>
       <div class="utility-bar">
@@ -84,24 +77,44 @@
 <?php endif; // end Above Content ?>
 
 <div class="main-content">
-  <div class="w-container">
+  <div class="title-breadcrumb-container">
     
-    
-      
-    
-    <?php if ($breadcrumb): ?>
-      <div class="breadcrumb w-container-inner">
-        <?php print $breadcrumb; ?>
-      </div>
-      
-    <?php endif; ?>
+  
+    <div class="w-container">
+      <?php  if ($breadcrumb): ?>
+        <div class="breadcrumb w-container-inner">
+          <?php print $breadcrumb; ?>
+        </div>
 
-    <?php if ($page['highlighted']): ?>
-      <?php print render($page['highlighted']); ?>
-    <?php endif; ?>
+      <?php endif; ?>
+
+      <?php if ($page['highlighted']): ?>
+        <?php print render($page['highlighted']); ?>
+      <?php endif; ?>
+
+
+        
+          <h2 class="title" id=""><?php print t('Shopping Cart'); ?></h2>
+        
+
+
+
+        <a id="main-content"></a>
+    </div>
+  </div>
+  
+<div class="w-container">
+
     
     
     <div class="w-container-inner">
+      <?php if ($messages): ?>
+      <div class="messages-wrapper">
+        <div class="messages-content">
+          <?php print $messages; ?>
+        </div>
+      </div>
+      <?php endif; ?>
       <a id="main-content"></a>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
@@ -111,7 +124,7 @@
       <?php endif; ?>
       <div class="main <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>w-col w-col-8 <?php endif; ?>" role="main">
         <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php if ($title): ?><h1 class="title hceleste decora-der h28" id="page-title"><?php /*print $title;*/ print t('Products'); ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
 
         <?php if ($tabs): ?>

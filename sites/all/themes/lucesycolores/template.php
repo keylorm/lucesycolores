@@ -150,14 +150,20 @@ function lucesycolores_preprocess_node(&$vars) {
 }
 
 function lucesycolores_preprocess_block(&$vars, $hook) {
+	
+	//dpm($vars);
   // Add a striping class.
   $vars['classes_array'][] = 'block-' . $vars['zebra'];
+	
+	if($vars['block_html_id']=='block-taxonomy-menu-block-1'){
+		$vars['content'] = "<div class='cerrar-menu'><a href='#'></a></div><div class='logo-menu-lateral'><a href='".$GLOBALS['base_url']."'><img src='".$GLOBALS['base_url']."/sites/all/themes/lucesycolores/images/logo-menu-lateral-min.png' /></a></div>".$vars['content'];
+	}
 }
 
 
 function lucesycolores_breadcrumb($variables) {
   //breadcrumb = $variables['breadcrumb'];
-  $sep = ' | ';
+  $sep = '  |  ';
   $crumbs = array();
   
   //dpm($variables);
@@ -177,9 +183,7 @@ function lucesycolores_breadcrumb($variables) {
           $crumbs[] = l(t('Courses'), $route_course);
           $crumbs[] = $node->title;
           return implode($sep, $crumbs);    
-      }
-      
-      if($node->type=='blog_post'){
+      }else if($node->type=='blog_post'){
         //foreach()
         //return implode($sep, $variables['breadcrumb']) ;
         $route_course = '/blog';
@@ -190,15 +194,15 @@ function lucesycolores_breadcrumb($variables) {
           $crumbs[] = l(t('Blog'), $route_course);
           $crumbs[] = $node->title;
           return implode($sep, $crumbs);    
-      }
+      }else{
+				return implode($sep, $variables['breadcrumb']);      
+			}
     }else{
       return implode($sep, $variables['breadcrumb']);      
     }
     
   }
-  else {
-    return t("Home");
-  }
+  
 }
 
 
@@ -240,7 +244,7 @@ return $items;
 
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
-  //dpm($form_id);
+  //dpm($form);
   global $language;
   if($form_id=="user_register_form"){
     $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
@@ -287,9 +291,13 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
       
     //dpm($form);
   }
+	
+	
+
 }
 
 function lucesycolores_preprocess_page(&$variables){
+	//dpm($variables['node']);
   $user = user_load($variables['user']->uid);
   $fullname_user = "";
   if(!empty($user->field_full_name)){
@@ -326,10 +334,38 @@ function lucesycolores_preprocess_page(&$variables){
     $variables['theme_hook_suggestions'][] =  'page__blog';
 
   }
+
+	 if(arg(0)=='product_category'){
+    $variables['theme_hook_suggestions'][] =  'page__tienda';
+
+  }
 	
 	
 	if(arg(0)=='cart'){
+		
+		$sep = ' | ';
+		$crumbs = array();
+		$crumbs[] = l(t('Home'), '');
+    $crumbs[] = t('Shopping Cart');
+		
+		//drupal_set_breadcrumb($crumbs);
+    $variables['crumbs_trail'] = $crumbs;
+		$variables['breadcrumb'] = implode($sep, $crumbs); 
     $variables['theme_hook_suggestions'][] =  'page__cart';
+
+  }
+	
+	if(arg(0)=='checkout'){
+		
+		$sep = ' | ';
+		$crumbs = array();
+		$crumbs[] = l(t('Home'), '');
+    $crumbs[] = t('Shopping Cart');
+		
+		//drupal_set_breadcrumb($crumbs);
+    $variables['crumbs_trail'] = $crumbs;
+		$variables['breadcrumb'] = implode($sep, $crumbs); 
+    $variables['theme_hook_suggestions'][] =  'page__checkout';
 
   }
   
@@ -337,6 +373,7 @@ function lucesycolores_preprocess_page(&$variables){
    // dpm($variables['node']);
     
     if($variables['node']->type=='blog_post'){
+			
       $variables['theme_hook_suggestions'][] =  'page__blog__detalle';
 
     }

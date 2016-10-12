@@ -158,4 +158,80 @@
 	#sidebar-first{
 		margin-bottom: 50px;
 	}
+	
+	
+	.view-commerce-cart-form th, .view-commerce-cart-form td,
+	.view-commerce-cart-summary th, .view-commerce-cart-summary td{
+    padding: 5px;
+	}
+	
+	
+	.view-commerce-cart-form td h3 a,
+	.view-commerce-cart-form th,
+	.view-commerce-cart-summary td h3 a,
+	.view-commerce-cart-summary th{
+		font-size: 14px;
+	}
+	.view-commerce-cart-form td h3,
+	.view-commerce-cart-summary td h3{
+		margin-top: 0px;
+	}
+	.view-commerce-cart-form td.views-field-edit-quantity,
+	.view-commerce-cart-form td.views-field-commerce-unit-price, 
+	.view-commerce-cart-form td.views-field-edit-delete, 
+	.view-commerce-cart-form td.views-field-commerce-total,
+	.view-commerce-cart-summary td.views-field-quantity,
+	.view-commerce-cart-summary td.views-field-commerce-unit-price, 
+	.view-commerce-cart-summary td.views-field-edit-delete, 
+	.view-commerce-cart-summary td.views-field-commerce-total{
+		font-size: 14px;
+		padding: 5px;
+	}
+	
+
+	.view-commerce-cart-form td.views-field-edit-quantity input{
+		font-size: 12px;
+	}
+	
+	.commerce-product-sku-label{
+		font-size: 12px;
+	}
+	
+	
+	.page-cart .titulo-seccion h2,.page-cart  .title-breadcrumb-container h1,.page-cart  .title-breadcrumb-container h2,
+	.page-checkout .titulo-seccion h2,.page-checkout  .title-breadcrumb-container h1,.page-checkout  .title-breadcrumb-container h2{
+		display: none;
+	}
+	
+	.view-commerce-cart-form .commerce-price-formatted-components,
+	.view-commerce-cart-summary .commerce-price-formatted-components{
+		width: 65%;
+		height: 50px;
+	}
+	
+	.view-commerce-cart-form .commerce-price-formatted-components td,
+	.view-commerce-cart-summary .commerce-price-formatted-components td{
+		font-size: 14px;
+	}
+	
+	.view-commerce-cart-form .entity-commerce-product .group-right,
+.view-commerce-cart-summary .entity-commerce-product .group-right {
+
+	margin-left: 0px;
+}
+	
+	div.addressfield-container-inline > div.form-item{
+		margin-right: 0;
+	}
+	
+	#commerce-checkout-form-checkout input[type="text"], #commerce-checkout-form-checkout select{
+		width: 100%;
+	}
+	
+	.view-commerce-cart-form #edit-actions #edit-checkout,
+	#commerce-checkout-form-checkout #edit-continue,
+	#commerce-checkout-form-shipping #edit-continue,
+	#commerce-checkout-form-review #edit-continue{
+		margin-bottom: 20px;
+	}
 }

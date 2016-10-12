@@ -38,13 +38,34 @@ $( function() {
 		
 		$('.ver-mas a').click(function(e){
       e.preventDefault();
-			if($('.category-description').hasClass('hidden')){
-      	$(".category-description").show("slow");
-				$('.category-description').removeClass('hidden');
-			}else{
-				$(".category-description").hide("slow");
-				$('.category-description').addClass('hidden');
+			if($('.category-description').length > 0){
+				if($('.category-description').hasClass('hidden')){
+					$(".category-description").show("slow");
+					$('.category-description').removeClass('hidden');
+					$('.ver-mas').removeClass("cerrado");
+					$('.ver-mas').addClass("abierto");
+				}else{
+					$(".category-description").hide("slow");
+					$('.category-description').addClass('hidden');
+					$('.ver-mas').addClass("cerrado");
+					$('.ver-mas').removeClass("abierto");
+				}
 			}
+			
+			if($('.tienda-descripcion').length > 0){
+				if($('.tienda-descripcion').hasClass('hidden')){
+					$(".tienda-descripcion").show("slow");
+					$('.tienda-descripcion').removeClass('hidden');
+					$('.ver-mas').removeClass("cerrado");
+					$('.ver-mas').addClass("abierto");
+				}else{
+					$(".tienda-descripcion").hide("slow");
+					$('.tienda-descripcion').addClass('hidden');
+					$('.ver-mas').addClass("cerrado");
+					$('.ver-mas').removeClass("abierto");
+				}
+			}
+			
     })
 		
 		//ajuste formulario add to cart
@@ -86,12 +107,137 @@ $( function() {
 		/*menu toggle*/
 		$('a#menu-toggle').on('click', function(event) {
 			event.preventDefault();
-			if($('#block-taxonomy-menu-block-1').hasClass('open')){
-				$('#block-taxonomy-menu-block-1').removeClass('open');
+			
+			if($(".overlaymenu").length == 0){
+			  		$("body").append('<div class="overlaymenu"></div>');
+			  	}
+			
+			if($('.menusidebar').hasClass('open')){
+				$(".menusidebar").animate({right: '-350px'});
+				$(".menusidebar").removeClass('open');
+				
 			} else {
-				$('#block-taxonomy-menu-block-1').addClass('open');
+				$(".menusidebar").animate({right: '0px'});
+				
+				$(".overlaymenu").fadeTo( "fast", 0.5);
+			  		$(".menusidebar").animate({right: '0px'});
+				
+				
+				$(".menusidebar").addClass('open');
 			}
 		});
+		
+		$('.menusidebar .cerrar-menu').on('click', function(event) {
+			event.preventDefault();
+			$(".overlaymenu").fadeTo( "fast", 0.0, function() {
+			  			$(this).remove();
+			  		});
+			  		$(".menusidebar").animate({right: '-350px'});
+			$(".menusidebar").removeClass('open');
+		});
+		
+		
+		
+		/************** TOUCH MENU ***************/
+/*****************************************/
+	
+   /* $(document.body).bind("touchmove", function(e) {
+      e.preventDefault();
+      var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+      //CODE GOES HERE
+      console.log(touch.pageY+' '+touch.pageX);
+	});*/
+
+
+	var s_mx = 0, m_mx = 0, e_mx = 0, rc = -350, opac = 0;
+	
+	$(document).bind("touchstart touchmove touchend", function(e) {
+	  //Disable scrolling by preventing default touch behaviour
+	  //console.log(e.type);
+	  //e.preventDefault();
+	  var orig = e.originalEvent;
+	  var x = orig.changedTouches[0].pageX;
+	  var y = orig.changedTouches[0].pageY;
+
+
+	  
+	  if(e.type == 'touchstart'){
+	  	s_mx = x;
+	  	rc = parseInt($(".menusidebar").css('right'));
+	  }
+	  if(e.type == 'touchmove'){
+	  	m_mx = x;
+	  	var mresult = s_mx - x;
+	  	
+	      
+		  if((mresult > 50 || mresult < -50) && mresult != 0){
+
+		  	if(mresult <= 100){/* && mresult >= -100*/
+			  	if($(".overlaymenu").length == 0){
+			  		$("body").append('<div class="overlaymenu"></div>');
+			  	}		  		
+		  		opac = Math.round(((mresult / 10) / 2));
+		  		//console.log(opac);
+		  		$(".overlaymenu").css({opacity: '.'+opac});
+		  	}
+
+
+		  	
+		  	if(rc == 0 && mresult < 0){
+		  		$(".menusidebar").css({right: (rc + mresult+50)});
+		  	}
+		  	if(rc == -350 && mresult > 0){
+		  		$(".menusidebar").css({right: (rc + mresult-50)});
+		  	}		  	
+		  }
+
+		 //console.log(rc + ' :: ' + x + ' :: ' + mresult);
+	  }
+	  if(e.type == 'touchend'){
+	  	
+	  	e_mx = x;
+		  var result = s_mx - e_mx;
+		  if(result != 0){
+			  if(result <= -150){
+			  	if(result <= -150){
+			  		$(".overlaymenu").fadeTo( "fast", 0.0, function() {
+			  			$(this).remove();
+			  		});
+			  		$(".menusidebar").animate({right: '-350px'});
+						$(".menusidebar").removeClass('open');
+			  	}else{
+			  		$(".overlaymenu").fadeTo( "fast", 0.5);
+			  		$(".menusidebar").animate({right: '0px'});
+						$(".menusidebar").addClass('open');
+			  	}
+			  	 
+			  }else{
+			  	if(result >= 150){
+			  		$(".overlaymenu").fadeTo( "fast", 0.5);
+			  		$(".menusidebar").animate({right: '0px'});
+						$(".menusidebar").addClass('open');
+			  	}else{
+			  		$(".overlaymenu").fadeTo( "fast", 0.0, function() {
+			  			$(this).remove();
+			  		});
+			  		$(".menusidebar").animate({right: '-350px'});
+						$(".menusidebar").removeClass('open');
+			  	}
+			  	 
+			  }
+		  }
+
+	  }	  
+
+
+	  // Move a div with id "rect"
+	  
+	  //$(".menusidebar").css({right: -x});
+	});
+
+/*****************************************/
+/*****************************************/
+
 		
 		/*caregory hover*/
 		$(".view-tienda .views-row").hover(function(){
@@ -133,6 +279,10 @@ $( function() {
 			event.preventDefault();
 			$('.commerce-add-to-cart .cart-submit').trigger('click');
 		})
+		
+		
+		//Traduccion forzosa porque el String no se traduce en drupal y esta en un Módulo del Core.
+		$('.i18n-es .commerce-order-handler-area-order-total .component-type-commerce-price-formatted-amount .component-title').text('Total de Pedido');
 		
 	})
 	

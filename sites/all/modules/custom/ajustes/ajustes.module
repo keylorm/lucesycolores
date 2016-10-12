@@ -4,6 +4,7 @@
  **/
  function ajustes_form_alter(&$form, &$form_state, $form_id)
  {
+   //dpm($form_id);
  	if($form_id == 'comment_node_blog_post_form'){
  		$form['author']['name']['#title'] = '';
  		$form['author']['name']['#attributes'] = array('placeholder' => t('Author'));
@@ -27,42 +28,13 @@
        $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
       }
     }
-  } elseif($form_id == 'views_form_commerce_cart_form_default') {
-    //dpm($form);
-  }
-   
-   /*elseif($form_id == 'views_form_commerce_cart_form_default'){
-    global $user;
-    $url_checkout='checkout/1';
-    $id = 'edit-purchasing-normal';
-    $is_anonimo = false;
-    
-    foreach($user->roles as $key => $rol){
-        if($rol == 'anonymous user')
-          $is_anonimo = true;
-    }
-    
-    if($is_anonimo){
-      $url_checkout = '/ajax_register/register/nojs'; 
-      $id = 'edit-purchasing-anonymus';
-    }
-        
-    $form['actions']['submit'] = array(
-      '#type' => 'button',
-      '#value' => t('Update'),
-    );
-    
-    $form['actions']['purchasing'] = array(
-      '#type' => 'link',
-      '#title' => t('Purchasing now'),
-      '#href' => $url_checkout,
-      '#attributes' => array(
-        'rel' => 'notfollow',
-        'id' => $id,
-        'class' => 'ctools-use-modal ctools-modal-ctools-ajax-register-style ctools-use-modal-processed',
-      ),
-    );
+  } /*elseif($form_id == 'views_form_commerce_cart_form_default') {
+    dpm($form);
   }*/
+   elseif($form_id == 'views_exposed_form'){
+      unset($form['#info']['filter-field_product_field_color'], $form['field_product_field_color']);
+      //$form['field_product_field_color'] = '';
+   }
  }
 
 /**
@@ -135,6 +107,6 @@ function current_category_description(){
   //get current taxonomy term id
   $term = taxonomy_term_load(arg(1));
   if($term){
-    return '<h2>'.$term->name.'</h2>'.'<div class="ver-mas abierto"><a href="">'.t('see more').'<span></span></a></div><div id="menu-toggle-wrapper"><a data-status="closed" href="" id="menu-toggle">Menu</a></div><div class="hidden category-description">'.$term->description.'</div>'; 
+    return '<h2>'.$term->name.'</h2>'.'<div class="ver-mas cerrado"><a href="">'.t('see more').'<span></span></a></div><div id="menu-toggle-wrapper"><a data-status="closed" href="" id="menu-toggle">Menu</a></div><div class="hidden category-description">'.$term->description.'</div>'; 
   }
 }
