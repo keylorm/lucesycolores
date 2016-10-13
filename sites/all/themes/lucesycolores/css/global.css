@@ -1276,7 +1276,7 @@ h2.h24.decora-der:after {
 .view-tienda .field-name-icono {
 	font-family: 'fontello';
 	font-size: 150px;
-	padding: 0px 60px;
+	text-align: center;
 }
 
 
@@ -2820,4 +2820,39 @@ tr.pane-title td{
     -ms-transition: opacity .2s ease-out;
     -o-transition: opacity .2s ease-out;
     transition: opacity .2s ease-out;
+}
+
+.ui-spinner {
+	overflow: visible;
+}
+
+.ui-spinner .ui-state-default{
+	border-radius: 0;
+}
+
+.ui-spinner .ui-state-default.ui-spinner-up{
+	border-top-right-radius: 5px;
+}
+
+
+.ui-spinner .ui-state-default.ui-spinner-down{
+	border-bottom-right-radius: 5px;
+}
+
+.commerce-add-to-cart .attribute-widgets select,
+.commerce-add-to-cart .form-item-quantity input{
+	 border: 1px solid #ededed;
+    border-radius: 5px;
+    color: #575756;
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+    width: 100%;
+	height: 44px;
+	line-height: 44px;
+}
+
+#modalContent{
+	z-index: 9999 !important;
 }

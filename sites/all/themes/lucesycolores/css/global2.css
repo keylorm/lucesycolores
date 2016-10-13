@@ -110,8 +110,9 @@
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	border: 1px solid #ddd;
-	margin-right: 108px;
-	width: 320px;
+	/*margin-right: 108px;
+	width: 320px;*/
+	width: 27%;
 	margin-bottom: 35px;
 	padding: 15px 25px;
 	position: relative;
@@ -122,8 +123,12 @@
 	transition: all 0.5s ease;
 }
 
-.view-collection-products .views-row{
-	margin-right: 100px;
+.view-tienda .view-content,
+.view-collection-products .view-content{
+	  display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .view-collection-products .field-name-imagen-representativa img {
@@ -478,9 +483,14 @@ h2.rosado{
 .node-product-type.view-mode-full .commerce-product-field-field-images {
 	height: 100%;
 	width: 100%;
-	border: 1px solid #ddd;
-	border-radius: 10px;
+
 }
+
+.ds-2col-stacked-fluid.node-product-type-full > .group-left a.cloud-zoom{
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		overflow: hidden;
+	}
 
 .node-product-type.view-mode-full .commerce-product-extra-field-sku {
 	font-family: 'Source Sans Pro', sans-serif;
@@ -499,7 +509,7 @@ h2.rosado{
 }
 
 .commerce-add-to-cart #edit-product-id,
-#edit-quantity{
+.commerce-add-to-cart .form-item-quantity input{
 	border: 1px solid #ddd;
 	padding: 15px 10px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -512,7 +522,7 @@ h2.rosado{
 	width: 100%;
 }
 
-#edit-quantity{
+.commerce-add-to-cart .form-item-quantity input{
 	text-align: left !important;
 	width: 100% !important;
 	margin-right: 0px !important;
@@ -710,7 +720,7 @@ div.messages.commerce-add-to-cart-confirmation .view-confirm-message-product-dis
 .commerce-add-to-cart-confirmation .added-product-title {
 	color: #ea5b0c !important;
 	font-size: 24px !important;
-	font-family: 'Source Sans Pro', sans-serif !important;
+	font-family: 'IM Fell DW Pica', serif !important;
 	font-weight: 600 !important;
 	text-transform: none !important;
 	width: 65% !important;
