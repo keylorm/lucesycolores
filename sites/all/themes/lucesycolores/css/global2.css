@@ -498,8 +498,8 @@ h2.rosado{
 	font-weight: 400
 }
 
-.commerce-add-to-cart #edit-product-id,
-#edit-quantity{
+.commerce-add-to-cart .form-type-select select,
+.form-item-quantity input{
 	border: 1px solid #ddd;
 	padding: 15px 10px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -512,12 +512,13 @@ h2.rosado{
 	width: 100%;
 }
 
-#edit-quantity{
+.form-item-quantity input{
 	text-align: left !important;
 	width: 100% !important;
 	margin-right: 0px !important;
 }
 
+.form-type-select label,
 .form-item-quantity label {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
@@ -555,7 +556,8 @@ h2.rosado{
 }
 
 .form-item-quantity {
-	height: 160px;
+	height: 90px;
+    margin-top: 85px;
 }
 
 .cart-submit {
@@ -577,6 +579,10 @@ h2.rosado{
 	width: 110px;
 	transition: 0.5s ease;
 	font-weight: 600;
+}
+
+.cart-submit.form-submit {
+	margin-top: 50px;
 }
 
 .group-footer {
@@ -798,5 +804,21 @@ div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .b
 .button-wrapper {
 	background-image: url('../images/fondo-cart-preview-min.png');
 	background-repeat: no-repeat;
-	    background-position: center bottom;
+	background-position: 28px 440px;
+}
+
+.display-price {
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+
+div.display-price label{
+    float: left;
+}
+
+div.monto-precio {
+    float: right;
+    font-weight: bold;
+    font-size: 22px;
 }

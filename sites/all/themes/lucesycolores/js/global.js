@@ -20,21 +20,20 @@ $( function() {
 				infiniteLoop:true,
 			});
 		}
-		
-		
-	if($('.bxslider-carousel').length !== 0){
-		$('.bxslider-carousel').bxSlider({
-		  responsive:true,
-		  pager: false,
-		  auto: false,
-		  infiniteLoop:true,
-			minSlides: 1,
-			maxSlides: 3,
-			slideWidth: 308,
-			slideMargin: 30,
-			moveSlides: 1,
-		});
-	}
+				
+		if($('.bxslider-carousel').length !== 0){
+			$('.bxslider-carousel').bxSlider({
+			  responsive:true,
+			  pager: false,
+			  auto: false,
+			  infiniteLoop:true,
+				minSlides: 1,
+				maxSlides: 3,
+				slideWidth: 308,
+				slideMargin: 30,
+				moveSlides: 1,
+			});
+		}
 		
 		$('.ver-mas a').click(function(e){
       e.preventDefault();
@@ -69,36 +68,14 @@ $( function() {
     })
 		
 		//ajuste formulario add to cart
-		var monto_preliminar = document.createElement("div");
-		var monto_unidad = document.createElement("div");
-		var costo_preliminar_label = document.createElement("div");
-		var costo_unidad_label = document.createElement("div");
-		
-		costo_preliminar_label.id = "costo-preliminar-label";
-		costo_unidad_label.id = "costo-unidad-label";
-		monto_preliminar.id = "costo-preliminar-monto";
-		monto_unidad.id = "costo-unidad-monto";
-		
-		var precio = $(".field-name-commerce-price .field-item").text();
-		
-		monto_unidad.innerHTML = precio;
-		monto_preliminar.innerHTML = precio;
-		costo_preliminar_label.innerHTML = 'Costo total preliminar:';
-		costo_unidad_label.innerHTML = 'Costo por unidad:';
-		
-		$("form.commerce-add-to-cart #edit-quantity").after(monto_preliminar);
-		$("form.commerce-add-to-cart #edit-quantity").after(costo_preliminar_label);
-		
-		$("form.commerce-add-to-cart #edit-product-id").after(monto_unidad);
-		$("form.commerce-add-to-cart #edit-product-id").after(costo_unidad_label);
-		
-		$("form.commerce-add-to-cart #edit-quantity").on('change', function(){
+		$("form.commerce-add-to-cart .form-item-quantity input").on('change', function(){
 				var cantidad = $(this).val();
-				var monto = $("#costo-unidad-monto").text();
+				var monto = $("#monto-precio-unidad").text();
 			 	monto = monto.replace('$', '');
-				monto_preliminar.innerHTML = '$'+ (cantidad * monto);
-		});		
-				
+			 	alert(cantidad * monto);
+				$("#monto-precio-preliminar").text('$'+ (cantidad * monto).formatMoney(2, '.', ','));
+		});	
+
 		$("a#edit-purchasing-anonymus").on('click', function(event){
 				event.preventDefault();
 				$('.ajax-register-links li.first a.ctools-modal-ctools-ajax-register-style').trigger('click');
@@ -253,26 +230,26 @@ $( function() {
 				'color' : '#e71d73',
 			})
 			$(this).find(".field-name-field-resumen-producto").css({
-					'color': '#fff'
-				})
+				'color': '#fff'
+			})
 		});	
 		
 		$(".view-tienda .views-row").mouseleave(function(){
-				$(this).find(".field-name-title h2 a").css({
-					'color' : '#e71d73',
-				});
-				$(this).find(".field-name-icono").css({
-					'color' : '#000',
-				})
-				$(this).find(".field-name-more-link a").css({
-					'background-image' : 'url("/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg")',
-					'background-color' : 'transparent',
-					'color' : '#fff',
-				})
-				$(this).find(".field-name-field-resumen-producto").css({
-					'color': '#575756'
-				})
-			});	
+			$(this).find(".field-name-title h2 a").css({
+				'color' : '#e71d73',
+			});
+			$(this).find(".field-name-icono").css({
+				'color' : '#000',
+			})
+			$(this).find(".field-name-more-link a").css({
+				'background-image' : 'url("/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg")',
+				'background-color' : 'transparent',
+				'color' : '#fff',
+			})
+			$(this).find(".field-name-field-resumen-producto").css({
+				'color': '#575756'
+			})
+		});	
 		
 		/*click cart-submit*/
 		$(".info.cart-submit").on('click', function(event){
@@ -292,6 +269,30 @@ $( function() {
 			$('#tabs').tabs();
 		}
 	})
+
+	$(document).ajaxComplete(function (){	
+		/*$("form.commerce-add-to-cart .form-item-attributes-field-presentacion-arcangeloi select").on('change', function(){
+			alert('test');
+			$("form.commerce-add-to-cart #edit-quantity").val(1);
+		});*/		
+		$("form.commerce-add-to-cart .form-item-quantity input").on('change', function(){
+				var cantidad = $(this).val();
+				var monto = $("#monto-precio-unidad").text();
+			 	monto = monto.replace('$', '');
+			 	alert(cantidad * monto);
+				$("#monto-precio-preliminar").text('$'+ (cantidad * monto).formatMoney(2, '.', ','));
+		});	
+	});
 	
 })(jQuery);
- 
+
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
