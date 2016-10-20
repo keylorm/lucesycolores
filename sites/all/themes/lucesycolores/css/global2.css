@@ -103,7 +103,8 @@
 }*/
 
 .view-tienda .views-row,
-.view-collection-products .views-row{
+.view-collection-products-page .views-row,
+.view-collection-products-block-carousel .views-row{
 	max-height: 433px;
 	min-height: 433px;
 	-webkit-border-radius: 10px;
@@ -112,6 +113,8 @@
 	border: 1px solid #ddd;
 	/*margin-right: 108px;
 	width: 320px;*/
+	margin-left: 0;
+	margin-right: 0;
 	width: 27%;
 	margin-bottom: 35px;
 	padding: 15px 25px;
@@ -123,8 +126,10 @@
 	transition: all 0.5s ease;
 }
 
+
+
 .view-tienda .view-content,
-.view-collection-products .view-content{
+.view-collection-products-page .view-content{
 	  display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -137,16 +142,22 @@
 	max-height: 230px;
 }
 
-.view-collection-products .views-row{
+.view-collection-products-page .views-row{
 	width: 326px;
 }
 
-.page-product-category .view-collection-products h2{
+.view-collection-products-block-carousel .views-row{
+	width: 308px;
+}
+.page-product-category .view-collection-products h2,
+.view-productos-relacionados h2{
 	width: 100%;
 	margin-bottom: 0px;
 	margin-top: 0px;
-	font-size: 20px;
+	font-size: 18px;
 }
+
+
 
 .view-tienda{
 	font-family: '';
@@ -181,11 +192,11 @@ h2.rosado{
 	line-height: 24px;
 }
 
-.node-product-type-product-list .field-name-title-field h2 {
+.view-productos-relacionados .node-product-type .field-name-title-field h2 {
 	margin-bottom: 0px !important;
 	margin-top: 0px !important;
 	width: 100%;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .page-node .node-product-type .field-name-title-field h2{
@@ -244,7 +255,7 @@ h2.rosado{
 }
 
 .page-tienda-en-linea .h28.hrosado,
-.page-product-category h2{
+.page-product-category #block-ajustes-descripcion-categoria h2{
 	  float: left;
     width: 55%;
 		color: #e71d73;
@@ -361,7 +372,7 @@ h2.rosado{
 }
 
 .view-collection-products .views-row .field-name-node-link a{
-	  background-image: url("../images/bg-boton-naranja-degradado.jpg");
+	  background-image: url(../images/bg-boton-naranja-degradado.jpg);
     background-repeat: repeat-x;
     border-radius: 5px;
     color: #fff;
@@ -370,12 +381,16 @@ h2.rosado{
     text-align: center;
     display: block;
     float: none;
-    margin: 42px auto 0;
     line-height: 44px;
     height: 44px;
     padding: 0 5px;
     width: 225px;
-		transition: 0.5s ease;
+    position: absolute;
+    transition: 0.5s ease;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
 .view-collection-products .views-row:hover .field-name-roll-over-producto{
@@ -411,7 +426,7 @@ h2.rosado{
 }
 
 .view-collection-products .views-row .field-name-roll-over-producto #titulo a{	
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'IM Fell DW Pica', serif;
 	font-size: 21px;
 	font-weight: 400;
 	color: #fff;
@@ -463,12 +478,11 @@ h2.rosado{
 /*Detalle del producto*/
 .ds-2col-stacked-fluid.node-product-type-full > .group-left {
 	width: 53.5%;
-	height: 480px;
+
 }
 
 .ds-2col-stacked-fluid.node-product-type-full > .group-right {
 	width: 40%;
-	height: 480px;
 }
 
 .node-product-type.view-mode-full {
@@ -500,16 +514,16 @@ h2.rosado{
 }
 
 .node-product-type-product-list .field-name-imagen-representativa {
-	min-height: 258px;
-	max-height: 258px;
+	min-height: 236px;
+	max-height: 236px;
 }
 
 .commerce-product-sku-label {
 	font-weight: 400
 }
 
-.commerce-add-to-cart .form-type-select select,
-.form-item-quantity input{
+.commerce-add-to-cart #edit-product-id,
+.commerce-add-to-cart .form-item-quantity input{
 	border: 1px solid #ddd;
 	padding: 15px 10px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -522,21 +536,49 @@ h2.rosado{
 	width: 100%;
 }
 
-.form-item-quantity input{
+.commerce-add-to-cart .form-item-quantity input{
 	text-align: left !important;
 	width: 100% !important;
 	margin-right: 0px !important;
 }
 
-.form-type-select label,
-.form-item-quantity label {
+.form-item-quantity label ,
+.commerce-add-to-cart .form-type-select label {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 18px;
-	color: #878787;
-	margin-bottom: 10px;
+	color: #575756;
+	margin-bottom: 5px;
 }
 
+.commerce-add-to-cart  .form-type-item label{
+	width: 60%;
+	float: left;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	color: #575756;
+	margin: 15px 0;
+	line-height: 30px;
+}
+
+.commerce-add-to-cart .form-item-quantity,
+input.cart-submit{
+	clear:both;
+}
+
+
+.commerce-add-to-cart  .form-type-item .monto-precio{
+	width: 40%;
+	float: right;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
+	font-size: 26px;
+	color: #575756;
+	text-align: right;
+	line-height: 30px;
+	margin: 15px 0;
+} 
 #costo-unidad-label,
 #costo-preliminar-label{
 	float: left;
@@ -566,8 +608,6 @@ h2.rosado{
 }
 
 .form-item-quantity {
-	height: 90px;
-    margin-top: 85px;
 }
 
 .cart-submit {
@@ -589,10 +629,6 @@ h2.rosado{
 	width: 110px;
 	transition: 0.5s ease;
 	font-weight: 600;
-}
-
-.cart-submit.form-submit {
-	margin-top: 50px;
 }
 
 .group-footer {
@@ -685,8 +721,8 @@ h2.rosado{
 	margin-bottom: 0px;
 	color: #63a9e1;
 	font-size: 28px;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 600;
+	font-family: 'IM Fell DW Pica', serif;
+	font-weight: 400;
 }
 
 #block-views-26be7df0d55169e550f69d9e72e8b2a3 {
@@ -814,21 +850,21 @@ div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .b
 .button-wrapper {
 	background-image: url('../images/fondo-cart-preview-min.png');
 	background-repeat: no-repeat;
-	background-position: 28px 440px;
+	    background-position: center bottom;
 }
 
-.display-price {
-    float: left;
-    width: 100%;
-    height: 50px;
+.bx-wrapper .bx-prev,
+.bx-wrapper .bx-prev:hover{
+	left: -50px;
+	background-image: url(../images/slider-carousel-prev-bg.png);
+	background-position: center center;
 }
 
-div.display-price label{
-    float: left;
+
+.bx-wrapper .bx-next,
+.bx-wrapper .bx-next:hover{
+	right: -40px;
+	background-image: url(../images/slider-carousel-next-bg.png);
+	background-position: center center;
 }
 
-div.monto-precio {
-    float: right;
-    font-weight: bold;
-    font-size: 22px;
-}

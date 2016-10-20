@@ -595,9 +595,22 @@ h2.decora-der {
 	margin: 0;
 }
 
+.webform-client-form h1.decora,
+.webform-client-form h2.decora,
+.webform-client-form h1.decora-der,
+.webform-client-form h2.decora-der {
+	line-height: 40px;
+	}
+
 h1.h24.decora-der,
 h2.h24.decora-der {
 	line-height: 30px;
+}
+
+.field-name-body p a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #575756;
 }
 
 h1.decora,

@@ -59,6 +59,12 @@
 		left: 0px;
 	}
 	
+	.view-productos-relacionados .bx-viewport{
+		width: 308px !important;
+		margin: 0 auto;
+		left: 0px;
+	}
+	
 	.view-cursos .bx-wrapper .bx-prev{
 	left: 10px;
 }
@@ -66,6 +72,17 @@
 .view-cursos .bx-wrapper .bx-next{
 	right: 10px;
 }
+	
+
+	.view-productos-relacionados .bx-wrapper .bx-prev{
+	left: 26px;
+}
+
+
+	.view-productos-relacionados .bx-wrapper .bx-next{
+	right: 22px;
+}
+	
 .w-col.isla-terapia-home {
     min-height: 294px;
     margin-bottom: 50px;
@@ -234,4 +251,8 @@
 	#commerce-checkout-form-review #edit-continue{
 		margin-bottom: 20px;
 	}
+	
+	.bx-clone {
+  display: none;
+}
 }

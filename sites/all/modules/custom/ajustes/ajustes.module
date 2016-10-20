@@ -61,7 +61,7 @@ function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state)
       '#suffix' => '</div>',
       '#weight' => 46,
     );
-    $form['quantity']['#value'] = 1;
+    //$form['quantity']['#value'] = 1;
   }
 }
 

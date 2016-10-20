@@ -35,6 +35,68 @@ $( function() {
 			});
 		}
 		
+		
+		if ($('.bxslider-carousel-productos').length !== 0){
+				
+				
+	
+				$('.bxslider-carousel-productos').bxSlider({
+					responsive:true,
+					pager: false,
+					auto: false,
+					infiniteLoop:true,
+					minSlides: 1,
+					maxSlides: 3,
+					slideWidth: 308,
+					slideMargin: 30,
+					moveSlides: 1,
+				});
+				
+				
+			}
+		
+		/*if (!$('.bxslider-carousel-productos').is(':empty')){
+				
+				
+				var rows = document.getElementsByClassName("views-row-1");
+				for(var i = 0; i < rows.length; i++){
+					if (rows[i].childNodes.length > 0){
+							$('.bxslider-carousel-productos').bxSlider({
+								responsive:true,
+								pager: false,
+								auto: false,
+								infiniteLoop:true,
+								minSlides: 1,
+								maxSlides: 3,
+								slideWidth: 308,
+								slideMargin: 30,
+								moveSlides: 1,
+							});
+					}else{
+						 $('.view-productos-relacionados').css('display', 'none');
+					}
+				
+				}
+		}*/
+				/*if ($('.bxslider-carousel-productos ul li.views-row-1').is(':empty')){
+					console.log($('.bxslider-carousel-productos ul li.views-row-1').is(':empty'));
+					 $('.view-productos-relacionados').css('display', 'none');
+				}else{
+					$('.bxslider-carousel-productos').bxSlider({
+						responsive:true,
+						pager: false,
+						auto: false,
+						infiniteLoop:true,
+						minSlides: 1,
+						maxSlides: 3,
+						slideWidth: 308,
+						slideMargin: 30,
+						moveSlides: 1,
+					});
+				}*/
+			
+		
+		
 		$('.ver-mas a').click(function(e){
       e.preventDefault();
 			if($('.category-description').length > 0){
@@ -72,7 +134,6 @@ $( function() {
 				var cantidad = $(this).val();
 				var monto = $("#monto-precio-unidad").text();
 			 	monto = monto.replace('$', '');
-			 	alert(cantidad * monto);
 				$("#monto-precio-preliminar").text('$'+ (cantidad * monto).formatMoney(2, '.', ','));
 		});	
 
@@ -270,16 +331,20 @@ $( function() {
 		}
 	})
 
-	$(document).ajaxComplete(function (){	
-		/*$("form.commerce-add-to-cart .form-item-attributes-field-presentacion-arcangeloi select").on('change', function(){
-			alert('test');
-			$("form.commerce-add-to-cart #edit-quantity").val(1);
-		});*/		
+	$(document).ajaxStop(function (){	
+		
+		if($("form.commerce-add-to-cart .form-item-quantity input").length>0){
+			$("form.commerce-add-to-cart .form-item-quantity input").val(1);
+			
+		}
+			
+		
+		
+		
 		$("form.commerce-add-to-cart .form-item-quantity input").on('change', function(){
 				var cantidad = $(this).val();
 				var monto = $("#monto-precio-unidad").text();
 			 	monto = monto.replace('$', '');
-			 	alert(cantidad * monto);
 				$("#monto-precio-preliminar").text('$'+ (cantidad * monto).formatMoney(2, '.', ','));
 		});	
 	});
