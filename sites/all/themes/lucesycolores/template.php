@@ -244,7 +244,7 @@ return $items;
 
 function lucesycolores_form_alter(&$form, &$form_state, $form_id){
 
-  //dpm($form);
+
   global $language;
   if($form_id=="user_register_form"){
     $form['field_full_name']['#prefix'] = $form['account']['name']['#prefix'];
@@ -257,14 +257,9 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
     $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
     $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
     
-    
-   // dpm( $form['links']);
     $form['links']['#items'][0] = '<a href="/ajax_register/login/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Ingresar">'.t('Do you have an account?').'<br /><strong>'.t('Login').'</strong></a>';
 		$form['links']['#items'][1] = '<a href="/ajax_register/password/nojs" class="ctools-use-modal ctools-modal-ctools-ajax-register-style" rel="nofollow" title="Solicitar una nueva contraseña">'.t('Forgot your password?').'</a>';
-		
-   
   }
- // dpm($form_id);
   
   if($form_id=='user_profile_form'){
     hide($form['contact']);
@@ -289,7 +284,6 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
     
     $form['field_nombre_comentario']['und']['#prefix'] = "<p class='nota'>".t('We will not publish your email').".</p>". $form['field_nombre_comentario']['und']['#prefix'];
       
-    //dpm($form);
   }
 	
 	
