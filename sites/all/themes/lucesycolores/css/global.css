@@ -8,14 +8,15 @@
 }
 
 @font-face {
-      font-family: 'fontello2';
-      src: url('../font/fontello2.eot?78311182');
-      src: url('../font/fontello2.eot?78311182#iefix') format('embedded-opentype'),
-           url('../font/fontello2.woff?78311182') format('woff'),
-           url('../font/fontello2.ttf?78311182') format('truetype'),
-           url('../font/fontello2.svg?78311182#fontello') format('svg');
-      font-weight: normal;
-      font-style: normal;
+  font-family: 'fontello2';
+  src: url('../font/fontello2.eot?52383064');
+  src: url('../font/fontello2.eot?52383064#iefix') format('embedded-opentype'),
+       url('../font/fontello2.woff2?52383064') format('woff2'),
+       url('../font/fontello2.woff?52383064') format('woff'),
+       url('../font/fontello2.ttf?52383064') format('truetype'),
+       url('../font/fontello2.svg?52383064#fontello2') format('svg');
+  font-weight: normal;
+  font-style: normal;
     }
 
 
@@ -214,7 +215,7 @@ h2.decora-der:after,
 
 .lamparas-de-sal-del-himalaya:before {
 	font-family: 'fontello2';
-	content: '\e800';
+	content: '\e822';
 }
 
 
@@ -244,6 +245,37 @@ h2.decora-der:after,
 .icon-flor:before {
 	content: '\e816';
 }
+
+.esculturas:before,
+.sculptures:before{
+	font-family: 'fontello2';
+	content: '\e820';
+}
+
+.pulseras:before,
+.bracelets:before{
+	font-family: 'fontello2';
+	content: '\e819';
+}
+
+.aretes:before,
+.earrings:before{
+	font-family: 'fontello2';
+	content: '\e818';
+}
+
+.collares:before,
+.necklaces:before{
+	font-family: 'fontello2';
+	content: '\e821';
+}
+
+.pendantes:before {
+	font-family: 'fontello2';
+	content: '\e817';
+}
+
+
 
 
 /* 'î –' */
@@ -1116,6 +1148,12 @@ h2.h24.decora-der:after {
 	padding: 0 5px;
 	width: 225px;
 	transition: 0.5s ease;
+}
+.view-tienda .views-row:hover .vocabulary-product-category .field-name-more-link a {
+		background-image : none;
+				background-color : #fff;
+				color : #e71d73;
+	
 }
 
 .anaranja-degradado:hover {
@@ -2868,4 +2906,83 @@ tr.pane-title td{
 
 #modalContent{
 	z-index: 9999 !important;
+}
+
+.video-center .fluid-width-video-wrapper iframe, .video-center .fluid-width-video-wrapper object, .video-center .fluid-width-video-wrapper embed{
+	max-height: 438px;
+	max-width: 725px;
+	right: 0;
+}
+
+.video-center .fluid-width-video-wrapper{
+	padding-top: 40%;
+}
+
+
+
+
+.view-display-id-block_productos_home .field-name-icono-con-color{
+	  font-family: 'fontello';
+    font-size: 125px;
+    text-align: center;
+    line-height: 155px;
+	color: #fff;
+    width: 100%;
+    height: auto;
+	padding: 10px;
+}
+
+
+
+
+.view-display-id-block_productos_home .icono:before{
+       position: absolute;
+    border-width: 1px;
+	border-style: solid;
+    top: 0;
+    bottom: 0;
+	left:0;
+	right: 0;
+	border-radius: 50%;
+	transition: all 0.5s ease;
+}
+
+.view-display-id-block_productos_home .icono{
+	  width: 180px;
+    position: relative;
+    height: 180px;
+    vertical-align: middle;
+    
+    text-align: center;
+    border-radius: 50%;
+	
+}
+
+.view-display-id-block_productos_home .icono:hover:before{
+	top: -10px;
+  bottom: -10px;
+	left: -10px;
+	right: -10px;
+}
+
+
+.view-display-id-block_productos_home .field-name-titulo-con-color h2{
+	text-align: center;
+	font-size: 21px;
+}
+
+
+.productos-categorias-home,
+.productos-categorias-carousel{
+	margin: 60px auto 80px;
+}
+
+
+	.productos-categorias-home .bx-viewport{
+		    height: 300px !important;
+	}
+
+
+.view-display-id-block_tienda_carousel .anaranja-degradado{
+	font-size: 16px;
 }

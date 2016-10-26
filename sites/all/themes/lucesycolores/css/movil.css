@@ -255,4 +255,28 @@
 	.bx-clone {
   display: none;
 }
+	
+	.views-exposed-widgets select{
+		min-width: 160px;
+		
+	}
+	
+	.views-exposed-form .views-exposed-widget{
+		padding-right: 0;
+	}
+	
+	.views-exposed-widget.views-submit-button .form-submit,
+	.views-exposed-widget.views-reset-button .form-submit{
+		margin-top: 25px !important;
+	}
+	
+	.youtube-center{
+		max-height: 235px;
+		width: 100%;
+	}
+	
+	
+	.productos-categorias-home .bx-wrapper{
+		    max-width: 200px !important;
+	}
 }

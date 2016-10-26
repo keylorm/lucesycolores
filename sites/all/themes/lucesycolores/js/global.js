@@ -55,6 +55,26 @@ $( function() {
 				
 			}
 		
+		
+		if ($('.bxslider-carousel-cat-productos').length !== 0){
+				
+				
+	
+				$('.bxslider-carousel-cat-productos').bxSlider({
+					responsive:true,
+					pager: false,
+					auto: true,
+					infiniteLoop:true,
+					minSlides: 1,
+					maxSlides: 5,
+					slideWidth: 200,
+					slideMargin: 30,
+					moveSlides: 1,
+				});
+				
+				
+			}
+		
 		/*if (!$('.bxslider-carousel-productos').is(':empty')){
 				
 				
@@ -267,7 +287,7 @@ $( function() {
 
 	  }	  
 
-
+	
 	  // Move a div with id "rect"
 	  
 	  //$(".menusidebar").css({right: -x});
@@ -276,41 +296,7 @@ $( function() {
 /*****************************************/
 /*****************************************/
 
-		
-		/*caregory hover*/
-		$(".view-tienda .views-row").hover(function(){
-			$(this).find(".field-name-title h2 a").css({
-				'color' : '#fff',
-			});
-			$(this).find(".field-name-icono").css({
-				'color' : '#fff',
-			})					
-			$(this).find(".field-name-more-link a").css({
-				'background-image' : 'none',
-				'background-color' : '#fff',
-				'color' : '#e71d73',
-			})
-			$(this).find(".field-name-field-resumen-producto").css({
-				'color': '#fff'
-			})
-		});	
-		
-		$(".view-tienda .views-row").mouseleave(function(){
-			$(this).find(".field-name-title h2 a").css({
-				'color' : '#e71d73',
-			});
-			$(this).find(".field-name-icono").css({
-				'color' : '#000',
-			})
-			$(this).find(".field-name-more-link a").css({
-				'background-image' : 'url("/sites/all/themes/lucesycolores/images/bg-boton-naranja-degradado.jpg")',
-				'background-color' : 'transparent',
-				'color' : '#fff',
-			})
-			$(this).find(".field-name-field-resumen-producto").css({
-				'color': '#575756'
-			})
-		});	
+
 		
 		/*click cart-submit*/
 		$(".info.cart-submit").on('click', function(event){
@@ -321,6 +307,9 @@ $( function() {
 		
 		//Traduccion forzosa porque el String no se traduce en drupal y esta en un Módulo del Core.
 		$('.i18n-es .commerce-order-handler-area-order-total .component-type-commerce-price-formatted-amount .component-title').text('Total de Pedido');
+		
+		
+	
 		
 	})
 	

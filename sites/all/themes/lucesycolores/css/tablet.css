@@ -305,6 +305,15 @@
 		width: 90%;
 	}
 	
+	
+	.productos-categorias-home .bx-wrapper{
+		    max-width: 650px !important;
+	}
+	
+	.view-display-id-block_tienda_carousel .bx-wrapper{
+		max-width: 646px !important;
+	}
+
 
 }
 
@@ -501,6 +510,19 @@
 		text-align: center;
 	}
 	
+	
+	
+	.productos-categorias-home .bx-wrapper{
+		    max-width: 430px !important;
+	}
+	
+	.view-display-id-block_tienda_carousel .bx-wrapper{
+		    max-width: 308px !important;
+	}
+	
+	.bx-wrapper .bx-prev, .bx-wrapper .bx-prev:hover{
+		left: -40px;
+	}
 
 }
 
