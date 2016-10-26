@@ -10,14 +10,7 @@
  */
 ?>
 <header class="header" role="banner">
-  <?php if ($messages): ?>
-  <div class="messages-wrapper">
-    <div class="messages-content">
-      <?php print $messages; ?>
-    </div>
-    <a href="#" id="messages-toggle"><?php print t('Close');?></a>
-  </div>
-  <?php endif; ?>
+  
   <!--<div class="grid">-->
     <?php if ($page['utility_bar']): ?>
       <div class="utility-bar">
@@ -108,6 +101,14 @@
 
     <?php if ($page['highlighted']): ?>
       <?php print render($page['highlighted']); ?>
+    <?php endif; ?>
+    
+    <?php if ($messages): ?>
+    <div class="messages-wrapper">
+      <div class="messages-content">
+        <?php print $messages; ?>
+      </div>
+    </div>
     <?php endif; ?>
 
       <a id="main-content"></a>

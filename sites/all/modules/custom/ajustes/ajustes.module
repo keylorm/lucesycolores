@@ -2,8 +2,8 @@
 /*
  * implements hook_form_alter()
  **/
- function ajustes_form_alter(&$form, &$form_state, $form_id)
- {
+
+ function ajustes_form_alter(&$form, &$form_state, $form_id){
  	if($form_id == 'comment_node_blog_post_form'){
  		$form['author']['name']['#title'] = '';
  		$form['author']['name']['#attributes'] = array('placeholder' => t('Author'));
@@ -27,61 +27,44 @@
        $form['customer_profile_shipping']['commerce_customer_address'][LANGUAGE_NONE][0]['#address']['locality'] = $user->field_provincia[LANGUAGE_NONE][0]['value'];
       }
     }
-  } elseif($form_id == 'commerce_checkout_form_checkout') {
+
+  } /*elseif($form_id == 'views_form_commerce_cart_form_default') {
     dpm($form);
-  }
-   
-   
-   /*elseif($form_id == 'views_form_commerce_cart_form_default'){
-    global $user;
-    $url_checkout='checkout/1';
-    $id = 'edit-purchasing-normal';
-    $is_anonimo = false;
-    
-    foreach($user->roles as $key => $rol){
-        if($rol == 'anonymous user')
-          $is_anonimo = true;
-    }
-    
-    if($is_anonimo){
-      $url_checkout = '/ajax_register/register/nojs'; 
-      $id = 'edit-purchasing-anonymus';
-    }
-        
-    $form['actions']['submit'] = array(
-      '#type' => 'button',
-      '#value' => t('Update'),
-    );
-    
-    $form['actions']['purchasing'] = array(
-      '#type' => 'link',
-      '#title' => t('Purchasing now'),
-      '#href' => $url_checkout,
-      '#attributes' => array(
-        'rel' => 'notfollow',
-        'id' => $id,
-        'class' => 'ctools-use-modal ctools-modal-ctools-ajax-register-style ctools-use-modal-processed',
-      ),
-    );
+
   }*/
+   elseif($form_id == 'views_exposed_form'){
+      unset($form['#info']['filter-field_product_field_color'], $form['field_product_field_color']);
+      //$form['field_product_field_color'] = '';
+   }
  }
 
 /**
- * Implements hook_form_FORM_ID_alter().
- */
-function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
-
-  //drupal_set_message($form_id);
+* Implements hook_form_FORM_ID_alter
+*/
+function ajustes_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state){
+  // Add read only price field to add to cart form
   $form['submit']['#attributes']['value'] = t('Add to');
   $form['submit']['#attributes']['class'] = array('cart-submit');
-
-  /*
-  $current_product = $form_state['default_product'];
-  if ($current_product->type == 'product') {
-    // Make alternations for products...
+  if (isset($form_state['default_product']->commerce_price)){
+    $price = commerce_product_calculate_sell_price($form_state['default_product']);
+    $form['precio_unidad'] = array(
+      '#title' => t('Price per unit:'),  
+      '#type' => 'item',
+      '#markup' => '<div id="monto-precio-unidad" class="monto-precio">' . commerce_currency_format($price['amount'], $price['currency_code']) . '</div>',
+      '#prefix' => '<div class="display-price">',
+      '#suffix' => '</div>',
+      '#weight' => 44,
+    );
+    $form['precio_preliminar'] = array(
+      '#title' => t('Total cost preliminary:'),  
+      '#type' => 'item',
+      '#markup' => '<div id="monto-precio-preliminar" class="monto-precio">' . commerce_currency_format($price['amount'], $price['currency_code']) . '</div>',
+      '#prefix' => '<div class="display-price">',
+      '#suffix' => '</div>',
+      '#weight' => 46,
+    );
+    //$form['quantity']['#value'] = 1;
   }
-  */
-
 }
 
 /**
@@ -136,6 +119,6 @@ function current_category_description(){
   //get current taxonomy term id
   $term = taxonomy_term_load(arg(1));
   if($term){
-    return '<h2>'.$term->name.'</h2>'.'<div class="ver-mas abierto"><a href="">'.t('see more').'<span></span></a></div><div id="menu-toggle-wrapper"><a data-status="closed" href="" id="menu-toggle">Menu</a></div><div class="hidden category-description">'.$term->description.'</div>'; 
+    return '<h2>'.$term->name.'</h2>'.'<div class="ver-mas cerrado"><a href="">'.t('see more').'<span></span></a></div><div id="menu-toggle-wrapper"><a data-status="closed" href="" id="menu-toggle">Menu</a></div><div class="hidden category-description">'.$term->description.'</div>'; 
   }
 }

@@ -10,14 +10,7 @@
  */
 ?>
 <header class="header" role="banner">
-  <?php if ($messages): ?>
-  <div class="messages-wrapper">
-    <div class="messages-content">
-      <?php print $messages; ?>
-    </div>
-    <a href="#" id="messages-toggle"><?php print t('Close');?></a>
-  </div>
-  <?php endif; ?>
+  
   <!--<div class="grid">-->
     <?php if ($page['utility_bar']): ?>
       <div class="utility-bar">
@@ -81,7 +74,8 @@
       <?php print render($page['above_content']); ?>
     </div>
   </section>
-<?php endif; // end Above Content ?>
+<?php endif; // end Above Content 
+?>
 
 <div class="main-content">
   <div class="w-container">
@@ -99,6 +93,13 @@
     
 
       <a id="main-content"></a>
+    <?php if ($messages): ?>
+    <div class="messages-wrapper">
+      <div class="messages-content">
+        <?php print $messages; ?>
+      </div>
+    </div>
+    <?php endif; ?>
       <?php if ($page['sidebar_first']): ?>
       <div class="w-row">
         <div id="sidebar-first" class="w-col w-col-3">
@@ -144,9 +145,9 @@
 <?php if ($page['below_content']): ?>
   <section class="below-content">
     <div class="w-container">
-      <div class="w-container-inner">
+      <!--<div class="w-container-inner">-->
          <?php print render($page['below_content']); ?>
-      </div>
+      <!--</div>-->
      
     </div>
   </section>
