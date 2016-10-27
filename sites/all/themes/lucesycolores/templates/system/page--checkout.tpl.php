@@ -124,7 +124,7 @@
       <?php endif; ?>
       <div class="main <?php if ($page['sidebar_first'] || $page['sidebar_second']): ?>w-col w-col-8 <?php endif; ?>" role="main">
         <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title hceleste decora-der h28" id="page-title"><?php /*print $title;*/ if(arg(2)=='shipping') { print t('Shipping type'); } else if(arg(2)=='review') { print t('Review order'); }else {print t('Purchase process');} ?></h1><?php endif; ?>
+        <?php if ($title): ?><h1 class="title hceleste decora-der h28" id="page-title"><?php /*print $title;*/ if(arg(2)=='shipping') { print t('Shipping type'); } else if(arg(2)=='review') { print t('Review order'); }else if(arg(2)=='complete') { print t('Purchase completed'); }else {print t('Purchase process');} ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
 
         <?php if ($tabs): ?>

@@ -15,7 +15,6 @@
 <div class="packing-slip">
 
   <?php print $logo; ?>
-<a href="#">Imprimir</a>
   <?php print $order_views_view; ?>
 
 </div>
