@@ -1003,13 +1003,15 @@ function commerce_checkout_completion_message_default() {
   // If the Filtered HTML text format is available, use a default value with
   // links in it.
   if (filter_format_load('filtered_html')) {
-    $value = 'Your order number is [commerce-order:order-number]. You can <a href="[commerce-order:url]">view your order</a> on your account page when logged in.'
-      . "\n\n" . '<a href="[site:url]">Return to the front page.</a>';
+    $value = 'El número de pedido es [commerce-order:order-number]. Puede <a href="[commerce-order:url]"> ver su pedido </a> en su página de cuenta cuando se conecte'
+      . "\n\n" . '<a href="[site:url]">Regresar a la página principal.</a>';
     $format = 'filtered_html';
   }
+
+
   else {
     // Otherwise select a fallback format and use a plain text default value.
-    $value = 'Your order number is [commerce-order:order-number]. You can view your order on your account page when logged in.';
+    $value = 'El número de pedido es [commerce-order:order-number]. Puede ver su pedido en su página de cuenta al iniciar sesión.';
     $format = filter_fallback_format();
   }
 
