@@ -35,14 +35,15 @@ function commerce_credomatic_menu() {
  * @see ommerce_credomatic_pcc_commerce_payment_method_submit_form_submit(()
  */
 function _commerce_credomatic_response_form($form, &$form_state) {
-  $redirect = FALSE;
+  $redirect = TRUE;
   $referrer = $_SERVER['HTTP_REFERER'];
+
   global $base_url;
-  if($referrer){
+  /*if($referrer){
     if(strpos($referrer, $base_url) === FALSE){
       $redirect = TRUE;
     }
-  }
+  }*/
   $order_id = $_GET['orderid'];
   $abort = FALSE;
   $time = $_GET['time'];
@@ -78,8 +79,10 @@ function _commerce_credomatic_response_form($form, &$form_state) {
       exit();
     }
   }
+ 
   $response_code = $_GET['response_code'];
   if($response_code == 100){
+    #var_export($_SERVER);
     $order = commerce_order_load($order_id);
     $order->data['commerce_credomatic']['document'] = $_GET['transactionid'];
     commerce_order_save($order);
@@ -88,6 +91,7 @@ function _commerce_credomatic_response_form($form, &$form_state) {
       drupal_goto('checkout/' . $order_id . '/complete');
     }
   }else{
+    #var_export($_SERVER);
     $responses = array(
       '200' => t('Transaction was Declined by Processor'),
       '201' => t('Do Not Honor'),

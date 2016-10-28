@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|family=IM+Fell+DW+Pica|family=Roboto);
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica|Roboto|Source+Sans+Pro');
 @font-face {
 	font-family: 'fontello';
 	src: url('../font/fontello.eot?44438275');
@@ -3000,6 +3000,13 @@ tr.pane-title td{
 .messages.error{
 	display: none;
 }
+
+.page-cart .messages.error,
+.page-checkout .messages.error,
+.page-commerce-credomatic-response .messages.error{
+	display: block;
+}
+
 .logged-in.role-administrator .messages.error{
 	display: block;
 }
@@ -3013,3 +3020,20 @@ tr.pane-title td{
     margin-bottom: 150px;
     margin-top: 40px;
 }
+#commerce-checkout-form-complete a{
+	font-weight: bold;
+	color: #36a9e1;
+}
+
+.button-out-of-stock {
+    display: block;
+    float: right;
+    height: 43px;
+    width: auto;
+    background: #ddd;
+    line-height: 43px;
+    padding: 0 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
