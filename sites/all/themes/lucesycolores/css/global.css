@@ -9,15 +9,15 @@
 
 @font-face {
   font-family: 'fontello2';
-  src: url('../font/fontello2.eot?52383064');
-  src: url('../font/fontello2.eot?52383064#iefix') format('embedded-opentype'),
-       url('../font/fontello2.woff2?52383064') format('woff2'),
-       url('../font/fontello2.woff?52383064') format('woff'),
-       url('../font/fontello2.ttf?52383064') format('truetype'),
-       url('../font/fontello2.svg?52383064#fontello2') format('svg');
+  src: url('../font/fontello2.eot?36768800');
+  src: url('../font/fontello2.eot?36768800#iefix') format('embedded-opentype'),
+       url('../font/fontello2.woff2?36768800') format('woff2'),
+       url('../font/fontello2.woff?36768800') format('woff'),
+       url('../font/fontello2.ttf?36768800') format('truetype'),
+       url('../font/fontello2.svg?36768800#fontello2') format('svg');
   font-weight: normal;
   font-style: normal;
-    }
+}
 
 
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -273,6 +273,11 @@ h2.decora-der:after,
 .pendantes:before {
 	font-family: 'fontello2';
 	content: '\e817';
+}
+
+.malas:before {
+	font-family: 'fontello2';
+	content: '\e823';
 }
 
 
