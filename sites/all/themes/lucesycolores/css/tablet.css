@@ -313,7 +313,10 @@
 	.view-display-id-block_tienda_carousel .bx-wrapper{
 		max-width: 646px !important;
 	}
-
+	
+	.bloque-titulo-seccion{
+		padding: 0 4%;
+	}
 
 }
 

@@ -1,0 +1,28 @@
+# Spanish translation of Views Infinite Scroll (7.x-2.0)
+# Copyright (c) 2016 by the Spanish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Views Infinite Scroll (7.x-2.0)\n"
+"POT-Creation-Date: 2016-06-22 19:45+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Views"
+msgstr "Vistas"
+msgid "Items to display"
+msgstr "Elementos que mostrar"
+msgid "Offset"
+msgstr "Desplazamiento"
+msgid ""
+"The number of items to skip. For example, if this field is 3, the "
+"first 3 items will be skipped and not displayed."
+msgstr ""
+"El número de artículos a omitir. Por ejemplo, si este campo es 3, "
+"los primeros 3 elementos serán omitidos y no se mostrarán."
+msgid "The number of items to display. Enter 0 for no limit."
+msgstr "El número de elementos a mostrar. Escriba 0 para que sea ilimitado."

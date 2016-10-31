@@ -1,0 +1,25 @@
+diff --git a/sites/all/modules/contrib/commerce_packing_slip/templates/commerce-packing-slip.tpl.php b/sites/all/modules/contrib/commerce_packing_slip/templates/commerce-packing-slip.tpl.php
+index 7bf28c9..3d38233 100644
+--- a/sites/all/modules/contrib/commerce_packing_slip/templates/commerce-packing-slip.tpl.php
++++ b/sites/all/modules/contrib/commerce_packing_slip/templates/commerce-packing-slip.tpl.php
+@@ -15,6 +15,7 @@
+ <div class="packing-slip">
+ 
+   <?php print $logo; ?>
++  <a href="#" onclick="javascript:window.print();">Imprimir</a>
+   <?php print $order_views_view; ?>
+ 
+ </div>
+\ No newline at end of file
+diff --git a/sites/all/modules/custom/terapias/js/maskedinput b/sites/all/modules/custom/terapias/js/maskedinput
+--- a/sites/all/modules/custom/terapias/js/maskedinput
++++ b/sites/all/modules/custom/terapias/js/maskedinput
+@@ -1 +1 @@
+-Subproject commit bb66bf9b1c3eddd1d2349cee103127ae08d0a877
++Subproject commit bb66bf9b1c3eddd1d2349cee103127ae08d0a877-dirty
+diff --git a/sites/all/modules/custom/terapias/js/textarea-helper b/sites/all/modules/custom/terapias/js/textarea-helper
+--- a/sites/all/modules/custom/terapias/js/textarea-helper
++++ b/sites/all/modules/custom/terapias/js/textarea-helper
+@@ -1 +1 @@
+-Subproject commit 25ea9f0a5a89bf2ef4eb44346b82fd1aa0394d5b
++Subproject commit 25ea9f0a5a89bf2ef4eb44346b82fd1aa0394d5b-dirty
