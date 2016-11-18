@@ -13,7 +13,7 @@
                   <tr>
                     <td nowrap="nowrap" style="line-height: 1.6em;" valign="middle">
 											<!-- Invoice Header -->
-											<img src="<?php print $info['site_logo']; ?>" />
+											<a href="https://lucesycolorescr.com" target="_blank"><img src="<?php print $info['site_logo']; ?>" /></a>
                     </td>
                   </tr>
                 </table>
@@ -41,7 +41,7 @@
                           </td>
                           <td valign="top" width="50%">
                             <br/>
-                            <b><?php print t('Web Order No:'); ?></b> <?php print $info['order_number']; ?><br/>
+                            <b><?php print t('Web Order No:'); ?></b> <?php print $info['order_number']; ?> <br/>
                             <br/>
                             <b><?php print t('Email Address:'); ?></b> <?php print $info['order_mail']; ?><br/>
                             <br/>
@@ -76,7 +76,7 @@
                   <tr>
                     <td colspan="2" style="background: #EEE; color: #666; padding: 1em; font-size: 0.9em; line-height: 1.6em; border-top: #CCC 1px dotted; text-align: center;">
                       <!-- Invoice Header -->
-											Luces y colores Costa Rica
+											<a href="https://lucesycolorescr.com" target="_blank">Luces y colores Costa Rica</a>
                     </td>
                   </tr>
                 </table>

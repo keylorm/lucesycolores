@@ -9,6 +9,9 @@
  *
  */
 ?>
+<div class="main-page">
+  
+
 <header class="header" role="banner">
   
   <!--<div class="grid">-->
@@ -169,3 +172,5 @@
   <?php print render($page['closure']); ?>
 </aside>
 <?php endif; // end closure ?>
+  
+</div>

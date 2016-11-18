@@ -177,7 +177,7 @@ h2.decora-der:after,
 /* 'î ' */
 
 .icon-producto_icon_2:before,
-.singing-bowls-y-campanas-tibetanas:before {
+.singing-bowls-o-cuencos-tibetanos:before {
 	content: '\e80e';
 }
 
@@ -270,7 +270,8 @@ h2.decora-der:after,
 	content: '\e821';
 }
 
-.pendantes:before {
+.pendantes:before,
+.dijes:before{
 	font-family: 'fontello2';
 	content: '\e817';
 }
@@ -394,17 +395,25 @@ header .header-top #block-views-shopping-cart-block-1 {
 	margin-top: 16px;
 }
 
-header .header-top .view-shopping-cart {
+header .header-top .view-shopping-cart{
 	display: block;
 	border-left: 1px solid #FFF;
 	line-height: 15px;
 	float: right;
+	/*background-image: url('../images/carrito.png');
+	background-repeat: no-repeat;
+	background-position: 20% center;
+	padding-left: 45px;*/
+}
+
+header .header-top .view-shopping-cart .view-empty,
+header .header-top .view-shopping-cart a{
 	background-image: url('../images/carrito.png');
 	background-repeat: no-repeat;
 	background-position: 20% center;
 	padding-left: 45px;
+	display: block;
 }
-
 header .header-top .view-shopping-cart .line-item-summary {
 	margin-bottom: 0px;
 }
@@ -1076,10 +1085,8 @@ h2.h24.decora-der:after {
 }
 
 .link-container-slider {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	flex-wrap: nowrap;
+	    width: 270px;
+    margin: 0 auto;
 }
 
 .alink {
@@ -1094,6 +1101,7 @@ h2.h24.decora-der:after {
 	margin: 0 10px;
 	border-radius: 4px;
 	display: block;
+	float: left;
 }
 
 .anaranja {
@@ -1154,11 +1162,15 @@ h2.h24.decora-der:after {
 	width: 225px;
 	transition: 0.5s ease;
 }
-.view-tienda .views-row:hover .vocabulary-product-category .field-name-more-link a {
+.view-tienda .views-row:hover .vocabulary-product-category .field-name-more-link a{
 		background-image : none;
 				background-color : #fff;
 				color : #e71d73;
 	
+}
+
+.view-collection-products .views-row:hover .field-name-node-link a{
+	transform: translate(0, -5px);
 }
 
 .anaranja-degradado:hover {
@@ -1298,7 +1310,8 @@ h2.h24.decora-der:after {
 }
 
 .link-curso-container:before,
-.view-tienda .views-row .vocabulary-product-category .field-name-more-link:before {
+.view-tienda .views-row .vocabulary-product-category .field-name-more-link:before,
+.view-collection-products .views-row .field-name-node-link:before{
 	content: '\e816';
 	position: absolute;
 	font-size: 115px;
@@ -1337,7 +1350,8 @@ h2.h24.decora-der:after {
 
 
 
-.view-tienda .field-name-more-link {
+.view-tienda .field-name-more-link,
+.view-collection-products .views-row .field-name-node-link{
 	font-family: 'fontello';
 }
 
@@ -1574,7 +1588,7 @@ img.certificados {
 .pager li {
 	border-radius: 5px;
 	border: 2px solid #aaa;
-	background-color: #ddd;
+	background-color: #fff;
 	text-align: center;
 	float: none;
 	margin: 42px 5px 0 !important;
@@ -1584,6 +1598,13 @@ img.certificados {
 	font-size: 18px;
 	font-family: 'Source Sans Pro', sans-serif;
 	transition: all 0.5s ease;
+}
+.pager li.pager-current,
+.pager li.pager-next,
+.pager li.pager-last,
+.pager li.pager-first,
+.pager li.pager-previous{
+	background-color: #D9D9D9
 }
 
 .pager li a {
@@ -1696,6 +1717,19 @@ img.certificados {
 	background-image: url(../images/cerrar-popup.png);
 }
 
+.page-node-374 .main .field-name-body,
+.page-node-375 .main .field-name-body,
+.page-node-377 .main .field-name-body{
+	-moz-column-count: 1;
+	-webkit-column-count: 1;
+	column-count: 1;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: #575756;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
 .node-type-curso .field-name-body {
 	-moz-column-count: 2;
 	-webkit-column-count: 2;
@@ -1706,6 +1740,7 @@ img.certificados {
 	color: #575756;
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
 
 .contact-sidebar {
 	padding-left: 55px;
@@ -2653,6 +2688,7 @@ table.checkout-review{
 table.checkout-review tr,
 table.checkout-review td{
 	background-color: transparent;
+padding: 12px 10px;
 }
 
 .view-commerce-cart-form .commerce-price-formatted-components,
@@ -2858,6 +2894,7 @@ tr.pane-title td{
 	color: #fff;
 	display: block;
 	text-decoration: none;
+	transition: all 0.3s ease;
 } 
 
 
@@ -3047,3 +3084,84 @@ tr.pane-title td{
 }
 
 
+
+/*body.sideOpen{
+  overflow-y:hidden;
+}
+.main-page{
+   position: relative;
+   left: 0;
+   -webkit-transition-duration: 750ms;
+   -moz-transition-duration: 750ms;
+   -o-transition-duration: 750ms;
+   transition-duration: 750ms;
+   -webkit-transition-timing-function: cubic-bezier(.175,.885,.32,1.14);
+   -moz-transition-timing-function: cubic-bezier(.175,.885,.32,1.14);
+   -o-transition-timing-function: cubic-bezier(.175,.885,.32,1.14);
+   transition-timing-function: cubic-bezier(.175,.885,.32,1.14);
+}
+.sideOpen .main-page{
+   left: -350px;
+}
+.main-nav-overlay{
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 100%;
+   z-index: 10005;
+   background-color: rgba(44,44,51,0);
+   -webkit-transition: right,left,background-color;
+   -moz-transition: right,left,background-color;
+   -o-transition: right,left,background-color;
+   transition: right,left,background-color;
+   -webkit-transition-duration: 375ms,0ms,375ms;
+   -moz-transition-duration: 375ms,0ms,375ms;
+   -o-transition-duration: 375ms,0ms,375ms;
+   transition-duration: 375ms,0ms,375ms;
+   -webkit-transition-timing-function: ease-in-out,linear,ease-in-out;
+   -moz-transition-timing-function: ease-in-out,linear,ease-in-out;
+   -o-transition-timing-function: ease-in-out,linear,ease-in-out;
+   transition-timing-function: ease-in-out,linear,ease-in-out;
+   -webkit-transition-delay: 0ms,375ms,0ms;
+   -moz-transition-delay: 0ms,375ms,0ms;
+   -o-transition-delay: 0ms,375ms,0ms;
+   transition-delay: 0ms,375ms,0ms;
+}
+.sideOpen .main-nav-overlay{
+   left: 0;
+   background-color: rgba(44,44,51,.9);
+   cursor: url("../images/cerrar.png"), auto;
+   -webkit-transition-duration: 750ms,0ms,375ms;
+   -moz-transition-duration: 750ms,0ms,375ms;
+   -o-transition-duration: 750ms,0ms,375ms;
+   transition-duration: 750ms,0ms,375ms;
+   -webkit-transition-timing-function: cubic-bezier(.175,.885,.32,1.14),linear,ease-in-out;
+   -moz-transition-timing-function: cubic-bezier(.175,.885,.32,1.14),linear,ease-in-out;
+   -o-transition-timing-function: cubic-bezier(.175,.885,.32,1.14),linear,ease-in-out;
+   transition-timing-function: cubic-bezier(.175,.885,.32,1.14),linear,ease-in-out;
+   -webkit-transition-delay: 0ms,0ms,0ms;
+   -moz-transition-delay: 0ms,0ms,0ms;
+   -o-transition-delay: 0ms,0ms,0ms;
+   transition-delay: 0ms,0ms,0ms;
+}
+
+.sideOpen #block-taxonomy-menu-block-1{
+	right: 0px;
+  z-index: 99999;
+}
+*/
+
+.overlaymenu{
+
+   cursor: url("../images/cerrar.png"), auto;
+
+}
+
+.page-user .ajax-progress{
+	clear: both;
+}
+
+.cart-empty-page{
+	margin-bottom: 200px;
+}

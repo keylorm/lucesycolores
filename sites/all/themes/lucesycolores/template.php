@@ -171,7 +171,7 @@ function lucesycolores_preprocess_block(&$vars, $hook) {
 
 function lucesycolores_breadcrumb($variables) {
   //breadcrumb = $variables['breadcrumb'];
-  $sep = '  |  ';
+  $sep = '  /  ';
   $crumbs = array();
   
   //dpm($variables);

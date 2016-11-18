@@ -317,6 +317,12 @@
 	.bloque-titulo-seccion{
 		padding: 0 4%;
 	}
+	
+	.view-display-tienda-home  .views-row,
+.view-collection-products-page .views-row,
+	.view-collection-products-block-carousel .views-row{
+		width: 43%;
+		}
 
 }
 
@@ -527,6 +533,13 @@
 		left: -40px;
 	}
 
+	.view-display-tienda-home  .views-row,
+.view-collection-products-page .views-row,
+	.view-collection-products-block-carousel .views-row{
+		    width: 100%;
+    max-width: none;
+    margin: 0 auto 35px;
+		}
 }
 
 

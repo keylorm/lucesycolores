@@ -91,7 +91,7 @@
 	height: 100%;
 	padding: 20px 0px;
 	padding-top: 0px;	
-	transition: all 0.8s ease;
+	transition: all 0.3s ease;
 	    overflow-y: scroll;
 }
 
@@ -103,8 +103,8 @@
 
 
 #block-taxonomy-menu-block-1 ul li a:hover{
-	background-color: #fff;
-	color: #ea5b0c;
+	transform: translate(5px, 0);
+	 font-weight: bold;
 }
 
 /*#block-taxonomy-menu-block-1.open {
@@ -122,10 +122,9 @@
 	border: 1px solid #ddd;
 	/*margin-right: 108px;
 	width: 320px;*/
-	margin-left: 0;
-	margin-right: 0;
+	max-width: 326px;
 	width: 27%;
-	margin-bottom: 35px;
+	margin: 0 3% 35px;
 	padding: 15px 25px;
 	position: relative;
 	-webkit-transition: all 0.5s ease;
@@ -133,6 +132,11 @@
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+	float: left;
+}
+
+.view-display-tienda-home .bxslider-carousel-productos  .views-row{
+	margin: 0 0 35px;
 }
 
 .view-display-id-block_productos_home  .views-row{
@@ -143,10 +147,10 @@
 
 .view-display-id-block_tienda_linea  .view-content,
 .view-collection-products-page .view-content{
-	  display: flex;
+	  /*display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: space-between;*/
 }
 
 .view-collection-products .field-name-imagen-representativa img {
@@ -156,7 +160,7 @@
 }
 
 .view-collection-products-page .views-row{
-	width: 326px;
+	/*width: 326px;*/
 }
 
 .view-collection-products-block-carousel .views-row{
@@ -178,7 +182,7 @@
 
 .view-display-id-block_tienda_linea  .views-row:nth-child(3n),
 .view-collection-products .views-row:nth-child(3n){
-	margin-right: 0px;
+	/*margin-right: 0px;*/
 }
 
 .view-display-tienda-home  .views-row:hover{
@@ -230,7 +234,8 @@ h2.rosado{
 	color: #fff;
 }
 
-.view-display-tienda-home  .views-row .vocabulary-product-category .field-name-more-link{
+.view-display-tienda-home  .views-row .vocabulary-product-category .field-name-more-link,
+.view-collection-products .views-row .field-name-node-link{
 	position: absolute;
 	bottom: 30px;
   left: 0;
@@ -238,7 +243,8 @@ h2.rosado{
 	z-index: 1;
 }
 
-.view-display-tienda-home  .views-row .vocabulary-product-category .field-name-more-link:before{
+.view-display-tienda-home  .views-row .vocabulary-product-category .field-name-more-link:before,
+.view-collection-products .views-row .field-name-node-link:before{
 	left: 0;
 	right: 0;
 	bottom: -33px;
@@ -351,7 +357,7 @@ h2.rosado{
 	background-image: url(../images/bg-filtro-expuesto-productos-op-min.png);
 	background-repeat: repeat-y;
 	background-position: center;
-	padding: 10px 20px 15px 20px;
+	padding: 0px 20px 8px 20px;
 }
 
 .views-exposed-widgets label{
@@ -397,7 +403,7 @@ h2.rosado{
 	color: #fff;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
-	padding: 15px 25px;
+	padding: 13px 25px;
 	border: none;
 }
 
@@ -409,7 +415,7 @@ h2.rosado{
 	color: #fff;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
-	padding: 15px 25px;
+	padding: 12px 25px;
 	border: none;
 
 	display: block;
@@ -458,10 +464,11 @@ h2.rosado{
     width: 225px;
     position: absolute;
     transition: 0.5s ease;
-    bottom: 15px;
+    bottom: 0px;
     margin: 0 auto;
     left: 0;
     right: 0;
+		transition: all 0.3s linear;
 }
 
 .view-collection-products .views-row:hover .field-name-roll-over-producto{
@@ -470,7 +477,7 @@ h2.rosado{
 }
 
 .view-collection-products .views-row:hover .field-name-node-link{
-	  display: none;
+	  /*display: none;*/
 }
 
 .view-collection-products .views-row .field-name-roll-over-producto{	
