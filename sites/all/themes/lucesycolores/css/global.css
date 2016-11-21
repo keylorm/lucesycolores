@@ -3084,7 +3084,10 @@ tr.pane-title td{
 }
 
 
-
+.page-node .messages.error{
+	display: block;
+	
+}
 /*body.sideOpen{
   overflow-y:hidden;
 }
