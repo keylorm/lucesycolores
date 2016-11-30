@@ -135,7 +135,8 @@
 	float: left;
 }
 
-.view-display-tienda-home .bxslider-carousel-productos  .views-row{
+.view-display-tienda-home .bxslider-carousel-productos  .views-row,
+.view-collection-products-block-carousel .views-row{
 	margin: 0 0 35px;
 }
 
