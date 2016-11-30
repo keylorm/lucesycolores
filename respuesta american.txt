@@ -1,0 +1,13 @@
+stdClass::__set_state(array(
+   'request' => 'POST /commerce_credomatic_response?response=1&responsetext=Transaction+received+and+approved%3A%3A717445&authcode=717445&transactionid=3374379001&avsresponse=U&cvvresponse=P&orderid=52&type=auth&response_code=100&username=7206850&time=1479912580&amount=38.06&hash=e429602f6fad51348e03249b4697c1a3 HTTP/1.0
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Drupal (+http://drupal.org/)
+Host: lyc.orbelink.com
+Content-Length: 250
+
+type=auth&orderid=52&key_id=7206850&hash=30d25db4873edcb61d5cace1aa3fc7eb&time=1479912578&redirect=http%3A%2F%2Flyc.orbelink.com%2Fcommerce_credomatic_response&ccnumber=377713175531071&ccexp=1218&amount=38.06&cvv=4286&orderdescription=1x+AUA-AIR--243',
+   'code' => -1,
+   'error' => 'request timed out',
+   'redirect_code' => '302',
+   'redirect_url' => 'http://lyc.orbelink.com/commerce_credomatic_response?response=1&responsetext=Transaction+received+and+approved%3A%3A717445&authcode=717445&transactionid=3374379001&avsresponse=U&cvvresponse=P&orderid=52&type=auth&response_code=100&username=7206850&time=1479912580&amount=38.06&hash=e429602f6fad51348e03249b4697c1a3',
+))

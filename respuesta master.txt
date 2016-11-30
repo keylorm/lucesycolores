@@ -1,0 +1,5 @@
+stdClass::__set_state(array( 'request' => 'POST /api/transact.php HTTP/1.0 Content-Type: application/x-www-form-urlencoded User-Agent: Drupal (+http://drupal.org/) Host: credomatic.compassmerchantsolutions.com Content-Length: 250 type=auth&orderid=58&key_id=7206850&hash=7a326f4283205d3d1a032d864b39d61c&time=1479917922&redirect=http%3A%2F%2Flyc.orbelink.com%2Fcommerce_credomatic_response&ccnumber=4012001011000771&ccexp=1116&amount=38.06&cvv=999&orderdescription=1x+AUA-AIR--243', 'data' => '
+
+
+
+', 'protocol' => 'HTTP/1.1', 'status_message' => 'OK', 'headers' => array ( 'date' => 'Wed, 23 Nov 2016 16:18:43 GMT', 'server' => 'Apache', 'x-gw-session-id' => 'e9a21b4a4ada956a99c43404867bcc10', 'content-length' => '1163', 'connection' => 'close', 'content-type' => 'text/html; charset=UTF-8', ), 'code' => '200', ))
