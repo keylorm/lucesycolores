@@ -1,3 +1,5 @@
+
+
 $( function() {
     $( ".datepicker" ).datepicker();
 } );
@@ -5,6 +7,85 @@ $( function() {
 (function($){
 
 	$(document).ready(function(){
+		
+		
+		
+		/* Para eventos de Google */
+		var urlactual = document.URL.replace( /#.*/, "");
+		urlactual = urlactual.replace( /\?.*/, "");
+		var times = 0;
+	
+		/* Evento Scroll 50% */
+		$(window).scroll(function(){
+			var bottom = $(window).height() + $(window).scrollTop();
+			var height = $(document).height();
+			var percentage = Math.round(100*bottom/height);
+			if(percentage > 50 && times==0){
+				times=times + 1;
+				ga('send', 'event', 'Scroll', '50%', urlactual);
+				
+			}
+		
+		});
+
+		/* Evento más de 30 segundos */
+		setTimeout(function(){ga('send', 'event', 'T>30s', 'Tiempo mayor a 30 segundos', urlactual);},30000);
+		
+		
+		/* Evento cuando añaden producto al carrito */
+		$('form.commerce-add-to-cart').on('submit',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click en botón para añadir un producto al carrito', urlactual); },500);
+			this.submit();
+		});
+		
+		/* Evento cuando pasan del carrito al checkout */
+		$('form#views-form-commerce-cart-form-default input#edit-checkout').live('click',function(){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del carrito al Check Out', urlactual);},500);
+			
+		});
+		
+		/* Evento cuando pasan del checkout al shipping */
+		$('form#commerce-checkout-form-checkout input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del check out a la página de shipping', urlactual);},500);
+			
+		});
+		
+		
+		/* Evento cuando pasan del shipping al review y para insertar tarjeta  */
+		$('form#commerce-checkout-form-shipping input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del shipping page a la página de review de la compra', urlactual);},500);
+			
+		});
+		
+		/* Evento cuando pasan a pagar al banco  */
+		$('form#commerce-checkout-form-review input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para ir a pagar al banco', urlactual);},500);
+			
+		});
+		
+		
+		/* Carga cuando el pago se completó y retornó a la página de confirmación */
+		if($('body').hasClass('page-checkout-complete')){
+			setTimeout(function(){ga('send', 'event', 'Pago','Pago exitoso', urlactual);},500);
+		}
+		
+		
+	
+		
+		/* Evento en cada submit de form de contacto */
+		$('.not-logged-in form#user-register-form input#edit-submit').live('click',function(event){
+			
+			setTimeout(function(){ ga('send', 'event', 'Click', 'Click en botón para registrarse', urlactual);},500);
+			
+		});
+		
+		
+		
 		if($('.bxslider').length !== 0){
 			$('.bxslider').bxSlider({
 				video: true,
@@ -112,6 +193,283 @@ $( function() {
 					});
 				}*/
 			
+		$('.i18n-es .field-name-field-provincia select option[value="_none"]').text("- Provincia -");
+		$('.i18n-en .field-name-field-provincia select option[value="_none"]').text("- Province -");
+		
+		
+		var cantones = [];
+		cantones["San José"] = ["San José", 
+														"Escazú", 
+														"Desamparados", 
+														"Puriscal", 
+														"Tarrazú", 
+														"Aserrí", 
+														"Mora", 
+														"Goicoechea", 
+														"Santa Ana", 
+														"Alajuelita", 
+													  "Vázquez de Coronado",
+													 "Acosta", 
+													 "Tibás", 
+													 "Moravia",
+													 "Montes de Oca",
+													 "Turrubares",
+													 "Dota",
+													 "Curridabat",
+													 "Pérez Zeledón",
+													 "León Cortés"];
+		cantones["Alajuela"] = ["Alajuela", 
+														"San Ramón", 
+														"Grecia", 
+														"San Mateo", 
+														"Atenas", 
+														"Naranjo", 
+														"Palmares", 
+														"Poás", 
+														"Orotina", 
+														"San Carlos", 
+													  "Zarcero",
+													 "Valverde Vega", 
+													 "Upala", 
+													 "Los Chiles",
+													 "Guatuso"];
+		cantones["Heredia"] = ["Heredia", 
+														"Barva", 
+														"Santo Domingo", 
+														"Santa Barbara", 
+														"San Rafael", 
+														"San Isidro", 
+														"Belén", 
+														"Flores", 
+														"San Pablo", 
+														"Sarapiquí" 
+													  ];
+		cantones["Cartago"] = ["Cartago", 
+														"Paraíso", 
+														"La Unión", 
+														"Jiménez", 
+														"Turrialba", 
+														"Alvarado", 
+														"Oreamuno", 
+														"El Guarco"
+													  ];
+		cantones["Puntarenas"] = ["Puntarenas", 
+														"Esparza", 
+														"Buenos Aires", 
+														"Montes de Oro", 
+														"Osa", 
+														"Quepos", 
+														"Golfito", 
+														"Coto Brus", 
+														"Parrita", 
+														"Corredores", 
+														"Garabito"
+													  ];
+		cantones["Guanacaste"] = ["Liberia", 
+														"Nicoya", 
+														"Santa Cruz", 
+														"Bagaces", 
+														"Carrillo", 
+														"Cañas", 
+														"Abangares", 
+														"Tilarán", 
+														"Nandayure", 
+														"La Cruz", 
+														"Hojancha"
+													  ];
+		cantones["Limón"] = ["Limón", 
+														"Pococí", 
+														"Siquirres", 
+														"Talamanca", 
+														"Matina", 
+														"Guácimo"
+													  ];
+		
+		
+		/* Para los formularios de Address Book */
+		
+		if($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()!="_none"){
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').show();
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+			$('#commerce-addressbook-customer-profile-form .field-name-field-canton').hide();
+		}
+		
+		$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').change(function(){
+			if($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()!="_none"){
+				
+				// llenar los campos de dirección automáticamente
+				$('#commerce-addressbook-customer-profile-form .field-name-commerce-customer-address input#edit-commerce-customer-address-und-0-thoroughfare').val("");
+				$('#commerce-addressbook-customer-profile-form .field-name-commerce-customer-address input#edit-commerce-customer-address-und-0-locality').val($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val());
+				
+				
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').show();
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').hide();
+				
+			}
+			
+			
+			
+		});
+		
+		$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').change(function(){
+			if($('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val()!="_none"){
+				var valor_direccion = $('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()+  ", "+ $('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val();
+				
+				$('#commerce-addressbook-customer-profile-form .field-name-commerce-customer-address input#edit-commerce-customer-address-und-0-thoroughfare').val(valor_direccion);
+					
+				
+				
+				
+				
+			}
+		});
+		
+		/* Para el formulario de Billing Address */
+		
+		if($('#edit-customer-profile-billing .field-name-field-provincia select').val()!="_none"){
+			$('#edit-customer-profile-billing .field-name-field-canton').show();
+				$('#edit-customer-profile-billing .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-billing .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+			$('#edit-customer-profile-billing .field-name-field-canton').hide();
+		}
+		
+		$('#edit-customer-profile-billing .field-name-field-provincia select').change(function(){
+			if($('#edit-customer-profile-billing .field-name-field-provincia select').val()!="_none"){
+				
+				// llenar los campos de dirección automáticamente
+				$('#edit-customer-profile-billing .field-name-commerce-customer-address input#edit-customer-profile-billing-commerce-customer-address-und-0-thoroughfare').val("");
+				$('#edit-customer-profile-billing .field-name-commerce-customer-address input#edit-customer-profile-billing-commerce-customer-address-und-0-locality').val($('#edit-customer-profile-billing .field-name-field-provincia select').val());
+				
+				
+				$('#edit-customer-profile-billing .field-name-field-canton').show();
+				$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-billing .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-billing .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-billing .field-name-field-canton').hide();
+				
+			}
+			
+		});
+		
+		$('#edit-customer-profile-billing .field-name-field-canton select').change(function(){
+			if($('#edit-customer-profile-billing .field-name-field-canton select').val()!="_none"){
+				var valor_direccion = $('#edit-customer-profile-billing .field-name-field-provincia select').val()+  ", "+ $('#edit-customer-profile-billing .field-name-field-canton select').val();
+				
+				$('#edit-customer-profile-billing .field-name-commerce-customer-address input#edit-customer-profile-billing-commerce-customer-address-und-0-thoroughfare').val(valor_direccion);
+					
+
+				
+			}
+		});
+		
+		/* Para el formulario de Shipping Address */
+		
+		if($('#edit-customer-profile-shipping .field-name-field-provincia select').val()!="_none"){
+			$('#edit-customer-profile-shipping .field-name-field-canton').show();
+				$('#edit-customer-profile-shipping .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-shipping .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+			$('#edit-customer-profile-shipping .field-name-field-canton').hide();
+		}
+		
+		$('#edit-customer-profile-shipping .field-name-field-provincia select').change(function(){
+			if($('#edit-customer-profile-shipping .field-name-field-provincia select').val()!="_none"){
+				
+				
+				// llenar los campos de dirección automáticamente
+				$('#edit-customer-profile-shipping .field-name-commerce-customer-address input#edit-customer-profile-shipping-commerce-customer-address-und-0-thoroughfare').val("");
+				$('#edit-customer-profile-shipping .field-name-commerce-customer-address input#edit-customer-profile-shipping-commerce-customer-address-und-0-locality').val($('#edit-customer-profile-shipping .field-name-field-provincia select').val());
+				
+				
+				
+				$('#edit-customer-profile-shipping .field-name-field-canton').show();
+				$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-shipping .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-shipping .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-shipping .field-name-field-canton').hide();
+				
+			}
+			
+		});
+		
+		
+		$('#edit-customer-profile-shipping .field-name-field-canton select').change(function(){
+			if($('#edit-customer-profile-shipping .field-name-field-canton select').val()!="_none"){
+				var valor_direccion = $('#edit-customer-profile-shipping .field-name-field-provincia select').val()+  ", "+ $('#edit-customer-profile-shipping .field-name-field-canton select').val();
+				
+				$('#edit-customer-profile-shipping .field-name-commerce-customer-address input#edit-customer-profile-shipping-commerce-customer-address-und-0-thoroughfare').val(valor_direccion);
+					
+
+				
+			}
+		});
+		
+		
+		
+		
 		
 		
 		$('.ver-mas a').click(function(e){
@@ -144,10 +502,10 @@ $( function() {
 				}
 			}
 			
-    })
+    });
 		
 		//ajuste formulario add to cart
-		$("form.commerce-add-to-cart .form-item-quantity input").on('change', function(){
+		$("form.commerce-add-to-cart .form-item-quantity input").change(function(){
 				var cantidad = $(this).val();
 				var monto = $("#monto-precio-unidad").text();
 			 	monto = monto.replace('$', '');
@@ -344,6 +702,60 @@ $( function() {
 
 	$(document).ajaxStop(function (){	
 		
+		
+		
+		/* Evento cuando añaden producto al carrito */
+		$('form.commerce-add-to-cart').on('submit',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click en botón para añadir un producto al carrito', urlactual); },500);
+			this.submit();
+		});
+		
+		/* Evento cuando pasan del carrito al checkout */
+		$('form#views-form-commerce-cart-form-default input#edit-checkout').live('click',function(){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del carrito al Check Out', urlactual);},500);
+			
+		});
+		
+		/* Evento cuando pasan del checkout al shipping */
+		$('form#commerce-checkout-form-checkout input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del check out a la página de shipping', urlactual);},500);
+			
+		});
+		
+		
+		/* Evento cuando pasan del shipping al review y para insertar tarjeta  */
+		$('form#commerce-checkout-form-shipping input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del shipping page a la página de review de la compra', urlactual);},500);
+			
+		});
+		
+		/* Evento cuando pasan a pagar al banco  */
+		$('form#commerce-checkout-form-review input#edit-continue').live('click',function(event){
+			
+			setTimeout(function(){ga('send', 'event', 'Click', 'Click para ir a pagar al banco', urlactual);},500);
+			
+		});
+		
+		
+		/* Carga cuando el pago se completó y retornó a la página de confirmación */
+		if($('body').hasClass('page-checkout-complete')){
+			setTimeout(function(){ga('send', 'event', 'Pago','Pago exitoso', urlactual);},500);
+		}
+		
+		
+		/* Evento en cada submit de form de contacto */
+		$('.node-webform-contacto form input.webform-submit').live('click',function(event){
+			
+			setTimeout(function(){console.log("contacto"); ga('send', 'event', 'Click', 'Click para enviar formulario de contacto', urlactual);},500);
+			
+		});
+		
+		
+		
 		if($("form.commerce-add-to-cart .form-item-quantity input").length>0){
 			$("form.commerce-add-to-cart .form-item-quantity input").val(1);
 			
@@ -358,6 +770,226 @@ $( function() {
 			 	monto = monto.replace('$', '');
 				$("#monto-precio-preliminar").text('$'+ (cantidad * monto).formatMoney(2, '.', ','));
 		});	
+		
+		$('.i18n-es .field-name-field-provincia select option[value="_none"]').text("- Provincia -");
+		$('.i18n-en .field-name-field-provincia select option[value="_none"]').text("- Province -");
+		
+		
+		var cantones = [];
+		cantones["San José"] = ["San José", 
+														"Escazú", 
+														"Desamparados", 
+														"Puriscal", 
+														"Tarrazú", 
+														"Aserrí", 
+														"Mora", 
+														"Goicoechea", 
+														"Santa Ana", 
+														"Alajuelita", 
+													  "Vázquez de Coronado",
+													 "Acosta", 
+													 "Tibás", 
+													 "Moravia",
+													 "Montes de Oca",
+													 "Turrubares",
+													 "Dota",
+													 "Curridabat",
+													 "Pérez Zeledón",
+													 "León Cortés"];
+		cantones["Alajuela"] = ["Alajuela", 
+														"San Ramón", 
+														"Grecia", 
+														"San Mateo", 
+														"Atenas", 
+														"Naranjo", 
+														"Palmares", 
+														"Poás", 
+														"Orotina", 
+														"San Carlos", 
+													  "Zarcero",
+													 "Valverde Vega", 
+													 "Upala", 
+													 "Los Chiles",
+													 "Guatuso"];
+		cantones["Heredia"] = ["Heredia", 
+														"Barva", 
+														"Santo Domingo", 
+														"Santa Barbara", 
+														"San Rafael", 
+														"San Isidro", 
+														"Belén", 
+														"Flores", 
+														"San Pablo", 
+														"Sarapiquí" 
+													  ];
+		cantones["Cartago"] = ["Cartago", 
+														"Paraíso", 
+														"La Unión", 
+														"Jiménez", 
+														"Turrialba", 
+														"Alvarado", 
+														"Oreamuno", 
+														"El Guarco"
+													  ];
+		cantones["Puntarenas"] = ["Puntarenas", 
+														"Esparza", 
+														"Buenos Aires", 
+														"Montes de Oro", 
+														"Osa", 
+														"Quepos", 
+														"Golfito", 
+														"Coto Brus", 
+														"Parrita", 
+														"Corredores", 
+														"Garabito"
+													  ];
+		cantones["Guanacaste"] = ["Liberia", 
+														"Nicoya", 
+														"Santa Cruz", 
+														"Bagaces", 
+														"Carrillo", 
+														"Cañas", 
+														"Abangares", 
+														"Tilarán", 
+														"Nandayure", 
+														"La Cruz", 
+														"Hojancha"
+													  ];
+		cantones["Limón"] = ["Limón", 
+														"Pococí", 
+														"Siquirres", 
+														"Talamanca", 
+														"Matina", 
+														"Guácimo"
+													  ];
+		
+		
+		/* Para los formularios de Address Book */
+		
+		if($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()!="_none"){
+			$('#commerce-addressbook-customer-profile-form .field-name-field-canton').show();
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+			$('#commerce-addressbook-customer-profile-form .field-name-field-canton').hide();
+		}
+		
+		$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').change(function(){
+			if($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()!="_none"){
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').show();
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
+				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').hide();
+				
+			}
+			
+		});
+		
+		
+		/* Para el formulario de Billing Address */
+		
+		if($('#edit-customer-profile-billing .field-name-field-provincia select').val()!="_none"){
+			$('#edit-customer-profile-billing .field-name-field-canton').show();
+				$('#edit-customer-profile-billing .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-billing .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+			$('#edit-customer-profile-billing .field-name-field-canton').hide();
+		}
+		
+		$('#edit-customer-profile-billing .field-name-field-provincia select').change(function(){
+			if($('#edit-customer-profile-billing .field-name-field-provincia select').val()!="_none"){
+				$('#edit-customer-profile-billing .field-name-field-canton').show();
+				$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-billing .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-billing .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#edit-customer-profile-billing .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-billing .field-name-field-canton').hide();
+				
+			}
+			
+		});
+		
+		
+		/* Para el formulario de Shipping Address */
+		
+		if($('#edit-customer-profile-shipping .field-name-field-provincia select').val()!="_none"){
+			$('#edit-customer-profile-shipping .field-name-field-canton').show();
+				$('#edit-customer-profile-shipping .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-shipping .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+		}else{
+			$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+			$('#edit-customer-profile-shipping .field-name-field-canton').hide();
+		}
+		
+		$('#edit-customer-profile-shipping .field-name-field-provincia select').change(function(){
+			if($('#edit-customer-profile-shipping .field-name-field-provincia select').val()!="_none"){
+				$('#edit-customer-profile-shipping .field-name-field-canton').show();
+				$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-shipping .field-name-field-canton select option').each(function(){
+					//console.log(cantones[$('.field-name-field-provincia select').val()]);
+					
+					if ($.inArray($(this).val(), cantones[$('#edit-customer-profile-shipping .field-name-field-provincia select').val()])>-1){
+						
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				});
+			}else{
+				$('#edit-customer-profile-shipping .field-name-field-canton select').val("_none");
+				$('#edit-customer-profile-shipping .field-name-field-canton').hide();
+				
+			}
+			
+		});
+		
+		
 	});
 	
 	

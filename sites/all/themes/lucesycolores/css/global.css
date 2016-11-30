@@ -1653,7 +1653,8 @@ img.certificados {
 
 .webform-client-form input[type="text"],
 .webform-client-form input[type="email"],
-.webform-client-form textarea {
+.webform-client-form textarea,
+.webform-client-form select{
 	width: 100%;
 	border-radius: 5px;
 	border: 1px solid #EDEDED;
@@ -1665,7 +1666,8 @@ img.certificados {
 }
 
 .webform-client-form input[type="text"],
-.webform-client-form input[type="email"] {
+.webform-client-form input[type="email"],
+.webform-client-form select{
 	line-height 44px;
 	height: 44px;
 }
@@ -2281,6 +2283,7 @@ header .header-top ul li a.active {
 #user_login_form input[type="password"],
 #user_register_form input[type="text"],
 #user_register_form input[type="password"],
+#user_register_form select,
 #user_pass_form input[type="text"],
 .logged-in #commerce-addressbook-customer-profile-form input[type="text"],
 .logged-in #commerce-addressbook-customer-profile-form select {
@@ -2307,10 +2310,32 @@ header .header-top ul li a.active {
 
 .logged-in #user_register_form input[type="text"],
 .logged-in #user_register_form input[type="password"],
+.logged-in #user_register_form select,
 .logged-in #commerce-addressbook-customer-profile-form input[type="text"],
 .logged-in #commerce-addressbook-customer-profile-form select {
 	display: inline-block;
 	width: 58%;
+}
+
+.logged-in #commerce-addressbook-customer-profile-form .form-textarea-wrapper{
+	display: inline-block;
+	width: 58%;
+}
+
+.logged-in #commerce-addressbook-customer-profile-form .form-textarea-wrapper textarea,
+.logged-in #commerce-checkout-form-checkout .form-textarea-wrapper textarea{
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+
+	border: 1px solid #9D9D9C;
+
+	padding: 0 15px;
+
+	color: #575756;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
 }
 
 #user_login_form input[type="submit"],
@@ -3067,17 +3092,7 @@ tr.pane-title td{
 	color: #36a9e1;
 }
 
-.button-out-of-stock {
-    display: block;
-    float: right;
-    height: 43px;
-    width: auto;
-    background: #ddd;
-    line-height: 43px;
-    padding: 0 15px;
-    border-radius: 5px;
-    margin: 20px 0;
-}
+
 
 .commerce-credomatic-payment-icon{
 	display: none;
@@ -3167,4 +3182,86 @@ tr.pane-title td{
 
 .cart-empty-page{
 	margin-bottom: 200px;
+}
+
+form .field-name-field-canton{
+	display: none;
+}
+
+.street-block, 
+.locality-block{
+	display: none;
+}
+
+.field-name-imagen-representativa{
+	position: relative;
+}
+.out-of-stock-badge{
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	background-image: url(../images/out-of-stock.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: transparent;
+	top: 5px;
+	left: 5px;
+}
+
+.i18n-es .lg-en{
+	display: none;
+}
+
+.i18n-en .lg-es{
+	display: none;
+}
+
+.boton-agotado-solicitar{
+	height: 44px;
+}
+
+.btn-realizar-pedido {
+    float: right;
+    background-color: #ededed;   
+    border-radius: 5px;
+    color: #575756;
+		display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: left;
+    display: block;
+    border: none;
+    line-height: 25px;
+    height: 44px;
+    padding: 10px 20px;
+    width: 185px;
+    transition: 0.5s ease;
+    font-weight: 700;
+	margin: 20px 0 20px 10px;
+}
+.btn-realizar-pedido:hover {
+	transform: translate(0,-5px);
+}
+
+.btn-realizar-pedido a{
+	text-decoration: none;
+	color: #575756;
+	display: block;
+}
+
+.button-out-of-stock {
+    display: inline-block;
+    float: left;
+    height: 43px;
+    width: auto;
+    background: #ddd;
+    line-height: 43px;
+    padding: 0 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+
+#tabs .btn-realizar-pedido{
+	margin: 0;
+	width: 195px;
 }
