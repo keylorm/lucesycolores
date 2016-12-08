@@ -28,7 +28,7 @@ $form['name']['#prefix'] .= '<div class="facebook-login-button"><a href="/user/s
     ?>
 
     <div class="user-login-links ">
-	<span class="register-link"><a href="/user/register"><?=t('Don\'t you have an account?').'<br /><strong>'.t('Sign up').'</strong>';?></a></span><span class="password-link"><a href="/user/password"><?php echo t('Forgot your password?') ?></a></span>
+	<span class="register-link"><a href="/user/register?destination=<?php echo $parameters['destination'] ?>"><?=t('Don\'t you have an account?').'<br /><strong>'.t('Sign up').'</strong>';?></a></span><span class="password-link"><a href="/user/password?destination=<?php echo $parameters['destination'] ?>"><?php echo t('Forgot your password?') ?></a></span>
     </div>
 
     <?php

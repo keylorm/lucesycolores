@@ -219,7 +219,7 @@ $databases = array (
     array (
       'database' => 'lucesycolores',
       'username' => 'root',
-      'password' => '',
+      'password' => 'root',
       'host' => 'localhost', #
       'port' => '',
       'driver' => 'mysql',
