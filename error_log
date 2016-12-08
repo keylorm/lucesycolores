@@ -1,0 +1,2 @@
+[06-Dec-2016 09:32:19 America/Costa_Rica] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/lucesyco/public_html/includes/database/database.inc on line 2150
+[08-Dec-2016 14:28:53 America/Costa_Rica] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/lucesyco/public_html/includes/common.inc:2756) in /home/lucesyco/public_html/includes/bootstrap.inc on line 1232

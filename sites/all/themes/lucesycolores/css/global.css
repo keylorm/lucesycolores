@@ -3065,7 +3065,7 @@ tr.pane-title td{
     width: 90%;
 }
 .messages.error{
-	display: none;
+	/*display: none;*/
 }
 
 .page-cart .messages.error,

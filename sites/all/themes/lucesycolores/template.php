@@ -262,7 +262,7 @@ function lucesycolores_form_alter(&$form, &$form_state, $form_id){
     
     $form['field_phone']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_phone']['und'][0]['value']['#title']);
     $form['field_full_name']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_full_name']['und'][0]['value']['#title']);
-    $form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
+    //$form['field_provincia']['und'][0]['value']['#attributes'] = array('placeholder' => $form['field_provincia']['und'][0]['value']['#title']);
     $form['account']['mail']['#attributes'] = array('placeholder' =>  $form['account']['mail']['#title']);
     
     

@@ -1,0 +1,34 @@
+diff --git a/commerce_checkout_redirect.module b/commerce_checkout_redirect.module
+index 683ec3c..929ffe4 100644
+--- a/commerce_checkout_redirect.module
++++ b/commerce_checkout_redirect.module
+@@ -92,15 +102,27 @@ function commerce_checkout_redirect_form_user_login_alter(&$form, &$form_state)
+  * Implements hook_form_FORM_ID_alter()
+  */
+ function commerce_checkout_redirect_form_user_register_form_alter(&$form, &$form_state) {
+-  if (arg(0) == 'checkout' && arg(2) == 'user' && arg(3) == 'register' && variable_get('user_email_verification', TRUE) == FALSE) {
++  if (arg(0) == 'checkout' && arg(2) == 'user' && arg(3) == 'register') {
+     $form['#submit'][0] = 'commerce_checkout_redirect_user_register_submit';
+   }
+ }
+ 
++/**
++ * User register submit callback.
++ *
++ * If e-mail verification is required, redirect user to the login page cause he
++ * won't be able to continue checkout process.
++ */
+ function commerce_checkout_redirect_user_register_submit($form, &$form_state) {
+   user_register_submit($form, $form_state);
+   $order_id = arg(1);
+-  drupal_goto('checkout/'.$order_id);
++  $user_email_verification = variable_get('user_email_verification', TRUE);
++  if ($user_email_verification) {
++    drupal_goto('checkout/' . $order_id . '/user/login');
++  }
++  else {
++    drupal_goto('checkout/'.$order_id);
++  }
+ }
+ 
+ /**
