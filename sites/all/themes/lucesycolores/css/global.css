@@ -3265,3 +3265,8 @@ form .field-name-field-canton{
 	margin: 0;
 	width: 195px;
 }
+
+
+#block-locale-language li.en{
+	display: none;
+}

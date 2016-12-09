@@ -34,6 +34,11 @@
 		font-size: 19px;
 	}
 
+	header #block-locale-language,
+	header #block-menu-menu-top-menu{
+		display: none;		
+	}
+
 	.fullwidth .pane-title,
 	.panel-pane .pane-content,
 	.w-container{
@@ -322,6 +327,10 @@
 .view-collection-products-page .views-row,
 	.view-collection-products-block-carousel .views-row{
 		width: 43%;
+		}
+
+		.tienda-descripcion .pane-content{
+			padding: 0 2%;
 		}
 
 }

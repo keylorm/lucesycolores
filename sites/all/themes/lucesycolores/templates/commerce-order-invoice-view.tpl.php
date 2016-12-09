@@ -13,7 +13,7 @@
                   <tr>
                     <td nowrap="nowrap" style="line-height: 1.6em;" valign="middle">
 											<!-- Invoice Header -->
-											<a href="https://lucesycolorescr.com" target="_blank"><img src="<?php print $info['site_logo']; ?>" /></a>
+											<a href="https://lucesycolorescr.com" target="_blank"><img src="https://lucesycolorescr.com/sites/default/files/logo_header_0.png" /></a>
                     </td>
                   </tr>
                 </table>
@@ -58,11 +58,15 @@
             </tr>
             <tr>
               <td>
-                <table class="products" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
+                <table class="products" width="100%" border="1" cellspacing="0" cellpadding="0" align="center" style="font-family: verdana, arial, helvetica; font-size: 11px;">
                   <tbody>
                     <tr>
                       <td class="line-items"><?php print isset($info['line_items']) ? $info['line_items'] : ''; ?></td>
                     </tr>
+                    <tr>
+                      <td height="40"></td>
+                    </tr>
+                    
                     <tr>
                       <td><?php print isset($info['order_total']) ? $info['order_total'] : ''; ?></td>
                     </tr>

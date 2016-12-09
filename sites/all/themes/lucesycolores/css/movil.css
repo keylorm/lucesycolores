@@ -29,10 +29,12 @@
 	}
 	header .header-top .view-shopping-cart{
 		float: none;
-    margin: 0 auto 0 25px;
-    padding-left: 35px;
-    width: 60px;
+    /*margin: 0 auto 0 25px;
+    padding-left: 35px;*/
+    	width: 60px;
 	}
+
+	
 	
 	.panel-pane.fullwidth.slider .caption-container{
 		display: none;

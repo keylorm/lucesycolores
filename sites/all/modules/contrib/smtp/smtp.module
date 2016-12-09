@@ -180,12 +180,3 @@ function smtp_failure_queue_runner($message) {
  * @link http://api.drupalhelp.net/api/variable/variable.api.php/function/hook_variable_info/7
  * @param array $options
  */
-function smtp_variable_info($options) {
-  $variable['smtp_fromname'] = array (
-    'title' => t('Email from name (SMTP module)'),
-    'type' => 'string',
-    'group' => 'smtp',
-  );
-
-  return $variable;
-}
