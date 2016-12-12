@@ -7,8 +7,8 @@ sites/*/settings*.php
 
 # Ignore ctools css
 sites/default/files/ctools/css/
-sites/default/files/css/
 sites/default/settings.php
 tmp/
 backups/
 respaldos/
+php.ini
