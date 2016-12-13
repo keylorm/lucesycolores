@@ -217,9 +217,9 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'lucesycolores',
-      'username' => 'root',
-      'password' => '',
+      'database' => 'lucesycolores', /*lucesyco_db*/
+      'username' => 'root', /*lucesyco_user*/
+      'password' => '', /*[P8u?A&,ykhs*/
       'host' => 'localhost', #
       'port' => '',
       'driver' => 'mysql',

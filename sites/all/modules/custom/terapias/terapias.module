@@ -114,7 +114,7 @@ function terapias_form($form, &$form_state, $id_terapia)
   );
   	
   //extraer los datos de los usuarios
-  $url = 'http://lucesycolores.orbelink.com/terapias-usuarios';
+  $url = 'https://lucesycolorescr.com/terapias-usuarios';
   $options = array(
     'method' => 'GET',
     'header' => 'Content-Type: application/json',
@@ -486,9 +486,14 @@ function getCurrentUser()
 {
   global $user;
   $isAdmin = false;
-  
-  if($user->uid == 1)
-    $isAdmin = true;
+
+  foreach($user->roles as $key => $role){
+	  if($role=='administrator'){
+	  	$isAdmin = true;
+	  }
+	}
+
+    
   
   return $isAdmin;
 }

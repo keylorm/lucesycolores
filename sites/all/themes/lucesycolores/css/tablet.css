@@ -333,6 +333,11 @@
 			padding: 0 2%;
 		}
 
+
+		header .header-top #block-menu-menu-user-menu .menu li.link-user-menu-tienda {
+		    display: inline-block;
+		}
+
 }
 
 
@@ -549,6 +554,8 @@
     max-width: none;
     margin: 0 auto 35px;
 		}
+
+		
 }
 
 

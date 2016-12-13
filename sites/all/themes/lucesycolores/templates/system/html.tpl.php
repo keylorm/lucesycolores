@@ -49,37 +49,12 @@
 <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 
 <head>
+  <meta http-equiv="Cache-control" content="Cache-Control:public, max-age=31536000">
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
 
   
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.min.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52364581-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-  
-    <?php print $styles; ?>
-  <?php print $scripts; ?>
-  
-  
-  <script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "b1e90e93-44ab-4872-9284-5e84f8540c7e", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-
-  <!-- HTML5 element support for IE6-8 -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   
 
 </head>
@@ -98,6 +73,69 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" async="async">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52364581-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+
+
+<script>
+   WebFontConfig = {
+    google: {
+      families: ['Source Sans Pro:300,400,600,700', 'IM Fell DW Pica', 'Roboto']
+    }
+  };
+
+   (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+    <?php print $styles; ?>
+  <?php print $scripts; ?>
+  
+  
+
+<script>
+// ShareThis Asynchronous Javascript Loading
+// from https://techblog.willshouse.com/?p=5265
+(function(){
+    // window.switchTo5x=false; // (optional)
+    var e=document.createElement("script");
+    e.type="text/javascript";
+    e.async=true;
+    e.onload=function(){
+        try{
+            stLight.options({publisher: "b1e90e93-44ab-4872-9284-5e84f8540c7e", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+          }catch(e){ /* optionally do something to handle errors here */ }
+    }
+    e.src=('https:' == document.location.protocol ? 'https://ws' : 'http://w') + '.sharethis.com/button/buttons.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+</script>
+
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
 </body>
 </html>

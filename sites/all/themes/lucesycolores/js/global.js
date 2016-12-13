@@ -1,6 +1,6 @@
 
 
-$( function() {
+jQuery( function() {
     $( ".datepicker" ).datepicker();
 } );
 
