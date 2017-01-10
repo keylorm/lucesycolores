@@ -3266,11 +3266,20 @@ form .field-name-field-canton{
 }
 
 
-#block-locale-language li.en{
-	display: none;
-}
+
 
 
 header .header-top #block-menu-menu-user-menu .menu li.link-user-menu-tienda {
     display: none;
+}
+
+
+.cloud-zoom-gallery-thumbs {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+a.cloud-zoom-gallery.cloud-zoom-processed {
+    float: left;
+    margin: 10px 10px 0 0;
 }

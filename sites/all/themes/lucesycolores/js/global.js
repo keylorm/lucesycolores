@@ -1,6 +1,6 @@
 
 
-jQuery( function() {
+$( function() {
     $( ".datepicker" ).datepicker();
 } );
 
@@ -35,21 +35,21 @@ jQuery( function() {
 		/* Evento cuando añaden producto al carrito */
 		$('form.commerce-add-to-cart').on('submit',function(event){
 			
-			setTimeout(function(){ga('send', 'event', 'Click', 'Click en botón para añadir un producto al carrito', urlactual); },500);
+			setTimeout(function(){ga('send', 'event', 'Pago', 'Paso 1 - Click en botón para añadir un producto al carrito', urlactual); },500);
 			this.submit();
 		});
 		
 		/* Evento cuando pasan del carrito al checkout */
 		$('form#views-form-commerce-cart-form-default input#edit-checkout').live('click',function(){
 			
-			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del carrito al Check Out', urlactual);},500);
+			setTimeout(function(){ga('send', 'event', 'Pago', 'Paso 2 - Click para pasar del carrito al Check Out', urlactual);},500);
 			
 		});
 		
 		/* Evento cuando pasan del checkout al shipping */
 		$('form#commerce-checkout-form-checkout input#edit-continue').live('click',function(event){
 			
-			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del check out a la página de shipping', urlactual);},500);
+			setTimeout(function(){ga('send', 'event', 'Pago', 'Paso 3 - Click para pasar del check out a la página de shipping', urlactual);},500);
 			
 		});
 		
@@ -57,21 +57,21 @@ jQuery( function() {
 		/* Evento cuando pasan del shipping al review y para insertar tarjeta  */
 		$('form#commerce-checkout-form-shipping input#edit-continue').live('click',function(event){
 			
-			setTimeout(function(){ga('send', 'event', 'Click', 'Click para pasar del shipping page a la página de review de la compra', urlactual);},500);
+			setTimeout(function(){ga('send', 'event', 'Pago', 'Paso 4 - Click para pasar del shipping page a la página de review de la compra', urlactual);},500);
 			
 		});
 		
 		/* Evento cuando pasan a pagar al banco  */
 		$('form#commerce-checkout-form-review input#edit-continue').live('click',function(event){
 			
-			setTimeout(function(){ga('send', 'event', 'Click', 'Click para ir a pagar al banco', urlactual);},500);
+			setTimeout(function(){ga('send', 'event', 'Pago', 'Paso 5 - Click para ir a pagar al banco', urlactual);},500);
 			
 		});
 		
 		
 		/* Carga cuando el pago se completó y retornó a la página de confirmación */
 		if($('body').hasClass('page-checkout-complete')){
-			setTimeout(function(){ga('send', 'event', 'Pago','Pago exitoso', urlactual);},500);
+			setTimeout(function(){ga('send', 'event', 'Pago','Paso 6 - Pago exitoso', urlactual);},500);
 		}
 		
 		
@@ -80,7 +80,7 @@ jQuery( function() {
 		/* Evento en cada submit de form de contacto */
 		$('.not-logged-in form#user-register-form input#edit-submit').live('click',function(event){
 			
-			setTimeout(function(){ ga('send', 'event', 'Click', 'Click en botón para registrarse', urlactual);},500);
+			setTimeout(function(){ ga('send', 'event', 'Registro', 'Click en botón para registrarse', urlactual);},500);
 			
 		});
 		
