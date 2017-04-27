@@ -112,7 +112,8 @@
 
 .view-display-tienda-home  .views-row,
 .view-collection-products-page .views-row,
-.view-collection-products-block-carousel .views-row{
+.view-collection-products-block-carousel .views-row,
+#block-views-productos-por-categoria-block .views-row{
 	max-height: 433px;
 	min-height: 433px;
 	-webkit-border-radius: 10px;
