@@ -71,6 +71,7 @@ $( function() {
 		
 		/* Carga cuando el pago se completó y retornó a la página de confirmación */
 		if($('body').hasClass('page-checkout-complete')){
+		    fbq('track', 'Purchase', {value: 247.35,currency: 'USD'});
 			setTimeout(function(){ga('send', 'event', 'Pago','Paso 6 - Pago exitoso', urlactual);},500);
 		}
 		

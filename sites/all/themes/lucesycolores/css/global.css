@@ -346,6 +346,10 @@ header .language-switcher-locale-url li:first-child {
 
 header .language-switcher-locale-url li a {}
 
+header .language-switcher-locale-url{
+ display:none !important;/*Se oculta el cambio de idioma*/
+}
+
 header .header-top ul {
 	margin-top: 12px;
 	display: inline-block;
@@ -612,6 +616,14 @@ footer .redes a.yt {
 	background-image: url('../images/yt.png');
 }
 
+footer .redes a.instagram {
+	background-image: url('../images/instagram.png');
+}
+
+#block-block-4 p,
+#block-block-5 p{
+    margin-top:0px;
+}
 
 /* HS */
 

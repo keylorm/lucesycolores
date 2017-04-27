@@ -68,7 +68,7 @@
                     </tr>
                     
                     <tr>
-                      <td><?php var_export($info); print isset($info['order_total']) ? $info['order_total'] : ''; ?></td>
+                      <td><?php print isset($info['order_total']) ? $info['order_total'] : ''; ?></td>
                     </tr>
                   </tbody>
                 </table>
