@@ -1,0 +1,95 @@
+$view = new view();
+$view->name = 'productos_por_categoria';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'search_api_index_product_display';
+$view->human_name = 'Productos por categoria';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['use_ajax'] = TRUE;
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['use_more_text'] = 'más';
+$handler->display->display_options['access']['type'] = 'none';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['pager']['options']['offset'] = '0';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Campo: Indexed Nodo: ID del nodo */
+$handler->display->display_options['fields']['nid']['id'] = 'nid';
+$handler->display->display_options['fields']['nid']['table'] = 'search_api_index_product_display';
+$handler->display->display_options['fields']['nid']['field'] = 'nid';
+/* Criterios de filtrado: Indexed Nodo: Estado */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'search_api_index_product_display';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = array(
+  1 => '1',
+);
+/* Criterios de filtrado: Global: PHP */
+$handler->display->display_options['filters']['php']['id'] = 'php';
+$handler->display->display_options['filters']['php']['table'] = 'views';
+$handler->display->display_options['filters']['php']['field'] = 'php';
+$handler->display->display_options['filters']['php']['use_php_setup'] = 0;
+$handler->display->display_options['filters']['php']['php_filter'] = '$producto = node_load($data->nid);
+$field_producto_category= field_get_items(\'node\', $producto, \'field_product_category\');
+$category_tid = $field_producto_category[0][\'tid\'];
+
+if(arg(1) == $category_tid){
+   return false;
+}else{
+   return true;
+}';
+
+/* Display: Lista de productos por catálogo */
+$handler = $view->new_display('block', 'Lista de productos por catálogo', 'block');
+$handler->display->display_options['defaults']['access'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  3 => '3',
+);
+$handler->display->display_options['defaults']['style_plugin'] = FALSE;
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['defaults']['style_options'] = FALSE;
+$handler->display->display_options['defaults']['row_plugin'] = FALSE;
+$handler->display->display_options['row_plugin'] = 'entity';
+$handler->display->display_options['row_options']['view_mode'] = 'product_list';
+$handler->display->display_options['defaults']['row_options'] = FALSE;
+$handler->display->display_options['exposed_block'] = TRUE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Criterios de filtrado: Buscar: Búsqueda por texto completo */
+$handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
+$handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_product_display';
+$handler->display->display_options['filters']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
+$handler->display->display_options['filters']['search_api_views_fulltext']['operator'] = 'OR';
+$handler->display->display_options['filters']['search_api_views_fulltext']['group'] = 1;
+$handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
+$handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
+$handler->display->display_options['filters']['search_api_views_fulltext']['expose']['label'] = 'Buscar';
+$handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
+$handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
+$handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+);
+$handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
+  'search_api_aggregation_1' => 'search_api_aggregation_1',
+  'search_api_aggregation_2' => 'search_api_aggregation_2',
+  'search_api_aggregation_3' => 'search_api_aggregation_3',
+);
+/* Criterios de filtrado: Indexed Nodo: Estado */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'search_api_index_product_display';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = array(
+  1 => '1',
+);
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['block_description'] = 'Lista de productos por catálogo';
