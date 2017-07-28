@@ -1,0 +1,5 @@
+#views-form-commerce-cart-form-default tr.component-type-discountdiscount-descuento-primera-compra,
+#views-form-commerce-cart-form-default tr.component-type-taximpuesto-de-ventas,
+#views-form-commerce-cart-form-default tr.component-type-commerce-price-formatted-amount{
+	display: none;
+}

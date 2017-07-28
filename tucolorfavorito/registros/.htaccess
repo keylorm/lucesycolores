@@ -1,0 +1,12 @@
+DirectoryIndex index.html
+RewriteBase /
+
+<IfModule mod_expires.c>
+#disable caching forthis directory mod_expires for this directory
+ExpiresActive off
+</IfModule>
+
+#AuthName "URL restringida"
+#AuthType Basic
+#AuthUserFile /home/lucesyco/public_html/tucolorfavorito/registros/.htpasswd
+#require valid-user

@@ -395,6 +395,49 @@ h2.rosado{
 	
 }
 
+.views-exposed-widgets .form-type-textfield.form-item-title-field-value {
+    max-width: 220px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.views-exposed-widgets input[type="text"]{
+background-color: #fff;
+	color: #878787;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	line-height: 43px;
+	height:43px;
+	border: 0px;
+	border-radius: 5px;
+	width: 100%;
+	padding: 0 5px;
+
+}
+
+.views-exposed-widget.views-widget-filter-field_color_tid{
+    display:none;    
+}
+
+.page-product-category-6 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-1 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-11 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-15 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-3 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-42 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-48 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-43 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-39 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-53 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-163 .views-exposed-widget.views-widget-filter-field_color_tid,
+.page-product-category-164 .views-exposed-widget.views-widget-filter-field_color_tid{
+	display:block;
+}
+
+.view-lista-productos-categoria{
+clear:both;    
+}
+
 .views-exposed-widget.views-submit-button .form-submit {
 	margin-top: 0px !important;
 	border-radius: 6px;

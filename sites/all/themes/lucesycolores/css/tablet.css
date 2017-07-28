@@ -555,6 +555,10 @@
     margin: 0 auto 35px;
 		}
 
+		.views-exposed-widgets label{
+			width: 105px;
+		}
+
 		
 }
 

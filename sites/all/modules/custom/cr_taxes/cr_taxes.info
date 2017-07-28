@@ -1,0 +1,6 @@
+name = Impuestos para Costa Rica
+description = Modulo para ajustar los impuestos a Costa Rica
+package = Orbelink
+core = 7.x
+
+stylesheets[all][] = css/cr_taxes.css

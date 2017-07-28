@@ -69,6 +69,20 @@ src="https://www.facebook.com/tr?id=1907138162905457&ev=PageView&noscript=1"
 /></noscript>
 <!-- DO NOT MODIFY -->
 <!-- End Facebook Pixel Code -->
+<meta name="norton-safeweb-site-verification" content="wfa89u5flxi9t9ylbgvsig3xbhk81m5kx-arsenvczzh-th43xsqiq76mgjrnnn91jbjca7tvq70an-1l5p1rpz2rybcndcez98xpz2i6zpsgnfrpf78d0hoa2apmfzo" />
+<meta name="google-site-verification" content="YOONk-uMFpJauPZXD0AXLdZvc1fFYN9xuE2aCZydHKk" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52364581-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 </head>
 
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
@@ -89,21 +103,6 @@ src="https://www.facebook.com/tr?id=1907138162905457&ev=PageView&noscript=1"
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" async="async">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52364581-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-  
-
-
-
 
 <script>
    WebFontConfig = {

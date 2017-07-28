@@ -1,0 +1,564 @@
+.st_menu {
+  position: absolute;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #fff;
+}
+
+.st_banner {
+  background-image: url('../images/banner.jpg');
+  background-position: 50% 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ct_banner {
+  min-height: 675px;
+  padding-top: 131px;
+}
+
+.st_footer {
+  background-color: #404041;
+}
+
+.ct_footer {
+  min-height: 160px;
+  padding-top: 30px;
+}
+
+.st_form {
+  background-color: #f1f1f2;
+}
+
+.ct_form {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.logo_img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.navbar {
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.lia {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.lia.w--current {
+  color: #6abaf8;
+  text-shadow: 1px 1px 6px #141414;
+}
+
+.ct_terapias_alter {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.cverde {
+  color: #009837;
+}
+
+.crojo {
+  color: #e3462b;
+}
+
+.cazul {
+  color: #008aca;
+}
+
+.cmorado {
+  color: #a84894;
+}
+
+.h2 {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  font-family: Trocchi, sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.p {
+  font-family: Montserrat, sans-serif;
+  color: #404040;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.h1_slider {
+  margin-top: 200px;
+  margin-bottom: 20px;
+  font-family: Trocchi, sans-serif;
+  color: #fff;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.p_slider {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  width: 215px;
+  height: 55px;
+  padding-top: 8px;
+  border-radius: 13px;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bgverde {
+  background-color: #009837;
+}
+
+.bgazul {
+  background-color: #008aca;
+}
+
+.bgrojo {
+  background-color: #e3462b;
+}
+
+.bgmorado {
+  background-color: #a84894;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.st_testimonios {
+  background-color: #f1f1f2;
+}
+
+.ct_testimonios {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+
+.ct_terapias {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.slider {
+  height: 200px;
+  background-color: transparent;
+}
+
+.hide {
+  display: none;
+}
+
+.slide_nav {
+  position: absolute;
+  display: block;
+  width: 65px;
+  float: left;
+  margin: inherit;
+}
+.slide_nav .w-slider-dot{
+  width: 20px; height: 20px;
+  background-color: #808184;
+  border: 3px solid #808184;
+}
+.slide_nav .w-slider-dot.w-active{
+  background-color: #A84894;
+}
+
+.titulo_terapia {
+  margin-bottom: 20px;
+  font-family: Montserrat, sans-serif;
+  color: #008aca;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.p_terapia {
+  font-family: Montserrat, sans-serif;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.tabs_menu {
+  margin-top: 10px;
+  margin-bottom: 70px;
+  border-bottom: 1px solid #a0a0a0;
+  text-align: center;
+}
+
+.tab_link {
+  padding: 20px 40px;
+  background-color: transparent;
+  font-family: Montserrat, sans-serif;
+  color: #404040;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.tab_link.w--current {
+  border-bottom: 6px solid #008aca;
+  background-color: #fff;
+}
+
+.btntop {
+  position: relative;
+  z-index: 2;
+  margin-top: -56px;
+}
+
+.box_terapia_alter {
+  width: 176px;
+}
+
+.pbox {
+  display: block;
+  margin-top: 30px;
+  font-family: Montserrat, sans-serif;
+  color: #404040;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.row_terapias_alter {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+@media (min-width: 991px) {
+  .row_terapias_alter .w-col-2{
+    width: 19.5%;
+  }
+}
+
+.row_btn_banner {
+  margin-top: 50px;
+}
+
+.espacio {
+  display: block;
+  min-height: 20px;
+}
+
+.input {
+  width: 100%;
+  height: 65px;
+  margin-bottom: 25px;
+  padding-left: 100px;
+  border-style: none;
+  background-color: hsla(0, 0%, 100%, .8);
+  font-family: Montserrat, sans-serif;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.input.nombre {
+  background-image: url('../images/nombre.jpg');
+  background-position: 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.input.telefono {
+  background-image: url('../images/telefono.jpg');
+  background-position: 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.input.correo {
+  background-image: url('../images/correo.jpg');
+  background-position: 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  height: 242px !important;
+  padding-left: 100px;
+  border-style: none;
+  background-color: hsla(0, 0%, 100%, .8);
+  background-image: url('../images/mensaje.jpg');
+  background-position: top left;
+  background-repeat: no-repeat;
+  font-family: Montserrat, sans-serif;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 400;
+}
+.textarea#mensaje-2{
+  height: 107px !important;
+}
+.submit {
+  margin-top: 20px;
+  border-style: none;
+}
+
+.row_form {
+  margin-top: 40px;
+}
+
+.p_footer {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: right;
+}
+
+.h1_slider_2 {
+  margin-top: 130px;
+  margin-bottom: 30px;
+  padding: 20px 25px;
+  float: left;
+  background-color: #a84894;
+  font-family: Trocchi, sans-serif;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.p_slider_2 {
+  float: left;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.submit_2 {
+  margin-top: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
+  float: right;
+  border-radius: 10px;
+  background-color: #008aca;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.titulo_form_2 {
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-family: Montserrat, sans-serif;
+  color: #008aca;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.col_form {
+  display: block;
+  height: 100%;
+  padding-top: 30px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.success, .alert, .error {
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  border: 1px solid;
+  margin-bottom: 15px;
+  margin-top: 13px;
+  padding: 10px 5px 10px 50px !important;
+  width: 100%;
+  font-size: 13px !important;
+}
+
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url(../images/success.png);
+}
+.alert {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  background-image: url(../images/alert.png);
+}
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url(../images/error.png);
+}
+
+
+@media (max-width: 991px) {
+  .slide_nav {
+    margin: auto;
+  }
+  .lia.w--current {
+    color: #fff;
+    text-shadow: 0 0 0 #000;
+  }
+  .navmenu {
+    background-color: #2fb7ec;
+  }
+  .btn.bgazul.right.btntop {
+    margin-top: 0px;
+  }
+  .slider {
+    height: 300px;
+  }
+  .col_form {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .menu_icon {
+    color: #fff;
+    font-size: 38px;
+  }
+  .menu_button.w--open {
+    background-color: rgba(47, 183, 236, .8);
+  }
+}
+
+@media (max-width: 767px) {
+  .logo_img.left {
+    float: none;
+  }
+  .h2 {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  .p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+  .h1_slider {
+    font-size: 26px;
+  }
+  .btn {
+    display: block;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+  .btn.bgazul.right.btntop {
+    float: none;
+  }
+  .btn.bgmorado.right {
+    float: none;
+  }
+  .titulo_terapia {
+    margin-top: 30px;
+  }
+  .box_terapia_alter {
+    display: block;
+    margin-right: auto;
+    margin-bottom: 15px;
+    margin-left: auto;
+  }
+  .input {
+    margin-bottom: 15px;
+  }
+  .p_footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .h1_slider_2 {
+    width: 100%;
+    text-align: center;
+  }
+  .p_slider_2 {
+    text-align: center;
+  }
+  .logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 479px) {
+  .ct_form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .ct_terapias_alter {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .btn.bgazul.right.btntop {
+    margin-top: 20px;
+  }
+  .ct_testimonios {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .ct_terapias {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .pbox {
+    margin-top: 20px;
+  }
+  .submit.btn.bgrojo.right {
+    float: none;
+  }
+  .p_footer {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .h1_slider_2 {
+    font-size: 23px;
+  }
+  .p_slider_2 {
+    line-height: 22px;
+  }
+  .titulo_form_2 {
+    font-size: 28px;
+  }
+  .col_form {
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+

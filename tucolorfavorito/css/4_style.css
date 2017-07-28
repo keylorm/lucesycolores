@@ -1,0 +1,697 @@
+.ct_top {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.st_banner {
+  height: 530px;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.ct_cajas{
+  text-align: center;
+  padding-top: 5px;
+}
+.caja{
+  display: inline-block;
+  cursor: pointer;
+  width: 72px;
+  height: 72px;
+  background-color: #EEE;
+  margin: 0px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+
+  transition: all 0.3s ease 0s;
+}
+
+.caja:hover{
+  position: relative;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  -webkit-transform: scale(1.2); /* Safari */
+  transform: scale(1.2);
+  border-radius: 5px;
+  z-index: 50;
+}
+
+.cl_azul{
+  background-color: #010080;
+}
+.cl_rojo{
+  background-color: #FE0000;
+}
+.cl_amarillo{
+  background-color: #F3F315;
+}
+.cl_verde{
+  background-color: #00AF50;
+}
+.cl_violeta{
+  background-color: #85008F;
+}
+.cl_rosado{
+  background-color: #FF4FA7;
+}
+.cl_naranja{
+  background-color: #F15C00;
+}
+.cl_dorado{
+  background-color: #D3AF37;
+}
+.cl_magenta{
+  background-color: #FF00FE;
+}
+.cl_turquesa{
+  background-color: #03F6F4;
+}
+.cl_oliva{
+  background-color: #7F8000;
+}
+.cl_azul_real{
+  background-color: #012265;
+}
+.cl_coral{
+  background-color: #FE4042;
+}
+
+
+#popup{
+    display: block;
+    margin-top: 100px;
+    max-width: 450px;
+    height: 255px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    background-image: url(../images/bg_ventana.png);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 13px 37px -7px rgba(0, 0, 0, .6);
+
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  z-index: 100;
+  margin: auto;
+  position: absolute;
+  top: -800px; left: 0; bottom: 0; right: 0;
+
+  transition: all 0.3s ease 0s;
+
+
+}
+#popup .btn_cerrar{
+  display: block;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#popup h3,
+#popup p{
+  text-align: center;
+}
+#popup h3{
+  font-size: 32px; 
+  font-weight: 500;
+}
+#popup p{
+  font-family: Quicksand, sans-serif;
+  color: #575756;
+  font-size: 16px;
+}
+#popup .btn{
+  margin-top: 15px;
+  /*position: absolute;
+  width: 80%;
+  left: 0; right: 0;
+  font-size: 17px;
+  bottom: 20px;*/
+}
+#popup a{
+  font-size: 17px;
+}
+
+
+#ct_banner{
+  position: absolute;
+  z-index: 99;
+  top: 0px;
+  left: 0;
+  right: 0;
+}
+
+
+.st_terapia {
+  background-image: url('../images/bg_terapias.jpg');
+  background-position: 50% 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.st_testimonios {
+  background-color: #eb9e2e;
+}
+
+.bx-wrapper{
+  margin-bottom: 35px;
+}
+.bx-wrapper .bx-viewport{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.bx-wrapper .bx-pager{
+  text-align: left;
+}
+.bx-wrapper .bx-pager.bx-default-pager a{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #FFF;
+}
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active{
+  background-color: #FFF;
+}
+
+.bx-wrapper .bx-viewport .testimonios li{
+  padding-top: 25px;
+}
+.bx-wrapper .bx-viewport .testimonios li p{
+  font-family: Quicksand, sans-serif;
+  color: #FFF;
+  font-size: 18px;
+}
+.bx-wrapper .bx-viewport .testimonios li p span{
+  display: block;
+  clear: both;
+  font-weight: bold;
+  font-size: 21px;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+
+.st_apertura {
+  background-image: url('../images/bg_apertura.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.st_contacto {
+  background-color: #e71d73;
+  background-image: url('../images/bg_contacto.jpg');
+  background-position: 50% 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.st_pie {
+  background-color: #1d1d1b;
+}
+.st_pie a{
+  text-decoration: none;
+  color: #FFF;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.div_apertura {
+  display: block;
+  max-width: 750px;
+  min-height: 295px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px 10px;
+  border-bottom: 5px solid #ea5b0c;
+  background-color: #fcfcfc;
+  background-image: url('../images/bg_ventana.png');
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 13px 37px -7px rgba(0, 0, 0, .6);
+}
+
+.fb {
+  display: block;
+  width: 37px;
+  height: 37px;
+  background-image: url('../images/fb.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 10px;
+ margin-right:10px;
+  float:left;
+}
+
+
+.instagram{
+  display: block;
+  width: 37px;
+  height: 37px;
+  background-image: url('../images/instagram.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 10px;
+  float:left;
+}
+
+.ct_pie {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.ct_contacto {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.ct_apertura {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.ct_testimonios {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ct_terapia {
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+.ct_colores_vida {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.h {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.h.celeste {
+  border-left: 1px solid #bebebe;
+  color: #008aca;
+  font-size: 42px;
+  line-height: 100px;
+  margin: 0px;
+}
+
+.h.hbanner {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 600;
+  padding-bottom: 80px;
+  background-image: url("../images/decoracion_titulo.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  z-index: 99;
+  width: 265px;
+  height: 105px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.h.verde {
+  margin-bottom: 20px;
+  color: #009837;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.h.morado {
+  margin-bottom: 35px;
+  color: #6d2b5f;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.h.htesti {
+  display: block;
+  border-right: 1px solid #fff;
+  background-image: url('../images/bg_testimonios.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 36px;
+  line-height: 120px;
+  font-weight: 700;
+}
+
+.h.blanco {
+  margin-bottom: 60px;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.h.naranja {
+  margin-bottom: 35px;
+  color: #ea5b0c;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.btn {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 10px;
+  background-color: #646464;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn.btn_verde {
+  max-width: 265px;
+  background-color: #2fac66;
+}
+
+.btn.btn_celeste {
+  max-width: 435px;
+  margin-top: 40px;
+  background-color: #36a9e1;
+}
+
+.btn.btn_celeste2{
+  margin-top: 0px;
+}
+
+.formulario {
+  display: block;
+  max-width: 670px;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.p {
+  font-family: Quicksand, sans-serif;
+  color: #0c0c0c;
+  font-size: 21px;
+  line-height: 25px;
+  font-weight: 400;
+  text-align: center;
+}
+.p.source{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.input {
+  height: 44px;
+  border-radius: 8px;
+  font-family: Quicksand, sans-serif;
+  color: #1d1d1b;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.textarea {
+  display: block;
+  height: 120px !important;
+  border-radius: 8px;
+  font-family: Quicksand, sans-serif;
+  color: #1d1d1b;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.submit {
+  padding: 10px 20px;
+  float: right;
+  border-radius: 8px;
+  background-color: #ed9f2e;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btnp {
+  margin-top: 50px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #0c0c0c;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.box {
+  padding-bottom: 46px;
+  background-image: url('../images/decoracion_pie.png');
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+}
+
+.box_img {
+  overflow: hidden;
+  height: 155px;
+  max-width: 284px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.box_img.img1 {
+  background-image: url('../images/img1.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.box_img.img2 {
+  background-image: url('../images/img2.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.box_img.img3 {
+  background-image: url('../images/img3.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.box_img.img4 {
+  background-image: url('../images/img4.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.ct_box {
+  min-height: 120px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.ct_box.linea_1 {
+  border-bottom-color: #e71d73;
+}
+
+.ct_box.linea_2 {
+  border-bottom-color: #ea5b0c;
+}
+
+.ct_box.linea_3 {
+  border-bottom-color: #2fac66;
+}
+
+.ct_box.linea_4 {
+  border-bottom-color: #36a9e1;
+}
+
+.p_box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100px;
+  margin-bottom: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Quicksand, sans-serif;
+  color: #0c0c0c;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.p_pie {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.b_p_pie {
+  display: block;
+  font-size: 18px;
+}
+
+@media (max-width: 991px) {
+  .ct_contacto {
+    padding-top: 50px;
+  }
+  .h.celeste {
+    font-size: 29px;
+  }
+  .h.hbanner {
+    font-size: 39px;
+  }
+  .h.verde {
+    font-size: 34px;
+  }
+  .h.morado {
+    font-size: 30px;
+  }
+  .h.htesti {
+    font-size: 28px;
+  }
+  .h.blanco {
+    font-size: 39px;
+  }
+  .h.naranja {
+    font-size: 36px;
+  }
+  .p {
+    font-size: 20px;
+  }
+  .box {
+    display: block;
+    max-width: 284px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+  }
+  .p_box {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .st_pie{
+    text-align: center;
+  }
+  .h.celeste {
+    border-left-style: none;
+  }
+  .h.verde {
+    font-size: 27px;
+  }
+  .h.htesti {
+    border-right-style: none;
+  }
+  .box {
+    display: block;
+  }
+  .box_img.img1 {
+    max-width: 100%;
+  }
+  .ct_box {
+    display: block;
+  }
+  .p_box {
+    font-size: 19px;
+  }
+  .logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 479px) {
+
+  #popup{
+    width: 90%;
+    height: 230px;
+  }
+  #popup h3{
+    font-size: 20px;
+    margin-top: 0px;
+  }
+  #popup p{
+    font-size: 14px;
+    line-height: 15px;
+  }
+  #popup .btn{
+    font-size: 14px;
+  }
+  .st_banner {
+    height: 390px;
+  }
+  .caja{
+    width: 60px;
+    height: 60px;
+  }
+  .h.hbanner{
+    top: 10px;
+    bottom: initial;
+  }
+  .logo{
+    margin-bottom: 20px;
+  }
+  .h.celeste {
+    font-size: 27px;
+    line-height: 28px;
+  }
+  .h.hbanner {
+    font-size: 34px;
+  }
+  .h.verde {
+    font-size: 25px;
+    line-height: 31px;
+  }
+  .h.morado {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .h.blanco {
+    font-size: 33px;
+  }
+  .h.naranja {
+    font-size: 31px;
+  }
+  .formulario {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .p {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 19px;
+  }
+  .p_box {
+    min-height: 80px;
+  }
+}
+

@@ -1,0 +1,141 @@
+<?php 
+
+/**
+ * Allows modules to alter tax rates defined by other modules.
+ *
+ * @see hook_commerce_tax_rate_info()
+ */
+function cr_taxes_commerce_tax_rate_info_alter(&$tax_rates) {
+	
+  	$tax_rates['impuesto_de_ventas']['calculation_callback'] = 'cr_taxes_commerce_tax_rate_calculate';
+}
+
+
+/**
+ * Calculates a price array for the tax on the unit price of a line item.
+ *
+ * @param $tax_rate
+ *   The tax rate array for the tax to calculate.
+ * @param $line_item_wrapper
+ *   An entity_metadata_wrapper() for the line item whose unit price should be
+ *     used in the tax calculation.
+ *
+ * @return
+ *   The tax price array or FALSE if the tax is already applied.
+ */
+function cr_taxes_commerce_tax_rate_calculate($tax_rate, $line_item_wrapper) {
+  // By default, do not duplicate a tax that's already on the line item.
+  if (!is_null($line_item_wrapper->commerce_unit_price->value()) &&
+    !commerce_price_component_load($line_item_wrapper->commerce_unit_price->value(), $tax_rate['price_component'])) {
+
+  	// Calculate the tax amount.
+    $amount = $line_item_wrapper->commerce_unit_price->amount->value() * $tax_rate['rate'];
+
+
+    // Obtenemos la orden
+  	$order_id = $line_item_wrapper->order_id->value();
+    $order = commerce_order_load($order_id);
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+    //$descuento_total = 0;
+    $cantidad_productos = 0;
+
+    if(isset($order->commerce_discounts) && !empty($order->commerce_discounts)){
+      //exit(var_export($order));
+      // load lineitems
+      $line_items = $order_wrapper->commerce_line_items->value();
+      
+      foreach ($line_items as $kitem => $kvalue) {
+      	if(isset($kvalue->type) && $kvalue->type=='product'){
+      		$cantidad_productos += $kvalue->quantity;
+      	}/*elseif(isset($kvalue->type) && $kvalue->type=='commerce_discount'){
+      		$descuento_total = $kvalue->commerce_total['und'][0]['amount'];
+      	}*/
+      }
+
+      $commerce_discounts = $order_wrapper->commerce_discounts->value();
+     
+
+      foreach($commerce_discounts as $commerce_discount){
+      	// load discount
+        $commerce_discounts_wrapper = entity_metadata_wrapper('commerce_discount', $commerce_discount);
+        $commerce_discount_entity = $commerce_discounts_wrapper->value();
+        $order_total = $order_wrapper->commerce_order_total->value();
+
+        
+        // loop through all the discounts
+        
+
+	    // check if it is an order discount
+	    if($commerce_discount_entity->type == 'order_discount'){
+	      	$components = $order_total['data']['components'];
+	        $base_price = 0;
+	        $discount_amount = 0;
+
+	        $discount_rate = 0;
+	        foreach($components as $key => $component){
+	          if($component['name'] == 'base_price'){
+	            $base_price = $component['price']['amount'];
+	          }
+	          if (strpos($component['name'], 'discount|') !== FALSE) {
+	            $discount_amount = $component['price']['amount'];
+
+	          	/*if($component['name']=='discount|discount_descuento_primera_compra'){
+	          		if(!isset($_SESSION['discount_rate'])){
+	          			
+	          			if($base_price){
+	          				$discount_rate = ($component['price']['amount']*-1) / $base_price;
+	          				$_SESSION['discount_rate']=$discount_rate;
+	          			}
+	          		}else{
+	          			$discount_rate =  $_SESSION['discount_rate'];
+	          		}
+	          		if($discount_rate>0){
+		          		$new_discount = ($base_price	* $discount_rate)*-1;
+		          		if($discount_amount!=$new_discount){
+		          			$discount_amount = $new_discount;
+		          		}
+		          	}
+	          	}*/
+	          }
+
+
+
+
+	          if($discount_amount){
+                $taxed_amount = (($base_price + $discount_amount)*$tax_rate['rate'])/$cantidad_productos;
+              }
+              else{
+                $taxed_amount = (($base_price)*$tax_rate['rate'])/$cantidad_productos;
+              }
+	      	}
+
+	    }else if ($commerce_discount->type == 'product_discount'){
+            $taxed_amount = commerce_tax_rate_round_amount($tax_rate, $amount);
+        }
+      	
+      }
+  	}else {
+      $taxed_amount = commerce_tax_rate_round_amount($tax_rate, $amount);
+    }
+
+
+    
+    
+    return array(
+      'amount' => $taxed_amount,
+      'currency_code' => $line_item_wrapper->commerce_unit_price->currency_code->value(),
+      'data' => array(
+        'tax_rate' => $tax_rate,
+      ),
+    );
+  }
+
+  return FALSE;
+}
+
+/*function cr_taxes_commerce_checkout_complete($order){
+	if(isset($_SESSION['discount_rate'])){
+	    unset($_SESSION['discount_rate']);
+  	}
+}*/

@@ -18,6 +18,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'font-botella-azul';
+  src: url('../font/font-botella-azul/fontello.eot?64360241');
+  src: url('../font/font-botella-azul/fontello.eot?64360241#iefix') format('embedded-opentype'),
+       url('../font/font-botella-azul/fontello.woff2?64360241') format('woff2'),
+       url('../font/font-botella-azul/fontello.woff?64360241') format('woff'),
+       url('../font/font-botella-azul/fontello.ttf?64360241') format('truetype'),
+       url('../font/font-botella-azul/fontello.svg?64360241#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 
@@ -210,6 +222,12 @@ h2.decora-der:after,
 .icon-producto_icon_6:before,
 .equilibrium:before {
 	content: '\e812';
+}
+
+.botellas-azules:before{
+	font-family:'font-botella-azul';
+	content:'\e800';
+
 }
 
 .lamparas-de-sal-del-himalaya:before {
@@ -3295,3 +3313,4 @@ a.cloud-zoom-gallery.cloud-zoom-processed {
     float: left;
     margin: 10px 10px 0 0;
 }
+

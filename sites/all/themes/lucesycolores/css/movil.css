@@ -258,7 +258,8 @@
   display: none;
 }
 	
-	.views-exposed-widgets select{
+	.views-exposed-widgets select,
+	.views-exposed-widgets input[type="text"]{
 		min-width: 160px;
 		
 	}
@@ -282,3 +283,4 @@
 		    max-width: 200px !important;
 	}
 }
+
