@@ -3314,3 +3314,6 @@ a.cloud-zoom-gallery.cloud-zoom-processed {
     margin: 10px 10px 0 0;
 }
 
+.page-user-addressbook.page-user .tabs{
+	display: 	block;
+}

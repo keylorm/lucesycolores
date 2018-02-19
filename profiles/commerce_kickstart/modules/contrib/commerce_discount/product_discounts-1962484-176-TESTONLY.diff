@@ -1,0 +1,43 @@
+diff --git a/tests/commerce_discount.test b/tests/commerce_discount.test
+index 5159429..2f87169 100644
+--- a/tests/commerce_discount.test
++++ b/tests/commerce_discount.test
+@@ -449,4 +449,38 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
+     $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 1000, "Fixed order discount is removed when it's not applicable.");
+   }
+ 
++  /**
++   * Test product discounts and taxes.
++   *
++   * @link https://www.drupal.org/node/1962484
++   */
++  public function testProductDiscountsAndTaxes() {
++    module_enable(array('commerce_tax', 'commerce_tax_ui'));
++
++    $tax_rate = commerce_tax_ui_tax_rate_new('vat');
++    $tax_rate['name'] = 'vat_test';
++    $tax_rate['title'] = 'VAT Test';
++    $tax_rate['rate'] = 0.2;
++    commerce_tax_ui_tax_rate_save($tax_rate);
++    commerce_tax_rates_reset();
++
++    $this->createDiscount('product_discount', 'percentage', 30, 'discount_30_off');
++    $product = $this->createDummyProduct('TEST-PRODUCT', 'Test Product', 1025);
++    $order = $this->createDummyOrder($this->store_customer->uid, array($product->product_id => 1), 'completed');
++    $order_wrapper = commerce_cart_order_refresh($order);
++
++
++    $line_item_total = $order_wrapper->commerce_line_items->get(0)->commerce_total->value();
++
++    // Discounts should execute before taxes and be first component.
++    $assert_discount_amount = (commerce_round(COMMERCE_ROUND_HALF_UP, 1025 * 0.30)) * -1;
++    $this->assertEqual($line_item_total['data']['components'][1]['price']['amount'], $assert_discount_amount);
++    // Tax should run after discount and be the second component.
++    $assert_vat_amount = commerce_round(COMMERCE_ROUND_HALF_UP, (1025 + $assert_discount_amount) * 0.2);
++    $this->assertEqual($line_item_total['data']['components'][2]['price']['amount'], $assert_vat_amount);
++    // Assert the final amount.
++    $assert_final_amount = 1025 + $assert_discount_amount + $assert_vat_amount;
++    $this->assertEqual($line_item_total['amount'], $assert_final_amount);
++
++  }
+ }

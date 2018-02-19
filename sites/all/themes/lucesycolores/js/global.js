@@ -373,7 +373,7 @@ $( function() {
 				
 				// llenar los campos de dirección automáticamente
 				$('.customer_profile_billing  .field-name-commerce-customer-address input.thoroughfare').val("");
-				$('.customer_profile_billing  .field-name-commerce-customer-address inpu.locality').val($('.customer_profile_billing  .field-name-field-provincia select').val());
+				$('.customer_profile_billing  .field-name-commerce-customer-address input.locality').val($('.customer_profile_billing  .field-name-field-provincia select').val());
 				
 				
 				$('.customer_profile_billing  .field-name-field-canton').show();
@@ -702,7 +702,10 @@ $( function() {
 	})
 
 	$(document).ajaxStop(function (){	
-		
+		/* Para eventos de Google */
+		var urlactual = document.URL.replace( /#.*/, "");
+		urlactual = urlactual.replace( /\?.*/, "");
+		var times = 0;
 		
 		
 		/* Evento cuando añaden producto al carrito */
@@ -888,8 +891,8 @@ $( function() {
 			if($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val()!="_none"){
 
 				// llenar los campos de dirección automáticamente
-				$('.customer_profile_billing  .field-name-commerce-customer-address input.thoroughfare').val("");
-				$('.customer_profile_billing  .field-name-commerce-customer-address inpu.locality').val($('.customer_profile_billing  .field-name-field-provincia select').val());
+				$('#commerce-addressbook-customer-profile-form .field-name-commerce-customer-address input#edit-commerce-customer-address-und-0-thoroughfare').val("");
+				$('#commerce-addressbook-customer-profile-form .field-name-commerce-customer-address input#edit-commerce-customer-address-und-0-locality').val($('#commerce-addressbook-customer-profile-form .field-name-field-provincia select').val());
 				
 				$('#commerce-addressbook-customer-profile-form .field-name-field-canton').show();
 				$('#commerce-addressbook-customer-profile-form .field-name-field-canton select').val("_none");
@@ -934,6 +937,10 @@ $( function() {
 		$('.customer_profile_billing .field-name-field-provincia select').live('change',function(){
 			
 			if($('.customer_profile_billing .field-name-field-provincia select').val()!="_none"){
+				// llenar los campos de dirección automáticamente
+				$('.customer_profile_billing  .field-name-commerce-customer-address input.thoroughfare').val("");
+				$('.customer_profile_billing  .field-name-commerce-customer-address input.locality').val($('.customer_profile_billing  .field-name-field-provincia select').val());
+
 				$('.customer_profile_billing .field-name-field-canton').show();
 				$('.customer_profile_billing .field-name-field-canton select').val("_none");
 				$('.customer_profile_billing .field-name-field-canton select option').each(function(){

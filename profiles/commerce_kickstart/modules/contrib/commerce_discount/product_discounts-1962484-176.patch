@@ -1,0 +1,90 @@
+diff --git a/commerce_discount.module b/commerce_discount.module
+index 795de84..e5ea48c 100644
+--- a/commerce_discount.module
++++ b/commerce_discount.module
+@@ -291,6 +291,18 @@ function commerce_discount_form_features_export_form_alter(&$form, $from_state)
+  * Implements hook_commerce_price_formatted_components_alter().
+  */
+ function commerce_discount_commerce_price_formatted_components_alter(&$components, $price, $entity) {
++  $base_price_weight = 0;
++  foreach ($components as $key => $component) {
++    // Loop into components and alter the component weight if is discount.
++    if ($key == 'base_price') {
++      // Get the weight of the base price.
++      $base_price_weight = $component['weight'];
++    }
++    if (strpos($key, 'discount') > -1) {
++      // Found a discount component.
++      $components[$key]['weight'] = $base_price_weight + 1;
++    }
++  }
+   if (isset($price['data']['components'])) {
+     // Loop into price components and alter the component title if the discount
+     // component label is found.
+@@ -1037,3 +1049,23 @@ function commerce_discount_usage_get_usage($discount_name, $exclude_order_id = F
+ 
+   return $query->execute()->rowCount();
+ }
++
++/**
++ * Implements hook_rules_config_execute().
++ */
++function commerce_discount_rules_config_execute($config) {
++  // We have a conflict with commerce_tax since it runs on the same event, and
++  // it is causing tax out of order.
++  if ($config instanceof \RulesEventSet) {
++    if ($config->name == 'commerce_product_calculate_sell_price') {
++      /** @var RulesReactionRule $child */
++      foreach ($config->property('children') as $child) {
++        // If a discount rule, ensure it will run earlier than VAT/taxes.
++        if ($child->module == 'commerce_discount') {
++          $child->weight -= 20;
++        }
++      }
++      $config->sortChildren();
++    }
++  }
++}
+diff --git a/tests/commerce_discount.test b/tests/commerce_discount.test
+index 5159429..2f87169 100644
+--- a/tests/commerce_discount.test
++++ b/tests/commerce_discount.test
+@@ -449,4 +449,38 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
+     $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 1000, "Fixed order discount is removed when it's not applicable.");
+   }
+ 
++  /**
++   * Test product discounts and taxes.
++   *
++   * @link https://www.drupal.org/node/1962484
++   */
++  public function testProductDiscountsAndTaxes() {
++    module_enable(array('commerce_tax', 'commerce_tax_ui'));
++
++    $tax_rate = commerce_tax_ui_tax_rate_new('vat');
++    $tax_rate['name'] = 'vat_test';
++    $tax_rate['title'] = 'VAT Test';
++    $tax_rate['rate'] = 0.2;
++    commerce_tax_ui_tax_rate_save($tax_rate);
++    commerce_tax_rates_reset();
++
++    $this->createDiscount('product_discount', 'percentage', 30, 'discount_30_off');
++    $product = $this->createDummyProduct('TEST-PRODUCT', 'Test Product', 1025);
++    $order = $this->createDummyOrder($this->store_customer->uid, array($product->product_id => 1), 'completed');
++    $order_wrapper = commerce_cart_order_refresh($order);
++
++
++    $line_item_total = $order_wrapper->commerce_line_items->get(0)->commerce_total->value();
++
++    // Discounts should execute before taxes and be first component.
++    $assert_discount_amount = (commerce_round(COMMERCE_ROUND_HALF_UP, 1025 * 0.30)) * -1;
++    $this->assertEqual($line_item_total['data']['components'][1]['price']['amount'], $assert_discount_amount);
++    // Tax should run after discount and be the second component.
++    $assert_vat_amount = commerce_round(COMMERCE_ROUND_HALF_UP, (1025 + $assert_discount_amount) * 0.2);
++    $this->assertEqual($line_item_total['data']['components'][2]['price']['amount'], $assert_vat_amount);
++    // Assert the final amount.
++    $assert_final_amount = 1025 + $assert_discount_amount + $assert_vat_amount;
++    $this->assertEqual($line_item_total['amount'], $assert_final_amount);
++
++  }
+ }
